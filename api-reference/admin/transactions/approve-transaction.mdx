@@ -1,0 +1,42 @@
+---
+title: "Approve Transaction"
+api: "POST /trades/approve/10"
+---
+
+rate and card_id are optional fieds for when Amin wants to change this values before approving a trade
+
+###### Body
+
+- message (optional, string): The admin can add a message before approving a trade
+
+## Body
+
+<Note>Send as `multipart/form-data`.</Note>
+
+<ParamField body="rate" type="string">
+   Example: `300`
+</ParamField>
+
+<ParamField body="card_id" type="string">
+   Example: `2`
+</ParamField>
+
+<ParamField body="value" type="string">
+   Example: `25`
+</ParamField>
+
+<ParamField body="message" type="string">
+   Example: `Thank you for trading with us`
+</ParamField>
+
+<ResponseExample>
+
+```json 200
+{
+  "status": "Success",
+  "message": "Transaction approved Successfully!",
+  "data": []
+}
+```
+
+</ResponseExample>

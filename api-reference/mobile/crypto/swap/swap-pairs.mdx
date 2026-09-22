@@ -1,0 +1,38 @@
+---
+title: "Swap Pairs"
+api: "GET /crypto/swap/pairs/{currency}"
+---
+
+## Path parameters
+
+<ParamField path="currency" type="string" required>
+   Example: `eth`
+</ParamField>
+
+<ResponseExample>
+
+```json 200
+{
+  "success": true,
+  "message": "successful",
+  "data": [
+    {
+      "from": "eth",
+      "to": "dexe"
+    },
+    {
+      "from": "eth",
+      "to": "inj"
+    }
+  ]
+}
+```
+
+```text Example
+{
+  from: string
+  to: string
+}
+```
+
+</ResponseExample>

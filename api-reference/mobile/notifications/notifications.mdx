@@ -1,0 +1,48 @@
+---
+title: "Notifications"
+api: "GET /notifications"
+---
+
+<ResponseExample>
+
+```json 200
+{
+  "success": true,
+  "message": "successful",
+  "data": {
+    "current_page": 1,
+    "data": [
+      {
+        "id": "ffe6b3a4-d662-4d93-a404-610c1f0c570c",
+        "body": null,
+        "image": "https://res.cloudinary.com/diyxzs220/image/upload/v1698229638/crypto/php38j7Ae_gbxseg.png",
+        "created_at": "2024-02-22T20:05:13.000000Z"
+      },
+      {
+        "id": "ffc8a28f-8435-4823-9ac9-245f343dfd7f",
+        "body": null,
+        "image": null,
+        "created_at": "2024-01-25T21:49:50.000000Z"
+      }
+    ],
+    "first_page_url": "http://localhost:2525/api/notifications?page=1",
+    "from": 1,
+    "next_page_url": null,
+    "path": "http://localhost:2525/api/notifications",
+    "per_page": 15,
+    "prev_page_url": null,
+    "to": 2
+  }
+}
+```
+
+```text Example
+{
+  id: string
+  body: string|null
+  image?: string
+  created_at: string
+}
+```
+
+</ResponseExample>

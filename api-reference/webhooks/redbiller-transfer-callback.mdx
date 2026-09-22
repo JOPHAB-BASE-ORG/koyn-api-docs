@@ -1,0 +1,92 @@
+---
+title: "Redbiller Transfer callback"
+api: "POST /webhook/redbiller"
+playground: "none"
+---
+
+## Body
+
+<ParamField body="response" type="integer">
+  Example: `200`
+</ParamField>
+
+<ParamField body="status" type="string">
+  Example: `true`
+</ParamField>
+
+<ParamField body="message" type="string">
+  Example: `Transaction successful.`
+</ParamField>
+
+<ParamField body="details" type="object">
+  
+</ParamField>
+
+<ParamField body="meta" type="object">
+  
+</ParamField>
+
+<RequestExample>
+
+```json Request
+{
+  "response": 200,
+  "status": "true",
+  "message": "Transaction successful.",
+  "details": {
+    "bank_name": "GUARANTY TRUST BANK",
+    "bank_code": "000013",
+    "account_name": "JERAHMEEL ANIBOR",
+    "account_no": "0211982455",
+    "narration": "Test",
+    "amount": 2300,
+    "charge": 40,
+    "reference": "WW4XU58T6MNYQO53NM",
+    "switch_session_id": "090175200417042202041797704552",
+    "channel": "API",
+    "version": "1.0",
+    "date": "2019-12-12 11:35:30"
+  },
+  "meta": {
+    "status": "Approved"
+  }
+}
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json 200
+{
+  "success": true,
+  "message": "successful",
+  "data": {
+    "id": 782,
+    "user_id": 1279,
+    "crypto_asset_id": 1,
+    "balance": "0.00000000",
+    "address": "tb1q9ex9grv8ac76wk6qewt9pyajv3uhm8256hpkr6zknjavz3dk2avsvdglnr",
+    "chain": "BTCTEST",
+    "created_at": "2024-05-24T02:54:20.000000Z",
+    "updated_at": "2024-05-24T02:54:20.000000Z",
+    "symbol": "BTC"
+  }
+}
+```
+
+```text Example
+{
+  id: number
+  user_id: number
+  crypto_asset_id: number
+  balance: string
+  address: string
+  chain: string
+  created_at: string
+  updated_at: string
+  symbol: string
+}
+```
+
+</ResponseExample>

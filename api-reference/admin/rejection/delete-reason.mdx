@@ -1,0 +1,38 @@
+---
+title: "Delete Reason"
+api: "DELETE /console/rejection-reasons/{id}"
+---
+
+## Path parameters
+
+<ParamField path="id" type="string" required>
+   Example: `11`
+</ParamField>
+
+## Body
+
+<ParamField body="reason" type="string">
+  Example: `Hmm thats wrong`
+</ParamField>
+
+<RequestExample>
+
+```json Request
+{
+  "reason": "Hmm thats wrong"
+}
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json 200
+{
+  "success": true,
+  "message": "Reason deleted successfully",
+  "data": []
+}
+```
+
+</ResponseExample>

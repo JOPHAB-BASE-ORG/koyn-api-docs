@@ -1,0 +1,215 @@
+---
+title: "Staff Fulfilled"
+api: "GET /console/withdrawals/employee/{id}"
+---
+
+## Path parameters
+
+<ParamField path="id" type="string" required>
+   Example: `1281`
+</ParamField>
+
+## Body
+
+<ParamField body="status" type="string">
+  Example: `pending`
+</ParamField>
+
+<RequestExample>
+
+```json Request
+{
+  "status": "pending"
+}
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json 200
+{
+  "success": true,
+  "message": "successful",
+  "data": {
+    "current_page": 1,
+    "data": [
+      {
+        "id": 393,
+        "user_id": 1279,
+        "reference": "WW6052061714034102",
+        "amount": "1000.00",
+        "bank": null,
+        "bank_code": "000014",
+        "bank_name": "ACCESS BANK PLC",
+        "account_name": "afuwape sunday",
+        "account_number": "0000000000",
+        "bank_logo": null,
+        "status": "pending",
+        "rejection_id": 4,
+        "settled_by": {
+          "id": 1281,
+          "name": "pikka admin",
+          "username": "pikka",
+          "phone": "08012345678",
+          "email": "user@example.com",
+          "dob": null,
+          "email_verified_at": "2024-04-04T21:03:08.000000Z",
+          "referral_code": "lDoVuM",
+          "device_token": null,
+          "device_type": null,
+          "status": "active",
+          "tier_id": 1,
+          "credits": null,
+          "avatar": "https://avatar.iran.liara.run/public/boy",
+          "deleted_at": null,
+          "created_at": "2024-04-04T21:03:08.000000Z",
+          "updated_at": "2024-06-27T06:45:39.000000Z",
+          "heard_about_us": "twitter",
+          "failed_login_attempts": 0,
+          "total_crypto_trade": 0,
+          "has_pin": true,
+          "wallet_balance": 0,
+          "has_verifiedBVN": true,
+          "has_default_bank_account": false,
+          "has_withdrawn": false
+        },
+        "provider_reference": null,
+        "provider_status": null,
+        "platform": "redbiller",
+        "created_at": "2024-04-25T07:35:02.000000Z",
+        "updated_at": "2024-06-27T07:02:04.000000Z",
+        "channel": "manual",
+        "user": {
+          "id": 1279,
+          "name": "David logic",
+          "username": "dev007",
+          "phone": "08012345678",
+          "email": "user@example.com",
+          "dob": null,
+          "email_verified_at": "2024-04-04T21:03:08.000000Z",
+          "referral_code": "lDoVuM",
+          "device_token": null,
+          "device_type": null,
+          "status": "active",
+          "tier_id": 1,
+          "credits": null,
+          "avatar": "https://avatar.iran.liara.run/public/boy",
+          "deleted_at": null,
+          "created_at": "2024-04-04T21:03:08.000000Z",
+          "updated_at": "2024-04-19T05:15:12.000000Z",
+          "heard_about_us": "twitter",
+          "failed_login_attempts": 0,
+          "total_crypto_trade": 0,
+          "has_pin": true,
+          "wallet_balance": "45000.00",
+          "has_verifiedBVN": true,
+          "has_default_bank_account": true,
+          "has_withdrawn": true
+        },
+        "rejection_reason": null
+      },
+      {
+        "id": 222,
+        "user_id": 1074,
+        "reference": "WW5252351708571503",
+        "amount": "1200.00",
+        "bank": {
+          "image": "https://api.live.redbiller.com/logos/bank/firstbank.png",
+          "bank_code": "000016",
+          "bank_name": "FIRST BANK OF NIGERIA PLC",
+          "account_name": "OGBONNA NKECHI EVE",
+          "account_number": "0000000000"
+        },
+        "bank_code": null,
+        "bank_name": null,
+        "account_name": null,
+        "account_number": null,
+        "bank_logo": null,
+        "status": "pending",
+        "rejection_id": null,
+        "settled_by": {
+          "id": 1281,
+          "name": "pikka admin",
+          "username": "pikka",
+          "phone": "08012345678",
+          "email": "user@example.com",
+          "dob": null,
+          "email_verified_at": "2024-04-04T21:03:08.000000Z",
+          "referral_code": "lDoVuM",
+          "device_token": null,
+          "device_type": null,
+          "status": "active",
+          "tier_id": 1,
+          "credits": null,
+          "avatar": "https://avatar.iran.liara.run/public/boy",
+          "deleted_at": null,
+          "created_at": "2024-04-04T21:03:08.000000Z",
+          "updated_at": "2024-06-27T06:45:39.000000Z",
+          "heard_about_us": "twitter",
+          "failed_login_attempts": 0,
+          "total_crypto_trade": 0,
+          "has_pin": true,
+          "wallet_balance": 0,
+          "has_verifiedBVN": true,
+          "has_default_bank_account": false,
+          "has_withdrawn": false
+        },
+        "provider_reference": "WW5252351708571503",
+        "provider_status": null,
+        "platform": "REDBILLER",
+        "created_at": "2024-02-22T03:11:44.000000Z",
+        "updated_at": "2024-06-17T07:04:06.000000Z",
+        "channel": "manual",
+        "user": {
+          "id": 1074,
+          "name": null,
+          "username": "lyneve",
+          "phone": "08012345678",
+          "email": "user@example.com",
+          "dob": null,
+          "email_verified_at": "2024-02-21T16:48:12.000000Z",
+          "referral_code": "eCuhjW",
+          "device_token": "************",
+          "device_type": null,
+          "status": "active",
+          "tier_id": 1,
+          "credits": null,
+          "avatar": "avatar_12.png",
+          "deleted_at": null,
+          "created_at": "2024-02-21T16:47:06.000000Z",
+          "updated_at": "2024-02-22T03:10:45.000000Z",
+          "heard_about_us": null,
+          "failed_login_attempts": 0,
+          "total_crypto_trade": 79.88,
+          "has_pin": true,
+          "wallet_balance": "3617.93",
+          "has_verifiedBVN": false,
+          "has_default_bank_account": true,
+          "has_withdrawn": true
+        },
+        "rejection_reason": null
+      }
+    ],
+    "first_page_url": "http://localhost:2525/api/console/withdrawals/employee/1281?page=1",
+    "from": 1,
+    "last_page": 1,
+    "last_page_url": "http://localhost:2525/api/console/withdrawals/employee/1281?page=1",
+    "links": [
+      {
+        "url": null,
+        "label": "&laquo; Previous",
+        "active": false
+      },
+      {
+        "url": "http://localhost:2525/api/console/withdrawals/employee/1281?page=1",
+        "label": "1",
+        "active": true
+      }
+    ],
+    "next_page_url": null,
+    "path": "http://localhost:2525/api/console/withdrawal
+... (truncated)
+```
+
+</ResponseExample>

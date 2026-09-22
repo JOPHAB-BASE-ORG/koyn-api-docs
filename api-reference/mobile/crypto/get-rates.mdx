@@ -1,0 +1,48 @@
+---
+title: "Get Rates"
+api: "GET /crypto/rates"
+---
+
+<ResponseExample>
+
+```text Example
+{
+  id: string
+  rate_range: string
+  rate: int|float
+  range_start": int|float
+  range_end: int|float
+  is_published": true
+}
+```
+
+```json 200
+{
+  "success": true,
+  "message": "successful",
+  "data": [
+    {
+      "id": "9b29918d-7b57-441d-bedb-f5baa8d35217",
+      "rate_range": "Below $100",
+      "rate": 1350,
+      "range_start": 5,
+      "range_end": 99,
+      "is_published": true,
+      "created_at": "2024-01-23T16:46:19.000000Z",
+      "updated_at": "2024-02-29T15:51:08.000000Z"
+    },
+    {
+      "id": "9b29938c-3eda-499a-a410-dd2f71ce1042",
+      "rate_range": "Below $1000",
+      "rate": 1390,
+      "range_start": 100,
+      "range_end": 999,
+      "is_published": true,
+      "created_at": "2024-01-23T16:51:54.000000Z",
+      "updated_at": "2024-02-29T15:50:54.000000Z"
+    }
+  ]
+}
+```
+
+</ResponseExample>

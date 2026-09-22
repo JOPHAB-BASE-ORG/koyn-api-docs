@@ -1,0 +1,55 @@
+---
+title: "Verify smartcard"
+api: "POST /cable/smartcard/verify"
+---
+
+## Body
+
+<ParamField body="product" type="string">
+  Example: `StarTimes`
+</ParamField>
+
+<ParamField body="smart_card_no" type="string">
+  Example: `0000000000`
+</ParamField>
+
+<RequestExample>
+
+```json Request
+{
+  "product": "StarTimes",
+  "smart_card_no": "0000000000"
+}
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json 200
+{
+  "success": true,
+  "message": "successful",
+  "data": {
+    "product": "STARTIMES",
+    "customer_name": "MICHEAL OLUGHU",
+    "customer_no": "0004044606",
+    "customer_type": 1,
+    "smart_card_no": "0000000000",
+    "balance": "1912.92"
+  }
+}
+```
+
+```text Example
+{
+  product: string
+  customer_name: string
+  customer_no: string
+  customer_type: number
+  smart_card_no: string
+  balance: string
+}
+```
+
+</ResponseExample>

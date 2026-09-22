@@ -1,0 +1,41 @@
+---
+title: "Wifi plans"
+api: "GET /wifi/plans/{product}"
+---
+
+## Path parameters
+
+<ParamField path="product" type="string" required>
+   Example: `Smile`
+</ParamField>
+
+<ResponseExample>
+
+```json 200
+{
+  "success": true,
+  "message": "successful",
+  "data": [
+    {
+      "name": "Flexi Daily - 350 Naira",
+      "code": "545",
+      "amount": "350"
+    },
+    {
+      "name": "Smile Voice - 65mins - 510 Naira  - 30 Days",
+      "code": "516",
+      "amount": "510"
+    }
+  ]
+}
+```
+
+```text Example
+{
+  name: string
+  code: string
+  amount: string
+}
+```
+
+</ResponseExample>

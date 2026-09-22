@@ -1,0 +1,39 @@
+---
+title: "Create a new banner"
+api: "POST /console/app-banners"
+---
+
+## Body
+
+<Note>Send as `multipart/form-data`.</Note>
+
+<ParamField body="title" type="string">
+   Example: `Their Banner`
+</ParamField>
+
+<ParamField body="banner_image" type="file">
+
+</ParamField>
+
+<ParamField body="url" type="string">
+   Example: `facebook.com`
+</ParamField>
+
+<ResponseExample>
+
+```json 200
+{
+  "success": true,
+  "message": "App Banner created successfully",
+  "data": {
+    "title": "My Banner",
+    "banner_image": "https://res.cloudinary.com/traydah/image/upload/v1737265197/pikka/banners/r8jacnotzgzj1vocpn0c.webp",
+    "url": null,
+    "id": "9e00db7f-bd60-4f68-af1c-c6c21396a236",
+    "updated_at": "2025-01-19T05:39:57.000000Z",
+    "created_at": "2025-01-19T05:39:57.000000Z"
+  }
+}
+```
+
+</ResponseExample>

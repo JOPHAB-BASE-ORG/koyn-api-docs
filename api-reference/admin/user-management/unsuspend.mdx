@@ -1,0 +1,29 @@
+---
+title: "Unsuspend"
+api: "POST /console/users/{userId}/unsuspend"
+---
+
+## Path parameters
+
+<ParamField path="userId" type="string" required>
+   Example: `9ca7f3e5-4811-492c-a8ea-68821808ed96`
+</ParamField>
+
+<ResponseExample>
+
+```json 200
+{
+  "success": true,
+  "message": "User enabled successfully!",
+  "data": {
+    "total_crypto_trade": 0,
+    "has_pin": false,
+    "wallet_balance": 0,
+    "has_verifiedBVN": false,
+    "has_default_bank_account": false,
+    "has_withdrawn": false
+  }
+}
+```
+
+</ResponseExample>

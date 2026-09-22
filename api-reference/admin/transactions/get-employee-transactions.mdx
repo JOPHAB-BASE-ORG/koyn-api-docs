@@ -1,0 +1,144 @@
+---
+title: "Get Employee Transactions"
+api: "GET /trades/employee/92"
+---
+
+<ResponseExample>
+
+```json 200
+{
+  "status": "Success",
+  "message": null,
+  "data": {
+    "current_page": 1,
+    "data": [
+      {
+        "id": 354,
+        "card_id": 17,
+        "customer_id": 1908,
+        "transaction_ref": "2941731657875100",
+        "status": 2,
+        "value": 10,
+        "e_code": "1234",
+        "rate": 95,
+        "images": null,
+        "created_at": "2022-07-15T08:51:40.000000Z",
+        "updated_at": "2022-07-15T09:18:06.000000Z",
+        "rejection_reason": 1,
+        "rejection_comment": null,
+        "attachment": null,
+        "settled_by": 92,
+        "payment_method": "NGN",
+        "network_type": null,
+        "address": null,
+        "customer": {
+          "id": 1908,
+          "name": "Sanusi",
+          "username": "Mubaraq",
+          "email": "user@example.com",
+          "phone": "08012345678",
+          "status": "active",
+          "device_token": "************",
+          "verification_status": "verified",
+          "profile_img": null,
+          "country_id": "N/A",
+          "credit": 464000,
+          "debit": 2500,
+          "balance": 461500,
+          "total_transactions": 4,
+          "total_withdrawals": 1000
+        },
+        "card": {
+          "id": 17,
+          "category_id": 2,
+          "name": "USA (Card Picture) $25 to $49",
+          "slug": "itunes-canada",
+          "terms": null,
+          "status": "active",
+          "top_card": null,
+          "created_at": "2021-11-15T20:38:49.000000Z",
+          "updated_at": "2022-07-14T18:30:37.000000Z",
+          "rate": 95,
+          "min": 25,
+          "deleted_at": null
+        }
+      },
+      {
+        "id": 353,
+        "card_id": 17,
+        "customer_id": 1908,
+        "transaction_ref": "9492151657874806",
+        "status": 2,
+        "value": 10,
+        "e_code": "1234",
+        "rate": 95,
+        "images": null,
+        "created_at": "2022-07-15T08:46:46.000000Z",
+        "updated_at": "2022-07-15T09:05:02.000000Z",
+        "rejection_reason": 2,
+        "rejection_comment": null,
+        "attachment": null,
+        "settled_by": 92,
+        "payment_method": "NGN",
+        "network_type": null,
+        "address": null,
+        "customer": {
+          "id": 1908,
+          "name": "Sanusi",
+          "username": "Mubaraq",
+          "email": "user@example.com",
+          "phone": "08012345678",
+          "status": "active",
+          "device_token": "************",
+          "verification_status": "verified",
+          "profile_img": null,
+          "country_id": "N/A",
+          "credit": 464000,
+          "debit": 2500,
+          "balance": 461500,
+          "total_transactions": 4,
+          "total_withdrawals": 1000
+        },
+        "card": {
+          "id": 17,
+          "category_id": 2,
+          "name": "USA (Card Picture) $25 to $49",
+          "slug": "itunes-canada",
+          "terms": null,
+          "status": "active",
+          "top_card": null,
+          "created_at": "2021-11-15T20:38:49.000000Z",
+          "updated_at": "2022-07-14T18:30:37.000000Z",
+          "rate": 95,
+          "min": 25,
+          "deleted_at": null
+        }
+      }
+    ],
+    "first_page_url": "https://traydah.test/api/trades/employee/92?page=1",
+    "from": 1,
+    "last_page": 1,
+    "last_page_url": "https://traydah.test/api/trades/employee/92?page=1",
+    "links": [
+      {
+        "url": null,
+        "label": "pagination.previous",
+        "active": false
+      },
+      {
+        "url": "https://traydah.test/api/trades/employee/92?page=1",
+        "label": 1,
+        "active": true
+      }
+    ],
+    "next_page_url": null,
+    "path": "https://traydah.test/api/trades/employee/92",
+    "per_page": 25,
+    "prev_page_url": null,
+    "to": 7,
+    "total": 7
+  }
+}
+```
+
+</ResponseExample>

@@ -1,0 +1,84 @@
+---
+title: "Reconciliation create"
+api: "POST /console/reconciliations/create"
+---
+
+## Body
+
+<ParamField body="user_id" type="string">
+  Example: `62`
+</ParamField>
+
+<ParamField body="entry" type="string">
+  Example: `debit`
+</ParamField>
+
+<ParamField body="reason" type="string">
+  Example: `Resolve failed withdraw`
+</ParamField>
+
+<ParamField body="amount" type="string">
+  Example: `1000`
+</ParamField>
+
+<ParamField body="narration" type="string">
+  Example: `hey fella money reversed`
+</ParamField>
+
+<RequestExample>
+
+```json Request
+{
+  "user_id": "62",
+  "entry": "debit",
+  "reason": "Resolve failed withdraw",
+  "amount": "1000",
+  "narration": "hey fella money reversed"
+}
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json 200
+{
+  "success": true,
+  "message": "successful",
+  "data": {
+    "reference": "RC0ALGKV2VZZDLCZI3",
+    "user_id": "9cb99122-5f30-411d-8ac7-b435a4f964ca",
+    "staff_id": "85410a8a-9127-4862-8ab8-df836d4617bd",
+    "origin_tranx_id": null,
+    "entry": "credit",
+    "amount": "5000",
+    "status": "successful",
+    "reason": "Resolve failed withdraw",
+    "id": "9cbd1a20-af30-4e2d-9162-10d934671121",
+    "updated_at": "2024-08-11T07:06:51.000000Z",
+    "created_at": "2024-08-11T07:06:51.000000Z",
+    "transaction": {
+      "id": "9cbd1a22-8edf-49f8-b610-c36deb241139",
+      "reference": "RC0ALGKV2VZZDLCZI3",
+      "user_id": "9cb99122-5f30-411d-8ac7-b435a4f964ca",
+      "transaction_type": "reconcile",
+      "transaction_id": "9cbd1a20-af30-4e2d-9162-10d934671121",
+      "entry": "credit",
+      "status": "successful",
+      "narration": "hey fella money reversed",
+      "currency": "NGN",
+      "amount": 5000,
+      "charge": 0,
+      "total_amount": 5000,
+      "wallet_balance": 45000,
+      "is_reversal": false,
+      "mode": null,
+      "created_at": "2024-08-11T07:06:52.000000Z",
+      "updated_at": "2024-08-11T07:06:52.000000Z"
+    },
+    "origin_transaction": null
+  }
+}
+```
+
+</ResponseExample>

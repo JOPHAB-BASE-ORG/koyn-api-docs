@@ -1,0 +1,332 @@
+---
+title: "Get User Ledger"
+api: "GET /console/users/{userId}/ledger"
+---
+
+## Path parameters
+
+<ParamField path="userId" type="string" required>
+   Example: `62`
+</ParamField>
+
+## Query parameters
+
+<ParamField query="from" type="string">
+   Example: `2026-03-01`
+</ParamField>
+
+<ParamField query="to" type="string">
+   Example: `2026-03-03`
+</ParamField>
+
+<ParamField query="entry" type="string">
+   Example: `credit`
+</ParamField>
+
+<ParamField query="status" type="string">
+   Example: `successful`
+</ParamField>
+
+<ParamField query="type" type="string">
+   Example: `crypto`
+</ParamField>
+
+<ParamField query="per_page" type="string">
+   Example: `25`
+</ParamField>
+
+<ParamField query="issues_limit" type="string">
+   Example: `50`
+</ParamField>
+
+<ParamField query="double_credit_limit" type="string">
+   Example: `100`
+</ParamField>
+
+<ResponseExample>
+
+```json 200
+{
+  "success": true,
+  "message": "successful",
+  "data": {
+    "user": {
+      "id": 62,
+      "name": null,
+      "username": "femioo",
+      "phone": "08012345678",
+      "email": "user@example.com",
+      "dob": null,
+      "email_verified_at": "2026-03-02T17:29:46.000000Z",
+      "referral_code": "YtEzSk",
+      "device_token": "************",
+      "device_type": null,
+      "status": "active",
+      "is_flagged": false,
+      "flag_reason": null,
+      "has_biometric": false,
+      "tier_id": 1,
+      "credits": null,
+      "avatar": "avatar_11.png",
+      "deleted_at": null,
+      "created_at": "2026-03-02T17:29:46.000000Z",
+      "updated_at": "2026-03-02T17:30:27.000000Z",
+      "heard_about_us": "From a Friend",
+      "failed_login_attempts": 0,
+      "total_crypto_trade": 0,
+      "total_withdrawn": 0,
+      "has_pin": false,
+      "wallet_balance": "0.00",
+      "has_verifiedBVN": false,
+      "has_default_bank_account": false,
+      "has_withdrawn": false,
+      "crypto_wallets": []
+    },
+    "transactions": [],
+    "overview": {
+      "summary": {
+        "total_credits": 0,
+        "total_debits": 0,
+        "total_rejected": 0,
+        "total_approved": 0,
+        "total_failed": 0,
+        "total_pending": 0,
+        "total_reversals": 0,
+        "total_credit_amount": 0,
+        "total_debit_amount": 0,
+        "expected_balance": 0,
+        "current_balance": 0,
+        "balance_difference": 0
+      },
+      "issues": {
+        "count": 0,
+        "limit": 50,
+        "data": []
+      },
+      "double_credits": {
+        "count": 0,
+        "limit": 100,
+        "data": []
+      }
+    }
+  },
+  "current_page": 1,
+  "first_page_url": "http://127.0.0.1:8000/api/console/users/62/ledger?page=1",
+  "from": null,
+  "last_page": 1,
+  "last_page_url": "http://127.0.0.1:8000/api/console/users/62/ledger?page=1",
+  "links": [
+    {
+      "url": null,
+      "label": "&laquo; Previous",
+      "active": false
+    },
+    {
+      "url": "http://127.0.0.1:8000/api/console/users/62/ledger?page=1",
+      "label": "1",
+      "active": true
+    }
+  ],
+  "next_page_url": null,
+  "path": "http://127.0.0.1:8000/api/console/users/62/ledger",
+  "per_page": 25,
+  "prev_page_url": null,
+  "to": null,
+  "total": 0
+}
+```
+
+```json 200 (2)
+{
+  "success": true,
+  "message": "successful",
+  "data": {
+    "user": {
+      "id": 16292,
+      "name": null,
+      "username": "tsamuel",
+      "phone": "08012345678",
+      "email": "user@example.com",
+      "dob": null,
+      "email_verified_at": "2025-11-27T07:42:09.000000Z",
+      "referral_code": "BahujC",
+      "device_token": "************",
+      "device_type": null,
+      "status": "active",
+      "is_flagged": true,
+      "flag_reason": "Balance discrepancy detected. Expected: 276470.78000001, Current: 421451.00, Difference: 144980.21999999",
+      "has_biometric": false,
+      "tier_id": 2,
+      "credits": null,
+      "avatar": "avatar_12.png",
+      "deleted_at": null,
+      "created_at": "2025-11-27T07:42:09.000000Z",
+      "updated_at": "2026-03-12T17:36:30.000000Z",
+      "heard_about_us": "From a Friend",
+      "failed_login_attempts": 0,
+      "total_crypto_trade": 22796.19,
+      "total_withdrawn": 32694400,
+      "has_pin": true,
+      "wallet_balance": "451.00",
+      "has_verifiedBVN": true,
+      "has_default_bank_account": true,
+      "has_withdrawn": true,
+      "crypto_wallets": [
+        {
+          "id": 9949,
+          "user_id": 16292,
+          "crypto_asset_id": 1,
+          "balance": "0.00000000",
+          "address": "bc1qjtdqqf8q0qhkw8cc7m9xpc9lskaez3qyk7hypv",
+          "chain": "BTC",
+          "created_at": "2025-11-27T08:04:09.000000Z",
+          "updated_at": "2025-11-27T08:04:09.000000Z",
+          "old_address": null
+        }
+      ]
+    },
+    "transactions": [
+      {
+        "id": 76852,
+        "reference": "WWVAROKETHK5BNDAMI",
+        "user_id": 16292,
+        "transaction_type": "withdraw",
+        "transaction_id": 48474,
+        "entry": "debit",
+        "status": "successful",
+        "narration": "N421000 Withdrawal request",
+        "currency": "NGN",
+        "amount": 421000,
+        "charge": 0,
+        "total_amount": 421000,
+        "wallet_balance": 451,
+        "is_reversal": false,
+        "mode": null,
+        "created_at": "2026-03-12T17:36:30.000000Z",
+        "updated_at": "2026-03-12T17:36:30.000000Z",
+        "wallet_balance_before": "0.00",
+        "transactable": {
+          "id": 48474,
+          "user_id": 16292,
+          "reference": "WWVAROKETHK5BNDAMI",
+          "amount": "421000.00",
+          "bank_code": "000013",
+          "bank_id": 69,
+          "bank_name": "GUARANTY TRUST BANK PLC",
+          "account_name": "THOMAS SAMUEL KEHINDE",
+          "account_number": "0000000000",
+          "bank_logo": "https://api.live.redbiller.com/logos/bank/gtb.png",
+          "status": "successful",
+          "rejection_id": null,
+          "settled_by": 12,
+          "provider_reference": "WWVAROKETHK5BNDAMI",
+          "provider_status": "Approved",
+          "platform": "REDBILLER",
+          "channel": "manual",
+          "created_at": "2026-03-12T17:36:30.000000Z",
+          "updated_at": "2026-03-12T18:52:27.000000Z"
+        },
+        "giftcard_trade": null
+      },
+      {
+        "id": 76813,
+        "reference": "RC59VFFVSYR1FISVT1",
+        "user_id": 16292,
+        "transaction_type": "reconcile",
+        "transaction_id": 1149,
+        "entry": "debit",
+        "status": "successful",
+        "narration": "Account Reconciliation",
+        "currency": "NGN",
+        "amount": 144979.73,
+        "charge": 0,
+        "total_amount": 144979.73,
+        "wallet_balance": 421451,
+        "is_reversal": false,
+        "mode": null,
+        "created_at": "2026-03-12T10:57:02.000000Z",
+        "updated_at": "2026-03-12T10:57:02.000000Z",
+        "wallet_balance_before": "0.00",
+        "transactable": {
+          "id": 1149,
+          "reference": "RC59VFFVSYR1FISVT1",
+          "user_id": 16292,
+          "staff_id": 14522,
+          "origin_tranx_id": null,
+          "entry": "debit",
+          "amount": "144979.73",
+          "reason": "Account Reconciliation",
+          "status": "successful",
+          "created_at": "2026-03-12T10:57:02.000000Z",
+          "updated_at": "2026-03-12T10:57:02.000000Z"
+        },
+        "giftcard_trade": null
+      }
+    ],
+    "overview": {
+      "summary": {
+        "total_credits": 51,
+        "total_debits": 63,
+        "total_rejected": 0,
+        "total_approved": 114,
+        "total_failed": 0,
+        "total_pending": 0,
+        "total_reversals": 9,
+        "total_credit_amount": 56101280.51,
+        "total_debit_amount": 56245809.73,
+        "expected_balance": -144529.21999999136,
+        "current_balance": 451,
+        "balance_difference": 144980.21999999136
+      },
+      "issues": {
+        "count": 9,
+        "limit": 50,
+        "data": [
+          {
+            "id": 76812,
+            "reference": "RVSL-WWTY94J4RLF1VRKF0F",
+            "transaction_type": "withdraw",
+            "transaction_id": 48448,
+            "entry": "credit",
+            "status": "successful",
+            "narration": "Rvsl of N566430.00 withdrawal request",
+            "amount": 566430,
+            "charge": 0,
+            "total_amount": 566430,
+            "wallet_balance": 0,
+            "is_reversal": true,
+            "created_at": "2026-03-12T10:51:57.000000Z"
+          },
+          {
+            "id": 73018,
+            "reference": "RVSL-WWAN1KFCJATBG9NPGX",
+            "transaction_type": "withdraw",
+            "transaction_id": 46159,
+            "entry": "credit",
+            "status": "successful",
+            "narration": "Rvsl of N272000.00 withdrawal request",
+            "amount": 272000,
+            "charge": 0,
+            "total_amount": 272000,
+            "wallet_balance": 272004,
+            "is_reversal": true,
+            "created_at": "2026-02-17T18:41:18.000000Z"
+          }
+        ]
+      },
+      "double_credits": {
+        "count": 0,
+        "limit": 100,
+        "data": []
+      },
+      "balance_mismatch_transactions": {
+        "count": 1,
+        "limit": 50,
+        "data": [
+          {
+            "id": 76813,
+            "reference": "RC59VFF
+... (truncated)
+```
+
+</ResponseExample>

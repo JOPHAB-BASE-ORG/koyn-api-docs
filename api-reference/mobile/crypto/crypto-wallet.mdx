@@ -1,0 +1,46 @@
+---
+title: "Crypto Wallet"
+api: "GET /crypto/wallets/{asset}"
+---
+
+## Path parameters
+
+<ParamField path="asset" type="string" required>
+   Example: `BTC`
+</ParamField>
+
+<ResponseExample>
+
+```json 200
+{
+  "success": true,
+  "message": "successful",
+  "data": {
+    "id": 782,
+    "user_id": 1279,
+    "crypto_asset_id": 1,
+    "balance": "0.00000000",
+    "address": "tb1q9ex9grv8ac76wk6qewt9pyajv3uhm8256hpkr6zknjavz3dk2avsvdglnr",
+    "chain": "BTCTEST",
+    "created_at": "2024-05-24T02:54:20.000000Z",
+    "updated_at": "2024-05-24T02:54:20.000000Z",
+    "symbol": "BTC"
+  }
+}
+```
+
+```text Example
+{
+  id: number
+  user_id: number
+  crypto_asset_id: number
+  balance: string
+  address: string
+  chain: string
+  created_at: string
+  updated_at: string
+  symbol: string
+}
+```
+
+</ResponseExample>

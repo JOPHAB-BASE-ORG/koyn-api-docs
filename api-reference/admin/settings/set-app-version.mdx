@@ -1,0 +1,49 @@
+---
+title: "Set App version"
+api: "POST /console/settings/app-version"
+---
+
+## Body
+
+<ParamField body="version_number" type="string">
+  Example: `1.0`
+</ParamField>
+
+<ParamField body="release_date" type="string">
+  Example: `2024-06-01`
+</ParamField>
+
+<ParamField body="message" type="string">
+  Example: `Good people version`
+</ParamField>
+
+<RequestExample>
+
+```json Request
+{
+  "version_number": "1.0",
+  "release_date": "2024-06-01",
+  "message": "Good people version"
+}
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json 200
+{
+  "success": true,
+  "message": "Version set successfully",
+  "data": {
+    "version_number": "1.0",
+    "release_date": "2024-06-01",
+    "message": "Good people version",
+    "updated_at": "2024-06-27T05:57:08.000000Z",
+    "created_at": "2024-06-27T05:57:08.000000Z",
+    "id": 2
+  }
+}
+```
+
+</ResponseExample>

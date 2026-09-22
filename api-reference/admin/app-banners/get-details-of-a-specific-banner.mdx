@@ -1,0 +1,29 @@
+---
+title: "Get details of a specific banner."
+api: "GET /console/app-banners/{id}"
+---
+
+## Path parameters
+
+<ParamField path="id" type="string" required>
+   Example: `9e00db7f-bd60-4f68-af1c-c6c21396a236`
+</ParamField>
+
+<ResponseExample>
+
+```json 200
+{
+  "success": true,
+  "message": "App Banner",
+  "data": {
+    "id": "9e00db7f-bd60-4f68-af1c-c6c21396a236",
+    "title": "My Banner",
+    "banner_image": "https://res.cloudinary.com/traydah/image/upload/v1737265197/pikka/banners/r8jacnotzgzj1vocpn0c.webp",
+    "url": null,
+    "created_at": "2025-01-19T05:39:57.000000Z",
+    "updated_at": "2025-01-19T05:39:57.000000Z"
+  }
+}
+```
+
+</ResponseExample>

@@ -1,0 +1,41 @@
+---
+title: "Provider Plans"
+api: "GET /cable/plans/{provider}"
+---
+
+## Path parameters
+
+<ParamField path="provider" type="string" required>
+   Example: `Dstv`
+</ParamField>
+
+<ResponseExample>
+
+```json 200
+{
+  "success": true,
+  "message": "successful",
+  "data": [
+    {
+      "name": "Nova",
+      "code": "900",
+      "amount": "900"
+    },
+    {
+      "name": "Basic",
+      "code": "1300",
+      "amount": "1300"
+    }
+  ]
+}
+```
+
+```text Example
+{
+  name: string
+  code: string
+  amount: string
+}
+```
+
+</ResponseExample>

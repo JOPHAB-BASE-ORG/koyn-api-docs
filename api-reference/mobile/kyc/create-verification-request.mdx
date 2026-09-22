@@ -1,0 +1,58 @@
+---
+title: "Create Verification request"
+api: "POST /kyc/create"
+---
+
+## Body
+
+<ParamField body="verification_type" type="string">
+  Example: `bvn`
+</ParamField>
+
+<RequestExample>
+
+```json Request
+{
+  "verification_type": "bvn"
+}
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json 200
+{
+  "success": true,
+  "message": "successful",
+  "data": {
+    "id": "9cb91743-798a-48ec-bc58-5e7632b5a4b6",
+    "user_id": "85410a8a-9127-4862-8ab8-df836d4617bd",
+    "verification_type": "address",
+    "verification_value": null,
+    "reference": "5426897453",
+    "status": "pending",
+    "created_at": "2024-08-09T07:15:31.000000Z",
+    "updated_at": "2024-08-09T07:15:31.000000Z"
+  }
+}
+```
+
+```json 200 (2)
+{
+  "success": true,
+  "message": "successful",
+  "data": {
+    "id": "9cb93481-f53b-4fb5-afc3-965849101b02",
+    "user_id": "85410a8a-9127-4862-8ab8-df836d4617bd",
+    "verification_type": "bvn",
+    "verification_value": null,
+    "reference": "54268974534545451212",
+    "status": "pending",
+    "created_at": "2024-08-09T08:37:18.000000Z",
+    "updated_at": "2024-08-09T08:37:18.000000Z"
+  }
+}
+```
+
+</ResponseExample>

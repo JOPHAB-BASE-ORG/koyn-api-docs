@@ -1,0 +1,147 @@
+---
+title: "Airtime Topups"
+api: "GET /console/airtime/topups"
+---
+
+## Query parameters
+
+<ParamField query="status" type="string">
+  pending successful rejected failed Example: `pending`
+</ParamField>
+
+## Body
+
+<RequestExample>
+
+```json Request
+//pending,successful,failed
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json 200
+{
+  "success": true,
+  "message": "Airtime Purchases",
+  "data": {
+    "current_page": 1,
+    "data": [
+      {
+        "id": 32,
+        "user_id": 1282,
+        "product": "MTN",
+        "phone_no": "08012345678",
+        "amount_requested": "100.00",
+        "amount_paid": "970.00",
+        "discount_percentage": 3,
+        "discount_value": "30.00",
+        "reference": "ATQVTCYN7QPY0E7NXV",
+        "status": "successful",
+        "provider_status": "Approved",
+        "created_at": "2024-06-25T09:45:52.000000Z",
+        "updated_at": "2024-06-25T09:46:08.000000Z",
+        "user": {
+          "id": 1282,
+          "name": "David logic",
+          "username": "dev0007",
+          "phone": "08012345678",
+          "email": "user@example.com",
+          "dob": null,
+          "email_verified_at": "2024-06-25T08:07:12.000000Z",
+          "referral_code": "j1xumq",
+          "device_token": "************",
+          "device_type": null,
+          "status": "active",
+          "tier_id": 1,
+          "credits": null,
+          "avatar": "https://avatar.iran.liara.run/public/boy",
+          "deleted_at": null,
+          "created_at": "2024-06-25T08:07:12.000000Z",
+          "updated_at": "2024-06-25T08:51:23.000000Z",
+          "heard_about_us": "twitter",
+          "failed_login_attempts": 0,
+          "total_crypto_trade": 0,
+          "has_pin": false,
+          "wallet_balance": "47900.00",
+          "has_verifiedBVN": true,
+          "has_default_bank_account": false,
+          "has_withdrawn": false
+        }
+      },
+      {
+        "id": 31,
+        "user_id": 1059,
+        "product": "9MOBILE",
+        "phone_no": "08012345678",
+        "amount_requested": "400.00",
+        "amount_paid": "386.00",
+        "discount_percentage": 4,
+        "discount_value": "14.00",
+        "reference": "AT4052641709130529",
+        "status": "successful",
+        "provider_status": null,
+        "created_at": "2024-02-28T14:28:55.000000Z",
+        "updated_at": "2024-02-28T14:28:55.000000Z",
+        "user": {
+          "id": 1059,
+          "name": " ",
+          "username": "xamoel",
+          "phone": "08012345678",
+          "email": "user@example.com",
+          "dob": null,
+          "email_verified_at": "2024-02-20T12:41:01.000000Z",
+          "referral_code": "UgQL5s",
+          "device_token": "************",
+          "device_type": null,
+          "status": "active",
+          "tier_id": 2,
+          "credits": null,
+          "avatar": "avatar_12.png",
+          "deleted_at": null,
+          "created_at": "2024-02-20T12:40:22.000000Z",
+          "updated_at": "2024-02-25T11:14:05.000000Z",
+          "heard_about_us": null,
+          "failed_login_attempts": 0,
+          "total_crypto_trade": 2675.05,
+          "has_pin": true,
+          "wallet_balance": "45.00",
+          "has_verifiedBVN": true,
+          "has_default_bank_account": true,
+          "has_withdrawn": true
+        }
+      }
+    ],
+    "first_page_url": "http://localhost:2525/api/console/airtime/topups?page=1",
+    "from": 1,
+    "last_page": 2,
+    "last_page_url": "http://localhost:2525/api/console/airtime/topups?page=2",
+    "links": [
+      {
+        "url": null,
+        "label": "&laquo; Previous",
+        "active": false
+      },
+      {
+        "url": "http://localhost:2525/api/console/airtime/topups?page=1",
+        "label": "1",
+        "active": true
+      }
+    ],
+    "next_page_url": "http://localhost:2525/api/console/airtime/topups?page=2",
+    "path": "http://localhost:2525/api/console/airtime/topups",
+    "per_page": 25,
+    "prev_page_url": null,
+    "to": 25,
+    "total": 32,
+    "overview": {
+      "successful": 32,
+      "pending": 0,
+      "rejected": 0
+    }
+  }
+}
+```
+
+</ResponseExample>

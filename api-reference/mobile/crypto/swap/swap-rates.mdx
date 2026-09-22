@@ -1,0 +1,80 @@
+---
+title: "Swap Rates"
+api: "POST /crypto/swap/rates"
+---
+
+## Body
+
+<ParamField body="from" type="string">
+  Example: `eth`
+</ParamField>
+
+<ParamField body="to" type="string">
+  Example: `btc`
+</ParamField>
+
+<ParamField body="amountFrom" type="string">
+  Example: `1.2`
+</ParamField>
+
+<RequestExample>
+
+```json Request
+{
+  "from": "eth",
+  "to": "btc",
+  "amountFrom": "1.2"
+}
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```text Example
+Data {
+  exchange: {
+    from: string
+    to: string
+    amountFrom: string
+  }
+  floating: {
+    amountTo: number
+    expiredAt: any
+  }
+  fixed:  {
+    rate_id: string
+    amountTo: number
+    expiredAt: string
+  }
+}
+```
+
+```json 200
+{
+  "success": true,
+  "message": "successful",
+  "data": {
+    "exchange": {
+      "from": "eth",
+      "to": "btc",
+      "amountFrom": "1.2"
+    },
+    "floating": {
+      "amountTo": 0.04245786,
+      "min": "0.00727435",
+      "max": "3273.45480822",
+      "expiredAt": null
+    },
+    "fixed": {
+      "rate_id": "$IuTMko@^(oR0~U4J07oFv~!NS0dtT",
+      "amountTo": 0.04238671,
+      "min": "0.01212049",
+      "max": "96.9638521",
+      "expiredAt": "2025-09-30 17:26:57"
+    }
+  }
+}
+```
+
+</ResponseExample>

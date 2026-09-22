@@ -1,0 +1,67 @@
+---
+title: "Crypto Deposits Details"
+api: "GET /console/crypto/deposits/{id}"
+---
+
+## Path parameters
+
+<ParamField path="id" type="string" required>
+   Example: `22`
+</ParamField>
+
+<ResponseExample>
+
+```json 200
+{
+  "success": true,
+  "message": "Deposit details",
+  "data": {
+    "id": 22,
+    "user_id": 1,
+    "reference": "CD1730141697029489",
+    "crypto": "BTC",
+    "crypto_amount": "0.00014000",
+    "conversion_rate": "350.00",
+    "usd_value": "3.80",
+    "payout_amount": "1330.79",
+    "payout_currency": "NGN",
+    "confirmations": 3,
+    "status": "successful",
+    "transaction_hash": "c7a145ef2fe73af353955fd19d5c6bc49e1c27bafdc8ff3d4ffbd1bab54cb554",
+    "transaction_link": "https://chain.so/address/BTC/c7a145ef2fe73af353955fd19d5c6bc49e1c27bafdc8ff3d4ffbd1bab54cb554",
+    "address": "bc1qqftdp9f3pukm7yykyk0s3fm0x8aucjlmeppcwyyw34ftvkkavzxsdpsrmu",
+    "platform": "BlockIO",
+    "created_at": "2023-10-11T12:04:49.000000Z",
+    "updated_at": "2023-10-11T12:56:49.000000Z",
+    "user": {
+      "id": 1,
+      "name": "Alabidun Mubarak",
+      "username": "mubharaq",
+      "phone": "08012345678",
+      "email": "user@example.com",
+      "dob": null,
+      "email_verified_at": "2023-10-11T09:36:07.000000Z",
+      "referral_code": "GNcMNQ",
+      "device_token": "************",
+      "device_type": null,
+      "status": "active",
+      "tier_id": 3,
+      "credits": null,
+      "avatar": "avatar_12.png",
+      "deleted_at": null,
+      "created_at": "2023-10-11T09:35:39.000000Z",
+      "updated_at": "2024-06-27T08:48:37.000000Z",
+      "heard_about_us": null,
+      "failed_login_attempts": 0,
+      "total_crypto_trade": 3.8,
+      "has_pin": true,
+      "wallet_balance": "760.00",
+      "has_verifiedBVN": true,
+      "has_default_bank_account": true,
+      "has_withdrawn": true
+    }
+  }
+}
+```
+
+</ResponseExample>

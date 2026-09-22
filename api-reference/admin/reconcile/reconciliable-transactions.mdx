@@ -1,0 +1,87 @@
+---
+title: "Reconciliable transactions"
+api: "GET /console/reconciliations/reconciliable-transactions"
+---
+
+## Query parameters
+
+<ParamField query="search" type="string">
+   Example: `rezzio`
+</ParamField>
+
+<ResponseExample>
+
+```json 200
+{
+  "success": true,
+  "message": "successful",
+  "data": [
+    {
+      "id": "9caabc2b-023c-4e6f-83f7-605fa37ede26",
+      "reference": "WWESBXO5D9YYXQ3JEA",
+      "user_id": "9caa0a8a-9127-4862-8ab8-df836d4617bd",
+      "transaction_type": "withdraw",
+      "transaction_id": "9caabc2a-f9a2-4ae3-8462-b74b122219e6",
+      "entry": "debit",
+      "status": "successful",
+      "narration": "N1000 Withdrawal request",
+      "currency": "NGN",
+      "amount": 1000,
+      "charge": 0,
+      "total_amount": 1000,
+      "wallet_balance": 499000,
+      "is_reversal": false,
+      "mode": null,
+      "created_at": "2024-08-02T03:59:13.000000Z",
+      "updated_at": "2024-08-02T03:59:13.000000Z",
+      "user": {
+        "id": "9caa0a8a-9127-4862-8ab8-df836d4617bd",
+        "name": "Emmanuel Adedire",
+        "email": "user@example.com",
+        "username": "adedrey",
+        "total_crypto_trade": 5.92,
+        "total_withdrawn": 1000,
+        "has_pin": false,
+        "wallet_balance": "506992.00",
+        "has_verifiedBVN": false,
+        "has_default_bank_account": true,
+        "has_withdrawn": true
+      }
+    },
+    {
+      "id": "9cba6297-5e39-4f66-ada1-6c00731bb085",
+      "reference": "CDUWEURE2GJHNX5FTK",
+      "user_id": "9caa0a8a-9127-4862-8ab8-df836d4617bd",
+      "transaction_type": "crypto",
+      "transaction_id": "9cba6297-5250-4451-a172-a05d42248631",
+      "entry": "credit",
+      "status": "successful",
+      "narration": "NGN 7992 BTC payout",
+      "currency": "NGN",
+      "amount": 7992,
+      "charge": 0,
+      "total_amount": 7992,
+      "wallet_balance": 506992,
+      "is_reversal": false,
+      "mode": null,
+      "created_at": "2024-08-09T22:41:59.000000Z",
+      "updated_at": "2024-08-09T22:41:59.000000Z",
+      "user": {
+        "id": "9caa0a8a-9127-4862-8ab8-df836d4617bd",
+        "name": "Emmanuel Adedire",
+        "email": "user@example.com",
+        "username": "adedrey",
+        "total_crypto_trade": 5.92,
+        "total_withdrawn": 1000,
+        "has_pin": false,
+        "wallet_balance": "506992.00",
+        "has_verifiedBVN": false,
+        "has_default_bank_account": true,
+        "has_withdrawn": true
+      }
+    }
+  ]
+}
+```
+
+</ResponseExample>

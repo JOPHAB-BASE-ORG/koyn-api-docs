@@ -1,0 +1,56 @@
+---
+title: "Notice Bulletin"
+api: "POST /console/notification/bulletin"
+---
+
+## Body
+
+<ParamField body="target" type="string">
+  Example: `all_users`
+</ParamField>
+
+<ParamField body="user" type="string">
+  
+</ParamField>
+
+<ParamField body="title" type="string">
+  Example: `Good people`
+</ParamField>
+
+<ParamField body="body" type="string">
+  Example: `Good morning Good people`
+</ParamField>
+
+<RequestExample>
+
+```json Request
+{
+  "target": "all_users",
+  "user": "",
+  "title": "Good people",
+  "body": "Good morning Good people"
+}
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json 200
+{
+  "success": true,
+  "message": "successful",
+  "data": {
+    "title": "Good people",
+    "body": "Good morning Good people",
+    "group": null,
+    "successful": 0,
+    "failed": 0,
+    "updated_at": "2024-06-27T06:26:31.000000Z",
+    "created_at": "2024-06-27T06:26:31.000000Z",
+    "id": 13
+  }
+}
+```
+
+</ResponseExample>

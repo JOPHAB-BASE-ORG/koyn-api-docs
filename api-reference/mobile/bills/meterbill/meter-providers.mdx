@@ -1,0 +1,44 @@
+---
+title: "Meter Providers"
+api: "GET /meter/providers"
+---
+
+<ResponseExample>
+
+```json 200
+{
+  "success": true,
+  "message": "successful",
+  "data": [
+    {
+      "id": 1,
+      "name": "Abuja",
+      "logo": "https://res.cloudinary.com/diyxzs220/image/upload/v1698229298/bills/phpIpSDHL_v6miia.png",
+      "status": "active",
+      "created_at": null,
+      "updated_at": null
+    },
+    {
+      "id": 2,
+      "name": "Eko",
+      "logo": "https://res.cloudinary.com/diyxzs220/image/upload/v1698225840/bills/phpCFUa3r_u2iv3s.png",
+      "status": "active",
+      "created_at": null,
+      "updated_at": null
+    }
+  ]
+}
+```
+
+```text Example
+{
+  id: number
+  name: string
+  logo: string|null
+  status: string
+  created_at: any
+  updated_at: any
+}
+```
+
+</ResponseExample>

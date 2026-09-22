@@ -1,0 +1,42 @@
+---
+title: "Update pin"
+api: "PUT /pin/update"
+---
+
+## Body
+
+<ParamField body="pin" type="string">
+  Example: `0000`
+</ParamField>
+
+<ParamField body="pin_confirmation" type="string">
+  Example: `0000`
+</ParamField>
+
+<ParamField body="current_pin" type="string">
+  Example: `0000`
+</ParamField>
+
+<RequestExample>
+
+```json Request
+{
+  "pin": "0000",
+  "pin_confirmation": "0000",
+  "current_pin": "0000"
+}
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json 200
+{
+  "success": true,
+  "message": "Your pin has been updated successfully",
+  "data": null
+}
+```
+
+</ResponseExample>

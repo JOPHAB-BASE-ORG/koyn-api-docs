@@ -1,0 +1,28 @@
+---
+title: "Delete User"
+api: "DELETE /console/users/{userId}/hard-delete"
+---
+
+## Headers
+
+<ParamField header="Content-Type" type="string">
+Example: `application/json`
+</ParamField>
+
+## Path parameters
+
+<ParamField path="userId" type="string" required>
+   Example: `13`
+</ParamField>
+
+<ResponseExample>
+
+```json 200
+{
+  "success": true,
+  "message": "User account and personal data permanently deleted.",
+  "data": null
+}
+```
+
+</ResponseExample>

@@ -1,0 +1,145 @@
+---
+title: "List all Trades"
+api: "GET /console/giftcards/trades"
+---
+
+## Query parameters
+
+<ParamField query="status" type="string">
+  pending, approved, rejected Example: `pending`
+</ParamField>
+
+<ParamField query="search" type="string">
+  search by name, email, reference, code Example: `Ugo`
+</ParamField>
+
+<ParamField query="brand_id" type="string">
+  brand id  Example: `1`
+</ParamField>
+
+<ParamField query="category_id" type="string">
+  category id Example: `1`
+</ParamField>
+
+<ParamField query="has_code" type="string">
+  boolean (true or false || 1 or 0) Example: `1`
+</ParamField>
+
+<ParamField query="has_images" type="string">
+  boolean (true or false || 1 or 0) Example: `1`
+</ParamField>
+
+<ParamField query="page" type="string">
+  optional (defaults to 1) Example: `1`
+</ParamField>
+
+<ParamField query="limit" type="string">
+  optional (defaults to 20) Example: `10`
+</ParamField>
+
+<ResponseExample>
+
+```json 200
+{
+  "success": true,
+  "message": "Giftcard trades",
+  "data": {
+    "data": [
+      {
+        "id": 1,
+        "user_id": 52,
+        "brand_id": 1,
+        "category_id": 1,
+        "wallet_transaction_id": 3494046866,
+        "amount": 50,
+        "rate": 1300,
+        "code": "HD3DSDHUY43",
+        "images": [],
+        "meta": {
+          "brand": {
+            "id": 1,
+            "logo": "https://res.cloudinary.com/diyxzs220/image/upload/v1771557483/giftcards/brands/Apple-Store-iTunes-New_ptjk1h.png",
+            "name": "Apple iTunes",
+            "is_active": true
+          },
+          "category": {
+            "id": 1,
+            "max": 99,
+            "min": 20,
+            "name": "USA ECODE 🇱🇷",
+            "rate": 1300,
+            "is_active": true,
+            "requires_receipt": false
+          }
+        },
+        "source": "unknown",
+        "ip_address": "105.113.118.117",
+        "status": "pending",
+        "approved_by": null,
+        "rejected_by": null,
+        "admin_comments": null,
+        "created_at": "2026-02-23T10:46:20.000000Z",
+        "updated_at": "2026-02-23T10:46:20.000000Z",
+        "user": {
+          "id": 52,
+          "name": "frankemmanuel249",
+          "username": "frankemmanuel249",
+          "phone": "08012345678",
+          "email": "user@example.com",
+          "dob": null,
+          "email_verified_at": "2026-02-11T13:54:39.000000Z",
+          "referral_code": null,
+          "device_token": "************",
+          "device_type": null,
+          "status": "active",
+          "is_flagged": false,
+          "flag_reason": null,
+          "has_biometric": false,
+          "tier_id": 1,
+          "credits": null,
+          "avatar": null,
+          "deleted_at": null,
+          "created_at": "2026-02-11T13:54:39.000000Z",
+          "updated_at": "2026-02-20T02:05:51.000000Z",
+          "heard_about_us": null,
+          "failed_login_attempts": 0,
+          "total_crypto_trade": 0,
+          "total_withdrawn": 0,
+          "has_pin": false,
+          "wallet_balance": "70000.00",
+          "has_verifiedBVN": false,
+          "has_default_bank_account": false,
+          "has_withdrawn": false,
+          "crypto_wallets": []
+        },
+        "brand": {
+          "id": 1,
+          "name": "Apple iTunes",
+          "logo": "https://res.cloudinary.com/diyxzs220/image/upload/v1771557483/giftcards/brands/Apple-Store-iTunes-New_ptjk1h.png",
+          "is_active": true,
+          "created_at": "2026-02-20T03:16:56.000000Z",
+          "updated_at": "2026-02-20T03:18:04.000000Z"
+        },
+        "category": {
+          "id": 1,
+          "brand_id": 1,
+          "name": "USA ECODE 🇱🇷",
+          "min": 20,
+          "max": 99,
+          "rate": 1300,
+          "is_active": true,
+          "requires_receipt": false,
+          "created_at": "2026-02-20T03:18:25.000000Z",
+          "updated_at": "2026-02-20T03:18:25.000000Z"
+        }
+      }
+    ],
+    "total": 1,
+    "per_page": 10,
+    "current_page": 1,
+    "total_pages": 1
+  }
+}
+```
+
+</ResponseExample>

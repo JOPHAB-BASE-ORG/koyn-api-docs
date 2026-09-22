@@ -1,0 +1,45 @@
+---
+title: "App version"
+api: "GET /console/settings/app-version"
+---
+
+## Body
+
+<Note>Send as `multipart/form-data`.</Note>
+
+<ParamField body="bank_name" type="string">
+   Example: `ABBEY MORTGAGE BANK`
+</ParamField>
+
+<ParamField body="bank_code" type="string">
+   Example: `070010`
+</ParamField>
+
+<ParamField body="bank_logo" type="file">
+
+</ParamField>
+
+<ParamField body="status" type="string">
+   Example: `active`
+</ParamField>
+
+<ResponseExample>
+
+```json 200
+{
+  "success": true,
+  "message": "bank successfully updated",
+  "data": {
+    "id": 1,
+    "bank_name": "ABBEY MORTGAGE BANK",
+    "bank_code": "070010",
+    "monnify_bank_code": "070010",
+    "bank_logo": "https://res.cloudinary.com/diyxzs220/image/upload/v1719466139/banks/phpgKxVke_tyo2lu.png",
+    "created_at": "2020-06-28T21:29:12.000000Z",
+    "updated_at": "2024-06-27T05:28:59.000000Z",
+    "status": "active"
+  }
+}
+```
+
+</ResponseExample>

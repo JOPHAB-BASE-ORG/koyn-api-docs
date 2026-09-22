@@ -1,0 +1,81 @@
+---
+title: "Withdrawals"
+api: "GET /console/users/{id}/withdrawals"
+---
+
+## Path parameters
+
+<ParamField path="id" type="string" required>
+   Example: `41`
+</ParamField>
+
+## Query parameters
+
+<ParamField query="search" type="string">
+   Example: `xdfg`
+</ParamField>
+
+<ParamField query="status" type="string">
+   Example: `successful`
+</ParamField>
+
+<ResponseExample>
+
+```json 200
+{
+  "success": true,
+  "message": "successful",
+  "data": {
+    "current_page": 1,
+    "data": [
+      {
+        "id": 393,
+        "user_id": 1279,
+        "reference": "WW6052061714034102",
+        "amount": "1000.00",
+        "bank": null,
+        "bank_code": "000014",
+        "bank_name": "ACCESS BANK PLC",
+        "account_name": "afuwape sunday",
+        "account_number": "0000000000",
+        "bank_logo": null,
+        "status": "pending",
+        "rejection_id": null,
+        "settled_by": null,
+        "provider_reference": null,
+        "provider_status": null,
+        "platform": "redbiller",
+        "created_at": "2024-04-25T07:35:02.000000Z",
+        "updated_at": "2024-04-25T07:35:02.000000Z",
+        "channel": "automated",
+        "staff": null,
+        "rejection_reason": null
+      }
+    ],
+    "first_page_url": "http://localhost:2525/api/console/withdrawals?page=1",
+    "from": 1,
+    "last_page": 24,
+    "last_page_url": "http://localhost:2525/api/console/withdrawals?page=24",
+    "links": [
+      {
+        "url": null,
+        "label": "&laquo; Previous",
+        "active": false
+      },
+      {
+        "url": "http://localhost:2525/api/console/withdrawals?page=1",
+        "label": "1",
+        "active": true
+      }
+    ],
+    "next_page_url": "http://localhost:2525/api/console/withdrawals?page=2",
+    "path": "http://localhost:2525/api/console/withdrawals",
+    "per_page": 15,
+    "prev_page_url": null,
+    "to": 15,
+    "total": 355
+  }
+}
+```
+
+</ResponseExample>

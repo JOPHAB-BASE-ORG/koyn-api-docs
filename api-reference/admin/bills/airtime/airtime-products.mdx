@@ -1,0 +1,49 @@
+---
+title: "Airtime products"
+api: "GET /console/airtime/products"
+---
+
+## Body
+
+<RequestExample>
+
+```json Request
+//pending,successful,failed
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json 200
+{
+  "success": true,
+  "message": "Supported Products",
+  "data": [
+    {
+      "id": 1,
+      "product": "MTN",
+      "code": "MTN",
+      "logo": "https://res.cloudinary.com/diyxzs220/image/upload/v1698229042/bills/phpqdxYPq_fqqmhn.png",
+      "status": "active",
+      "minimum_amount": 100,
+      "maximum_amount": 30000,
+      "created_at": "2023-06-08T09:57:09.000000Z",
+      "updated_at": "2023-06-08T09:57:09.000000Z"
+    },
+    {
+      "id": 2,
+      "product": "Airtel",
+      "code": "Airtel",
+      "logo": "https://res.cloudinary.com/diyxzs220/image/upload/v1698229052/bills/phphEKl9w_weeysr.png",
+      "status": "active",
+      "minimum_amount": 100,
+      "maximum_amount": 30000,
+      "created_at": "2023-06-08T09:57:09.000000Z",
+      "updated_at": "2023-06-08T09:57:09.000000Z"
+    }
+  ]
+}
+```
+
+</ResponseExample>

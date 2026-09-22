@@ -1,0 +1,84 @@
+---
+title: "Create Wallet"
+api: "POST /crypto/wallets/create"
+---
+
+## Body
+
+<ParamField body="symbol" type="string">
+  Example: `BTC`
+</ParamField>
+
+<RequestExample>
+
+```json Request
+{
+  "symbol": "BTC"
+}
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json 200
+{
+  "success": true,
+  "message": "successful",
+  "data": {
+    "chain": "BTCTEST",
+    "address": "tb1q9ex9grv8ac76wk6qewt9pyajv3uhm8256hpkr6zknjavz3dk2avsvdglnr",
+    "crypto_asset_id": 1,
+    "user_id": 1279,
+    "updated_at": "2024-05-24T02:54:20.000000Z",
+    "created_at": "2024-05-24T02:54:20.000000Z",
+    "id": 782
+  }
+}
+```
+
+```text Example
+{
+  chain: string
+  address: string
+  crypto_asset_id: number
+  user_id: number
+  updated_at: string
+  created_at: string
+  id: number
+}
+```
+
+```json 200 (2)
+{
+  "success": true,
+  "message": "successful",
+  "data": {
+    "chain": "BTC",
+    "address": "tb1q02wdk9gzu0z4dssherhst76n6v0vd87ufz80zc",
+    "crypto_asset_id": 1,
+    "user_id": 1282,
+    "updated_at": "2024-07-27T15:43:14.000000Z",
+    "created_at": "2024-07-27T15:43:14.000000Z",
+    "id": 785
+  }
+}
+```
+
+```json 200 (3)
+{
+  "success": true,
+  "message": "successful",
+  "data": {
+    "chain": "ETH",
+    "address": "0x83547dE06F0dD007D34C59Ad3B620Aa4682f297b",
+    "crypto_asset_id": 2,
+    "user_id": 1282,
+    "updated_at": "2024-07-27T16:58:10.000000Z",
+    "created_at": "2024-07-27T16:58:10.000000Z",
+    "id": 786
+  }
+}
+```
+
+</ResponseExample>

@@ -1,0 +1,111 @@
+---
+title: "Fund Bet Account"
+api: "POST /betting/fund"
+---
+
+## Body
+
+<ParamField body="product" type="string">
+  Example: `BET9JA`
+</ParamField>
+
+<ParamField body="customer_id" type="string">
+  Example: `3308882`
+</ParamField>
+
+<ParamField body="phone_number" type="string">
+  Example: `08012345678`
+</ParamField>
+
+<ParamField body="amount" type="integer">
+  Example: `100`
+</ParamField>
+
+<RequestExample>
+
+```json Request
+{
+  "product": "BET9JA",
+  "customer_id": "3308882",
+  "phone_number": "08012345678",
+  "amount": 100
+}
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json 200
+{
+  "success": true,
+  "message": "successful",
+  "data": {
+    "user_id": 1279,
+    "reference": "BTG1A7OALJQQSZWVFZ",
+    "transaction_type": "betting",
+    "transaction_id": 60,
+    "entry": "debit",
+    "status": "successful",
+    "narration": "BET9JA N200 bet fund",
+    "amount": 200,
+    "charge": 0,
+    "total_amount": 0,
+    "wallet_balance": 49400,
+    "updated_at": "2024-05-14T14:02:23.000000Z",
+    "created_at": "2024-05-14T14:02:23.000000Z",
+    "id": 891,
+    "transactable": {
+      "id": 60,
+      "user_id": 1279,
+      "product": "BET9JA",
+      "customer_id": "12345",
+      "amount": "200",
+      "charge": "0.00",
+      "profile": null,
+      "reference": "BTG1A7OALJQQSZWVFZ",
+      "status": "pending",
+      "created_at": "2024-05-14T14:02:22.000000Z",
+      "updated_at": "2024-05-14T14:02:22.000000Z",
+      "provider_status": null
+    }
+  }
+}
+```
+
+```text Example
+Data {
+  user_id: number
+  reference: string
+  transaction_type: string
+  transaction_id: number
+  entry: string
+  status: string
+  narration: string
+  amount: number
+  charge: number
+  total_amount: number
+  wallet_balance: number
+  updated_at: string
+  created_at: string
+  id: number
+  transactable: Transactable
+}
+
+Transactable {
+  id: number
+  user_id: number
+  product: string
+  customer_id: string
+  amount: string
+  charge: string
+  profile: string|null
+  reference: string
+  status: string
+  created_at: string
+  updated_at: string
+  provider_status: any
+}
+```
+
+</ResponseExample>

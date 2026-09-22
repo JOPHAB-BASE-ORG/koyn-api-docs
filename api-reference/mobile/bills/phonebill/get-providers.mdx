@@ -1,0 +1,47 @@
+---
+title: "Get providers"
+api: "GET /phonebill/isp"
+---
+
+<ResponseExample>
+
+```json 200
+{
+  "success": true,
+  "message": "successful",
+  "data": [
+    {
+      "id": 1,
+      "product": "Airtel",
+      "name": "Airtel",
+      "logo": "https://res.cloudinary.com/diyxzs220/image/upload/v1698228977/bills/phphgexEx_avrqvr.png",
+      "status": "active",
+      "created_at": "2023-07-26T14:32:56.000000Z",
+      "updated_at": "2023-07-26T14:32:56.000000Z"
+    },
+    {
+      "id": 2,
+      "product": "MTN",
+      "name": "MTN",
+      "logo": "https://res.cloudinary.com/diyxzs220/image/upload/v1698228988/bills/phpzAMnrk_dlrpg5.png",
+      "status": "active",
+      "created_at": "2023-07-26T14:32:56.000000Z",
+      "updated_at": "2023-07-26T14:32:56.000000Z"
+    }
+  ]
+}
+```
+
+```text Example
+{
+  id: number
+  product: string
+  name: string
+  logo: string|null
+  status: string
+  created_at: string
+  updated_at: string
+}
+```
+
+</ResponseExample>

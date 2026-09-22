@@ -1,0 +1,39 @@
+---
+title: "Step 4"
+api: "POST /register/step/step-4"
+---
+
+## Body
+
+<ParamField body="password" type="string">
+  Example: `***********`
+</ParamField>
+
+<ParamField body="password_confirmation" type="string">
+  Example: `***********`
+</ParamField>
+
+<RequestExample>
+
+```json Request
+{
+  "password": "***********",
+  "password_confirmation": "***********"
+}
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json 200
+{
+  "success": true,
+  "message": "successful",
+  "data": {
+    "password": "***********"
+  }
+}
+```
+
+</ResponseExample>

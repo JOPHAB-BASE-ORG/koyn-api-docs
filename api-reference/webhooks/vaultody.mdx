@@ -1,0 +1,60 @@
+---
+title: "Vaultody"
+api: "POST /webhook/vaultody"
+playground: "none"
+---
+
+## Body
+
+<ParamField body="data" type="object">
+  
+</ParamField>
+
+<ParamField body="walletId" type="string">
+  Example: `679c60f632a06f00066236e8`
+</ParamField>
+
+<ParamField body="webhookId" type="string">
+  Example: `6839c81460e91d18cbbbb371`
+</ParamField>
+
+<ParamField body="apiVersion" type="string">
+  Example: `2024-05-09`
+</ParamField>
+
+<ParamField body="idempotencyKey" type="string">
+  Example: `ab6cfe372a22efd34fcd2411d435b6b69cc6d17d8711902de7dc3f849ecf8814`
+</ParamField>
+
+<RequestExample>
+
+```json Request
+{
+  "data": {
+    "item": {
+      "unit": "BTC",
+      "amount": "0.00225829",
+      "status": "success",
+      "address": "bc1qxchtw7mz5dzqsnugvhcuccgtc5xsdtkuenn8kk",
+      "network": "mainnet",
+      "direction": "incoming",
+      "blockchain": "bitcoin",
+      "minedInBlock": {
+        "hash": "0000000000000000000043b173652c02f82090f70d30402f2b702b1252463a6f",
+        "height": 930119,
+        "timestamp": 1767076797
+      },
+      "transactionId": "4755dca904a7d3c9f5f52abaa30255e46d3b026eecf67d9a4890f175fb37f972",
+      "targetConfirmations": 6,
+      "currentConfirmations": 1
+    },
+    "event": "INCOMING_CONFIRMED_COIN_TX"
+  },
+  "walletId": "679c60f632a06f00066236e8",
+  "webhookId": "6839c81460e91d18cbbbb371",
+  "apiVersion": "2024-05-09",
+  "idempotencyKey": "ab6cfe372a22efd34fcd2411d435b6b69cc6d17d8711902de7dc3f849ecf8814"
+}
+```
+
+</RequestExample>

@@ -1,0 +1,55 @@
+---
+title: "Profile Edit"
+api: "POST /profile/edit"
+---
+
+## Body
+
+<Note>Send as `multipart/form-data`.</Note>
+
+<ParamField body="phone" type="string">
+   Example: `08012345678`
+</ParamField>
+
+<ParamField body="avatar" type="file">
+
+</ParamField>
+
+<ResponseExample>
+
+```json 200
+{
+  "success": true,
+  "message": "Profile updated successfully.",
+  "data": {
+    "id": 1282,
+    "name": "David logic",
+    "username": "dev0007",
+    "phone": "08012345678",
+    "email": "user@example.com",
+    "dob": null,
+    "email_verified_at": "2024-06-25T08:07:12.000000Z",
+    "referral_code": "j1xumq",
+    "device_token": "************",
+    "device_type": null,
+    "status": "active",
+    "tier_id": 1,
+    "credits": null,
+    "avatar": "https://res.cloudinary.com/diyxzs220/image/upload/v1721761303/avatar/php1YUbSQ_fneksr.jpg",
+    "deleted_at": null,
+    "created_at": "2024-06-25T08:07:12.000000Z",
+    "updated_at": "2024-07-26T12:50:34.000000Z",
+    "heard_about_us": "twitter",
+    "failed_login_attempts": 0,
+    "total_crypto_trade": 0,
+    "total_withdrawn": 1000,
+    "has_pin": true,
+    "wallet_balance": "46550.00",
+    "has_verifiedBVN": true,
+    "has_default_bank_account": true,
+    "has_withdrawn": true
+  }
+}
+```
+
+</ResponseExample>

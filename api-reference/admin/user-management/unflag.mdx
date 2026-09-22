@@ -1,0 +1,53 @@
+---
+title: "UnFlag"
+api: "POST /console/users/{userId}/unflag"
+---
+
+## Path parameters
+
+<ParamField path="userId" type="string" required>
+   Example: `9ca7f3e5-4811-492c-a8ea-68821808ed96`
+</ParamField>
+
+<ResponseExample>
+
+```json 200
+{
+  "success": true,
+  "message": "User unflagged successfully!",
+  "data": {
+    "id": 9,
+    "name": null,
+    "username": "dev_damilare",
+    "phone": "08012345678",
+    "email": "user@example.com",
+    "dob": null,
+    "email_verified_at": "2023-11-20T10:19:06.000000Z",
+    "referral_code": "sdEls1",
+    "device_token": "************",
+    "device_type": null,
+    "status": "active",
+    "is_flagged": false,
+    "flag_reason": null,
+    "has_biometric": false,
+    "tier_id": 1,
+    "credits": null,
+    "avatar": "avatar_11.png",
+    "deleted_at": null,
+    "created_at": "2023-10-31T08:15:17.000000Z",
+    "updated_at": "2023-11-20T10:19:52.000000Z",
+    "heard_about_us": null,
+    "failed_login_attempts": 0,
+    "total_crypto_trade": 250,
+    "total_withdrawn": 0,
+    "has_pin": false,
+    "wallet_balance": "0.00",
+    "has_verifiedBVN": false,
+    "has_default_bank_account": false,
+    "has_withdrawn": false,
+    "crypto_wallets": []
+  }
+}
+```
+
+</ResponseExample>

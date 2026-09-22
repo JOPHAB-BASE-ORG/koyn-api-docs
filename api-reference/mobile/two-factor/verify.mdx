@@ -1,0 +1,25 @@
+---
+title: "Verify"
+api: "POST /two-factor/verify"
+---
+
+## Body
+
+<ParamField body="operation" type="string">
+  Example: `withdrawal`
+</ParamField>
+
+<ParamField body="code" type="string">
+  Example: `123456`
+</ParamField>
+
+<RequestExample>
+
+```json Request
+{
+  "operation": "withdrawal",
+  "code": "123456"
+}
+```
+
+</RequestExample>

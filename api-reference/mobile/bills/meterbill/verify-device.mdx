@@ -1,0 +1,58 @@
+---
+title: "Verify device"
+api: "POST /meter/device/verify"
+---
+
+## Body
+
+<ParamField body="product" type="string">
+  Example: `Eko`
+</ParamField>
+
+<ParamField body="meter_no" type="string">
+  Example: `0000000000`
+</ParamField>
+
+<ParamField body="meter_type" type="string">
+  Example: `PREPAID`
+</ParamField>
+
+<RequestExample>
+
+```json Request
+{
+  "product": "Eko",
+  "meter_no": "0000000000",
+  "meter_type": "PREPAID"
+}
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json 200
+{
+  "success": true,
+  "message": "successful",
+  "data": {
+    "product": "EKO",
+    "customer_name": "MOSES ENOGWO",
+    "customer_address": "2 OGIDI CRESCENT LEKKI",
+    "meter_no": "0000000000",
+    "meter_type": "PREPAID"
+  }
+}
+```
+
+```text Example
+{
+  product: string
+  customer_name: string
+  customer_address: string
+  meter_no: string
+  meter_type: string
+}
+```
+
+</ResponseExample>

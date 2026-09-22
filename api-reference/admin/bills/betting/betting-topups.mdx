@@ -1,0 +1,129 @@
+---
+title: "Betting Topups"
+api: "GET /console/betting/topups"
+---
+
+<ResponseExample>
+
+```json 200
+{
+  "success": true,
+  "message": "Betting Top Ups",
+  "data": {
+    "current_page": 1,
+    "data": [
+      {
+        "id": 56,
+        "user_id": 1136,
+        "product": "SPORTYBET",
+        "customer_id": "8066836622",
+        "amount": "1900",
+        "charge": "20.00",
+        "profile": "{\"first_name\":null,\"surname\":null,\"username\":null}",
+        "reference": "BT3660361709308862",
+        "status": "successful",
+        "provider_status": null,
+        "created_at": "2024-03-01T16:01:10.000000Z",
+        "updated_at": "2024-03-01T16:01:10.000000Z",
+        "user": {
+          "id": 1136,
+          "name": null,
+          "username": "samariviktor",
+          "phone": "08012345678",
+          "email": "user@example.com",
+          "dob": null,
+          "email_verified_at": "2024-02-27T07:57:25.000000Z",
+          "referral_code": "7tuSCS",
+          "device_token": "************",
+          "device_type": null,
+          "status": "active",
+          "tier_id": 1,
+          "credits": null,
+          "avatar": "avatar_5.png",
+          "deleted_at": null,
+          "created_at": "2024-02-27T07:52:09.000000Z",
+          "updated_at": "2024-02-27T08:02:43.000000Z",
+          "heard_about_us": "From a friend",
+          "failed_login_attempts": 0,
+          "total_crypto_trade": 632.72,
+          "has_pin": true,
+          "wallet_balance": "13.14",
+          "has_verifiedBVN": false,
+          "has_default_bank_account": true,
+          "has_withdrawn": true
+        }
+      },
+      {
+        "id": 55,
+        "user_id": 1089,
+        "product": "SPORTYBET",
+        "customer_id": "7046513634",
+        "amount": "800",
+        "charge": "20.00",
+        "profile": "{\"first_name\":null,\"surname\":null,\"username\":null}",
+        "reference": "BT8174671709260278",
+        "status": "successful",
+        "provider_status": null,
+        "created_at": "2024-03-01T02:31:27.000000Z",
+        "updated_at": "2024-03-01T02:31:27.000000Z",
+        "user": {
+          "id": 1089,
+          "name": " ",
+          "username": "santos7",
+          "phone": "08012345678",
+          "email": "user@example.com",
+          "dob": null,
+          "email_verified_at": "2024-02-22T13:07:29.000000Z",
+          "referral_code": "focgdv",
+          "device_token": "************",
+          "device_type": null,
+          "status": "active",
+          "tier_id": 2,
+          "credits": null,
+          "avatar": "avatar_12.png",
+          "deleted_at": null,
+          "created_at": "2024-02-22T13:06:03.000000Z",
+          "updated_at": "2024-02-23T15:16:04.000000Z",
+          "heard_about_us": null,
+          "failed_login_attempts": 0,
+          "total_crypto_trade": 720.85,
+          "has_pin": true,
+          "wallet_balance": "400196.14",
+          "has_verifiedBVN": true,
+          "has_default_bank_account": true,
+          "has_withdrawn": true
+        }
+      }
+    ],
+    "first_page_url": "http://localhost:2525/api/console/betting/topups?page=1",
+    "from": 1,
+    "last_page": 3,
+    "last_page_url": "http://localhost:2525/api/console/betting/topups?page=3",
+    "links": [
+      {
+        "url": null,
+        "label": "&laquo; Previous",
+        "active": false
+      },
+      {
+        "url": "http://localhost:2525/api/console/betting/topups?page=1",
+        "label": "1",
+        "active": true
+      }
+    ],
+    "next_page_url": "http://localhost:2525/api/console/betting/topups?page=2",
+    "path": "http://localhost:2525/api/console/betting/topups",
+    "per_page": 25,
+    "prev_page_url": null,
+    "to": 25,
+    "total": 56,
+    "overview": {
+      "successful": 56,
+      "pending": 0,
+      "rejected": 0
+    }
+  }
+}
+```
+
+</ResponseExample>

@@ -1,0 +1,78 @@
+---
+title: "Get Category Cards"
+api: "GET /cards/categories/12"
+description: "Deprecated. Retained for reference only."
+---
+
+<Warning>
+  This endpoint belongs to a retired flow. Use the current equivalents documented elsewhere in this reference.
+</Warning>
+
+Get all the giftcards in a giftcard category.
+
+<ResponseExample>
+
+```json 200
+{
+  "status": "Success",
+  "message": null,
+  "data": [
+    {
+      "id": 62,
+      "category_id": 12,
+      "name": "USA Card&Receipt Pic 25-$49",
+      "slug": "target-usa-300-and-above",
+      "terms": "-Upload clear and full picture of card\r\n-Each card must be at least $25\r\n- Card must start with AQ",
+      "status": "active",
+      "top_card": null,
+      "created_at": "2021-12-11T04:36:54.000000Z",
+      "updated_at": "2022-07-12T02:54:24.000000Z",
+      "rate": 130,
+      "min": 25,
+      "deleted_at": null,
+      "position": 0,
+      "category": {
+        "id": 12,
+        "name": "Amazon",
+        "slug": "amazon",
+        "large_image": "https://res.cloudinary.com/traydah/image/upload/v1655156601/amazon_large_nquck3.png",
+        "small_image": "https://res.cloudinary.com/traydah/image/upload/v1655156601/amazon_small_ou1ybu.png",
+        "status": "active",
+        "created_at": "2021-11-15T18:50:53.000000Z",
+        "updated_at": "2021-11-17T21:52:51.000000Z",
+        "position": 9,
+        "deleted_at": null
+      }
+    },
+    {
+      "id": 63,
+      "category_id": 12,
+      "name": "USA Card&Receipt Pic 50-$100",
+      "slug": "best-buy-usa-300-and-above",
+      "terms": "-Upload clear and full picture of card \r\n-Each card must be at least $25\r\n- Card must start with AQ",
+      "status": "active",
+      "top_card": null,
+      "created_at": "2021-12-11T04:40:19.000000Z",
+      "updated_at": "2022-04-16T04:32:40.000000Z",
+      "rate": 215,
+      "min": 50,
+      "deleted_at": null,
+      "position": 0,
+      "category": {
+        "id": 12,
+        "name": "Amazon",
+        "slug": "amazon",
+        "large_image": "https://res.cloudinary.com/traydah/image/upload/v1655156601/amazon_large_nquck3.png",
+        "small_image": "https://res.cloudinary.com/traydah/image/upload/v1655156601/amazon_small_ou1ybu.png",
+        "status": "active",
+        "created_at": "2021-11-15T18:50:53.000000Z",
+        "updated_at": "2021-11-17T21:52:51.000000Z",
+        "position": 9,
+        "deleted_at": null
+      }
+    }
+  ]
+}
+```
+
+</ResponseExample>

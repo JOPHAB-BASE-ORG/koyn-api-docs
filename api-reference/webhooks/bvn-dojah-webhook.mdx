@@ -1,0 +1,199 @@
+---
+title: "BVN Dojah webhook"
+api: "POST /webhook/kyc"
+playground: "none"
+---
+
+## Body
+
+<ParamField body="metadata" type="object">
+  
+</ParamField>
+
+<ParamField body="data" type="object">
+  
+</ParamField>
+
+<ParamField body="id_type" type="string">
+  Example: `BVN`
+</ParamField>
+
+<ParamField body="value" type="string">
+  Example: `22601897470`
+</ParamField>
+
+<ParamField body="message" type="string">
+  Example: `Successfully completed the verification.`
+</ParamField>
+
+<ParamField body="reference_id" type="string">
+  Example: `175369000588475721066`
+</ParamField>
+
+<ParamField body="widget_id" type="string">
+  Example: `655696eba31eee0040988d8c`
+</ParamField>
+
+<ParamField body="verification_mode" type="string">
+  Example: `LIVENESS`
+</ParamField>
+
+<ParamField body="verification_type" type="string">
+  Example: `BVN`
+</ParamField>
+
+<ParamField body="verification_value" type="string">
+  Example: `22601897470`
+</ParamField>
+
+<ParamField body="verification_url" type="string">
+  Example: `https://app.dojah.io/verifications/bio-data/a4104b51-8b6d-44a8-a0bb-abcca38410da`
+</ParamField>
+
+<ParamField body="selfie_url" type="string">
+  Example: `https://images.dojah.io/image_68872f9d2c758800476ce103face_1753690191.jpg`
+</ParamField>
+
+<ParamField body="status" type="boolean">
+  Example: `true`
+</ParamField>
+
+<ParamField body="aml" type="object">
+  
+</ParamField>
+
+<ParamField body="verification_status" type="string">
+  Example: `Completed`
+</ParamField>
+
+<RequestExample>
+
+```json Request
+{
+  "metadata": {
+    "ipinfo": {
+      "status": "success",
+      "country": "Nigeria",
+      "city": "Abuja",
+      "district": null,
+      "zip": null,
+      "lat": 9.0567,
+      "lon": 7.4969,
+      "timezone": "Africa/Lagos",
+      "isp": "MTN NIGERIA Communication limited",
+      "org": "MTN Nigeria",
+      "as": "AS29465 MTN NIGERIA Communication limited",
+      "mobile": true,
+      "proxy": false,
+      "hosting": true,
+      "query": "102.91.92.43",
+      "region_name": "FCT"
+    },
+    "device_info": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_0_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148",
+    "user_id": "12508",
+    "reference": "175369000588475721066"
+  },
+  "data": {
+    "index": {
+      "data": [],
+      "message": "Successfully continued to the main checks.",
+      "status": true
+    },
+    "user_data": {
+      "data": {
+        "first_name": "Ogiozee",
+        "last_name": "Destiny",
+        "dob": "2004-04-13",
+        "email": "user@example.com"
+      },
+      "message": null,
+      "status": true
+    },
+    "countries": {
+      "data": {
+        "country": "Nigeria"
+      },
+      "message": "Successfully continued to the next step.",
+      "status": true
+    },
+    "government_data": {
+      "data": {
+        "bvn": {
+          "entity": {
+            "customer": "629ba994-8fa5-4796-8f8e-480d61889458",
+            "app_id": "64b27428c68e4b0040c2cf79",
+            "bvn": "00000000000",
+            "first_name": "DESTINY",
+            "last_name": "OGIOZEE",
+            "middle_name": null,
+            "gender": "Male",
+            "date_of_birth": "2004-04-13",
+            "phone_number1": "08012345678",
+            "phone_number2": null,
+            "image_url": "https://images.dojah.io/bvn_22601897470_1753690123.jpg",
+            "email": null,
+            "enrollment_bank": null,
+            "enrollment_branch": null,
+            "level_of_account": null,
+            "lga_of_origin": null,
+            "lga_of_residence": null,
+            "marital_status": null,
+            "name_on_card": null,
+            "nationality": null,
+            "nin": null,
+            "registration_date": null,
+            "residential_address": null,
+            "state_of_origin": null,
+            "state_of_residence": null,
+            "title": null,
+            "type": "basic",
+            "xc": "d",
+            "sc": true,
+            "watch_listed": null,
+            "createdAt": "2025-07-28T08:08:43.000Z",
+            "updatedAt": "2025-07-28T08:08:43.000Z"
+          }
+        }
+      },
+      "message": null,
+      "status": true
+    },
+    "email": {
+      "data": {
+        "email": "user@example.com"
+      },
+      "status": false,
+      "message": "email collected successfully"
+    }
+  },
+  "id_type": "BVN",
+  "value": "22601897470",
+  "message": "Successfully completed the verification.",
+  "reference_id": "175369000588475721066",
+  "widget_id": "655696eba31eee0040988d8c",
+  "verification_mode": "LIVENESS",
+  "verification_type": "BVN",
+  "verification_value": "22601897470",
+  "verification_url": "https://app.dojah.io/verifications/bio-data/a4104b51-8b6d-44a8-a0bb-abcca38410da",
+  "selfie_url": "https://images.dojah.io/image_68872f9d2c758800476ce103face_1753690191.jpg",
+  "status": true,
+  "aml": {
+    "status": false
+  },
+  "verification_status": "Completed"
+}
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json 200
+{
+  "success": true,
+  "message": "successful",
+  "data": []
+}
+```
+
+</ResponseExample>

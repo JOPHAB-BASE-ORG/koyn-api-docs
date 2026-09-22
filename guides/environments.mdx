@@ -1,0 +1,20 @@
+---
+title: "Environments"
+description: "Base URLs for production, staging and local development"
+---
+
+All paths in this reference are relative to the environment base URL. The playground on each endpoint page targets production by default.
+
+| Environment | Base URL |
+| --- | --- |
+| Production | `https://api.getkoyn.com/api` |
+| Staging | `https://monkfish-app-98tnt.ondigitalocean.app/api` |
+| Local (Herd / Valet) | `https://getkoyn.test/api` |
+
+<Warning>
+  Admin console endpoints live under `/console` on the same host. They are not a separate deployment.
+</Warning>
+
+## Webhook targets
+
+Provider callbacks are delivered to `/webhook/{provider}` on the production host. Register the production URL with each provider and keep staging callbacks pointed at the staging host so test traffic never reaches live ledgers.

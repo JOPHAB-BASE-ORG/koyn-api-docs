@@ -1,0 +1,39 @@
+---
+title: "Crypto Wallet balance"
+api: "GET /console/crypto/wallet/balance"
+---
+
+<ResponseExample>
+
+```json 200
+{
+  "success": true,
+  "message": "successful",
+  "data": {
+    "balance": {
+      "amount": "0.00019762",
+      "unit": "BTC"
+    },
+    "depositAddressesCount": 17
+  }
+}
+```
+
+```json 200 (2)
+{
+  "success": true,
+  "message": "successful",
+  "data": [
+    {
+      "balance": "0.05",
+      "symbol": "ETH"
+    },
+    {
+      "balance": "0.00022207",
+      "symbol": "BTC"
+    }
+  ]
+}
+```
+
+</ResponseExample>

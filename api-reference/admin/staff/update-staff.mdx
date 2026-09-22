@@ -1,0 +1,75 @@
+---
+title: "Update Staff"
+api: "PATCH /console/staffs/{user}"
+---
+
+## Path parameters
+
+<ParamField path="user" type="string" required>
+   Example: `9cb349fa-9d47-41f8-9cd4-ae30170f91c4`
+</ParamField>
+
+## Body
+
+<ParamField body="name" type="string">
+  Example: `Sunny Sunny`
+</ParamField>
+
+<ParamField body="email" type="string">
+  Example: `user@example.com`
+</ParamField>
+
+<ParamField body="role" type="string">
+  Example: `announcer`
+</ParamField>
+
+<RequestExample>
+
+```json Request
+{
+  "name": "Sunny Sunny",
+  "email": "user@example.com",
+  "role": "announcer"
+}
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json 200
+{
+  "success": true,
+  "message": "successful",
+  "data": {
+    "id": 1283,
+    "name": "Sunny Sunny",
+    "username": null,
+    "phone": null,
+    "email": "user@example.com",
+    "dob": null,
+    "email_verified_at": null,
+    "referral_code": null,
+    "device_token": null,
+    "device_type": null,
+    "status": "active",
+    "tier_id": null,
+    "credits": null,
+    "avatar": null,
+    "deleted_at": null,
+    "created_at": "2024-06-27T04:59:37.000000Z",
+    "updated_at": "2024-06-27T04:59:37.000000Z",
+    "heard_about_us": null,
+    "failed_login_attempts": 0,
+    "role": "accountant",
+    "total_crypto_trade": 0,
+    "has_pin": false,
+    "wallet_balance": 0,
+    "has_verifiedBVN": true,
+    "has_default_bank_account": false,
+    "has_withdrawn": false
+  }
+}
+```
+
+</ResponseExample>

@@ -1,0 +1,67 @@
+---
+title: "check biometric"
+api: "POST /login/biometric"
+---
+
+## Body
+
+<ParamField body="hash" type="string">
+  Example: `fc5731c66ab13b9cfeb8978fbffe6b83192ac559`
+</ParamField>
+
+<ParamField body="type" type="string">
+  Example: `face`
+</ParamField>
+
+<RequestExample>
+
+```json Request
+{
+  "hash": "fc5731c66ab13b9cfeb8978fbffe6b83192ac559",
+  "type": "face"
+}
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json 200
+{
+  "success": true,
+  "message": "biometric checked successfully.",
+  "data": {
+    "id": "9ca7f3e5-4811-492c-a8ea-68821808ed96",
+    "name": "David Logic",
+    "username": "dev00885",
+    "phone": "08012345678",
+    "email": "user@example.com",
+    "dob": null,
+    "email_verified_at": "2024-07-31T18:47:33.000000Z",
+    "referral_code": "rHg43G",
+    "device_token": null,
+    "device_type": null,
+    "status": "active",
+    "has_biometric": true,
+    "tier_id": 1,
+    "credits": null,
+    "avatar": "https://res.cloudinary.com/diyxzs220/image/upload/v1722763695/pikka/avatar/php20CnSX_xuzivh.jpg",
+    "referral_amount_available": null,
+    "referral_amount_redeemed": null,
+    "failed_login_attempts": 0,
+    "heard_about_us": null,
+    "deleted_at": null,
+    "created_at": "2024-07-31T18:47:33.000000Z",
+    "updated_at": "2024-08-04T21:13:35.000000Z",
+    "total_crypto_trade": 0,
+    "total_withdrawn": 0,
+    "has_pin": true,
+    "wallet_balance": "49900.00",
+    "has_verifiedBVN": false,
+    "has_default_bank_account": true,
+    "has_withdrawn": false
+  }
+}
+```
+
+</ResponseExample>

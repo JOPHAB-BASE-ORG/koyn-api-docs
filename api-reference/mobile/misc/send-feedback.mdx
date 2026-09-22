@@ -1,0 +1,36 @@
+---
+title: "Send Feedback"
+api: "POST /feedback"
+---
+
+## Headers
+
+<ParamField header="X-Client-Version" type="string">
+Example: `2.0.0`
+</ParamField>
+
+## Body
+
+<Note>Send as `multipart/form-data`.</Note>
+
+<ParamField body="subject" type="string">
+   Example: `Sample Subject`
+</ParamField>
+
+<ParamField body="body" type="string">
+   Example: `Hi, Just wanna say hi. Bye`
+</ParamField>
+
+<ParamField body="email" type="string">
+   Example: `user@example.com`
+</ParamField>
+
+<ResponseExample>
+
+```json 200
+{
+  "message": "Successfully sent your message"
+}
+```
+
+</ResponseExample>

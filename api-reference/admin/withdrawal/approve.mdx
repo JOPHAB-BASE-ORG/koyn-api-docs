@@ -1,0 +1,42 @@
+---
+title: "Approve"
+api: "POST /console/withdrawals/approve/{id}"
+---
+
+## Path parameters
+
+<ParamField path="id" type="string" required>
+   Example: `393`
+</ParamField>
+
+<ResponseExample>
+
+```json 200
+{
+  "success": true,
+  "message": "Transaction has been queued and processing.",
+  "data": {
+    "id": 393,
+    "user_id": 1279,
+    "reference": "WW6052061714034102",
+    "amount": "1000.00",
+    "bank": null,
+    "bank_code": "000014",
+    "bank_name": "ACCESS BANK PLC",
+    "account_name": "afuwape sunday",
+    "account_number": "0000000000",
+    "bank_logo": null,
+    "status": "pending",
+    "rejection_id": null,
+    "settled_by": 1281,
+    "provider_reference": null,
+    "provider_status": null,
+    "platform": "redbiller",
+    "created_at": "2024-04-25T07:35:02.000000Z",
+    "updated_at": "2024-06-27T06:55:55.000000Z",
+    "channel": "manual"
+  }
+}
+```
+
+</ResponseExample>

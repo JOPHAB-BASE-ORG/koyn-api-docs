@@ -1,0 +1,55 @@
+---
+title: "Cryptoapi"
+api: "POST /webhook/cryptoapis"
+playground: "none"
+---
+
+## Body
+
+<ParamField body="data" type="object">
+  
+</ParamField>
+
+<ParamField body="apiVersion" type="string">
+  Example: `2021-03-20`
+</ParamField>
+
+<ParamField body="referenceId" type="string">
+  Example: `6038d09050653d1f0e40584c`
+</ParamField>
+
+<ParamField body="idempotencyKey" type="string">
+  Example: `8096a4b00e092008a3a619db862eaf2f52a18bb2b6ab2a2069f6616f45f5e732`
+</ParamField>
+
+<RequestExample>
+
+```json Request
+{
+  "data": {
+    "item": {
+      "unit": "BTC",
+      "amount": "0.00128996",
+      "address": "bc1qpdzm55ws8qfj3sl9r5w8kwz0sm2ejasha8w805",
+      "network": "mainnet",
+      "direction": "incoming",
+      "blockchain": "bitcoin",
+      "minedInBlock": {
+        "hash": "a31f4f23e4dbd75481bac8148ce207dd50a97d3c08df9c06252b54f48baf4c59",
+        "height": 667754,
+        "timestamp": 1610365314
+      },
+      "transactionId": "a31f4f23e4dbd75481bac8148ce207dd50a97d3c08df9c06252b54f48baf4c59",
+      "targetConfirmations": 3,
+      "currentConfirmations": 3
+    },
+    "event": "ADDRESS_COINS_TRANSACTION_CONFIRMED_EACH_CONFIRMATION",
+    "product": "BLOCKCHAIN_EVENTS"
+  },
+  "apiVersion": "2021-03-20",
+  "referenceId": "6038d09050653d1f0e40584c",
+  "idempotencyKey": "8096a4b00e092008a3a619db862eaf2f52a18bb2b6ab2a2069f6616f45f5e732"
+}
+```
+
+</RequestExample>

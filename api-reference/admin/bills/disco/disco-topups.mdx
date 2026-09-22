@@ -1,0 +1,141 @@
+---
+title: "Disco Topups"
+api: "GET /console/disco/topups"
+---
+
+<ResponseExample>
+
+```json 200
+{
+  "success": true,
+  "message": "Disco Purchases",
+  "data": {
+    "current_page": 1,
+    "data": [
+      {
+        "id": 5,
+        "user_id": 1282,
+        "product": "Eko",
+        "phone_no": "08012345678",
+        "meter_no": "0000000000",
+        "meter_type": "PREPAID",
+        "token": "00000000000000000000",
+        "units": null,
+        "customer_name": "JOHN DOE",
+        "amount_requested": "1000.00",
+        "amount_paid": "990.00",
+        "discount_percentage": 1,
+        "discount_value": "10.00",
+        "reference": "MT8FULB8AY74GBRKZW",
+        "status": "successful",
+        "provider_status": "Approved",
+        "created_at": "2024-06-25T09:57:30.000000Z",
+        "updated_at": "2024-06-25T09:57:30.000000Z",
+        "user": {
+          "id": 1282,
+          "name": "David logic",
+          "username": "dev0007",
+          "phone": "08012345678",
+          "email": "user@example.com",
+          "dob": null,
+          "email_verified_at": "2024-06-25T08:07:12.000000Z",
+          "referral_code": "j1xumq",
+          "device_token": "************",
+          "device_type": null,
+          "status": "active",
+          "tier_id": 1,
+          "credits": null,
+          "avatar": "https://avatar.iran.liara.run/public/boy",
+          "deleted_at": null,
+          "created_at": "2024-06-25T08:07:12.000000Z",
+          "updated_at": "2024-06-25T08:51:23.000000Z",
+          "heard_about_us": "twitter",
+          "failed_login_attempts": 0,
+          "total_crypto_trade": 0,
+          "has_pin": false,
+          "wallet_balance": "47900.00",
+          "has_verifiedBVN": true,
+          "has_default_bank_account": false,
+          "has_withdrawn": false
+        }
+      },
+      {
+        "id": 4,
+        "user_id": 1282,
+        "product": "Eko",
+        "phone_no": "08012345678",
+        "meter_no": "0000000000",
+        "meter_type": "PREPAID",
+        "token": "00000000000000000000",
+        "units": null,
+        "customer_name": "JOHN DOE",
+        "amount_requested": "1000.00",
+        "amount_paid": "990.00",
+        "discount_percentage": 1,
+        "discount_value": "10.00",
+        "reference": "MTR0JSW14PBBWQBQWW",
+        "status": "successful",
+        "provider_status": "Approved",
+        "created_at": "2024-06-25T09:56:30.000000Z",
+        "updated_at": "2024-06-25T09:56:30.000000Z",
+        "user": {
+          "id": 1282,
+          "name": "David logic",
+          "username": "dev0007",
+          "phone": "08012345678",
+          "email": "user@example.com",
+          "dob": null,
+          "email_verified_at": "2024-06-25T08:07:12.000000Z",
+          "referral_code": "j1xumq",
+          "device_token": "************",
+          "device_type": null,
+          "status": "active",
+          "tier_id": 1,
+          "credits": null,
+          "avatar": "https://avatar.iran.liara.run/public/boy",
+          "deleted_at": null,
+          "created_at": "2024-06-25T08:07:12.000000Z",
+          "updated_at": "2024-06-25T08:51:23.000000Z",
+          "heard_about_us": "twitter",
+          "failed_login_attempts": 0,
+          "total_crypto_trade": 0,
+          "has_pin": false,
+          "wallet_balance": "47900.00",
+          "has_verifiedBVN": true,
+          "has_default_bank_account": false,
+          "has_withdrawn": false
+        }
+      }
+    ],
+    "first_page_url": "http://localhost:2525/api/console/disco/topups?page=1",
+    "from": 1,
+    "last_page": 1,
+    "last_page_url": "http://localhost:2525/api/console/disco/topups?page=1",
+    "links": [
+      {
+        "url": null,
+        "label": "&laquo; Previous",
+        "active": false
+      },
+      {
+        "url": "http://localhost:2525/api/console/disco/topups?page=1",
+        "label": "1",
+        "active": true
+      }
+    ],
+    "next_page_url": null,
+    "path": "http://localhost:2525/api/console/disco/topups",
+    "per_page": 25,
+    "prev_page_url": null,
+    "to": 5,
+    "total": 5,
+    "overview": {
+      "successful": 3,
+      "pending": 1,
+      "rejected": 1
+    }
+  }
+}
+```
+
+</ResponseExample>

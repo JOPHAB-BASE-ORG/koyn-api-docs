@@ -1,0 +1,138 @@
+---
+title: "Create Swap"
+api: "POST /crypto/swap/create"
+---
+
+## Body
+
+<ParamField body="from" type="string">
+  Example: `eth`
+</ParamField>
+
+<ParamField body="to" type="string">
+  Example: `btc`
+</ParamField>
+
+<ParamField body="amountFrom" type="string">
+  Example: `0.3`
+</ParamField>
+
+<ParamField body="swap_type" type="string">
+  Example: `floating`
+</ParamField>
+
+<ParamField body="address" type="string">
+  Example: `bc1q0au6xqz690rvkltmqdq23hrusvy3767ukkhjpf`
+</ParamField>
+
+<ParamField body="refundAddress" type="string">
+  Example: `0xdb4764c2Af5688fF0F3dfF0375b45901646Aa3C9`
+</ParamField>
+
+<ParamField body="rateId" type="string">
+  Example: `kjhWvD$8W1$A#xc6#Oz90idS8Vy6Z^`
+</ParamField>
+
+<ParamField body="app_address" type="boolean">
+  Example: `false`
+</ParamField>
+
+<RequestExample>
+
+```json Request
+{
+  "from": "eth",
+  "to": "btc",
+  "amountFrom": "0.3",
+  "swap_type": "floating",
+  "address": "bc1q0au6xqz690rvkltmqdq23hrusvy3767ukkhjpf",
+  "refundAddress": "0xdb4764c2Af5688fF0F3dfF0375b45901646Aa3C9",
+  "rateId": "kjhWvD$8W1$A#xc6#Oz90idS8Vy6Z^",
+  "app_address": false
+}
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json 200
+{
+  "success": true,
+  "message": "successful",
+  "data": {
+    "reference": "STJL1J6T48WGI7GBML",
+    "user_id": 1279,
+    "swap_tranx_id": "y2wrfp0jztifbs4m",
+    "swap_type": "float",
+    "status": "new",
+    "currency_from": "eth",
+    "currency_to": "btc",
+    "payin_address": "0x4ff0c605d050d795b41119579b7c6d95c2accb21",
+    "payout_address": "bc1q0au6xqz690rvkltmqdq23hrusvy3767ukkhjpf",
+    "is_app_address": false,
+    "amount_expected_from": "0.3",
+    "amount_expected_to": "0.01638768",
+    "pay_till": null,
+    "network_fee": "0.00009187",
+    "track_url": "https://changelly.com/track/y2wrfp0jztifbs4m",
+    "updated_at": "2024-06-21T09:49:22.000000Z",
+    "created_at": "2024-06-21T09:49:22.000000Z",
+    "id": 3
+  }
+}
+```
+
+```json 200 (2)
+{
+  "success": true,
+  "message": "successful",
+  "data": {
+    "reference": "STBIUFC92RUC1JK5G1",
+    "user_id": 1279,
+    "swap_tranx_id": "0yi65c21609ns0pw",
+    "swap_type": "fixed",
+    "status": "new",
+    "currency_from": "eth",
+    "currency_to": "btc",
+    "payin_address": "0xdceb5fd1ce57ba005a31ac4f47396d61c2d6f004",
+    "payout_address": "bc1q0au6xqz690rvkltmqdq23hrusvy3767ukkhjpf",
+    "refund_address": "0xdb4764c2Af5688fF0F3dfF0375b45901646Aa3C9",
+    "is_app_address": false,
+    "amount_expected_from": "0.3",
+    "amount_expected_to": "0.01613316",
+    "pay_till": "2024-06-24T07:51:09.668+00:00",
+    "network_fee": "0.00005229",
+    "track_url": "https://changelly.com/track/0yi65c21609ns0pw",
+    "updated_at": "2024-06-24T07:36:09.000000Z",
+    "created_at": "2024-06-24T07:36:09.000000Z",
+    "id": 6
+  }
+}
+```
+
+```text Example
+{
+  id: number
+  reference: string
+  user_id: number
+  swap_tranx_id: string
+  swap_type: string
+  status: string
+  currency_from: string
+  currency_to: string
+  payin_address: string
+  payout_address: string
+  refund_address: string|null
+  is_app_address: boolean
+  amount_expected_from: string
+  amount_expected_to: string
+  pay_till: string|null
+  network_fee: string
+  track_url: string
+  created_at: string
+  updated_at: string
+}
+```
+
+</ResponseExample>

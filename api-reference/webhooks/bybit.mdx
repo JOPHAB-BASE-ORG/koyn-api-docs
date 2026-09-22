@@ -1,0 +1,36 @@
+---
+title: "ByBit"
+api: "POST /bybit/spot/trade"
+playground: "none"
+---
+
+## Body
+
+<ParamField body="symbol" type="string">
+  Example: `ETHUSDT`
+</ParamField>
+
+<ParamField body="side" type="string">
+  Example: `Sell`
+</ParamField>
+
+<ParamField body="type" type="string">
+  Example: `Market`
+</ParamField>
+
+<ParamField body="quantity" type="string">
+  Example: `0.03677`
+</ParamField>
+
+<RequestExample>
+
+```json Request
+{
+  "symbol": "ETHUSDT",
+  "side": "Sell",
+  "type": "Market",
+  "quantity": "0.03677"
+}
+```
+
+</RequestExample>

@@ -1,0 +1,41 @@
+---
+title: "Get Brand Category"
+api: "GET /console/giftcards/categories/{giftCardCategory}"
+---
+
+## Path parameters
+
+<ParamField path="giftCardCategory" type="string" required>
+   Example: `1`
+</ParamField>
+
+<ResponseExample>
+
+```json 200
+{
+  "success": true,
+  "message": "Giftcard category",
+  "data": {
+    "id": 1,
+    "brand_id": 1,
+    "name": "USA ECODE 🇱🇷",
+    "min": "20.00",
+    "max": "99.00",
+    "rate": "1300.0000",
+    "is_active": true,
+    "requires_receipt": false,
+    "created_at": "2026-02-20T02:57:14.000000Z",
+    "updated_at": "2026-02-20T02:57:14.000000Z",
+    "brand": {
+      "id": 1,
+      "name": "Apple iTunes",
+      "logo": "https://res.cloudinary.com/diyxzs220/image/upload/v1771555417/giftcards/brands/Apple-Store-iTunes-New_vn3hmx.png",
+      "is_active": true,
+      "created_at": "2026-02-20T02:43:37.000000Z",
+      "updated_at": "2026-02-20T02:50:56.000000Z"
+    }
+  }
+}
+```
+
+</ResponseExample>

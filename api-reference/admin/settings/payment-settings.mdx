@@ -1,0 +1,37 @@
+---
+title: "Payment Settings"
+api: "GET /console/settings/payment"
+---
+
+## Body
+
+<ParamField body="gateway" type="string">
+  Example: `redbiller`
+</ParamField>
+
+<RequestExample>
+
+```json Request
+{
+  "gateway": "redbiller"
+}
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json 200
+{
+  "success": true,
+  "message": "Payment Settings",
+  "data": {
+    "payment_gateway": "redbiller",
+    "withdrawal_mode": "automatic",
+    "withdrawal_limit": 500000,
+    "sweep_address": "bc1q33mvugv0z4uu27vv5q4vkycmzmcez6464hpqfq"
+  }
+}
+```
+
+</ResponseExample>

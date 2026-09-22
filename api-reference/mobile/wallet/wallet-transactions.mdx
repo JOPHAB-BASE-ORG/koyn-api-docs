@@ -1,0 +1,369 @@
+---
+title: "Wallet Transactions"
+api: "GET /wallet/transactions"
+---
+
+## Query parameters
+
+<ParamField query="type" type="string">
+  bills|crypto Evaluates when query is present Example: `bills`
+</ParamField>
+
+<ParamField query="status" type="string">
+  successful | pending | failed | rejected Example: `pending`
+</ParamField>
+
+<ResponseExample>
+
+```text 200
+{
+    "success": true,
+    "message": "successful",
+    "data": {
+        "current_page": 1,
+        "data": [
+            {
+                "id": "9cbd147d-97ad-4800-89cf-f6f06cbf6763",
+                "reference": "RC7SPLVW53NHDELZCF",
+                "user_id": "9cb99122-5f30-411d-8ac7-b435a4f964ca",
+                "transaction_type": "reconcile",
+                "transaction_id": "9cbd147b-ba41-48c1-88aa-0b989d972a0f",
+                "entry": "credit",
+                "status": "successful",
+                "narration": "hey fella money reversed",
+                "currency": "NGN",
+                "amount": 5000,
+                "charge": 0,
+                "total_amount": 5000,
+                "wallet_balance": 5000,
+                "is_reversal": false,
+                "mode": null,
+                "created_at": "2024-08-11T06:51:05.000000Z",
+                "updated_at": "2024-08-11T06:51:05.000000Z",
+                "transactable": {
+                    "id": "9cbd147b-ba41-48c1-88aa-0b989d972a0f",
+                    "reference": "RC7SPLVW53NHDELZCF",
+                    "user_id": "9cb99122-5f30-411d-8ac7-b435a4f964ca",
+                    "staff_id": "85410a8a-9127-4862-8ab8-df836d4617bd",
+                    "origin_tranx_id": null,
+                    "entry": "credit",
+                    "amount": "5000.00",
+                    "reason": "Resolve failed withdraw",
+                    "status": "successful",
+                    "created_at": "2024-08-11T06:51:04.000000Z",
+                    "updated_at": "2024-08-11T06:51:04.000000Z",
+                }
+            },
+            {
+                "id": 871,
+                "reference": "CT6642861715207708",
+                "user_id": 1279,
+                "transaction_type": "cable",
+                "transaction_id": 3,
+                "entry": "debit",
+                "status": "successful",
+                "narration": "StarTimes vtu ",
+                "currency": "NGN",
+                "amount": 900,
+                "charge": 0,
+                "total_amount": 900,
+                "wallet_balance": 42100,
+                "is_reversal": false,
+                "mode": null,
+                "created_at": "2024-05-08T22:35:10.000000Z",
+                "updated_at": "2024-05-08T22:35:10.000000Z",
+                "transactable": {
+                    "id": 3,
+                    "user_id": 1279,
+                    "product": "StarTimes",
+                    "phone_no": null,
+                    "name": "Nova",
+                    "code": "900",
+                    "smart_card_no": "0000000000",
+                    "customer_name": "JOHN DOE",
+                    "amount_requested": "900",
+                    "amount_paid": null,
+                    "discount_percentage": null,
+                    "discount_value": null,
+                    "reference": "CT6642861715207708",
+                    "status": "pending",
+                    "provider_status": null,
+                    "cr
+```
+
+```json 200 (2)
+{
+  "success": true,
+  "message": "successful",
+  "data": {
+    "current_page": 1,
+    "data": [
+      {
+        "id": 859,
+        "reference": "ATQVTCYN7QPY0E7NXV",
+        "user_id": 1282,
+        "transaction_type": "airtime",
+        "transaction_id": 32,
+        "entry": "debit",
+        "status": "successful",
+        "narration": "MTN vtu 08149617804",
+        "currency": "NGN",
+        "amount": 100,
+        "charge": 0,
+        "total_amount": 100,
+        "wallet_balance": 49900,
+        "is_reversal": false,
+        "mode": null,
+        "created_at": "2024-06-25T09:45:54.000000Z",
+        "updated_at": "2024-06-25T09:45:54.000000Z",
+        "transactable": {
+          "id": 32,
+          "user_id": 1282,
+          "product": "MTN",
+          "phone_no": "08012345678",
+          "amount_requested": "100.00",
+          "amount_paid": "970.00",
+          "discount_percentage": 3,
+          "discount_value": "30.00",
+          "reference": "ATQVTCYN7QPY0E7NXV",
+          "status": "successful",
+          "provider_status": "Approved",
+          "created_at": "2024-06-25T09:45:52.000000Z",
+          "updated_at": "2024-06-25T09:46:08.000000Z",
+          "logo": "https://res.cloudinary.com/diyxzs220/image/upload/v1719477081/bills/phptBLTeq_aflhoz.jpg"
+        }
+      },
+      {
+        "id": 860,
+        "reference": "MTR0JSW14PBBWQBQWW",
+        "user_id": 1282,
+        "transaction_type": "meter",
+        "transaction_id": 4,
+        "entry": "debit",
+        "status": "successful",
+        "narration": "Eko PREPAID 0000000000",
+        "currency": "NGN",
+        "amount": 1000,
+        "charge": 0,
+        "total_amount": 1000,
+        "wallet_balance": 48900,
+        "is_reversal": false,
+        "mode": null,
+        "created_at": "2024-06-25T09:56:31.000000Z",
+        "updated_at": "2024-06-25T09:56:31.000000Z",
+        "transactable": {
+          "id": 4,
+          "user_id": 1282,
+          "product": "Eko",
+          "phone_no": "08012345678",
+          "meter_no": "0000000000",
+          "meter_type": "PREPAID",
+          "token": "00000000000000000000",
+          "units": null,
+          "customer_name": "JOHN DOE",
+          "amount_requested": "1000.00",
+          "amount_paid": "990.00",
+          "discount_percentage": 1,
+          "discount_value": "10.00",
+          "reference": "MTR0JSW14PBBWQBQWW",
+          "status": "successful",
+          "provider_status": "Approved",
+          "created_at": "2024-06-25T09:56:30.000000Z",
+          "updated_at": "2024-06-25T09:56:30.000000Z",
+          "logo": "https://res.cloudinary.com/diyxzs220/image/upload/v1698225840/bills/phpCFUa3r_u2iv3s.png"
+        }
+      }
+    ],
+    "first_page_url": "http://localhost:2525/api/wallet/transactions?page=1",
+    "from": 1,
+    "last_page": 1,
+    "last_page_url": "http://localhost:2525/api/wallet/transactions?page=1",
+    "links": [
+      {
+        "url": null,
+        "label": "&laquo; Previous",
+        "active": false
+      },
+      {
+        "url": "http://localhost:2525/api/wallet/transactions?page=1",
+        "label": "1",
+        "active": true
+      }
+    ],
+    "next_page_url": null,
+    "path": "http://localhost:2525/api/wallet/transactions",
+    "per_page": 15,
+    "prev_page_url": null,
+    "to": 5,
+    "total": 5
+  }
+}
+```
+
+```json 200 (3)
+{
+  "success": true,
+  "message": "successful",
+  "data": {
+    "current_page": 1,
+    "data": [
+      {
+        "id": 4,
+        "reference": "STSRXRUZPZTLDRSRZ2",
+        "user_id": 5,
+        "transaction_type": "swap",
+        "transaction_id": 4,
+        "entry": "debit",
+        "status": "pending",
+        "narration": "Swap eth to btc",
+        "currency": "btc",
+        "amount": 0.01,
+        "charge": 0,
+        "total_amount": 0.0107,
+        "wallet_balance": 0,
+        "is_reversal": false,
+        "mode": null,
+        "created_at": "2025-10-14T00:08:50.000000Z",
+        "updated_at": "2025-10-14T01:27:12.000000Z",
+        "transactable": {
+          "id": 4,
+          "reference": "STSRXRUZPZTLDRSRZ2",
+          "user_id": 5,
+          "swap_tranx_id": "er9tp4vop4ejytfa",
+          "swap_type": "float",
+          "status": "waiting",
+          "currency_from": "eth",
+          "currency_to": "btc",
+          "payin_address": "0x2e79504641a9fae916441c5cd569d85a0675245e",
+          "payout_address": "bc1q0au6xqz690rvkltmqdq23hrusvy3767ukkhjpf",
+          "refund_address": null,
+          "is_app_address": false,
+          "amount_expected_from": "0.30000000",
+          "amount_expected_to": "0.01073754",
+          "pay_till": null,
+          "network_fee": "0.0000141",
+          "track_url": "https://changelly.com/track/er9tp4vop4ejytfa",
+          "created_at": "2025-10-14T00:08:50.000000Z",
+          "updated_at": "2025-10-14T00:11:45.000000Z",
+          "currency_from_logo": "https://cdn.changelly.com/icons/eth.png",
+          "currency_to_logo": "https://cdn.changelly.com/icons/btc.png"
+        }
+      },
+      {
+        "id": 3,
+        "reference": "STIFDZDHMO5H1Y94TF",
+        "user_id": 5,
+        "transaction_type": "swap",
+        "transaction_id": 3,
+        "entry": "debit",
+        "status": "pending",
+        "narration": "Swap eth to btc",
+        "currency": "btc",
+        "amount": 0.01,
+        "charge": 0,
+        "total_amount": 0.0107,
+        "wallet_balance": 0,
+        "is_reversal": false,
+        "mode": null,
+        "created_at": "2025-10-14T00:01:40.000000Z",
+        "updated_at": "2025-10-14T01:27:11.000000Z",
+        "transactable": {
+          "id": 3,
+          "reference": "STIFDZDHMO5H1Y94TF",
+          "user_id": 5,
+          "swap_tranx_id": "y4syrxsqxmqw7err",
+          "swap_type": "float",
+          "status": "waiting",
+          "currency_from": "eth",
+          "currency_to": "btc",
+          "payin_address": "0xfcc1eac8f19e37a81a7f7a1748be612d77128eee",
+          "payout_address": "bc1q0au6xqz690rvkltmqdq23hrusvy3767ukkhjpf",
+          "refund_address": null,
+          "is_app_address": false,
+          "amount_expected_from": "0.30000000",
+          "amount_expected_to": "0.01074628",
+          "pay_till": null,
+          "network_fee": "0.0000141",
+          "track_url": "https://changelly.com/track/y4syrxsqxmqw7err",
+          "created_at": "2025-10-14T00:01:40.000000Z",
+          "updated_at": "2025-10-14T00:11:43.000000Z",
+          "currency_from_logo": "https://cdn.changelly.com/icons/eth.png",
+          "currency_to_logo": "https://cdn.changelly.com/icons/btc.png"
+        }
+      }
+    ],
+    "first_page_url": "https://getkoyn.test/api/wallet/transactions?page=1",
+    "from": 1,
+    "last_page": 1,
+    "last_page_url": "https://getkoyn.test/api/wallet/transactions?page=1",
+    "links": [
+      {
+        "url": null,
+        "label": "&laquo; Previous",
+        "active": false
+      },
+      {
+        "url": "https://getkoyn.test/api/wallet/transactions?page=1",
+        "label": "1",
+        "active": true
+      }
+    ],
+    "next_page_url": null,
+    "path": "https://getkoyn.test/api/wallet/transactions",
+    "per_page": 15,
+    "prev_page_url": null,
+    "to": 2,
+    "total": 2
+  }
+}
+```
+
+</ResponseExample>
+
+## Response types
+
+<Accordion title="TypeScript definitions">
+
+```typescript
+export interface Data {
+  user_id: number
+  reference: string
+  transaction_type: string
+  transaction_id: number
+  entry: string
+  status: string
+  narration: string
+  amount: number
+  charge: number
+  total_amount: number
+  wallet_balance: number
+  updated_at: string
+  created_at: string
+  id: number
+  transactable: Transactable
+}
+
+export interface Transactable {
+  id: number
+  user_id: number
+  reference: string
+  amount: string
+  bank: string|null
+  bank_code: string
+  bank_name: string
+  account_name: string
+  account_number: string
+  bank_logo: string
+  status: string
+  rejection_id: int|null
+  settled_by: int|null
+  provider_reference: string|null
+  provider_status: string|null
+  platform: string
+  created_at: string
+  updated_at: string
+  channel: string
+}
+```
+
+</Accordion>

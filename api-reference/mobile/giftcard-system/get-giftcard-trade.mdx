@@ -1,0 +1,77 @@
+---
+title: "Get GiftCard Trade"
+api: "GET /giftcards/trades/{giftcardSale}"
+---
+
+## Path parameters
+
+<ParamField path="giftcardSale" type="string" required>
+   Example: `2`
+</ParamField>
+
+<ResponseExample>
+
+```json 200
+{
+  "success": true,
+  "message": "Giftcard trade",
+  "data": {
+    "id": 2,
+    "user_id": 52,
+    "brand_id": 1,
+    "category_id": 1,
+    "wallet_transaction_id": 9158809749,
+    "amount": 50,
+    "rate": 1300,
+    "code": "HD3DSDHUY46",
+    "images": [],
+    "meta": {
+      "brand": {
+        "id": 1,
+        "logo": "https://res.cloudinary.com/diyxzs220/image/upload/v1771557483/giftcards/brands/Apple-Store-iTunes-New_ptjk1h.png",
+        "name": "Apple iTunes",
+        "is_active": true
+      },
+      "category": {
+        "id": 1,
+        "max": 99,
+        "min": 20,
+        "name": "USA ECODE 🇱🇷",
+        "rate": 1300,
+        "is_active": true,
+        "requires_receipt": false
+      }
+    },
+    "source": "unknown",
+    "ip_address": "105.113.118.117",
+    "status": "rejected",
+    "approved_by": null,
+    "rejected_by": 52,
+    "admin_comments": "The Giftcard image is not shown",
+    "created_at": "2026-02-23T10:49:22.000000Z",
+    "updated_at": "2026-02-23T10:49:50.000000Z",
+    "brand": {
+      "id": 1,
+      "name": "Apple iTunes",
+      "logo": "https://res.cloudinary.com/diyxzs220/image/upload/v1771557483/giftcards/brands/Apple-Store-iTunes-New_ptjk1h.png",
+      "is_active": true,
+      "created_at": "2026-02-20T03:16:56.000000Z",
+      "updated_at": "2026-02-20T03:18:04.000000Z"
+    },
+    "category": {
+      "id": 1,
+      "brand_id": 1,
+      "name": "USA ECODE 🇱🇷",
+      "min": 20,
+      "max": 99,
+      "rate": 1300,
+      "is_active": true,
+      "requires_receipt": false,
+      "created_at": "2026-02-20T03:18:25.000000Z",
+      "updated_at": "2026-02-20T03:18:25.000000Z"
+    }
+  }
+}
+```
+
+</ResponseExample>

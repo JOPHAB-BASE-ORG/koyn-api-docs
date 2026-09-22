@@ -1,0 +1,129 @@
+---
+title: "Transactions/bills"
+api: "GET /console/users/{id}/transactions"
+---
+
+## Path parameters
+
+<ParamField path="id" type="string" required>
+   Example: `16372`
+</ParamField>
+
+## Query parameters
+
+<ParamField query="type" type="string">
+  crypto Example: `bills`
+</ParamField>
+
+<ResponseExample>
+
+```json 200
+{
+  "success": true,
+  "message": "user trasanctions",
+  "data": {
+    "current_page": 1,
+    "data": [
+      {
+        "id": 129,
+        "reference": "WTS5VN2QXBJHLFTOEF",
+        "user_id": 41,
+        "transaction_type": "wifi",
+        "transaction_id": 1,
+        "entry": "debit",
+        "status": "successful",
+        "narration": "Smile 0000000000",
+        "currency": "NGN",
+        "amount": 350,
+        "charge": 0,
+        "total_amount": 350,
+        "wallet_balance": 23250,
+        "is_reversal": false,
+        "mode": null,
+        "created_at": "2024-08-15T13:54:13.000000Z",
+        "updated_at": "2024-08-15T13:54:13.000000Z",
+        "transactable": {
+          "id": 1,
+          "user_id": 41,
+          "product": "Smile",
+          "name": "Flexi Daily - 350 Naira",
+          "code": "545",
+          "device_number": "0000000000",
+          "amount_requested": "350.00",
+          "discount_value": null,
+          "reference": "WTS5VN2QXBJHLFTOEF",
+          "status": "successful",
+          "provider_status": null,
+          "created_at": "2024-08-15T13:54:12.000000Z",
+          "updated_at": "2024-08-15T13:59:18.000000Z",
+          "amount_paid": null,
+          "discount_percentage": null,
+          "logo": "image_url"
+        }
+      },
+      {
+        "id": 128,
+        "reference": "BTMOJDDFQHUD5HJQRY",
+        "user_id": 41,
+        "transaction_type": "betting",
+        "transaction_id": 4,
+        "entry": "debit",
+        "status": "successful",
+        "narration": "BET9JA N200 bet fund",
+        "currency": "NGN",
+        "amount": 200,
+        "charge": 0,
+        "total_amount": 0,
+        "wallet_balance": 23600,
+        "is_reversal": false,
+        "mode": null,
+        "created_at": "2024-08-15T13:53:43.000000Z",
+        "updated_at": "2024-08-15T13:53:43.000000Z",
+        "transactable": {
+          "id": 4,
+          "user_id": 41,
+          "product": "BET9JA",
+          "customer_id": "12345",
+          "amount": "200",
+          "charge": "20.00",
+          "profile": {
+            "surname": "DOE",
+            "username": "JOHN DOE",
+            "first_name": "JOHN"
+          },
+          "reference": "BTMOJDDFQHUD5HJQRY",
+          "status": "successful",
+          "provider_status": "Approved",
+          "created_at": "2024-08-15T13:53:43.000000Z",
+          "updated_at": "2024-08-15T13:53:48.000000Z",
+          "logo": "https://api.live.redbiller.com/logos/betting/bet9ja.png"
+        }
+      }
+    ],
+    "first_page_url": "http://localhost:2525/api/console/users/41/transactions?page=1",
+    "from": 1,
+    "last_page": 1,
+    "last_page_url": "http://localhost:2525/api/console/users/41/transactions?page=1",
+    "links": [
+      {
+        "url": null,
+        "label": "&laquo; Previous",
+        "active": false
+      },
+      {
+        "url": "http://localhost:2525/api/console/users/41/transactions?page=1",
+        "label": "1",
+        "active": true
+      }
+    ],
+    "next_page_url": null,
+    "path": "http://localhost:2525/api/console/users/41/transactions",
+    "per_page": 15,
+    "prev_page_url": null,
+    "to": 6,
+    "total": 6
+  }
+}
+```
+
+</ResponseExample>

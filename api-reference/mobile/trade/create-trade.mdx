@@ -1,0 +1,55 @@
+---
+title: "Create Trade"
+api: "POST /trades"
+---
+
+This allows the creation of a new giftcard trade transaction with the provided parameters. It expects the following data to be submitted in the request body:
+
+###### Body
+
+- `card_id` (integer): The ID of the card associated with the trade.
+- `value` (decimal): The value or amount of the trade.
+- image (file): The array of images for the trade
+- `payment_method` (optional, string): The selected payment method for the trade, such as
+    - **Allowed Values**: `NGN`, `USDT Address`
+- address: The USDT address to be credited if the selected payment method is USDT Address
+- `e_code` (optional, string): An additional code or identifier related to the trade, if applicable.
+
+## Body
+
+<Note>Send as `multipart/form-data`.</Note>
+
+<ParamField body="giftcard_id" type="string">
+   Example: `9bc0dd72-b1dd-4fc8-912e-4a1d236f10e3`
+</ParamField>
+
+<ParamField body="payout_method" type="string">
+   Example: `NGN`
+</ParamField>
+
+<ParamField body="e_code" type="string">
+   Example: `ASD123`
+</ParamField>
+
+<ParamField body="amount" type="string">
+   Example: `10`
+</ParamField>
+
+<ParamField body="images[]" type="file">
+
+</ParamField>
+
+<ParamField body="images[]" type="file">
+
+</ParamField>
+
+<ResponseExample>
+
+```json 200
+{
+  "success": true,
+  "message": "Trade created successfully"
+}
+```
+
+</ResponseExample>

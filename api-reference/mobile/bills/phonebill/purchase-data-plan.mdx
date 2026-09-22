@@ -1,0 +1,112 @@
+---
+title: "Purchase Data plan"
+api: "POST /phonebill/purchase-data"
+---
+
+## Body
+
+<ParamField body="network" type="string">
+  Example: `MTN`
+</ParamField>
+
+<ParamField body="code" type="string">
+  Example: `3000`
+</ParamField>
+
+<ParamField body="phone_no" type="string">
+  Example: `08012345678`
+</ParamField>
+
+<RequestExample>
+
+```json Request
+{
+  "network": "MTN",
+  "code": "3000",
+  "phone_no": "08012345678"
+}
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json 200
+{
+  "success": true,
+  "message": "successful",
+  "data": {
+    "user_id": 1279,
+    "reference": "DT1247721715158853",
+    "transaction_type": "data",
+    "transaction_id": 8,
+    "entry": "debit",
+    "status": "successful",
+    "narration": "MTN data 08149617804",
+    "amount": 100,
+    "charge": 0,
+    "total_amount": 100,
+    "wallet_balance": 43900,
+    "updated_at": "2024-05-08T09:00:56.000000Z",
+    "created_at": "2024-05-08T09:00:56.000000Z",
+    "id": 859,
+    "transactable": {
+      "id": 8,
+      "user_id": 1279,
+      "product": "MTN",
+      "name": "50MB 1 DAY",
+      "phone_no": "08012345678",
+      "code": "3000",
+      "amount_requested": "100.00",
+      "amount_paid": null,
+      "discount_percentage": null,
+      "discount_value": null,
+      "reference": "DT1247721715158853",
+      "status": "pending",
+      "provider_status": null,
+      "created_at": "2024-05-08T09:00:54.000000Z",
+      "updated_at": "2024-05-08T09:00:54.000000Z"
+    }
+  }
+}
+```
+
+```text Example
+Data {
+  user_id: number
+  reference: string
+  transaction_type: string
+  transaction_id: number
+  entry: string
+  status: string
+  narration: string
+  amount: number
+  charge: number
+  total_amount: number
+  wallet_balance: number
+  updated_at: string
+  created_at: string
+  id: number
+  transactable: Transactable
+}
+
+export interface Transactable {
+  id: number
+  user_id: number
+  product: string
+  name: string
+  phone_no: string
+  code: string
+  amount_requested: string
+  amount_paid: string|decimal
+  discount_percentage: int|string|null
+  discount_value: decimal|string|null
+  reference: string
+  status: string
+  provider_status: string|null
+  created_at: string
+  updated_at: string
+}
+```
+
+</ResponseExample>

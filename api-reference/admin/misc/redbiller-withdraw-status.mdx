@@ -1,0 +1,54 @@
+---
+title: "Redbiller withdraw status"
+api: "POST /console/redbiller/bank-status"
+---
+
+## Body
+
+<ParamField body="reference" type="string">
+  Example: `WW2T445UTM23DVB8FL`
+</ParamField>
+
+<RequestExample>
+
+```json Request
+{
+  "reference": "WW2T445UTM23DVB8FL"
+}
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json 200
+{
+  "success": true,
+  "message": "successful",
+  "data": {
+    "response": 200,
+    "status": "true",
+    "message": "Successful",
+    "details": {
+      "bank_name": "GUARANTY TRUST BANK",
+      "bank_code": "000013",
+      "account_name": "ANIBOR JERAHMEEL OVIE",
+      "account_no": "0211982455",
+      "narration": "Test",
+      "amount": "50000.00",
+      "charge": "40.00",
+      "reference": "WW2T445UTM23DVB8FL",
+      "switch_session_id": "700058647464287773163674928810",
+      "channel": "API",
+      "version": "1.0",
+      "three_d_auth": "False",
+      "date": "2024-08-27 17:55:32"
+    },
+    "meta": {
+      "status": "Approved"
+    }
+  }
+}
+```
+
+</ResponseExample>

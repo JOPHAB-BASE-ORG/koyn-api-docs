@@ -1,0 +1,50 @@
+---
+title: "Create Ref Code"
+api: "POST /console/referrals/codes/create"
+---
+
+## Body
+
+<ParamField body="code" type="string">
+  Example: `LOGIC1000`
+</ParamField>
+
+<ParamField body="reward_amount" type="string">
+  Example: `500`
+</ParamField>
+
+<ParamField body="active" type="boolean">
+  Example: `true`
+</ParamField>
+
+<RequestExample>
+
+```json Request
+{
+  "code": "LOGIC1000",
+  "reward_amount": "500",
+  "active": true
+}
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json 200
+{
+  "success": true,
+  "message": "successful",
+  "data": {
+    "code": "LAYI100",
+    "reward_amount": "500",
+    "active": true,
+    "staff_id": 39,
+    "updated_at": "2024-08-20T07:27:56.000000Z",
+    "created_at": "2024-08-20T07:27:56.000000Z",
+    "id": 1
+  }
+}
+```
+
+</ResponseExample>

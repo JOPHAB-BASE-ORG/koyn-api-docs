@@ -1,0 +1,44 @@
+---
+title: "Update Status"
+api: "POST /console/settings/platform/1"
+---
+
+## Body
+
+<ParamField body="value" type="boolean">
+  Example: `false`
+</ParamField>
+
+<ParamField body="message" type="string">
+  
+</ParamField>
+
+<RequestExample>
+
+```json Request
+{
+  "value": false,
+  "message": ""
+}
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json 200
+{
+  "success": true,
+  "message": "Status set Successfully.",
+  "data": {
+    "id": 1,
+    "key": "withdrawal",
+    "value": false,
+    "message": null,
+    "created_at": null,
+    "updated_at": "2024-06-27T06:21:29.000000Z"
+  }
+}
+```
+
+</ResponseExample>

@@ -1,0 +1,183 @@
+---
+title: "Overview"
+api: "GET /console/overview"
+---
+
+## Query parameters
+
+<ParamField query="scope" type="string">
+  today,yesterday,week,month,all_time Example: `week`
+</ParamField>
+
+<ResponseExample>
+
+```json 200
+{
+  "success": true,
+  "message": "successful",
+  "data": {
+    "all_time": {
+      "users": {
+        "total": 1264,
+        "deleted": 0,
+        "suspended": 0,
+        "active": 1264
+      },
+      "crypto": {
+        "total": 166,
+        "amount": {
+          "naira": "28032796.27",
+          "usd": "19510.37"
+        }
+      },
+      "withdrawals": {
+        "count": 355,
+        "amount": 24939600
+      }
+    },
+    "month": {
+      "users": {
+        "previous": 0,
+        "current": 1
+      },
+      "crypto": {
+        "total": 0,
+        "amount": {
+          "naira": null,
+          "usd": null
+        }
+      },
+      "withdrawals": {
+        "count": 0,
+        "amount": 0
+      }
+    },
+    "today": {
+      "users": {
+        "previous": 0,
+        "current": 0
+      },
+      "crypto": {
+        "total": 0,
+        "amount": {
+          "naira": null,
+          "usd": null
+        },
+        "asset": []
+      },
+      "withdrawals": {
+        "count": 0,
+        "amount": 0
+      }
+    },
+    "wallet_balance": "2999014.91",
+    "redbiller_balance": null
+  }
+}
+```
+
+```json 200 (2)
+{
+  "success": true,
+  "message": "successful",
+  "data": {
+    "all_time": {
+      "users": {
+        "total": 9,
+        "deleted": 0,
+        "suspended": 0,
+        "active": 10
+      },
+      "crypto": {
+        "total": 1,
+        "amount": {
+          "naira": "250.00",
+          "usd": "250.00",
+          "logo": null
+        },
+        "asset": {
+          "BTC": {
+            "naira": "250.00",
+            "usd": "250.00"
+          }
+        }
+      },
+      "withdrawals": {
+        "count": 0,
+        "amount": 0
+      }
+    },
+    "month": {
+      "users": {
+        "registrations": 0,
+        "previous": 0,
+        "current": 0
+      },
+      "crypto": {
+        "total": 1,
+        "amount": {
+          "naira": "250.00",
+          "usd": "250.00",
+          "logo": null
+        },
+        "asset": {
+          "BTC": {
+            "naira": "250.00",
+            "usd": "250.00",
+            "volume": "0.00500000"
+          }
+        }
+      },
+      "withdrawals": {
+        "count": 0,
+        "amount": 0
+      }
+    },
+    "today": {
+      "users": {
+        "registrations": 0,
+        "previous": 0,
+        "current": 0
+      },
+      "crypto": {
+        "total": 0,
+        "volume": 0,
+        "amount": {
+          "naira": null,
+          "usd": null,
+          "logo": null
+        },
+        "asset": []
+      },
+      "withdrawals": {
+        "count": 0,
+        "amount": 0
+      }
+    },
+    "chart": {
+      "monthly_registrations": [
+        {
+          "month": "Jan",
+          "month_number": 1,
+          "registrations": 0,
+          "year": 2025
+        },
+        {
+          "month": "Feb",
+          "month_number": 2,
+          "registrations": 0,
+          "year": 2025
+        }
+      ]
+    },
+    "wallet_balance": "100.00",
+    "redbiller_balance": {
+      "available": 9550,
+      "pending": 0,
+      "ledger": 0
+    }
+  }
+}
+```
+
+</ResponseExample>

@@ -1,0 +1,32 @@
+---
+title: "Check Pin"
+api: "POST /pin/verify"
+---
+
+## Body
+
+<ParamField body="pin" type="string">
+  Example: `0000`
+</ParamField>
+
+<RequestExample>
+
+```json Request
+{
+  "pin": "0000"
+}
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json 200
+{
+  "success": true,
+  "message": "Pin checked successfully.",
+  "data": null
+}
+```
+
+</ResponseExample>

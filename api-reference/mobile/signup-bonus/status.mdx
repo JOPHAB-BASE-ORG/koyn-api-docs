@@ -1,0 +1,29 @@
+---
+title: "Status"
+api: "GET /signup-bonus/status"
+---
+
+<ResponseExample>
+
+```json 200
+{
+  "success": true,
+  "message": "successful",
+  "data": {
+    "has_bonus": true,
+    "bonus": {
+      "status": "pending",
+      "bonus_amount": "500.00",
+      "required_trade_volume": "200.00",
+      "current_trade_volume": "0.00",
+      "progress_percentage": 0,
+      "remaining_trade_volume": 200,
+      "can_claim": false,
+      "unlocked_at": null,
+      "claimed_at": null
+    }
+  }
+}
+```
+
+</ResponseExample>

@@ -1,0 +1,84 @@
+---
+title: "Trade GiftCard"
+api: "POST /giftcards/trades"
+---
+
+## Body
+
+<Note>Send as `multipart/form-data`.</Note>
+
+<ParamField body="category_id" type="string">
+  Giftcard Brand Category Id Example: `1`
+</ParamField>
+
+<ParamField body="amount" type="string">
+  Amounnt they want to sell Example: `50`
+</ParamField>
+
+<ParamField body="code" type="string">
+  Giftcard Code Example: `HD3DSDHUY46`
+</ParamField>
+
+<ParamField body="images[0]" type="file">
+  GiftCard image
+</ParamField>
+
+<ParamField body="images[1]" type="file">
+  GiftCard Image
+</ParamField>
+
+<ResponseExample>
+
+```json 200
+{
+  "success": true,
+  "message": "Giftcard trade created",
+  "data": {
+    "user_id": 52,
+    "brand_id": 1,
+    "category_id": 1,
+    "wallet_transaction_id": 3494046866,
+    "amount": 50,
+    "rate": 1300,
+    "code": "HD3DSDHUY43",
+    "images": [],
+    "meta": {
+      "brand": {
+        "id": 1,
+        "name": "Apple iTunes",
+        "logo": "https://res.cloudinary.com/diyxzs220/image/upload/v1771557483/giftcards/brands/Apple-Store-iTunes-New_ptjk1h.png",
+        "is_active": true
+      },
+      "category": {
+        "id": 1,
+        "name": "USA ECODE 🇱🇷",
+        "min": 20,
+        "max": 99,
+        "rate": 1300,
+        "requires_receipt": false,
+        "is_active": true
+      }
+    },
+    "source": "unknown",
+    "ip_address": "105.113.118.117",
+    "status": "pending",
+    "updated_at": "2026-02-23T10:46:20.000000Z",
+    "created_at": "2026-02-23T10:46:20.000000Z",
+    "id": 1
+  }
+}
+```
+
+```json 422 Errors
+{
+  "success": false,
+  "message": "Whoops something went wrong, The code has already been taken.",
+  "errors": {
+    "code": [
+      "The code has already been taken."
+    ]
+  }
+}
+```
+
+</ResponseExample>

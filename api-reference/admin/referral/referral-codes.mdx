@@ -1,0 +1,72 @@
+---
+title: "Referral Codes"
+api: "GET /console/referrals/codes"
+---
+
+## Query parameters
+
+<ParamField query="search" type="string">
+   Example: `xdfg`
+</ParamField>
+
+<ParamField query="active" type="string">
+   Example: `true`
+</ParamField>
+
+<ResponseExample>
+
+```json 200
+{
+  "success": true,
+  "message": "successful",
+  "data": {
+    "current_page": 1,
+    "data": [
+      {
+        "id": 2,
+        "code": "LOGIC100",
+        "reward_amount": "500.00",
+        "active": true,
+        "staff_id": 39,
+        "created_at": "2024-08-20T08:31:03.000000Z",
+        "updated_at": "2024-08-20T08:31:03.000000Z",
+        "total_uses": 1
+      },
+      {
+        "id": 4,
+        "code": "LOGIC1000",
+        "reward_amount": "0.00",
+        "active": true,
+        "staff_id": 39,
+        "created_at": "2024-10-15T00:40:00.000000Z",
+        "updated_at": "2024-10-15T00:40:00.000000Z",
+        "total_uses": 0
+      }
+    ],
+    "first_page_url": "https://getkoyn.test/api/console/referrals/codes?page=1",
+    "from": 1,
+    "last_page": 1,
+    "last_page_url": "https://getkoyn.test/api/console/referrals/codes?page=1",
+    "links": [
+      {
+        "url": null,
+        "label": "&laquo; Previous",
+        "active": false
+      },
+      {
+        "url": "https://getkoyn.test/api/console/referrals/codes?page=1",
+        "label": "1",
+        "active": true
+      }
+    ],
+    "next_page_url": null,
+    "path": "https://getkoyn.test/api/console/referrals/codes",
+    "per_page": 15,
+    "prev_page_url": null,
+    "to": 2,
+    "total": 2
+  }
+}
+```
+
+</ResponseExample>

@@ -1,0 +1,97 @@
+---
+title: "Step 5"
+api: "POST /register/step/step-5"
+---
+
+## Body
+
+<Note>Send as `multipart/form-data`.</Note>
+
+<ParamField body="name" type="string">
+   Example: `David Logic`
+</ParamField>
+
+<ParamField body="email" type="string">
+   Example: `user@example.com`
+</ParamField>
+
+<ParamField body="username" type="string">
+   Example: `logicT22452`
+</ParamField>
+
+<ParamField body="phone" type="string">
+   Example: `08012345678`
+</ParamField>
+
+<ParamField body="password" type="string">
+   Example: `**********`
+</ParamField>
+
+<ParamField body="heard_about_us" type="string">
+
+</ParamField>
+
+<ParamField body="avatar" type="file">
+
+</ParamField>
+
+<ParamField body="influencer_code" type="string">
+   Example: `LOGIC100`
+</ParamField>
+
+<ResponseExample>
+
+```json 200
+{
+  "success": true,
+  "message": "successful",
+  "data": {
+    "token": "************",
+    "user": {
+      "name": "David logic",
+      "email": "user@example.com",
+      "phone": "08012345678",
+      "heard_about_us": "twitter",
+      "avatar": "https://avatar.iran.liara.run/public/boy",
+      "referral_code": "j1xumq",
+      "username": "dev0007",
+      "email_verified_at": "2024-06-25T08:07:12.000000Z",
+      "tier_id": 1,
+      "updated_at": "2024-06-25T08:07:12.000000Z",
+      "created_at": "2024-06-25T08:07:12.000000Z",
+      "id": 1282,
+      "total_crypto_trade": 0,
+      "has_pin": false,
+      "wallet_balance": "0.00",
+      "has_verifiedBVN": true,
+      "has_default_bank_account": false,
+      "has_withdrawn": false
+    }
+  }
+}
+```
+
+```text 200 (2)
+{
+  name: string
+  email: string
+  phone: string
+  heard_about_us: string
+  avatar: string
+  referral_code: string
+  username: string
+  email_verified_at: string
+  tier_id: number
+  updated_at: string
+  created_at: string
+  id: number
+  total_crypto_trade: number
+  has_pin: boolean
+  wallet_balance: string|int
+  has_verifiedBVN: boolean
+  has_default_bank_account: boolean
+  has_withdrawn: boolean
+}
+```
+
+</ResponseExample>

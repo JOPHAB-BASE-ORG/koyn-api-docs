@@ -1,0 +1,112 @@
+---
+title: "Add user Bank V2"
+api: "POST /bank/v2/create"
+---
+
+## Get All Bank Accounts
+
+Retrieves all bank accounts associated with the authenticated user.
+
+**Method:** `GET`  
+**Path:** `{{domain}}/api/banks`
+
+### Authentication
+Requires valid authentication token in the Authorization header.
+
+### Request Headers
+- `Authorization: Bearer {{token}}`
+
+### Response Format
+```json
+{
+  "success": true,
+  "data": {
+    "banks": [
+      {
+        "id": "uuid",
+        "account_number": "0212700896",
+        "account_name": "John Doe",
+        "bank_name": "Bank Name",
+        "bank_code": "619",
+        "bank_logo": "https://example.com/logo.png",
+        "primary": true,
+        "created_at": "2024-01-01T12:00:00Z"
+      }
+    ]
+  }
+}
+```
+
+### Notes
+- Returns all saved bank accounts
+- Primary account is flagged for easy identification
+- Empty array returned if no accounts exist
+
+## Body
+
+<ParamField body="bank_id" type="string">
+  Example: `9ca7fa50-d5cb-456e-b0fb-e15bb7a08c94`
+</ParamField>
+
+<ParamField body="account_name" type="string">
+  Example: `afuwape sunday`
+</ParamField>
+
+<ParamField body="account_number" type="string">
+  Example: `0000000000`
+</ParamField>
+
+<ParamField body="code" type="string">
+  Example: `123456`
+</ParamField>
+
+<RequestExample>
+
+```json Request
+{
+  "bank_id": "9ca7fa50-d5cb-456e-b0fb-e15bb7a08c94",
+  "account_name": "afuwape sunday",
+  "account_number": "0000000000",
+  "code": "123456"
+}
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json 200
+{
+  "success": true,
+  "message": "Bank account added successfully.",
+  "data": {
+    "account_name": "afuwape sunday",
+    "account_number": "0000000000",
+    "user_id": 1279,
+    "bank_code": "000014",
+    "bank_name": "ACCESS BANK PLC",
+    "is_primary": true,
+    "image": "https://res.cloudinary.com/diyxzs220/image/upload/v1699868530/banks/phpNVc5lG_hagq0v.png",
+    "updated_at": "2024-04-18T22:18:34.000000Z",
+    "created_at": "2024-04-18T22:18:34.000000Z",
+    "id": 553
+  }
+}
+```
+
+```text Example
+{
+  account_name: string
+  account_number: string
+  user_id: number
+  bank_code: string
+  bank_name: string
+  is_primary: boolean
+  image: string|null
+  updated_at: string
+  created_at: string
+  id: number
+}
+```
+
+</ResponseExample>

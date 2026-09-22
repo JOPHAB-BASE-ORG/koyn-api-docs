@@ -1,0 +1,86 @@
+---
+title: "Crypto Assets"
+api: "GET /crypto/assets"
+---
+
+## Query parameters
+
+<ParamField query="graph" type="string">
+   Example: `false`
+</ParamField>
+
+<ResponseExample>
+
+```json 200
+{
+  "success": true,
+  "message": "Crypto assets",
+  "data": [
+    {
+      "id": 1,
+      "name": "Bitcoin",
+      "symbol": "BTC",
+      "status": "active",
+      "latest_quote": "50795.40161404",
+      "percent_change_1hr": "0.52008338",
+      "percent_change_24hr": "2.67517000",
+      "last_updated": "2024-03-01 18:59:58",
+      "about": "Bitcoin (BTC) is a cryptocurrency, a virtual currency designed to act as money and a form of payment outside the control of any one person, group, or entity, thus removing the need for third-party involvement in financial transactions. It is rewarded to blockchain miners for the work done to verify transactions and can be purchased on several exchanges.",
+      "logo": "https://res.cloudinary.com/diyxzs220/image/upload/v1698229638/crypto/php38j7Ae_gbxseg.png",
+      "term": "Only send Bitcoin using the BEP20 network. Sending through any other network like  ERC 20, will result in permanent loss.",
+      "market_cap": "1226329146157",
+      "total_supply": "21000000",
+      "volume": "46203973821",
+      "circulating_supply": "19642018",
+      "price": "62391.0000",
+      "created_at": "2023-07-20T13:24:38.000000Z",
+      "updated_at": "2024-03-01T19:00:04.000000Z"
+    },
+    {
+      "id": 2,
+      "name": "Ethereum",
+      "symbol": "ETH",
+      "status": "active",
+      "latest_quote": "50795.40161404",
+      "percent_change_1hr": "0.52008338",
+      "percent_change_24hr": "1.74152000",
+      "last_updated": "2024-03-01 19:00:02",
+      "about": "Ethereum is a decentralized blockchain with smart contract functionality. Ether is the native cryptocurrency of the platform. Among cryptocurrencies, ether is second only to bitcoin in market capitalization. It is open-source software. Ethereum was conceived in 2013 by programmer Vitalik Buterin.",
+      "logo": "https://res.cloudinary.com/diyxzs220/image/upload/v1698229580/crypto/phpLfdvNm_x08g7y.png",
+      "term": "Only send Bitcoin using the BEP20 network. Sending through any other network like  ERC 20, will result in permanent loss.",
+      "market_cap": "412351718105",
+      "total_supply": "120142083.889",
+      "volume": "21756333745",
+      "circulating_supply": "120142083.889",
+      "price": "3430.7400",
+      "created_at": "2023-10-23T12:33:38.000000Z",
+      "updated_at": "2024-03-01T19:00:04.000000Z"
+    }
+  ]
+}
+```
+
+```text Example
+{
+  id: number
+  name: string
+  symbol: string
+  status: string
+  latest_quote?: string
+  percent_change_1hr?: string
+  percent_change_24hr: string
+  last_updated: string
+  about: string
+  logo: string
+  term: string
+  market_cap: string
+  total_supply: string
+  volume: string
+  circulating_supply: string
+  price: string
+  created_at: string
+  updated_at: string
+}
+```
+
+</ResponseExample>

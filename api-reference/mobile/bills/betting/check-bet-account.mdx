@@ -1,0 +1,57 @@
+---
+title: "Check Bet Account"
+api: "POST /betting/account/verify"
+---
+
+## Body
+
+<ParamField body="product" type="string">
+  Example: `BET9JA`
+</ParamField>
+
+<ParamField body="customer_id" type="string">
+  Example: `3308882`
+</ParamField>
+
+<RequestExample>
+
+```json Request
+{
+  "product": "BET9JA",
+  "customer_id": "3308882"
+}
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json 200
+{
+  "success": true,
+  "message": "successful",
+  "data": {
+    "product": "BET9JA",
+    "customer_id": "12345",
+    "profile": {
+      "first_name": "JOHN",
+      "surname": "DOE",
+      "username": "JohnDoe"
+    }
+  }
+}
+```
+
+```text Example
+Data {
+  product: string
+  customer_id: string
+  profile: {
+    first_name: string
+    surname: string
+    username: string
+  }
+}
+```
+
+</ResponseExample>

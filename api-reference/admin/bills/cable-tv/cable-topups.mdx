@@ -1,0 +1,139 @@
+---
+title: "Cable Topups"
+api: "GET /console/cable/topups"
+---
+
+<ResponseExample>
+
+```json 200
+{
+  "success": true,
+  "message": "Cable TV Purchases",
+  "data": {
+    "current_page": 1,
+    "data": [
+      {
+        "id": 2,
+        "user_id": 3,
+        "product": "STARTIMES",
+        "phone_no": "08012345678",
+        "name": "Nova (Dish) - 1500 Naira - 1 Month",
+        "code": "nova",
+        "smart_card_no": "08012345678",
+        "customer_name": "SANUSI KABIRU",
+        "amount_requested": "1500",
+        "amount_paid": "1485.00",
+        "discount_percentage": 1,
+        "discount_value": "15.00",
+        "reference": "CT5231471697992044",
+        "status": "successful",
+        "provider_status": null,
+        "created_at": "2023-10-22T16:27:31.000000Z",
+        "updated_at": "2023-10-22T16:27:31.000000Z",
+        "user": {
+          "id": 3,
+          "name": " ",
+          "username": "adedrey",
+          "phone": "08012345678",
+          "email": "user@example.com",
+          "dob": null,
+          "email_verified_at": "2023-10-22T01:39:20.000000Z",
+          "referral_code": "rDTbmL",
+          "device_token": "************",
+          "device_type": "Android",
+          "status": "active",
+          "tier_id": 1,
+          "credits": null,
+          "avatar": "avatar_12.png",
+          "deleted_at": null,
+          "created_at": "2023-10-22T13:38:59.000000Z",
+          "updated_at": "2023-12-03T18:17:26.000000Z",
+          "heard_about_us": null,
+          "failed_login_attempts": 0,
+          "total_crypto_trade": 5.38,
+          "has_pin": true,
+          "wallet_balance": "1311.43",
+          "has_verifiedBVN": true,
+          "has_default_bank_account": true,
+          "has_withdrawn": true
+        }
+      },
+      {
+        "id": 1,
+        "user_id": 1,
+        "product": "DSTV",
+        "phone_no": "08012345678",
+        "name": "DStv Padi N2,500",
+        "code": "dstv-padi",
+        "smart_card_no": "8062395410",
+        "customer_name": "MUBARAK BIVBEST ALABIDUN",
+        "amount_requested": "2500",
+        "amount_paid": "2475.00",
+        "discount_percentage": 1,
+        "discount_value": "25.00",
+        "reference": "CT1546261697937484",
+        "status": "successful",
+        "provider_status": null,
+        "created_at": "2023-10-22T01:18:22.000000Z",
+        "updated_at": "2023-10-22T01:18:22.000000Z",
+        "user": {
+          "id": 1,
+          "name": "Alabidun Mubarak",
+          "username": "mubharaq",
+          "phone": "08012345678",
+          "email": "user@example.com",
+          "dob": null,
+          "email_verified_at": "2023-10-11T09:36:07.000000Z",
+          "referral_code": "GNcMNQ",
+          "device_token": "************",
+          "device_type": null,
+          "status": "active",
+          "tier_id": 3,
+          "credits": null,
+          "avatar": "avatar_12.png",
+          "deleted_at": null,
+          "created_at": "2023-10-11T09:35:39.000000Z",
+          "updated_at": "2024-06-27T08:48:37.000000Z",
+          "heard_about_us": null,
+          "failed_login_attempts": 0,
+          "total_crypto_trade": 3.8,
+          "has_pin": true,
+          "wallet_balance": "760.00",
+          "has_verifiedBVN": true,
+          "has_default_bank_account": true,
+          "has_withdrawn": true
+        }
+      }
+    ],
+    "first_page_url": "http://localhost:2525/api/console/cable/topups?page=1",
+    "from": 1,
+    "last_page": 1,
+    "last_page_url": "http://localhost:2525/api/console/cable/topups?page=1",
+    "links": [
+      {
+        "url": null,
+        "label": "&laquo; Previous",
+        "active": false
+      },
+      {
+        "url": "http://localhost:2525/api/console/cable/topups?page=1",
+        "label": "1",
+        "active": true
+      }
+    ],
+    "next_page_url": null,
+    "path": "http://localhost:2525/api/console/cable/topups",
+    "per_page": 25,
+    "prev_page_url": null,
+    "to": 2,
+    "total": 2,
+    "overview": {
+      "successful": 2,
+      "pending": 0,
+      "rejected": 0
+    }
+  }
+}
+```
+
+</ResponseExample>

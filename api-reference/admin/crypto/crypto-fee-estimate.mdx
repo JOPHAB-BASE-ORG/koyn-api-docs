@@ -1,0 +1,27 @@
+---
+title: "Crypto Fee estimate"
+api: "GET /console/crypto/wallet/estimate"
+---
+
+<ResponseExample>
+
+```json 200
+{
+  "success": true,
+  "message": "successful",
+  "data": {
+    "apiVersion": "2023-04-25",
+    "requestId": "66c46a60203231be6328a0c1",
+    "data": {
+      "item": {
+        "unit": "BTC",
+        "fast": 4.935e-05,
+        "slow": 3.9949999999999995e-05,
+        "standard": 4.465e-05
+      }
+    }
+  }
+}
+```
+
+</ResponseExample>

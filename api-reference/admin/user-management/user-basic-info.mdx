@@ -1,0 +1,78 @@
+---
+title: "User basic info"
+api: "GET /console/users/{id}/basic"
+---
+
+## Path parameters
+
+<ParamField path="id" type="string" required>
+   Example: `41`
+</ParamField>
+
+<ResponseExample>
+
+```json 200
+{
+  "success": true,
+  "message": "successful",
+  "data": {
+    "id": 41,
+    "name": "David Logic",
+    "username": "logicfx",
+    "phone": "08012345678",
+    "email": "user@example.com",
+    "dob": null,
+    "email_verified_at": "2024-08-15T06:05:18.000000Z",
+    "referral_code": "9kvu8V",
+    "device_token": null,
+    "device_type": null,
+    "status": "active",
+    "has_biometric": false,
+    "tier_id": 2,
+    "credits": null,
+    "avatar": null,
+    "deleted_at": null,
+    "created_at": "2024-08-15T06:05:18.000000Z",
+    "updated_at": "2024-08-15T15:40:13.000000Z",
+    "heard_about_us": null,
+    "failed_login_attempts": 0,
+    "total_crypto_trade": 0,
+    "total_withdrawn": 0,
+    "has_pin": false,
+    "wallet_balance": "23250.00",
+    "has_verifiedBVN": true,
+    "has_default_bank_account": true,
+    "has_withdrawn": false,
+    "kycs": [
+      {
+        "id": 7,
+        "user_id": 41,
+        "verification_type": "bvn",
+        "verification_value": "22222222222",
+        "provider_response": null,
+        "reference": "172373626338136624251",
+        "status": "successful",
+        "created_at": "2024-08-15T15:37:43.000000Z",
+        "updated_at": "2024-08-15T15:40:13.000000Z"
+      }
+    ],
+    "banks": [
+      {
+        "id": 4,
+        "user_id": 41,
+        "bank_id": 2,
+        "bank_code": "000014",
+        "bank_name": "ACCESS BANK PLC",
+        "account_name": "ANIBOR JERAHMEEL OVIE",
+        "account_number": "0000000000",
+        "image": "https://api.live.redbiller.com/logos/bank/access.png",
+        "is_primary": true,
+        "created_at": "2024-08-17T18:12:40.000000Z",
+        "updated_at": "2024-08-17T18:12:40.000000Z"
+      }
+    ]
+  }
+}
+```
+
+</ResponseExample>

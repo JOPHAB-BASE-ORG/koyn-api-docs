@@ -1,0 +1,38 @@
+---
+title: "Set Gateway"
+api: "POST /console/settings/payment-gateway"
+---
+
+## Body
+
+<ParamField body="gateway" type="string">
+  Example: `redbiller`
+</ParamField>
+
+<RequestExample>
+
+```json Request
+{
+  "gateway": "redbiller"
+}
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json 200
+{
+  "success": true,
+  "message": "Payment gateway set successfully.",
+  "data": {
+    "id": 1,
+    "key": "payment_gateway",
+    "value": "redbiller",
+    "created_at": null,
+    "updated_at": "2023-09-04T01:07:41.000000Z"
+  }
+}
+```
+
+</ResponseExample>

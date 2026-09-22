@@ -1,0 +1,173 @@
+---
+title: "Reconciliations"
+api: "GET /console/reconciliations"
+---
+
+## Body
+
+<ParamField body="user_id" type="string">
+  Example: `3`
+</ParamField>
+
+<ParamField body="transaction_id" type="string">
+  
+</ParamField>
+
+<ParamField body="entry" type="string">
+  Example: `credit`
+</ParamField>
+
+<ParamField body="reason" type="string">
+  Example: `Resolve fail withdraw`
+</ParamField>
+
+<ParamField body="amount" type="string">
+  Example: `500`
+</ParamField>
+
+<ParamField body="narration" type="string">
+  Example: `hey fell money reversed`
+</ParamField>
+
+<RequestExample>
+
+```json Request
+{
+  "user_id": "3",
+  "transaction_id": null,
+  "entry": "credit",
+  "reason": "Resolve fail withdraw",
+  "amount": "500",
+  "narration": "hey fell money reversed"
+}
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json 200
+{
+  "success": true,
+  "message": "successful",
+  "data": {
+    "current_page": 1,
+    "data": [
+      {
+        "id": "9cbd147b-ba41-48c1-88aa-0b989d972a0f",
+        "reference": "RC7SPLVW53NHDELZCF",
+        "user_id": "9cb99122-5f30-411d-8ac7-b435a4f964ca",
+        "staff_id": "85410a8a-9127-4862-8ab8-df836d4617bd",
+        "origin_tranx_id": null,
+        "entry": "credit",
+        "amount": "5000.00",
+        "reason": "Resolve failed withdraw",
+        "status": "successful",
+        "created_at": "2024-08-11T06:51:04.000000Z",
+        "updated_at": "2024-08-11T06:51:04.000000Z",
+        "transaction": {
+          "id": "9cbd147d-97ad-4800-89cf-f6f06cbf6763",
+          "reference": "RC7SPLVW53NHDELZCF",
+          "user_id": "9cb99122-5f30-411d-8ac7-b435a4f964ca",
+          "transaction_type": "reconcile",
+          "transaction_id": "9cbd147b-ba41-48c1-88aa-0b989d972a0f",
+          "entry": "credit",
+          "status": "successful",
+          "narration": "hey fella money reversed",
+          "currency": "NGN",
+          "amount": 5000,
+          "charge": 0,
+          "total_amount": 5000,
+          "wallet_balance": 5000,
+          "is_reversal": false,
+          "mode": null,
+          "created_at": "2024-08-11T06:51:05.000000Z",
+          "updated_at": "2024-08-11T06:51:05.000000Z"
+        },
+        "origin_transaction": null,
+        "user": {
+          "id": "9cb99122-5f30-411d-8ac7-b435a4f964ca",
+          "name": "David Logic",
+          "username": "dev00885",
+          "email": "user@example.com"
+        },
+        "staff": {
+          "id": "85410a8a-9127-4862-8ab8-df836d4617bd",
+          "name": "pikka pikka",
+          "username": "pikka",
+          "email": "user@example.com"
+        }
+      },
+      {
+        "id": "9cbd151e-3940-4099-9530-bd15af1f11b7",
+        "reference": "RCD2XVQFCEHMRVPW7U",
+        "user_id": "9cb99122-5f30-411d-8ac7-b435a4f964ca",
+        "staff_id": "85410a8a-9127-4862-8ab8-df836d4617bd",
+        "origin_tranx_id": null,
+        "entry": "credit",
+        "amount": "5000.00",
+        "reason": "Resolve failed withdraw",
+        "status": "successful",
+        "created_at": "2024-08-11T06:52:50.000000Z",
+        "updated_at": "2024-08-11T06:52:50.000000Z",
+        "transaction": {
+          "id": "9cbd1520-401f-4d74-b146-3375ea0513b2",
+          "reference": "RCD2XVQFCEHMRVPW7U",
+          "user_id": "9cb99122-5f30-411d-8ac7-b435a4f964ca",
+          "transaction_type": "reconcile",
+          "transaction_id": "9cbd151e-3940-4099-9530-bd15af1f11b7",
+          "entry": "credit",
+          "status": "successful",
+          "narration": "hey fella money reversed",
+          "currency": "NGN",
+          "amount": 5000,
+          "charge": 0,
+          "total_amount": 5000,
+          "wallet_balance": 10000,
+          "is_reversal": false,
+          "mode": null,
+          "created_at": "2024-08-11T06:52:51.000000Z",
+          "updated_at": "2024-08-11T06:52:51.000000Z"
+        },
+        "origin_transaction": null,
+        "user": {
+          "id": "9cb99122-5f30-411d-8ac7-b435a4f964ca",
+          "name": "David Logic",
+          "username": "dev00885",
+          "email": "user@example.com"
+        },
+        "staff": {
+          "id": "85410a8a-9127-4862-8ab8-df836d4617bd",
+          "name": "pikka pikka",
+          "username": "pikka",
+          "email": "user@example.com"
+        }
+      }
+    ],
+    "first_page_url": "http://localhost:2525/api/console/reconciliations?page=1",
+    "from": 1,
+    "last_page": 1,
+    "last_page_url": "http://localhost:2525/api/console/reconciliations?page=1",
+    "links": [
+      {
+        "url": null,
+        "label": "&laquo; Previous",
+        "active": false
+      },
+      {
+        "url": "http://localhost:2525/api/console/reconciliations?page=1",
+        "label": "1",
+        "active": true
+      }
+    ],
+    "next_page_url": null,
+    "path": "http://localhost:2525/api/console/reconciliations",
+    "per_page": 15,
+    "prev_page_url": null,
+    "to": 9,
+    "total": 9
+  }
+}
+```
+
+</ResponseExample>

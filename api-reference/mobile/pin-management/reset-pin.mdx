@@ -1,0 +1,37 @@
+---
+title: "Reset Pin"
+api: "POST /pin/reset"
+---
+
+## Body
+
+<ParamField body="pin" type="string">
+  Example: `0000`
+</ParamField>
+
+<ParamField body="token" type="string">
+  Example: `0000`
+</ParamField>
+
+<RequestExample>
+
+```json Request
+{
+  "pin": "0000",
+  "token": "0000"
+}
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json 200
+{
+  "success": true,
+  "message": "Pin reset successfully",
+  "data": []
+}
+```
+
+</ResponseExample>

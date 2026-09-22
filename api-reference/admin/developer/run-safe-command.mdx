@@ -1,0 +1,27 @@
+---
+title: "Run Safe Command"
+api: "POST /console/developer/artisan"
+---
+
+## Body
+
+<Note>Send as `multipart/form-data`.</Note>
+
+<ParamField body="command" type="string">
+   Example: `app:unflag-users`
+</ParamField>
+
+<ResponseExample>
+
+```json 200
+{
+  "success": true,
+  "message": "Command executed successfully.",
+  "data": {
+    "command": "app:unflag-users",
+    "output": "No flagged users found.\n"
+  }
+}
+```
+
+</ResponseExample>

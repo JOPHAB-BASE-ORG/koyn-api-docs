@@ -1,0 +1,117 @@
+---
+title: "Purchase Wifi Plan"
+api: "POST /wifi/purchase"
+---
+
+## Body
+
+<ParamField body="product" type="string">
+  Example: `Smile`
+</ParamField>
+
+<ParamField body="code" type="string">
+  Example: `545`
+</ParamField>
+
+<ParamField body="device_no" type="string">
+  Example: `0000000000`
+</ParamField>
+
+<ParamField body="customer_name" type="string">
+  Example: `JERAHMEEL ANIBOR`
+</ParamField>
+
+<RequestExample>
+
+```json Request
+{
+  "product": "Smile",
+  "code": "545",
+  "device_no": "0000000000",
+  "customer_name": "JERAHMEEL ANIBOR"
+}
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json 200
+{
+  "success": true,
+  "message": "successful",
+  "data": {
+    "user_id": 1279,
+    "reference": "WTAOSFZ8XSBM0EMNBT",
+    "transaction_type": "wifi",
+    "transaction_id": 10,
+    "entry": "debit",
+    "status": "successful",
+    "narration": "Smile 0000000000",
+    "amount": 350,
+    "charge": 0,
+    "total_amount": 350,
+    "wallet_balance": 33200,
+    "updated_at": "2024-05-14T08:43:23.000000Z",
+    "created_at": "2024-05-14T08:43:23.000000Z",
+    "id": 887,
+    "transactable": {
+      "id": 10,
+      "user_id": 1279,
+      "product": "Smile",
+      "name": "Flexi Daily - 350 Naira",
+      "code": "545",
+      "device_number": "0000000000",
+      "amount_requested": "350.00",
+      "discount_value": null,
+      "reference": "WTAOSFZ8XSBM0EMNBT",
+      "status": "pending",
+      "provider_status": null,
+      "created_at": "2024-05-14T08:43:22.000000Z",
+      "updated_at": "2024-05-14T08:43:22.000000Z",
+      "amount_paid": null,
+      "discount_percentage": null
+    }
+  }
+}
+```
+
+```text Example
+Data {
+  user_id: number
+  reference: string
+  transaction_type: string
+  transaction_id: number
+  entry: string
+  status: string
+  narration: string
+  amount: number
+  charge: number
+  total_amount: number
+  wallet_balance: number
+  updated_at: string
+  created_at: string
+  id: number
+  transactable: Transactable
+}
+
+export interface Transactable {
+  id: number
+  user_id: number
+  product: string
+  name: string
+  code: string
+  device_number: string
+  amount_requested: string
+  discount_value: decimal|string|null
+  reference: string
+  status: string
+  provider_status: string|null
+  created_at: string
+  updated_at: string
+  amount_paid: decimal|null 
+  discount_percentage: decimal|null
+}
+```
+
+</ResponseExample>

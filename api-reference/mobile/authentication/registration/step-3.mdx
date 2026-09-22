@@ -1,0 +1,34 @@
+---
+title: "Step 3"
+api: "POST /register/step/step-3"
+---
+
+## Body
+
+<ParamField body="phone" type="string">
+  Example: `08012345678`
+</ParamField>
+
+<RequestExample>
+
+```json Request
+{
+  "phone": "08012345678"
+}
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json 200
+{
+  "success": true,
+  "message": "successful",
+  "data": {
+    "phone": "08012345678"
+  }
+}
+```
+
+</ResponseExample>

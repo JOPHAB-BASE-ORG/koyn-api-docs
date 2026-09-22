@@ -1,0 +1,40 @@
+---
+title: "Wallet details"
+api: "GET /wallet"
+---
+
+## Headers
+
+<ParamField header="X-Client-Version" type="string">
+Example: `2.0.2`
+</ParamField>
+
+<ResponseExample>
+
+```json 200
+{
+  "success": true,
+  "message": "Wallet fetched successfully.",
+  "data": {
+    "id": 824,
+    "user_id": 1279,
+    "current_balance": "0.00",
+    "deleted_at": null,
+    "created_at": "2024-04-04T22:03:08.000000Z",
+    "updated_at": "2024-04-04T22:03:08.000000Z"
+  }
+}
+```
+
+```text Example
+{
+  id: number
+  user_id: number
+  current_balance: string|decimal
+  deleted_at: string|null
+  created_at: string
+  updated_at: string
+}
+```
+
+</ResponseExample>

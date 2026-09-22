@@ -1,0 +1,46 @@
+---
+title: "Responses and errors"
+description: "The response envelope and error format shared by every endpoint"
+---
+
+Every endpoint returns JSON with the same envelope.
+
+## Success
+
+```json
+{
+  "success": true,
+  "message": "successful",
+  "data": { }
+}
+```
+
+`data` holds the resource or collection. List endpoints return Laravel pagination fields alongside the items, including `current_page`, `per_page`, `total` and `next_page_url`.
+
+## Validation errors
+
+Failed validation returns HTTP `422` with a per-field breakdown.
+
+```json
+{
+  "success": false,
+  "message": "Whoops something went wrong, Username already exists. Please try again.",
+  "errors": {
+    "username": ["Username already exists. Please try again."]
+  }
+}
+```
+
+## Other status codes
+
+| Code | Meaning |
+| --- | --- |
+| `400` | The request was well formed but could not be processed, for example an insufficient balance. |
+| `401` | Missing, expired or revoked bearer token. |
+| `403` | The token is valid but the account is suspended or lacks the required role. |
+| `404` | The resource does not exist or does not belong to the caller. |
+| `429` | Rate limit exceeded. The default limit is 60 requests per minute per token. |
+
+## Response types
+
+Many endpoint pages include a **Response types** section with TypeScript interfaces describing the `data` payload. These were captured from live responses and are a good starting point for client models.

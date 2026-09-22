@@ -1,0 +1,20 @@
+---
+title: "Export"
+api: "POST /console/export"
+---
+
+## Body
+
+<Note>Send as `multipart/form-data`.</Note>
+
+<ParamField body="model" type="string">
+  crypto_transactions,withdrawals,airtime_top_ups,data_top_ups,cable_top_ups,betting_top_ups,meter_top_ups,wifi_top_ups Example: `crypto_transactions`
+</ParamField>
+
+<ParamField body="start_date" type="string">
+  Y-m-d Example: `04/09/2023`
+</ParamField>
+
+<ParamField body="end_date" type="string">
+  Y-m-d Example: `26/08/2024`
+</ParamField>

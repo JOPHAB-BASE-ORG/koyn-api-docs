@@ -1,0 +1,45 @@
+---
+title: "Update Disco Product"
+api: "POST /console/disco/products/{id}"
+---
+
+## Path parameters
+
+<ParamField path="id" type="string" required>
+   Example: `1`
+</ParamField>
+
+## Body
+
+<Note>Send as `multipart/form-data`.</Note>
+
+<ParamField body="name" type="string">
+   Example: `Abuja`
+</ParamField>
+
+<ParamField body="status" type="string">
+  active | inactive Example: `active`
+</ParamField>
+
+<ParamField body="logo" type="file">
+
+</ParamField>
+
+<ResponseExample>
+
+```json 200
+{
+  "success": true,
+  "message": "Product updated successfully!",
+  "data": {
+    "id": 1,
+    "name": "Abuja",
+    "logo": "https://res.cloudinary.com/diyxzs220/image/upload/v1698229298/bills/phpIpSDHL_v6miia.png",
+    "status": "active",
+    "created_at": null,
+    "updated_at": null
+  }
+}
+```
+
+</ResponseExample>

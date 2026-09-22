@@ -1,0 +1,38 @@
+---
+title: "Set Withdraw Mode"
+api: "POST /console/settings/withdrawal-mode"
+---
+
+## Body
+
+<ParamField body="mode" type="string">
+  Example: `automatic`
+</ParamField>
+
+<RequestExample>
+
+```json Request
+{
+  "mode": "automatic"
+}
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json 200
+{
+  "success": true,
+  "message": "Withdrawal mode set successfully.",
+  "data": {
+    "id": 3,
+    "key": "withdrawal_mode",
+    "value": "automatic",
+    "created_at": "2023-09-04T11:25:54.000000Z",
+    "updated_at": "2023-11-30T12:05:38.000000Z"
+  }
+}
+```
+
+</ResponseExample>

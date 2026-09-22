@@ -1,0 +1,45 @@
+---
+title: "Send Push Notification"
+api: "POST /console/notification/targeted-emails"
+---
+
+## Body
+
+<Note>Send as `multipart/form-data`.</Note>
+
+<ParamField body="emails[0]" type="string">
+   Example: `user@example.com`
+</ParamField>
+
+<ParamField body="title" type="string">
+   Example: `Test Notification`
+</ParamField>
+
+<ParamField body="body" type="string">
+   Example: `This is a test notification`
+</ParamField>
+
+<ResponseExample>
+
+```json 200
+{
+  "success": true,
+  "message": "Notification queued",
+  "data": {
+    "title": "Test Notification",
+    "body": "This is a test notification",
+    "group": "Specific Emails",
+    "successful": 0,
+    "failed": 0,
+    "emails": [
+      "user@example.com"
+    ],
+    "scheduled_at": "2026-03-05T10:11:35.000000Z",
+    "updated_at": "2026-03-05T10:11:35.000000Z",
+    "created_at": "2026-03-05T10:11:35.000000Z",
+    "id": 10
+  }
+}
+```
+
+</ResponseExample>

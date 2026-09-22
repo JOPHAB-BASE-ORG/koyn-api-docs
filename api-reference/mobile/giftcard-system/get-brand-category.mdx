@@ -1,0 +1,35 @@
+---
+title: "Get Brand Category"
+api: "GET /giftcards/brands/{giftcardBrand}/categories"
+---
+
+## Path parameters
+
+<ParamField path="giftcardBrand" type="string" required>
+   Example: `1`
+</ParamField>
+
+<ResponseExample>
+
+```json 200
+{
+  "success": true,
+  "message": "Giftcard categories",
+  "data": [
+    {
+      "id": 1,
+      "brand_id": 1,
+      "name": "USA ECODE 🇱🇷",
+      "min": "20.00",
+      "max": "99.00",
+      "rate": "1300.0000",
+      "is_active": true,
+      "requires_receipt": true,
+      "created_at": "2026-02-20T02:57:14.000000Z",
+      "updated_at": "2026-02-20T02:58:47.000000Z"
+    }
+  ]
+}
+```
+
+</ResponseExample>

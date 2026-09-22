@@ -1,0 +1,126 @@
+---
+title: "Wallet Withdraw V2"
+api: "POST /wallet/v2/withdraw"
+---
+
+## Body
+
+<ParamField body="amount" type="string">
+  Example: `2500`
+</ParamField>
+
+<ParamField body="pin" type="string">
+  Example: `0000`
+</ParamField>
+
+<ParamField body="bank_id" type="string">
+  Example: `4`
+</ParamField>
+
+<RequestExample>
+
+```json Request
+{
+  "amount": "2500",
+  "pin": "0000",
+  "bank_id": "4"
+}
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json 200
+{
+  "success": true,
+  "message": "successful",
+  "data": {
+    "user_id": 1279,
+    "reference": "WWZU5R9LIYXZ1QUCJ4",
+    "transaction_type": "withdraw",
+    "transaction_id": 397,
+    "entry": "debit",
+    "status": "successful",
+    "narration": "N5000 Withdrawal request",
+    "amount": 5000,
+    "charge": 0,
+    "total_amount": 5000,
+    "wallet_balance": 43600,
+    "updated_at": "2024-05-17T05:12:02.000000Z",
+    "created_at": "2024-05-17T05:12:02.000000Z",
+    "id": 894,
+    "transactable": {
+      "id": 397,
+      "user_id": 1279,
+      "reference": "WWZU5R9LIYXZ1QUCJ4",
+      "amount": "5000.00",
+      "bank": "",
+      "bank_code": "000014",
+      "bank_name": "ACCESS BANK PLC",
+      "account_name": "afuwape sunday",
+      "account_number": "0000000000",
+      "bank_logo": "https://res.cloudinary.com/diyxzs220/image/upload/v1699868530/banks/phpNVc5lG_hagq0v.png",
+      "status": "pending",
+      "rejection_id": null,
+      "settled_by": null,
+      "provider_reference": null,
+      "provider_status": null,
+      "platform": "MONNIFY",
+      "created_at": "2024-05-17T05:12:01.000000Z",
+      "updated_at": "2024-05-17T05:12:01.000000Z",
+      "channel": "automated"
+    }
+  }
+}
+```
+
+</ResponseExample>
+
+## Response types
+
+<Accordion title="TypeScript definitions">
+
+```typescript
+export interface Data {
+  user_id: number
+  reference: string
+  transaction_type: string
+  transaction_id: number
+  entry: string
+  status: string
+  narration: string
+  amount: number
+  charge: number
+  total_amount: number
+  wallet_balance: number
+  updated_at: string
+  created_at: string
+  id: number
+  transactable: Transactable
+}
+
+export interface Transactable {
+  id: number
+  user_id: number
+  reference: string
+  amount: string
+  bank: string|null
+  bank_code: string
+  bank_name: string
+  account_name: string
+  account_number: string
+  bank_logo: string
+  status: string
+  rejection_id: int|null
+  settled_by: int|null
+  provider_reference: string|null
+  provider_status: string|null
+  platform: string
+  created_at: string
+  updated_at: string
+  channel: string
+}
+```
+
+</Accordion>

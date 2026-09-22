@@ -1,0 +1,148 @@
+---
+title: "Crypto Deposits"
+api: "GET /console/crypto/deposits"
+---
+
+<ResponseExample>
+
+```json 200
+{
+  "success": true,
+  "message": "Crypto Deposits",
+  "data": {
+    "current_page": 1,
+    "data": [
+      {
+        "id": 55,
+        "user_id": 1,
+        "reference": "CDU8VOSJ798CUFOCAK",
+        "crypto": "USDT (TRC20)",
+        "crypto_amount": "150.00000000",
+        "conversion_rate": "1000.00",
+        "usd_value": "150.00",
+        "payout_amount": "150000.00",
+        "payout_currency": "NGN",
+        "confirmations": 4,
+        "status": "successful",
+        "transaction_hash": "2aabdab03ec82ac873c8177200028e18c509ff34644e91d6138426b26e90b4de",
+        "transaction_link": "https://blockexplorer.one/tron/mainnet/address/TF14kx6rifBwZG7nCYghZBN4ipFkF3YcMn",
+        "address": "TF14kx6rifBwZG7nCYghZBN4ipFkF3YcMn",
+        "platform": "vaultody",
+        "created_at": "2025-05-16T22:23:47.000000Z",
+        "updated_at": "2025-05-16T22:23:47.000000Z",
+        "asset_price": "1.00",
+        "first_trade": false,
+        "logo": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FBitcoin&psig=AOvVaw0pNaOmHpJVFhLFgHczrzYv&ust=1690761434042000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCLj-jKePtYADFQAAAAAdAAAAABAE",
+        "user": {
+          "id": 1,
+          "name": null,
+          "username": "matrix",
+          "phone": "0000000000",
+          "email": "user@example.com",
+          "dob": null,
+          "email_verified_at": "2023-07-05T21:15:00.000000Z",
+          "referral_code": "O2ab2F",
+          "device_token": "************",
+          "device_type": null,
+          "status": "active",
+          "has_biometric": false,
+          "tier_id": 2,
+          "credits": null,
+          "avatar": "avatar_5.png",
+          "deleted_at": null,
+          "created_at": "2023-07-05T18:33:02.000000Z",
+          "updated_at": "2024-12-31T11:03:15.000000Z",
+          "heard_about_us": null,
+          "failed_login_attempts": 0,
+          "total_crypto_trade": 341.37,
+          "total_withdrawn": 3000,
+          "has_pin": true,
+          "wallet_balance": "1224750.00",
+          "has_verifiedBVN": true,
+          "has_default_bank_account": false,
+          "has_withdrawn": true
+        }
+      },
+      {
+        "id": 44,
+        "user_id": 41,
+        "reference": "CDIFTUNQLFXRKXWXJY",
+        "crypto": "USDT (ERC20)",
+        "crypto_amount": "0.00023937",
+        "conversion_rate": "1165.00",
+        "usd_value": "0.44",
+        "payout_amount": "515.78",
+        "payout_currency": "NGN",
+        "confirmations": 5,
+        "status": "successful",
+        "transaction_hash": "7d5fb09731ff6f7d576fb794b2f336f7df153d5e800847360009dc380a8c9c49",
+        "transaction_link": "https://blockexplorer.one/ethereum/mainnet/address/0xa1d3afe124d1766130bc473b195ef01235b82db6",
+        "address": "0xa1d3afe124d1766130bc473b195ef01235b82db6",
+        "platform": "vaultody",
+        "created_at": "2025-05-02T19:13:02.000000Z",
+        "updated_at": "2025-05-02T19:13:02.000000Z",
+        "asset_price": "1849.56",
+        "first_trade": false,
+        "logo": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FBitcoin&psig=AOvVaw0pNaOmHpJVFhLFgHczrzYv&ust=1690761434042000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCLj-jKePtYADFQAAAAAdAAAAABAE",
+        "user": {
+          "id": 41,
+          "name": "David Logic",
+          "username": "logicfx",
+          "phone": "08012345678",
+          "email": "user@example.com",
+          "dob": null,
+          "email_verified_at": "2024-08-15T06:05:18.000000Z",
+          "referral_code": "9kvu8V",
+          "device_token": null,
+          "device_type": null,
+          "status": "active",
+          "has_biometric": false,
+          "tier_id": 2,
+          "credits": null,
+          "avatar": null,
+          "deleted_at": null,
+          "created_at": "2024-08-15T06:05:18.000000Z",
+          "updated_at": "2025-02-01T12:42:27.000000Z",
+          "heard_about_us": null,
+          "failed_login_attempts": 0,
+          "total_crypto_trade": 69.91,
+          "total_withdrawn": 0,
+          "has_pin": true,
+          "wallet_balance": "767767.00",
+          "has_verifiedBVN": true,
+          "has_default_bank_account": true,
+          "has_withdrawn": true
+        }
+      }
+    ],
+    "first_page_url": "https://getkoyn.test/api/console/crypto/deposits?page=1",
+    "from": 1,
+    "last_page": 1,
+    "last_page_url": "https://getkoyn.test/api/console/crypto/deposits?page=1",
+    "links": [
+      {
+        "url": null,
+        "label": "&laquo; Previous",
+        "active": false
+      },
+      {
+        "url": "https://getkoyn.test/api/console/crypto/deposits?page=1",
+        "label": "1",
+        "active": true
+      }
+    ],
+    "next_page_url": null,
+    "path": "https://getkoyn.test/api/console/crypto/deposits",
+    "per_page": 25,
+    "prev_page_url": null,
+    "to": 22,
+    "total": 22,
+    "overview": {
+      "successful": 22,
+      "pending": 0
+    }
+  }
+}
+```
+
+</ResponseExample>

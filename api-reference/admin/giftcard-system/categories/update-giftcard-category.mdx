@@ -1,0 +1,59 @@
+---
+title: "Update GiftCard Category"
+api: "PUT /console/giftcards/categories/{giftCardCategory}"
+---
+
+## Path parameters
+
+<ParamField path="giftCardCategory" type="string" required>
+   Example: `1`
+</ParamField>
+
+## Query parameters
+
+<ParamField query="name" type="string">
+
+</ParamField>
+
+<ParamField query="min" type="string">
+
+</ParamField>
+
+<ParamField query="max" type="string">
+
+</ParamField>
+
+<ParamField query="rate" type="string">
+
+</ParamField>
+
+<ParamField query="is_active" type="string">
+
+</ParamField>
+
+<ParamField query="requires_receipt" type="string">
+   Example: `1`
+</ParamField>
+
+<ResponseExample>
+
+```json 200
+{
+  "success": true,
+  "message": "Giftcard category updated",
+  "data": {
+    "id": 1,
+    "brand_id": 1,
+    "name": "USA ECODE 🇱🇷",
+    "min": "20.00",
+    "max": "99.00",
+    "rate": "1300.0000",
+    "is_active": true,
+    "requires_receipt": true,
+    "created_at": "2026-02-20T02:57:14.000000Z",
+    "updated_at": "2026-02-20T02:58:47.000000Z"
+  }
+}
+```
+
+</ResponseExample>

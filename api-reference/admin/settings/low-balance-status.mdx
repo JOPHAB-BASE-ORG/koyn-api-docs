@@ -1,0 +1,24 @@
+---
+title: "Low balance status"
+api: "GET /console/redbiller/low-balance"
+---
+
+## Body
+
+<Note>Send as `multipart/form-data`.</Note>
+
+<ParamField body="bank_name" type="string">
+   Example: `ABBEY MORTGAGE BANK`
+</ParamField>
+
+<ParamField body="bank_code" type="string">
+   Example: `070010`
+</ParamField>
+
+<ParamField body="bank_logo" type="file">
+
+</ParamField>
+
+<ParamField body="status" type="string">
+   Example: `active`
+</ParamField>

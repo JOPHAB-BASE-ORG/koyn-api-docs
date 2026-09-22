@@ -1,0 +1,43 @@
+---
+title: "Withdraw Crypto Balance"
+api: "POST /console/crypto/wallet/withdraw"
+---
+
+## Body
+
+<ParamField body="amount" type="string">
+  Example: `0.00000550`
+</ParamField>
+
+<ParamField body="priority" type="string">
+  Example: `standard`
+</ParamField>
+
+<RequestExample>
+
+```json Request
+{
+  "amount": "0.00000550",
+  "priority": "standard"
+}
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json 200
+{
+  "success": true,
+  "message": "successful",
+  "data": {
+    "balance": {
+      "amount": "0.00019762",
+      "unit": "BTC"
+    },
+    "depositAddressesCount": 17
+  }
+}
+```
+
+</ResponseExample>

@@ -1,0 +1,84 @@
+---
+title: "Get One Transactions"
+api: "GET /trades/1"
+---
+
+<ResponseExample>
+
+```json 200
+{
+  "status": "Success",
+  "message": null,
+  "data": {
+    "id": 1,
+    "card_id": 81,
+    "customer_id": 9653,
+    "transaction_ref": "2466551657586324",
+    "status": 1,
+    "value": 50,
+    "e_code": "",
+    "rate": 360,
+    "images": [
+      "https://res.cloudinary.com/traydah/image/upload/v1657586324/trade-img/gdn9fdmwlrfitmme7gfk.png"
+    ],
+    "created_at": "2022-07-12T01:38:45.000000Z",
+    "updated_at": "2022-08-15T14:09:04.000000Z",
+    "rejection_reason": "We do not accept this card at this moment",
+    "rejection_comment": null,
+    "attachment": [
+      "https://res.cloudinary.com/traydah/image/upload/v1657590375/categories/m8zamoklcqcxoihtuwsk.png"
+    ],
+    "settled_by": "Super Admin",
+    "payment_method": "Nigerian Naira",
+    "network_type": null,
+    "address": null,
+    "message": null,
+    "category": {
+      "id": 1,
+      "name": "Google Play",
+      "slug": "google",
+      "large_image": "https://res.cloudinary.com/traydah/image/upload/v1657557711/categories/d37uqsaedcrb2jymklro.webp",
+      "small_image": "https://res.cloudinary.com/traydah/image/upload/v1657556752/categories/w2plgzir0q1hmky5biu7.png",
+      "status": "active",
+      "created_at": "2021-11-11T17:51:45.000000Z",
+      "updated_at": "2022-07-11T17:41:51.000000Z",
+      "position": 0,
+      "deleted_at": null
+    },
+    "views": [
+      {
+        "id": 1,
+        "trade_id": 1,
+        "admin_id": 117,
+        "created_at": "2023-10-01T18:05:13.000000Z",
+        "updated_at": "2023-10-01T18:05:13.000000Z",
+        "admin": {
+          "id": 117,
+          "name": "Admin",
+          "username": "Admin",
+          "email": "user@example.com",
+          "phone": "08012345678",
+          "status": "active",
+          "device_token": null,
+          "created_at": "2021-11-06T20:17:49.000000Z",
+          "last_login": "2022-01-12 19:07:23",
+          "verification_status": "unverified",
+          "profile_img": null,
+          "country_id": "N/A",
+          "credit": 0,
+          "debit": 0,
+          "balance": 0,
+          "suspension_reason": null,
+          "suspension_ends_at": null,
+          "suspension_starts_at": null,
+          "total_transactions": 0,
+          "total_withdrawals": 0,
+          "last_traded": null
+        }
+      }
+    ]
+  }
+}
+```
+
+</ResponseExample>

@@ -1,0 +1,151 @@
+---
+title: "Data Topups"
+api: "GET /console/data/topups"
+---
+
+## Query parameters
+
+<ParamField query="status" type="string">
+  pending successful rejected failed Example: `pending`
+</ParamField>
+
+## Body
+
+<RequestExample>
+
+```json Request
+//pending,successful,failed
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json 200
+{
+  "success": true,
+  "message": "Data Purchases",
+  "data": {
+    "current_page": 1,
+    "data": [
+      {
+        "id": 7,
+        "user_id": 998,
+        "product": "MTN",
+        "name": "MTN N50 50MB 2Go  - (7 Days)",
+        "phone_no": "08012345678",
+        "code": "mtn-50mb-50",
+        "amount_requested": "50.00",
+        "amount_paid": "48.75",
+        "discount_percentage": 3,
+        "discount_value": "1.25",
+        "reference": "DT6641921708634645",
+        "status": "successful",
+        "provider_status": null,
+        "created_at": "2024-02-22T20:44:13.000000Z",
+        "updated_at": "2024-02-22T20:44:13.000000Z",
+        "user": {
+          "id": 998,
+          "name": null,
+          "username": "zhangjj",
+          "phone": "08012345678",
+          "email": "user@example.com",
+          "dob": null,
+          "email_verified_at": "2024-02-16T16:38:24.000000Z",
+          "referral_code": "UB3Lh7",
+          "device_token": "************",
+          "device_type": null,
+          "status": "active",
+          "tier_id": 1,
+          "credits": null,
+          "avatar": "avatar_12.png",
+          "deleted_at": null,
+          "created_at": "2024-02-16T16:37:53.000000Z",
+          "updated_at": "2024-03-01T12:29:05.000000Z",
+          "heard_about_us": null,
+          "failed_login_attempts": 0,
+          "total_crypto_trade": 83.1,
+          "has_pin": true,
+          "wallet_balance": "19.76",
+          "has_verifiedBVN": false,
+          "has_default_bank_account": true,
+          "has_withdrawn": true
+        }
+      },
+      {
+        "id": 6,
+        "user_id": 998,
+        "product": "MTN",
+        "name": "MTN N100 100MB - (24 Hours)",
+        "phone_no": "08012345678",
+        "code": "mtn-10mb-100",
+        "amount_requested": "100.00",
+        "amount_paid": "97.50",
+        "discount_percentage": 3,
+        "discount_value": "2.50",
+        "reference": "DT4761501708375657",
+        "status": "successful",
+        "provider_status": null,
+        "created_at": "2024-02-19T20:47:44.000000Z",
+        "updated_at": "2024-02-19T20:47:44.000000Z",
+        "user": {
+          "id": 998,
+          "name": null,
+          "username": "zhangjj",
+          "phone": "08012345678",
+          "email": "user@example.com",
+          "dob": null,
+          "email_verified_at": "2024-02-16T16:38:24.000000Z",
+          "referral_code": "UB3Lh7",
+          "device_token": "************",
+          "device_type": null,
+          "status": "active",
+          "tier_id": 1,
+          "credits": null,
+          "avatar": "avatar_12.png",
+          "deleted_at": null,
+          "created_at": "2024-02-16T16:37:53.000000Z",
+          "updated_at": "2024-03-01T12:29:05.000000Z",
+          "heard_about_us": null,
+          "failed_login_attempts": 0,
+          "total_crypto_trade": 83.1,
+          "has_pin": true,
+          "wallet_balance": "19.76",
+          "has_verifiedBVN": false,
+          "has_default_bank_account": true,
+          "has_withdrawn": true
+        }
+      }
+    ],
+    "first_page_url": "http://localhost:2525/api/console/data/topups?page=1",
+    "from": 1,
+    "last_page": 1,
+    "last_page_url": "http://localhost:2525/api/console/data/topups?page=1",
+    "links": [
+      {
+        "url": null,
+        "label": "&laquo; Previous",
+        "active": false
+      },
+      {
+        "url": "http://localhost:2525/api/console/data/topups?page=1",
+        "label": "1",
+        "active": true
+      }
+    ],
+    "next_page_url": null,
+    "path": "http://localhost:2525/api/console/data/topups",
+    "per_page": 25,
+    "prev_page_url": null,
+    "to": 4,
+    "total": 4,
+    "overview": {
+      "successful": 4,
+      "pending": 0,
+      "rejected": 0
+    }
+  }
+}
+```
+
+</ResponseExample>

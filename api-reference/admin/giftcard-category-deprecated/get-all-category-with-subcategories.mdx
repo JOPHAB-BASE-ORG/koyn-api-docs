@@ -1,0 +1,110 @@
+---
+title: "Get All Category With Subcategories"
+api: "GET /category/all"
+description: "Deprecated. Retained for reference only."
+---
+
+<Warning>
+  This endpoint belongs to a retired flow. Use the current equivalents documented elsewhere in this reference.
+</Warning>
+
+<ResponseExample>
+
+```json 200
+{
+  "status": "Success",
+  "message": null,
+  "data": [
+    {
+      "id": 1,
+      "name": "Google Play",
+      "slug": "google",
+      "large_image": "https://res.cloudinary.com/traydah/image/upload/v1657557711/categories/d37uqsaedcrb2jymklro.webp",
+      "small_image": "https://res.cloudinary.com/traydah/image/upload/v1657556752/categories/w2plgzir0q1hmky5biu7.png",
+      "status": "active",
+      "created_at": "2021-11-11T17:51:45.000000Z",
+      "updated_at": "2022-07-11T17:41:51.000000Z",
+      "position": null,
+      "deleted_at": null,
+      "cards": [
+        {
+          "id": 80,
+          "category_id": 1,
+          "name": "USA (unavailable)  $10 to $49",
+          "slug": "usa-physical-15-to-49",
+          "terms": null,
+          "status": "active",
+          "top_card": null,
+          "created_at": "2021-12-13T16:18:36.000000Z",
+          "updated_at": "2022-07-12T03:01:24.000000Z",
+          "rate": 0,
+          "min": 10,
+          "deleted_at": null,
+          "position": 0
+        },
+        {
+          "id": 81,
+          "category_id": 1,
+          "name": "USA (unavailable) $50 to $499",
+          "slug": "usa-physical-50-to-500",
+          "terms": null,
+          "status": "active",
+          "top_card": null,
+          "created_at": "2021-12-13T16:20:01.000000Z",
+          "updated_at": "2022-07-12T03:01:38.000000Z",
+          "rate": 0,
+          "min": 50,
+          "deleted_at": null,
+          "position": 0
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Apple / iTunes",
+      "slug": "itunes",
+      "large_image": "https://res.cloudinary.com/traydah/image/upload/v1657553538/categories/udzghovstde6x7infj19.png",
+      "small_image": "https://res.cloudinary.com/traydah/image/upload/v1657553481/categories/pgma5e8z4cxr2icvvap7.jpg",
+      "status": "active",
+      "created_at": "2021-11-11T17:52:18.000000Z",
+      "updated_at": "2022-07-14T22:32:11.000000Z",
+      "position": null,
+      "deleted_at": null,
+      "cards": [
+        {
+          "id": 17,
+          "category_id": 2,
+          "name": "USA (Card Picture) $25 to $49",
+          "slug": "itunes-canada",
+          "terms": null,
+          "status": "active",
+          "top_card": null,
+          "created_at": "2021-11-15T20:38:49.000000Z",
+          "updated_at": "2022-07-14T18:30:37.000000Z",
+          "rate": 95,
+          "min": 25,
+          "deleted_at": null,
+          "position": 0
+        },
+        {
+          "id": 18,
+          "category_id": 2,
+          "name": "USA (Card Picture) $50 to $99",
+          "slug": "itunes-australia",
+          "terms": null,
+          "status": "active",
+          "top_card": null,
+          "created_at": "2021-11-15T20:40:18.000000Z",
+          "updated_at": "2022-07-14T21:52:08.000000Z",
+          "rate": 190,
+          "min": 50,
+          "deleted_at": null,
+          "position": 0
+        }
+      ]
+    }
+  ]
+}
+```
+
+</ResponseExample>

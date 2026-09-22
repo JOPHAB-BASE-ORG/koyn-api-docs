@@ -1,0 +1,98 @@
+---
+title: "0xProcessing"
+api: "POST /webhook/xprocessing"
+playground: "none"
+---
+
+## Body
+
+<ParamField body="PaymentId" type="integer">
+  Example: `7675970`
+</ParamField>
+
+<ParamField body="ShopId" type="string">
+  Example: `0xMR2800526`
+</ParamField>
+
+<ParamField body="MerchantId" type="string">
+  Example: `0xMR2800526`
+</ParamField>
+
+<ParamField body="Amount" type="number">
+  Example: `0.00793359`
+</ParamField>
+
+<ParamField body="TotalAmount" type="number">
+  Example: `0.00793359`
+</ParamField>
+
+<ParamField body="Currency" type="string">
+  Example: `ETH`
+</ParamField>
+
+<ParamField body="Email" type="string">
+  
+</ParamField>
+
+<ParamField body="Status" type="string">
+  Example: `Success`
+</ParamField>
+
+<ParamField body="Signature" type="string">
+  Example: `d91ed442e2fa66c59d816708cc668227`
+</ParamField>
+
+<ParamField body="BillingID" type="string">
+  
+</ParamField>
+
+<ParamField body="AmountUSD" type="number">
+  Example: `25.83`
+</ParamField>
+
+<ParamField body="TotalAmountUSD" type="number">
+  Example: `25.83`
+</ParamField>
+
+<ParamField body="Insufficient" type="boolean">
+  Example: `false`
+</ParamField>
+
+<ParamField body="Test" type="boolean">
+  Example: `false`
+</ParamField>
+
+<ParamField body="ClientId" type="string">
+  Example: `7620`
+</ParamField>
+
+<ParamField body="TxHashes" type="array">
+  
+</ParamField>
+
+<RequestExample>
+
+```json Request
+{
+  "PaymentId": 7675970,
+  "ShopId": "0xMR2800526",
+  "MerchantId": "0xMR2800526",
+  "Amount": 0.00793359,
+  "TotalAmount": 0.00793359,
+  "Currency": "ETH",
+  "Email": null,
+  "Status": "Success",
+  "Signature": "d91ed442e2fa66c59d816708cc668227",
+  "BillingID": null,
+  "AmountUSD": 25.83,
+  "TotalAmountUSD": 25.83,
+  "Insufficient": false,
+  "Test": false,
+  "ClientId": "7620",
+  "TxHashes": [
+    "0x99aa9c67012b720580d271a538575858e71ad6950595bb7fedd925c503f3bf44"
+  ]
+}
+```
+
+</RequestExample>

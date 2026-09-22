@@ -1,0 +1,32 @@
+---
+title: "Generate token"
+api: "POST /intercom/generate-token"
+---
+
+## Body
+
+<Note>Send as `multipart/form-data`.</Note>
+
+<ParamField body="platform" type="string">
+  web,android,ios Example: `web`
+</ParamField>
+
+<ResponseExample>
+
+```json 200
+{
+  "success": true,
+  "message": "JWT token generated successfully",
+  "data": {
+    "jwt_token": "************",
+    "user_hash": "efc578289b0a2a4ab804b70646a6d0aaf246f043854e3ce7d41fb49709def609",
+    "user_id": 5,
+    "email": "user@example.com",
+    "name": " Sanusi Mubaraq",
+    "platform": "web",
+    "created_at": 1698236199
+  }
+}
+```
+
+</ResponseExample>

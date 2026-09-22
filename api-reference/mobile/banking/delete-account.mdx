@@ -1,0 +1,22 @@
+---
+title: "Delete account"
+api: "DELETE /bank/{bank}/delete"
+---
+
+## Path parameters
+
+<ParamField path="bank" type="string" required>
+   Example: `556`
+</ParamField>
+
+<ResponseExample>
+
+```json 200
+{
+  "success": true,
+  "message": "Bank details updated successfully.",
+  "data": null
+}
+```
+
+</ResponseExample>

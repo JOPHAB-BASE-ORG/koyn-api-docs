@@ -1,0 +1,38 @@
+---
+title: "Wallet Balance"
+api: "GET /wallet/balance"
+---
+
+## Headers
+
+<ParamField header="X-Client-Version" type="string">
+Example: `2.0.2`
+</ParamField>
+
+## Query parameters
+
+<ParamField query="X-Client-Version" type="string">
+   Example: `2.0.2`
+</ParamField>
+
+<ResponseExample>
+
+```json 200
+{
+  "success": true,
+  "message": "Wallet balance fetched successfully",
+  "data": {
+    "balance": "44000.00",
+    "updated_at": "2024-04-25T08:35:02.000000Z"
+  }
+}
+```
+
+```text Example
+{
+  balance: string
+  updated_at: string|DateTime
+}
+```
+
+</ResponseExample>

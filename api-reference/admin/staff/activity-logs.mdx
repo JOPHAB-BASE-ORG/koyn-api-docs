@@ -1,0 +1,129 @@
+---
+title: "Activity Logs"
+api: "GET /console/activity-logs"
+---
+
+<ResponseExample>
+
+```json 200
+{
+  "success": true,
+  "message": "Admin activity logs retrieved successfully.",
+  "data": {
+    "data": [
+      {
+        "id": 2,
+        "admin_id": 61,
+        "action": "deleted_user",
+        "subject_type": "App\\Models\\User",
+        "subject_id": 13,
+        "description": "Permanently deleted user account with ID 13",
+        "ip_address": "105.113.79.238",
+        "created_at": "2026-03-25T10:43:58.000000Z",
+        "updated_at": "2026-03-25T10:43:58.000000Z",
+        "admin": {
+          "id": 61,
+          "name": "Olorunfemi",
+          "username": "olorunfemi",
+          "phone": "08012345678",
+          "email": "user@example.com",
+          "dob": null,
+          "email_verified_at": "2026-02-26T09:20:26.000000Z",
+          "referral_code": "NdBWOb",
+          "device_token": "************",
+          "device_type": null,
+          "status": "active",
+          "is_flagged": false,
+          "has_biometric": true,
+          "tier_id": 1,
+          "credits": null,
+          "avatar": null,
+          "deleted_at": null,
+          "created_at": "2026-02-26T09:20:26.000000Z",
+          "updated_at": "2026-03-25T08:43:19.000000Z",
+          "heard_about_us": "twitter",
+          "failed_login_attempts": 0,
+          "total_crypto_trade": 0,
+          "total_withdrawn": 0,
+          "has_pin": true,
+          "wallet_balance": "0.00",
+          "has_verifiedBVN": false,
+          "has_default_bank_account": false,
+          "has_withdrawn": false,
+          "crypto_wallets": []
+        },
+        "subject": null
+      },
+      {
+        "id": 1,
+        "admin_id": 61,
+        "action": "declined_withdrawal",
+        "subject_type": "App\\Models\\Withdrawal",
+        "subject_id": 18,
+        "description": "Declined withdrawal request.",
+        "ip_address": "105.113.79.238",
+        "created_at": "2026-03-25T10:43:07.000000Z",
+        "updated_at": "2026-03-25T10:43:07.000000Z",
+        "admin": {
+          "id": 61,
+          "name": "Olorunfemi",
+          "username": "olorunfemi",
+          "phone": "08012345678",
+          "email": "user@example.com",
+          "dob": null,
+          "email_verified_at": "2026-02-26T09:20:26.000000Z",
+          "referral_code": "NdBWOb",
+          "device_token": "************",
+          "device_type": null,
+          "status": "active",
+          "is_flagged": false,
+          "has_biometric": true,
+          "tier_id": 1,
+          "credits": null,
+          "avatar": null,
+          "deleted_at": null,
+          "created_at": "2026-02-26T09:20:26.000000Z",
+          "updated_at": "2026-03-25T08:43:19.000000Z",
+          "heard_about_us": "twitter",
+          "failed_login_attempts": 0,
+          "total_crypto_trade": 0,
+          "total_withdrawn": 0,
+          "has_pin": true,
+          "wallet_balance": "0.00",
+          "has_verifiedBVN": false,
+          "has_default_bank_account": false,
+          "has_withdrawn": false,
+          "crypto_wallets": []
+        },
+        "subject": {
+          "id": 18,
+          "user_id": 1,
+          "reference": "WW4119051697468211",
+          "amount": "1000.00",
+          "bank_code": null,
+          "bank_id": null,
+          "bank_name": null,
+          "account_name": null,
+          "account_number": null,
+          "bank_logo": null,
+          "status": "rejected",
+          "rejection_id": 12,
+          "settled_by": 61,
+          "provider_reference": null,
+          "provider_status": null,
+          "platform": null,
+          "channel": "automated",
+          "created_at": "2023-10-16T14:56:51.000000Z",
+          "updated_at": "2026-03-25T10:43:05.000000Z"
+        }
+      }
+    ],
+    "total": 2,
+    "per_page": 25,
+    "current_page": 1,
+    "total_pages": 1
+  }
+}
+```
+
+</ResponseExample>

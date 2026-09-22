@@ -1,0 +1,70 @@
+---
+title: "Delete account V2"
+api: "DELETE /bank/v2/{bank}/delete"
+---
+
+## Delete Bank Account
+
+Removes a bank account from the user's profile.
+
+**Method:** `DELETE`  
+**Path:** `{{domain}}/api/banks/:bankID`
+
+### Authentication
+Requires valid authentication token in the Authorization header.
+
+### Request Headers
+- `Authorization: Bearer {{token}}`
+
+### Path Variables
+- `bankID` - The unique identifier of the bank account to delete
+
+### Response Format
+```json
+{
+  "success": true,
+  "message": "Bank account deleted successfully",
+  "data": {
+    "deleted": true
+  }
+}
+```
+
+### Notes
+- Cannot delete primary bank account if other accounts exist
+- Set another account as primary before deleting the current primary
+- Deletion is permanent and cannot be undone
+
+## Path parameters
+
+<ParamField path="bank" type="string" required>
+   Example: `556`
+</ParamField>
+
+## Body
+
+<ParamField body="code" type="string">
+  Example: `123456`
+</ParamField>
+
+<RequestExample>
+
+```json Request
+{
+  "code": "123456"
+}
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json 200
+{
+  "success": true,
+  "message": "Bank details updated successfully.",
+  "data": null
+}
+```
+
+</ResponseExample>

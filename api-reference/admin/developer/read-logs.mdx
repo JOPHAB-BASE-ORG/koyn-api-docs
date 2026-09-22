@@ -1,0 +1,21 @@
+---
+title: "Read Logs"
+api: "GET /console/developer/logs"
+---
+
+<ResponseExample>
+
+```json 200
+{
+  "success": true,
+  "message": "Logs retrieved successfully.",
+  "data": {
+    "path": "/home/forge/staging.getkoyn.com/releases/66280650/storage/logs/laravel-2026-03-25.log",
+    "size": 1111,
+    "last_modified": 1774435438,
+    "content": "[2026-03-25 11:43:12] staging.WARNING: Firebase push failed {\"status\":400,\"notification\":\"App\\\\Notifications\\\\User\\\\WithdrawReversalNotification\",\"notifiable_id\":1,\"error\":{\"error\":{\"code\":400,\"message\":\"Invalid resource field value in the request.\",\"status\":\"INVALID_ARGUMENT\",\"details\":[{\"@type\":\"type.googleapis.com/google.rpc.ErrorInfo\",\"reason\":\"RESOURCE_PROJECT_INVALID\",\"domain\":\"googleapis.com\",\"metadata\":{\"service\":\"fcm.googleapis.com\",\"method\":\"google.firebase.fcm.v1.FcmService.SendMessage\"}}]}}} \n[2026-03-25 11:43:15] staging.WARNING: Firebase push failed {\"status\":400,\"notification\":\"App\\\\Notifications\\\\User\\\\WithdrawRejectNotification\",\"notifiable_id\":1,\"error\":{\"error\":{\"code\":400,\"message\":\"Invalid resource field value in the request.\",\"status\":\"INVALID_ARGUMENT\",\"details\":[{\"@type\":\"type.googleapis.com/google.rpc.ErrorInfo\",\"reason\":\"RESOURCE_PROJECT_INVALID\",\"domain\":\"googleapis.com\",\"metadata\":{\"method\":\"google.firebase.fcm.v1.FcmService.SendMessage\",\"service\":\"fcm.googleapis.com\"}}]}}} \n[2026-03-25 11:43:58] staging.INFO: Admin explicitly triggered hard-delete for user ID: 13  \n"
+  }
+}
+```
+
+</ResponseExample>

@@ -1,0 +1,39 @@
+---
+title: "Create brand"
+api: "POST /console/giftcards/brands"
+---
+
+## Body
+
+<Note>Send as `multipart/form-data`.</Note>
+
+<ParamField body="name" type="string">
+  Name of the brand Example: `iTunes`
+</ParamField>
+
+<ParamField body="logo" type="file">
+  a logo of the brand
+</ParamField>
+
+<ParamField body="is_active" type="string">
+  Display brand to live users Example: `1`
+</ParamField>
+
+<ResponseExample>
+
+```json 200
+{
+  "success": true,
+  "message": "Giftcard brand created",
+  "data": {
+    "name": "iTunes",
+    "logo": "https://res.cloudinary.com/diyxzs220/image/upload/v1771555417/giftcards/brands/Apple-Store-iTunes-New_vn3hmx.png",
+    "is_active": true,
+    "updated_at": "2026-02-20T02:43:37.000000Z",
+    "created_at": "2026-02-20T02:43:37.000000Z",
+    "id": 1
+  }
+}
+```
+
+</ResponseExample>

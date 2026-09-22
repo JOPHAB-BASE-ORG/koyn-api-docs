@@ -1,0 +1,56 @@
+---
+title: "Operating banks"
+api: "GET /bank"
+---
+
+## Headers
+
+<ParamField header="X-Client-Version" type="string">
+Example: `2.0.2`
+</ParamField>
+
+<ResponseExample>
+
+```json 200
+{
+  "success": true,
+  "message": "Banks fetched successfully",
+  "data": [
+    {
+      "id": 2,
+      "bank_name": "ACCESS BANK PLC",
+      "bank_code": "000014",
+      "monnify_bank_code": "044",
+      "bank_logo": "https://res.cloudinary.com/diyxzs220/image/upload/v1699868530/banks/phpNVc5lG_hagq0v.png",
+      "created_at": "2020-06-28T22:29:12.000000Z",
+      "updated_at": "2023-11-18T18:43:57.000000Z",
+      "status": "active"
+    },
+    {
+      "id": 35,
+      "bank_name": "ECOBANK NIGERIA",
+      "bank_code": "000010",
+      "monnify_bank_code": "050",
+      "bank_logo": "https://api.live.redbiller.com/logos/bank/ecobank.png",
+      "created_at": "2020-06-28T22:29:17.000000Z",
+      "updated_at": "2020-06-28T22:29:17.000000Z",
+      "status": "active"
+    }
+  ]
+}
+```
+
+```text Example
+{
+  id: number
+  bank_name: string
+  bank_code: string
+  monnify_bank_code: string
+  bank_logo: string
+  created_at: string
+  updated_at: string
+  status: string
+}
+```
+
+</ResponseExample>

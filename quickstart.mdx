@@ -1,47 +1,45 @@
 ---
 title: "Quickstart"
-description: "Begin with a guide on the fastest path to a successful outcome"
+description: "Make your first authenticated request in a few minutes"
 ---
 
-Describe how someone begins using your product. What is the first thing they need to do? Are there any prerequisites?
-
-A quickstart should take someone from zero to using your product. They'll get a quick win and a sense of what they can accomplish.
+This guide takes you from nothing to a successful authenticated call against the Koyn API.
 
 ## Prerequisites
 
-Before you begin, you must have:
-
-- Requirement one (for example, Node.js 18+, a free account, an API key)
-- Requirement two (for example, a compatible device, a compatible browser, a compatible operating system)
+- A Koyn account (mobile) or a staff account (admin console).
+- An HTTP client such as curl, Postman or the built-in playground on any endpoint page.
 
 ## Get started
 
 <Steps>
-  <Step title="Install">
-    Describe how to install your product or sign up.
+  <Step title="Pick a base URL">
+    Production requests go to `https://api.getkoyn.com/api`. See [Environments](/guides/environments) for staging and local URLs.
+  </Step>
+  <Step title="Obtain a token">
+    Mobile clients call [Login](/api-reference/mobile/authentication/login-passwords/login). Staff call [Console login](/api-reference/admin/auth/login). Both return a Sanctum bearer token.
 
     ```bash
-    npm install your-package
+    curl -X POST https://api.getkoyn.com/api/login \
+      -H "Content-Type: application/json" \
+      -H "X-Client-Version: 2.0.2" \
+      -d '{"email": "you@example.com", "password": "your-password"}'
     ```
   </Step>
-  <Step title="Configure">
-    Describe any setup or configuration needed before first use.
+  <Step title="Call an authenticated endpoint">
+    Send the token in the `Authorization` header.
 
     ```bash
-    your-cli init
+    curl https://api.getkoyn.com/api/wallet/balance \
+      -H "Authorization: Bearer YOUR_TOKEN" \
+      -H "Accept: application/json"
     ```
   </Step>
-  <Step title="Run it">
-    Show the first thing a user does to see it working.
-
-    ```bash
-    your-cli start
-    ```
+  <Step title="Try it in the playground">
+    Open any endpoint page, click **Try it**, paste the token into the authorization field and send the request.
   </Step>
 </Steps>
 
 <Tip>
-  Give people a way to get help. This could be a link to a support page, a chat with a customer support agent, or a forum for your product.
-
-  Example: Need help? Reach out to us at [support@yourcompany.com](mailto:support@yourcompany.com).
+  Need help? Reach the team at [support@getkoyn.com](mailto:support@getkoyn.com).
 </Tip>

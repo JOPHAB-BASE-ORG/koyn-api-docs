@@ -1,0 +1,38 @@
+---
+title: "Update notification"
+api: "PATCH /notifications/{uid}/read"
+---
+
+## Path parameters
+
+<ParamField path="uid" type="string" required>
+   Example: `ffe6b3a4-d662-4d93-a404-610c1f0c570c`
+</ParamField>
+
+<ResponseExample>
+
+```json 200
+{
+  "success": true,
+  "message": "Notification marked as read",
+  "data": {
+    "id": "ffe6b3a4-d662-4d93-a404-610c1f0c570c",
+    "title": null,
+    "body": "Your wallet has been credited with N0.00035000 for your successful BTC transaction.",
+    "image": "https://res.cloudinary.com/diyxzs220/image/upload/v1698229638/crypto/php38j7Ae_gbxseg.png",
+    "created_at": "2024-02-22T20:05:13.000000Z"
+  }
+}
+```
+
+```text Example
+{
+  id: string
+  title?: string|null
+  body: string
+  image: string|null
+  created_at: string
+}
+```
+
+</ResponseExample>

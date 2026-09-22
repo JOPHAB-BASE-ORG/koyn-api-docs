@@ -1,0 +1,56 @@
+---
+title: "Update Ref Code"
+api: "PATCH /console/referrals/codes/{id}/update"
+---
+
+## Path parameters
+
+<ParamField path="id" type="string" required>
+   Example: `1`
+</ParamField>
+
+## Body
+
+<ParamField body="code" type="string">
+  Example: `LAYI200`
+</ParamField>
+
+<ParamField body="reward_amount" type="string">
+  Example: `500`
+</ParamField>
+
+<ParamField body="active" type="boolean">
+  Example: `false`
+</ParamField>
+
+<RequestExample>
+
+```json Request
+{
+  "code": "LAYI200",
+  "reward_amount": "500",
+  "active": false
+}
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json 200
+{
+  "success": true,
+  "message": "successful",
+  "data": {
+    "code": "LAYI100",
+    "reward_amount": "500",
+    "active": true,
+    "staff_id": 39,
+    "updated_at": "2024-08-20T07:27:56.000000Z",
+    "created_at": "2024-08-20T07:27:56.000000Z",
+    "id": 1
+  }
+}
+```
+
+</ResponseExample>

@@ -1,0 +1,93 @@
+---
+title: "Notifications"
+api: "GET /console/notification"
+---
+
+## Body
+
+<ParamField body="target" type="string">
+  Example: `all_users`
+</ParamField>
+
+<ParamField body="user" type="string">
+  
+</ParamField>
+
+<ParamField body="title" type="string">
+  Example: `Good people`
+</ParamField>
+
+<ParamField body="body" type="string">
+  Example: `Good morning Good people`
+</ParamField>
+
+<RequestExample>
+
+```json Request
+{
+  "target": "all_users",
+  "user": "",
+  "title": "Good people",
+  "body": "Good morning Good people"
+}
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json 200
+{
+  "success": true,
+  "message": "Notifications",
+  "data": {
+    "current_page": 1,
+    "data": [
+      {
+        "id": 1,
+        "title": "Bitcoin Rate Update",
+        "body": "BTC 🔁 NGN > 1135/$",
+        "successful": 3,
+        "failed": 0,
+        "group": "All Users",
+        "created_at": "2023-11-23T19:52:19.000000Z",
+        "updated_at": "2023-11-23T19:52:19.000000Z"
+      },
+      {
+        "id": 2,
+        "title": "Bitcoin Rate Update",
+        "body": "BTC --> NGN = 1135/$",
+        "successful": 23,
+        "failed": 7,
+        "group": "All Users",
+        "created_at": "2023-11-23T19:53:06.000000Z",
+        "updated_at": "2023-11-23T19:53:06.000000Z"
+      }
+    ],
+    "first_page_url": "http://localhost:2525/api/console/notification?page=1",
+    "from": 1,
+    "last_page": 1,
+    "last_page_url": "http://localhost:2525/api/console/notification?page=1",
+    "links": [
+      {
+        "url": null,
+        "label": "&laquo; Previous",
+        "active": false
+      },
+      {
+        "url": "http://localhost:2525/api/console/notification?page=1",
+        "label": "1",
+        "active": true
+      }
+    ],
+    "next_page_url": null,
+    "path": "http://localhost:2525/api/console/notification",
+    "per_page": 25,
+    "prev_page_url": null,
+    "to": 13,
+    "total": 13
+  }
+}
+```
+
+</ResponseExample>

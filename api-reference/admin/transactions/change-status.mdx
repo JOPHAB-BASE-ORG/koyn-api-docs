@@ -1,0 +1,16 @@
+---
+title: "Change Status"
+api: "POST /trades/change-status/1"
+---
+
+##### Status
+
+rejected => 2, success => 1
+
+## Body
+
+<Note>Send as `multipart/form-data`.</Note>
+
+<ParamField body="status" type="string">
+   Example: `1`
+</ParamField>

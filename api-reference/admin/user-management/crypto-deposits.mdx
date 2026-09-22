@@ -1,0 +1,79 @@
+---
+title: "Crypto Deposits"
+api: "GET /console/users/{id}/deposits"
+---
+
+## Path parameters
+
+<ParamField path="id" type="string" required>
+
+</ParamField>
+
+<ResponseExample>
+
+```text 200
+{
+    "success": true,
+    "message": "Crypto Deposits",
+    "data": {
+        "current_page": 1,
+        "data": [
+            {
+                "id": 250,
+                "user_id": 1163,
+                "reference": "CD3758341709317937",
+                "crypto": "BTC",
+                "crypto_amount": "0.00049828",
+                "conversion_rate": "1350.00",
+                "usd_value": "30.93",
+                "payout_amount": "41753.80",
+                "payout_currency": "NGN",
+                "confirmations": 3,
+                "status": "successful",
+                "transaction_hash": "d189f97c089334b8f197cfc409601da616da2ab31fd2ef42e68e32e5acfad1c5",
+                "transaction_link": "https://www.blockchain.com/explorer/transactions/BTC/d189f97c089334b8f197cfc409601da616da2ab31fd2ef42e68e32e5acfad1c5",
+                "address": "bc1qaqmf0xq5ael46mqg05unjfn5xyjhxq0apu9qp9f0q9yajnv7pzqs2eqmay",
+                "platform": "BLOCKIO",
+                "created_at": "2024-03-01T18:32:17.000000Z",
+                "updated_at": "2024-03-01T18:55:40.000000Z",
+            },
+            {
+                "id": 249,
+                "user_id": 1163,
+                "reference": "CD6082481709317617",
+                "crypto": "BTC",
+                "crypto_amount": "0.00049915",
+                "conversion_rate": "1350.00",
+                "usd_value": "30.94",
+                "payout_amount": "41769.42",
+                "payout_currency": "NGN",
+                "confirmations": 3,
+                "status": "successful",
+                "transaction_hash": "0d7da42ed54261cf02ee8202c532cc82c66fad8fd1bcfc89d57cdd9d69b2d718",
+                "transaction_link": "https://www.blockchain.com/explorer/transactions/BTC/0d7da42ed54261cf02ee8202c532cc82c66fad8fd1bcfc89d57cdd9d69b2d718",
+                "address": "bc1qaqmf0xq5ael46mqg05unjfn5xyjhxq0apu9qp9f0q9yajnv7pzqs2eqmay",
+                "platform": "BLOCKIO",
+                "created_at": "2024-03-01T18:26:57.000000Z",
+                "updated_at": "2024-03-01T18:55:35.000000Z",
+            },
+            {
+                "id": 248,
+                "user_id": 1163,
+                "reference": "CD8660411709317520",
+                "crypto": "BTC",
+                "crypto_amount": "0.00048105",
+                "conversion_rate": "1350.00",
+                "usd_value": "29.82",
+                "payout_amount": "40254.79",
+                "payout_currency": "NGN",
+                "confirmations": 3,
+                "status": "successful",
+                "transaction_hash": "73690462aff2111128d9d99205c68c91a20ea6704d80a0ee6d1ee599938539d3",
+                "transaction_link": "https://www.blockchain.com/explorer/transactions/BTC/73690462aff2111128d9d99205c68c91a20ea6704d80a0ee6d1ee599938539d3",
+                "address": "bc1qaqmf0xq5ael46mqg05unjfn5xyjhxq0apu9qp9f0q9yajnv7pzqs2eqmay",
+                "platform": "BLOCKIO",
+                "created_at": "2024-03-01T18:25:20.000000Z",
+              
+```
+
+</ResponseExample>

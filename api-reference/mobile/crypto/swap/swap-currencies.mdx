@@ -1,0 +1,40 @@
+---
+title: "Swap currencies"
+api: "GET /crypto/swap/currencies"
+---
+
+<ResponseExample>
+
+```json 200
+{
+  "success": true,
+  "message": "successful",
+  "data": [
+    "btc",
+    "eth"
+  ]
+}
+```
+
+```json 200 (2)
+{
+  "success": true,
+  "message": "successful",
+  "data": [
+    {
+      "name": "XDC",
+      "fullName": "XinFin Network",
+      "ticker": "xdc",
+      "image": "https://cdn.changelly.com/icons/xdc.png"
+    },
+    {
+      "name": "DOGE",
+      "fullName": "Dogecoin",
+      "ticker": "doge",
+      "image": "https://cdn.changelly.com/icons/doge.png"
+    }
+  ]
+}
+```
+
+</ResponseExample>

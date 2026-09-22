@@ -1,0 +1,58 @@
+---
+title: "Update Assets"
+api: "POST /console/crypto/{id}"
+---
+
+## Path parameters
+
+<ParamField path="id" type="string" required>
+   Example: `1`
+</ParamField>
+
+## Body
+
+<Note>Send as `multipart/form-data`.</Note>
+
+<ParamField body="status" type="string">
+  active | inactive Example: `active`
+</ParamField>
+
+<ParamField body="logo" type="file">
+
+</ParamField>
+
+<ResponseExample>
+
+```json 200
+{
+  "success": true,
+  "message": "Asset updated successfully.",
+  "data": {
+    "id": 1,
+    "name": "Bitcoin",
+    "symbol": "BTC",
+    "status": "active",
+    "latest_quote": "50795.40161404",
+    "percent_change_1hr": "0.52008338",
+    "percent_change_24hr": "2.67517000",
+    "last_updated": "2024-03-01 18:59:58",
+    "price_graph_data_points": [
+      60765.43999948005,
+      60707.40092920936
+    ],
+    "about": "Bitcoin (BTC) is a cryptocurrency, a virtual currency designed to act as money and a form of payment outside the control of any one person, group, or entity, thus removing the need for third-party involvement in financial transactions. It is rewarded to blockchain miners for the work done to verify transactions and can be purchased on several exchanges.",
+    "logo": "https://res.cloudinary.com/diyxzs220/image/upload/v1719483839/crypto/phpZbrSdb_f0gwh9.png",
+    "term": "Only send Bitcoin using the BEP20 network. Sending through any other network like  ERC 20, will result in permanent loss.",
+    "market_cap": "1226329146157",
+    "total_supply": "21000000",
+    "volume": "46203973821",
+    "circulating_supply": "19642018",
+    "price": "62391.0000",
+    "created_at": "2023-07-20T13:24:38.000000Z",
+    "updated_at": "2024-06-27T10:23:59.000000Z",
+    "swap_symbol": null
+  }
+}
+```
+
+</ResponseExample>

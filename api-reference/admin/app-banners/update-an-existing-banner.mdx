@@ -1,0 +1,45 @@
+---
+title: "Update an existing banner."
+api: "PUT /console/app-banners/{id}"
+---
+
+## Path parameters
+
+<ParamField path="id" type="string" required>
+   Example: `9e00dd90-d907-41ab-9584-151634fdd48a`
+</ParamField>
+
+## Body
+
+<ParamField body="url" type="string">
+  Example: `x.com`
+</ParamField>
+
+<RequestExample>
+
+```json Request
+{
+  "url": "x.com"
+}
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json 200
+{
+  "success": true,
+  "message": "App Banner updated successfully",
+  "data": {
+    "id": "9e00dd90-d907-41ab-9584-151634fdd48a",
+    "title": "Our Banner",
+    "banner_image": "https://res.cloudinary.com/traydah/image/upload/v1737265544/pikka/banners/sgzu4jbx1h7lwzcorvjx.webp",
+    "url": "x.com",
+    "created_at": "2025-01-19T05:45:44.000000Z",
+    "updated_at": "2025-01-19T05:48:38.000000Z"
+  }
+}
+```
+
+</ResponseExample>

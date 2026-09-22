@@ -1,0 +1,32 @@
+---
+title: "Reset Request"
+api: "POST /password/reset-request"
+---
+
+## Body
+
+<ParamField body="email" type="string">
+  Example: `user@example.com`
+</ParamField>
+
+<RequestExample>
+
+```json Request
+{
+  "email": "user@example.com"
+}
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json 200
+{
+  "success": true,
+  "message": "One time password for otp reset has been sent.",
+  "data": null
+}
+```
+
+</ResponseExample>

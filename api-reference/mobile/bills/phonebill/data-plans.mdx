@@ -1,0 +1,41 @@
+---
+title: "Data plans"
+api: "GET /phonebill/data-plans/{provider}"
+---
+
+## Path parameters
+
+<ParamField path="provider" type="string" required>
+   Example: `MTN`
+</ParamField>
+
+<ResponseExample>
+
+```json 200
+{
+  "success": true,
+  "message": "Plans",
+  "data": [
+    {
+      "name": "50MB 1 DAY",
+      "code": "3000",
+      "amount": "100"
+    },
+    {
+      "name": "200MB 1 DAY",
+      "code": "3001",
+      "amount": "200"
+    }
+  ]
+}
+```
+
+```text Example
+{
+  name: string
+  code: string
+  amount: string
+}
+```
+
+</ResponseExample>

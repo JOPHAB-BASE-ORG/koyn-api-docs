@@ -1,0 +1,65 @@
+---
+title: "Create Category"
+api: "POST /category"
+description: "Deprecated. Retained for reference only."
+---
+
+<Warning>
+  This endpoint belongs to a retired flow. Use the current equivalents documented elsewhere in this reference.
+</Warning>
+
+## Body
+
+<Note>Send as `multipart/form-data`.</Note>
+
+<ParamField body="name" type="string">
+   Example: `My Category`
+</ParamField>
+
+<ParamField body="status" type="string">
+   Example: `active`
+</ParamField>
+
+<ParamField body="large_image" type="file">
+
+</ParamField>
+
+<ParamField body="small_image" type="file">
+
+</ParamField>
+
+<ParamField body="position" type="string">
+   Example: `35`
+</ParamField>
+
+<ResponseExample>
+
+```json 200
+{
+  "status": "Success",
+  "message": "My Category category created successfully!",
+  "data": {
+    "name": "My Category",
+    "status": "active",
+    "position": 0,
+    "large_image": "https://res.cloudinary.com/traydah/image/upload/v1657839063/categories/ghgxtqgvkmeo71geiyvf.webp",
+    "small_image": "https://res.cloudinary.com/traydah/image/upload/v1657839066/categories/qosctvqqdte6f3btfcfr.webp",
+    "updated_at": "2022-07-14T22:51:07.000000Z",
+    "created_at": "2022-07-14T22:51:07.000000Z",
+    "id": 40
+  }
+}
+```
+
+```json 400 Error Create Category
+{
+  "status": "Error",
+  "message": [
+    "The name field is required.",
+    "The status field is required."
+  ],
+  "data": null
+}
+```
+
+</ResponseExample>

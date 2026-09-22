@@ -1,0 +1,128 @@
+---
+title: "Meter Purchase"
+api: "POST /meter/purchase"
+---
+
+## Body
+
+<ParamField body="product" type="string">
+  Example: `Eko`
+</ParamField>
+
+<ParamField body="meter_no" type="string">
+  Example: `0000000000`
+</ParamField>
+
+<ParamField body="customer_name" type="string">
+  Example: `JOHN DOE`
+</ParamField>
+
+<ParamField body="meter_type" type="string">
+  Example: `PREPAID`
+</ParamField>
+
+<ParamField body="amount" type="integer">
+  Example: `1000`
+</ParamField>
+
+<RequestExample>
+
+```json Request
+{
+  "product": "Eko",
+  "meter_no": "0000000000",
+  "customer_name": "JOHN DOE",
+  "meter_type": "PREPAID",
+  "amount": 1000
+}
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json 200
+{
+  "success": true,
+  "message": "successful",
+  "data": {
+    "user_id": 1282,
+    "reference": "MT8FULB8AY74GBRKZW",
+    "transaction_type": "meter",
+    "transaction_id": 5,
+    "entry": "debit",
+    "status": "successful",
+    "narration": "Eko PREPAID 0000000000",
+    "amount": 1000,
+    "charge": 0,
+    "total_amount": 1000,
+    "wallet_balance": 47900,
+    "updated_at": "2024-06-25T09:57:31.000000Z",
+    "created_at": "2024-06-25T09:57:31.000000Z",
+    "id": 861,
+    "transactable": {
+      "id": 5,
+      "user_id": 1282,
+      "product": "Eko",
+      "phone_no": "08012345678",
+      "meter_no": "0000000000",
+      "meter_type": "PREPAID",
+      "token": "00000000000000000000",
+      "units": null,
+      "customer_name": "JOHN DOE",
+      "amount_requested": "1000.00",
+      "amount_paid": "990.00",
+      "discount_percentage": 1,
+      "discount_value": "10.00",
+      "reference": "MT8FULB8AY74GBRKZW",
+      "status": "successful",
+      "provider_status": "Approved",
+      "created_at": "2024-06-25T09:57:30.000000Z",
+      "updated_at": "2024-06-25T09:57:30.000000Z"
+    }
+  }
+}
+```
+
+```text Example
+Data {
+  user_id: number
+  reference: string
+  transaction_type: string
+  transaction_id: number
+  entry: string
+  status: string
+  narration: string
+  amount: number
+  charge: number
+  total_amount: number
+  wallet_balance: number
+  updated_at: string
+  created_at: string
+  id: number
+  transactable: Transactable
+}
+
+Transactable {
+  id: number
+  user_id: number
+  product: string
+  phone_no: string
+  meter_no: string
+  meter_type: string
+  token: string
+  units: string|null
+  customer_name: string
+  amount_requested: string
+  amount_paid: string
+  discount_percentage: number|null
+  discount_value: string|null
+  reference: string
+  status: string
+  provider_status: string
+  created_at: string
+  updated_at: string
+}
+```
+
+</ResponseExample>

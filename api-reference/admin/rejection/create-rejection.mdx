@@ -1,0 +1,48 @@
+---
+title: "Create Rejection"
+api: "POST /console/rejection-reasons"
+---
+
+## Query parameters
+
+<ParamField query="search" type="string">
+   Example: `xdfg`
+</ParamField>
+
+<ParamField query="status" type="string">
+   Example: `successful`
+</ParamField>
+
+## Body
+
+<ParamField body="reason" type="string">
+  Example: `Hey fella thats wrong`
+</ParamField>
+
+<RequestExample>
+
+```json Request
+{
+  "reason": "Hey fella thats wrong"
+}
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json 200
+{
+  "success": true,
+  "message": "successful",
+  "data": {
+    "reason": "Hey fella thats wrong",
+    "type": "withdrawal",
+    "updated_at": "2024-08-17T21:13:07.000000Z",
+    "created_at": "2024-08-17T21:13:07.000000Z",
+    "id": 11
+  }
+}
+```
+
+</ResponseExample>

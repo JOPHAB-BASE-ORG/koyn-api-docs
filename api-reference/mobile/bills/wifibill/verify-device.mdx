@@ -1,0 +1,49 @@
+---
+title: "Verify device"
+api: "POST /wifi/device/verify"
+---
+
+## Body
+
+<ParamField body="product" type="string">
+  Example: `Smile`
+</ParamField>
+
+<ParamField body="device_no" type="string">
+  Example: `0000000000`
+</ParamField>
+
+<RequestExample>
+
+```json Request
+{
+  "product": "Smile",
+  "device_no": "0000000000"
+}
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json 200
+{
+  "success": true,
+  "message": "successful",
+  "data": {
+    "product": "SMILE",
+    "customer_name": "JERAHMEEL ANIBOR",
+    "device_no": "0000000000"
+  }
+}
+```
+
+```text Example
+{
+  product: string
+  customer_name: string
+  device_no: string
+}
+```
+
+</ResponseExample>

@@ -1,20 +1,31 @@
 ---
 title: "Introduction"
-description: "Welcome to your project"
+description: "Reference documentation for the Koyn REST API"
 ---
 
-Write a short description of your product here. What it does, who it's for, and what they can accomplish with it.
+Koyn is a Laravel-powered platform for crypto swaps, wallet withdrawals, bill payments, gift card trading and referrals. This site documents every HTTP endpoint the Koyn backend exposes, grouped by the client that consumes it.
+
+<CardGroup cols={2}>
+  <Card title="Mobile API" icon="mobile" href="/api-reference/mobile/overview">
+    Endpoints used by the Koyn mobile app: registration, login, wallet, crypto, bills and gift cards.
+  </Card>
+  <Card title="Admin API" icon="shield-halved" href="/api-reference/admin/overview">
+    Console endpoints for staff: user management, withdrawals, KYC, settings and reconciliation.
+  </Card>
+  <Card title="Public API" icon="globe" href="/api-reference/public/overview">
+    Unauthenticated endpoints for crypto assets and rates.
+  </Card>
+  <Card title="Webhooks" icon="webhook" href="/api-reference/webhooks/overview">
+    Callbacks received from payment, KYC and crypto providers.
+  </Card>
+</CardGroup>
+
+## Before you start
+
+- Read [Authentication](/guides/authentication) to learn how bearer tokens are issued and sent.
+- Read [Environments](/guides/environments) for the base URLs used by production, staging and local development.
+- Read [Responses](/guides/responses) for the envelope every endpoint returns and how validation errors look.
 
 <Tip>
-  Ready to make this your own? Start by editing this page. Update your `docs.json` file to customize your site. Then fill out the [Quickstart](/quickstart) page.
+  Every endpoint page has a **Try it** playground. Paste a token, fill in the parameters and send a live request from the browser.
 </Tip>
-
-<Card title="Quickstart" icon="rocket" href="/quickstart">
-  This card links to the quickstart page in your project.
-</Card>
-<Card title="Components" icon="puzzle-piece" href="https://mintlify.com/docs/components">
-  Add cards, callouts, steps, tabs, and more to design and structure your pages.
-</Card>
-<Card title="Settings" icon="gear" href="https://mintlify.com/docs/organize/settings">
-  Set your site name, branding, and navigation in the `docs.json` file.
-</Card>

@@ -1,0 +1,141 @@
+---
+title: "KYCs"
+api: "GET /console/kycs"
+---
+
+## Body
+
+<Note>Send as `multipart/form-data`.</Note>
+
+<ParamField body="product" type="string">
+   Example: `MTN`
+</ParamField>
+
+<ParamField body="maximum_amount" type="string">
+   Example: `5000`
+</ParamField>
+
+<ParamField body="minimum_amount" type="string">
+   Example: `200`
+</ParamField>
+
+<ParamField body="status" type="string">
+  active | inactive Example: `active`
+</ParamField>
+
+<ParamField body="logo" type="file">
+
+</ParamField>
+
+<ResponseExample>
+
+```json 200
+{
+  "current_page": 1,
+  "data": [
+    {
+      "id": 74,
+      "user_id": 1270,
+      "verification_type": "bvn",
+      "verification_value": "22607052923",
+      "reference": null,
+      "status": "completed",
+      "created_at": "2024-03-01T15:43:59.000000Z",
+      "updated_at": "2024-03-01T15:43:59.000000Z",
+      "user": {
+        "id": 1270,
+        "name": " ",
+        "username": "johnpraisej90",
+        "phone": "08012345678",
+        "email": "user@example.com",
+        "dob": null,
+        "email_verified_at": "2024-03-01T15:36:28.000000Z",
+        "referral_code": "sX8zJt",
+        "device_token": "************",
+        "device_type": null,
+        "status": "active",
+        "tier_id": 2,
+        "credits": null,
+        "avatar": "avatar_12.png",
+        "deleted_at": null,
+        "created_at": "2024-03-01T15:33:43.000000Z",
+        "updated_at": "2024-03-01T15:43:59.000000Z",
+        "heard_about_us": "Google",
+        "failed_login_attempts": 0,
+        "total_crypto_trade": 0,
+        "has_pin": true,
+        "wallet_balance": "0.00",
+        "has_verifiedBVN": true,
+        "has_default_bank_account": true,
+        "has_withdrawn": false
+      }
+    },
+    {
+      "id": 73,
+      "user_id": 1268,
+      "verification_type": "bvn",
+      "verification_value": "22205492884",
+      "reference": null,
+      "status": "completed",
+      "created_at": "2024-03-01T15:26:12.000000Z",
+      "updated_at": "2024-03-01T15:26:12.000000Z",
+      "user": {
+        "id": 1268,
+        "name": " ",
+        "username": "aritexglobalind",
+        "phone": "08012345678",
+        "email": "user@example.com",
+        "dob": null,
+        "email_verified_at": "2024-03-01T15:14:55.000000Z",
+        "referral_code": "2OEEmq",
+        "device_token": "************",
+        "device_type": null,
+        "status": "active",
+        "tier_id": 2,
+        "credits": null,
+        "avatar": "avatar_12.png",
+        "deleted_at": null,
+        "created_at": "2024-03-01T15:12:07.000000Z",
+        "updated_at": "2024-03-01T15:26:12.000000Z",
+        "heard_about_us": "Google",
+        "failed_login_attempts": 0,
+        "total_crypto_trade": 0,
+        "has_pin": true,
+        "wallet_balance": "0.00",
+        "has_verifiedBVN": true,
+        "has_default_bank_account": true,
+        "has_withdrawn": false
+      }
+    }
+  ],
+  "first_page_url": "http://localhost:2525/api/console/kycs?page=1",
+  "from": 1,
+  "last_page": 5,
+  "last_page_url": "http://localhost:2525/api/console/kycs?page=5",
+  "links": [
+    {
+      "url": null,
+      "label": "&laquo; Previous",
+      "active": false
+    },
+    {
+      "url": "http://localhost:2525/api/console/kycs?page=1",
+      "label": "1",
+      "active": true
+    }
+  ],
+  "next_page_url": "http://localhost:2525/api/console/kycs?page=2",
+  "path": "http://localhost:2525/api/console/kycs",
+  "per_page": 15,
+  "prev_page_url": null,
+  "to": 15,
+  "total": 68,
+  "overview": {
+    "successful": 0,
+    "pending": 1,
+    "rejected": 0
+  }
+}
+```
+
+</ResponseExample>

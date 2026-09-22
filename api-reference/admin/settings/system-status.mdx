@@ -1,0 +1,49 @@
+---
+title: "System Status"
+api: "GET /console/settings/status"
+---
+
+## Body
+
+<ParamField body="gateway" type="string">
+  Example: `redbiller`
+</ParamField>
+
+<RequestExample>
+
+```json Request
+{
+  "gateway": "redbiller"
+}
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json 200
+{
+  "success": true,
+  "message": "System status",
+  "data": [
+    {
+      "id": 1,
+      "key": "withdrawal",
+      "value": true,
+      "message": "1",
+      "created_at": null,
+      "updated_at": "2023-11-26T12:15:45.000000Z"
+    },
+    {
+      "id": 2,
+      "key": "bill_payment",
+      "value": true,
+      "message": "We are active",
+      "created_at": null,
+      "updated_at": "2023-11-30T12:10:11.000000Z"
+    }
+  ]
+}
+```
+
+</ResponseExample>

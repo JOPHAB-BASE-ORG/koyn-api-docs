@@ -1,0 +1,51 @@
+---
+title: "Verify account"
+api: "POST /bank/verify"
+---
+
+## Body
+
+<ParamField body="account_no" type="string">
+  Example: `0089429289`
+</ParamField>
+
+<ParamField body="bank_code" type="string">
+  Example: `000014`
+</ParamField>
+
+<RequestExample>
+
+```json Request
+{
+  "account_no": "0089429289",
+  "bank_code": "000014"
+}
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json 200
+{
+  "success": true,
+  "message": "Account retrieved successfully.",
+  "data": {
+    "account_name": "ANIBOR JERAHMEEL OVIE",
+    "account_no": "2007974009",
+    "bank_code": "090267",
+    "bank_name": "TEST BANK"
+  }
+}
+```
+
+```text Example
+{
+  account_name: string
+  account_no: string
+  bank_code: string
+  bank_name: string
+}
+```
+
+</ResponseExample>

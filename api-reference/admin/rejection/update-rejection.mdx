@@ -1,0 +1,44 @@
+---
+title: "Update rejection"
+api: "PATCH /console/rejection-reasons/{id}"
+---
+
+## Path parameters
+
+<ParamField path="id" type="string" required>
+   Example: `11`
+</ParamField>
+
+## Body
+
+<ParamField body="reason" type="string">
+  Example: `Hmm thats wrong`
+</ParamField>
+
+<RequestExample>
+
+```json Request
+{
+  "reason": "Hmm thats wrong"
+}
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json 200
+{
+  "success": true,
+  "message": "successful",
+  "data": {
+    "reason": "Hey fella thats wrong",
+    "type": "withdrawal",
+    "updated_at": "2024-08-17T21:13:07.000000Z",
+    "created_at": "2024-08-17T21:13:07.000000Z",
+    "id": 11
+  }
+}
+```
+
+</ResponseExample>

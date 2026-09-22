@@ -1,0 +1,20 @@
+---
+title: "Send Newsletter"
+api: "POST /console/notification/newsletter"
+---
+
+## Body
+
+<Note>Send as `multipart/form-data`.</Note>
+
+<ParamField body="body" type="string">
+
+</ParamField>
+
+<ParamField body="subject" type="string">
+   Example: `The Future of Crypto: What’s Next?`
+</ParamField>
+
+<ParamField body="target" type="string">
+  all_users,active_users,inactive_users,recent_users,admin, Example: `admin`
+</ParamField>

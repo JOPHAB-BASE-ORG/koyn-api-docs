@@ -1,0 +1,46 @@
+---
+title: "Step 1"
+api: "POST /register/step/step-1"
+---
+
+## Body
+
+<ParamField body="name" type="string">
+  Example: `David logic`
+</ParamField>
+
+<ParamField body="email" type="string">
+  Example: `user@example.com`
+</ParamField>
+
+<ParamField body="username" type="string">
+  Example: `deku2102`
+</ParamField>
+
+<RequestExample>
+
+```json Request
+{
+  "name": "David logic",
+  "email": "user@example.com",
+  "username": "deku2102"
+}
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json 422 Error
+{
+  "success": false,
+  "message": "Whoops something went wrong, Username already exists. Please try again.",
+  "errors": {
+    "username": [
+      "Username already exists. Please try again."
+    ]
+  }
+}
+```
+
+</ResponseExample>

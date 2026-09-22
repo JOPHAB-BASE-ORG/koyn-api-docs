@@ -1,0 +1,38 @@
+---
+title: "Withdrawal Limit"
+api: "POST /console/settings/withdrawal-limit"
+---
+
+## Body
+
+<ParamField body="limit" type="string">
+  Example: `500000`
+</ParamField>
+
+<RequestExample>
+
+```json Request
+{
+  "limit": "500000"
+}
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json 200
+{
+  "success": true,
+  "message": "Limit Set Successfully.",
+  "data": {
+    "id": 2,
+    "key": "max_automatic_withdrawal_amount",
+    "value": "500000",
+    "created_at": null,
+    "updated_at": "2024-06-27T06:04:40.000000Z"
+  }
+}
+```
+
+</ResponseExample>

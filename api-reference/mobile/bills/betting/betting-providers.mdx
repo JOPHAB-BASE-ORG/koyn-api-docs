@@ -1,0 +1,50 @@
+---
+title: "Betting providers"
+api: "GET /betting/providers"
+---
+
+<ResponseExample>
+
+```json 200
+{
+  "success": true,
+  "message": "successful",
+  "data": [
+    {
+      "id": 1,
+      "product": "BETBONANZA",
+      "logo": "https://api.live.redbiller.com/logos/betting/betbonanza.png",
+      "minimum_amount": "100.00",
+      "maximum_amount": "500000.00",
+      "status": "active",
+      "created_at": "2023-06-08T11:38:01.000000Z",
+      "updated_at": "2023-06-08T11:38:01.000000Z"
+    },
+    {
+      "id": 2,
+      "product": "BET9JA",
+      "logo": "https://api.live.redbiller.com/logos/betting/bet9ja.png",
+      "minimum_amount": "100.00",
+      "maximum_amount": "100000.00",
+      "status": "active",
+      "created_at": "2023-06-08T11:38:01.000000Z",
+      "updated_at": "2023-06-08T11:38:01.000000Z"
+    }
+  ]
+}
+```
+
+```text Example
+{
+  id: number
+  product: string
+  logo: string|null
+  minimum_amount: string
+  maximum_amount: string
+  status: string
+  created_at: string
+  updated_at: string
+}
+```
+
+</ResponseExample>

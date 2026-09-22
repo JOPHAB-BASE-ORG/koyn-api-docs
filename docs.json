@@ -1,37 +1,631 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "Mintlify Starter Kit",
+  "name": "Koyn API",
   "colors": {
     "primary": "#16A34A",
     "light": "#07C983",
     "dark": "#15803D"
   },
   "favicon": "/favicon.svg",
-  "navigation": {
-    "pages": [
-      {
-        "group": "Getting Started",
-        "pages": [
-          "index",
-          "quickstart"
-        ]
+  "api": {
+    "mdx": {
+      "server": "https://api.getkoyn.com/api",
+      "auth": {
+        "method": "bearer"
       }
-    ],
-    "global": {
-      "anchors": [
-        {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
-          "icon": "book-open-cover"
-        },
-        {
-          "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
-          "icon": "newspaper"
-        }
+    },
+    "playground": {
+      "display": "interactive"
+    },
+    "examples": {
+      "languages": [
+        "curl",
+        "javascript",
+        "php",
+        "python"
       ]
     }
+  },
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Guides",
+        "groups": [
+          {
+            "group": "Getting started",
+            "pages": [
+              "index",
+              "quickstart"
+            ]
+          },
+          {
+            "group": "Concepts",
+            "pages": [
+              "guides/authentication",
+              "guides/environments",
+              "guides/responses"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Mobile API",
+        "groups": [
+          {
+            "group": "Overview",
+            "pages": [
+              "api-reference/mobile/overview"
+            ]
+          },
+          {
+            "group": "Authentication",
+            "pages": [
+              "api-reference/mobile/authentication/token-check-request",
+              {
+                "group": "Registration",
+                "pages": [
+                  "api-reference/mobile/authentication/registration/step-1",
+                  "api-reference/mobile/authentication/registration/step-2",
+                  "api-reference/mobile/authentication/registration/step-3",
+                  "api-reference/mobile/authentication/registration/step-4",
+                  "api-reference/mobile/authentication/registration/step-5"
+                ]
+              },
+              {
+                "group": "Login & passwords",
+                "pages": [
+                  "api-reference/mobile/authentication/login-passwords/login",
+                  "api-reference/mobile/authentication/login-passwords/login-pin",
+                  "api-reference/mobile/authentication/login-passwords/logout",
+                  "api-reference/mobile/authentication/login-passwords/reset-request",
+                  "api-reference/mobile/authentication/login-passwords/password-reset"
+                ]
+              },
+              {
+                "group": "Biometric",
+                "pages": [
+                  "api-reference/mobile/authentication/biometric/set-biometric",
+                  "api-reference/mobile/authentication/biometric/remove-biometric",
+                  "api-reference/mobile/authentication/biometric/check-biometric"
+                ]
+              }
+            ]
+          },
+          {
+            "group": "Banking",
+            "pages": [
+              "api-reference/mobile/banking/operating-banks",
+              "api-reference/mobile/banking/user-accounts",
+              "api-reference/mobile/banking/add-user-bank",
+              "api-reference/mobile/banking/add-user-bank-v2",
+              "api-reference/mobile/banking/set-primary-account",
+              "api-reference/mobile/banking/delete-account",
+              "api-reference/mobile/banking/delete-account-v2",
+              "api-reference/mobile/banking/verify-account"
+            ]
+          },
+          {
+            "group": "User Management",
+            "pages": [
+              "api-reference/mobile/user-management/profile-edit",
+              "api-reference/mobile/user-management/save-fcm-token",
+              "api-reference/mobile/user-management/update-password",
+              "api-reference/mobile/user-management/delete-fcm-token",
+              "api-reference/mobile/user-management/delete-user",
+              "api-reference/mobile/user-management/tiers",
+              "api-reference/mobile/user-management/get-auth-user"
+            ]
+          },
+          {
+            "group": "Pin Management",
+            "pages": [
+              "api-reference/mobile/pin-management/create-pin",
+              "api-reference/mobile/pin-management/update-pin",
+              "api-reference/mobile/pin-management/check-pin",
+              "api-reference/mobile/pin-management/reset-pin-request",
+              "api-reference/mobile/pin-management/reset-pin"
+            ]
+          },
+          {
+            "group": "Notifications",
+            "pages": [
+              "api-reference/mobile/notifications/notifications",
+              "api-reference/mobile/notifications/update-notification",
+              "api-reference/mobile/notifications/read-all"
+            ]
+          },
+          {
+            "group": "Wallet",
+            "pages": [
+              "api-reference/mobile/wallet/wallet-details",
+              "api-reference/mobile/wallet/wallet-balance",
+              "api-reference/mobile/wallet/wallet-withdraw",
+              "api-reference/mobile/wallet/wallet-withdraw-v2",
+              "api-reference/mobile/wallet/wallet-transactions"
+            ]
+          },
+          {
+            "group": "KYC",
+            "pages": [
+              "api-reference/mobile/kyc/create-verification-request"
+            ]
+          },
+          {
+            "group": "Crypto",
+            "pages": [
+              "api-reference/mobile/crypto/crypto-wallet",
+              "api-reference/mobile/crypto/create-wallet",
+              "api-reference/mobile/crypto/crypto-assets",
+              "api-reference/mobile/crypto/assets-details",
+              "api-reference/mobile/crypto/get-rates",
+              {
+                "group": "Swap",
+                "pages": [
+                  "api-reference/mobile/crypto/swap/swap-rates",
+                  "api-reference/mobile/crypto/swap/swap-pairs",
+                  "api-reference/mobile/crypto/swap/swap-details",
+                  "api-reference/mobile/crypto/swap/create-swap",
+                  "api-reference/mobile/crypto/swap/swap-currencies"
+                ]
+              }
+            ]
+          },
+          {
+            "group": "Misc",
+            "pages": [
+              "api-reference/mobile/misc/list-all-banners",
+              "api-reference/mobile/misc/send-feedback",
+              "api-reference/mobile/misc/system-status"
+            ]
+          },
+          {
+            "group": "SignUp Bonus",
+            "pages": [
+              "api-reference/mobile/signup-bonus/status",
+              "api-reference/mobile/signup-bonus/claim"
+            ]
+          },
+          {
+            "group": "Bills",
+            "pages": [
+              {
+                "group": "Phonebill",
+                "pages": [
+                  "api-reference/mobile/bills/phonebill/get-providers",
+                  "api-reference/mobile/bills/phonebill/data-plans",
+                  "api-reference/mobile/bills/phonebill/purchase-data-plan",
+                  "api-reference/mobile/bills/phonebill/purchase-airtime"
+                ]
+              },
+              {
+                "group": "CableBill",
+                "pages": [
+                  "api-reference/mobile/bills/cablebill/provider-plans",
+                  "api-reference/mobile/bills/cablebill/providers",
+                  "api-reference/mobile/bills/cablebill/verify-smartcard",
+                  "api-reference/mobile/bills/cablebill/purchase"
+                ]
+              },
+              {
+                "group": "MeterBill",
+                "pages": [
+                  "api-reference/mobile/bills/meterbill/meter-providers",
+                  "api-reference/mobile/bills/meterbill/verify-device",
+                  "api-reference/mobile/bills/meterbill/meter-purchase"
+                ]
+              },
+              {
+                "group": "Betting",
+                "pages": [
+                  "api-reference/mobile/bills/betting/betting-providers",
+                  "api-reference/mobile/bills/betting/check-bet-account",
+                  "api-reference/mobile/bills/betting/fund-bet-account"
+                ]
+              },
+              {
+                "group": "WifiBill",
+                "pages": [
+                  "api-reference/mobile/bills/wifibill/wifi-plans",
+                  "api-reference/mobile/bills/wifibill/verify-device",
+                  "api-reference/mobile/bills/wifibill/wifi-providers",
+                  "api-reference/mobile/bills/wifibill/purchase-wifi-plan"
+                ]
+              }
+            ]
+          },
+          {
+            "group": "Referral",
+            "pages": [
+              "api-reference/mobile/referral/details",
+              "api-reference/mobile/referral/claim"
+            ]
+          },
+          {
+            "group": "Trade",
+            "pages": [
+              "api-reference/mobile/trade/create-trade"
+            ]
+          },
+          {
+            "group": "Two Factor",
+            "pages": [
+              "api-reference/mobile/two-factor/generate",
+              "api-reference/mobile/two-factor/verify"
+            ]
+          },
+          {
+            "group": "GiftCard System",
+            "pages": [
+              "api-reference/mobile/giftcard-system/get-all-brands",
+              "api-reference/mobile/giftcard-system/get-brand-category",
+              "api-reference/mobile/giftcard-system/trade-giftcard",
+              "api-reference/mobile/giftcard-system/get-trade-history",
+              "api-reference/mobile/giftcard-system/get-giftcard-trade",
+              "api-reference/mobile/giftcard-system/get-top-brand-rates"
+            ]
+          },
+          {
+            "group": "Intercom",
+            "pages": [
+              "api-reference/mobile/intercom/generate-token",
+              "api-reference/mobile/intercom/verify-token"
+            ]
+          },
+          {
+            "group": "Giftcards (Deprecated)",
+            "pages": [
+              "api-reference/mobile/giftcards-deprecated/get-giftcard-categories",
+              "api-reference/mobile/giftcards-deprecated/get-giftcard-category",
+              "api-reference/mobile/giftcards-deprecated/get-giftcards",
+              "api-reference/mobile/giftcards-deprecated/get-giftcard"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Admin API",
+        "groups": [
+          {
+            "group": "Overview",
+            "pages": [
+              "api-reference/admin/overview"
+            ]
+          },
+          {
+            "group": "Auth",
+            "pages": [
+              "api-reference/admin/auth/login",
+              "api-reference/admin/auth/update-user",
+              "api-reference/admin/auth/update-password"
+            ]
+          },
+          {
+            "group": "User Management",
+            "pages": [
+              "api-reference/admin/user-management/users",
+              "api-reference/admin/user-management/user-basic-info",
+              "api-reference/admin/user-management/suspend",
+              "api-reference/admin/user-management/unsuspend",
+              "api-reference/admin/user-management/crypto-swaps",
+              "api-reference/admin/user-management/withdrawals",
+              "api-reference/admin/user-management/crypto-deposits",
+              "api-reference/admin/user-management/transactions-bills",
+              "api-reference/admin/user-management/flag",
+              "api-reference/admin/user-management/unflag",
+              "api-reference/admin/user-management/get-user-ledger",
+              "api-reference/admin/user-management/delete-user"
+            ]
+          },
+          {
+            "group": "Misc",
+            "pages": [
+              "api-reference/admin/misc/overview",
+              "api-reference/admin/misc/heard-about-us",
+              "api-reference/admin/misc/redbiller-withdraw-status"
+            ]
+          },
+          {
+            "group": "Staff",
+            "pages": [
+              "api-reference/admin/staff/staff-member",
+              "api-reference/admin/staff/staff-roles",
+              "api-reference/admin/staff/create-staff",
+              "api-reference/admin/staff/update-staff",
+              "api-reference/admin/staff/delete-staff",
+              "api-reference/admin/staff/activity-logs"
+            ]
+          },
+          {
+            "group": "Banks",
+            "pages": [
+              "api-reference/admin/banks/banks",
+              "api-reference/admin/banks/update-banks"
+            ]
+          },
+          {
+            "group": "Settings",
+            "pages": [
+              "api-reference/admin/settings/app-version",
+              "api-reference/admin/settings/low-balance-status",
+              "api-reference/admin/settings/get-settings",
+              "api-reference/admin/settings/set-app-version",
+              "api-reference/admin/settings/withdrawal-limit",
+              "api-reference/admin/settings/set-withdraw-mode",
+              "api-reference/admin/settings/update-sweep-address",
+              "api-reference/admin/settings/set-gateway",
+              "api-reference/admin/settings/payment-settings",
+              "api-reference/admin/settings/system-status",
+              "api-reference/admin/settings/update-status"
+            ]
+          },
+          {
+            "group": "Notification",
+            "pages": [
+              "api-reference/admin/notification/notice-bulletin",
+              "api-reference/admin/notification/notifications",
+              "api-reference/admin/notification/send-push-notification",
+              "api-reference/admin/notification/push-notification-logs"
+            ]
+          },
+          {
+            "group": "Withdrawal",
+            "pages": [
+              "api-reference/admin/withdrawal/withdrawals",
+              "api-reference/admin/withdrawal/approve",
+              "api-reference/admin/withdrawal/decline",
+              "api-reference/admin/withdrawal/change-withdraw-status",
+              "api-reference/admin/withdrawal/staff-fulfilled"
+            ]
+          },
+          {
+            "group": "KYC",
+            "pages": [
+              "api-reference/admin/kyc/kycs",
+              "api-reference/admin/kyc/update-kyc"
+            ]
+          },
+          {
+            "group": "Conversion",
+            "pages": [
+              "api-reference/admin/conversion/conversion-rates",
+              "api-reference/admin/conversion/create-conversion-rates",
+              "api-reference/admin/conversion/update-conversion-rates",
+              "api-reference/admin/conversion/update-conversion-rates-copy"
+            ]
+          },
+          {
+            "group": "Crypto",
+            "pages": [
+              "api-reference/admin/crypto/crypto-assets",
+              "api-reference/admin/crypto/crypto-wallet-balance",
+              "api-reference/admin/crypto/crypto-fee-estimate",
+              "api-reference/admin/crypto/withdraw-crypto-balance",
+              "api-reference/admin/crypto/crypto-swaps",
+              "api-reference/admin/crypto/crypto-deposits",
+              "api-reference/admin/crypto/crypto-deposits-details",
+              "api-reference/admin/crypto/update-assets",
+              "api-reference/admin/crypto/create-crypto-asset",
+              "api-reference/admin/crypto/sweep-history"
+            ]
+          },
+          {
+            "group": "Reconcile",
+            "pages": [
+              "api-reference/admin/reconcile/reconciliation-create",
+              "api-reference/admin/reconcile/reconciliations",
+              "api-reference/admin/reconcile/reconciliable-transactions"
+            ]
+          },
+          {
+            "group": "Rejection",
+            "pages": [
+              "api-reference/admin/rejection/rejection-reasons",
+              "api-reference/admin/rejection/create-rejection",
+              "api-reference/admin/rejection/update-rejection",
+              "api-reference/admin/rejection/delete-reason"
+            ]
+          },
+          {
+            "group": "Referral",
+            "pages": [
+              "api-reference/admin/referral/referrals",
+              "api-reference/admin/referral/referral-codes",
+              "api-reference/admin/referral/create-ref-code",
+              "api-reference/admin/referral/update-ref-code",
+              "api-reference/admin/referral/delete-ref-code",
+              "api-reference/admin/referral/signup-bonus"
+            ]
+          },
+          {
+            "group": "Bills",
+            "pages": [
+              {
+                "group": "Betting",
+                "pages": [
+                  "api-reference/admin/bills/betting/betting-topups",
+                  "api-reference/admin/bills/betting/betting-products",
+                  "api-reference/admin/bills/betting/update-bet-product"
+                ]
+              },
+              {
+                "group": "Cable TV",
+                "pages": [
+                  "api-reference/admin/bills/cable-tv/cable-topups",
+                  "api-reference/admin/bills/cable-tv/cable-products",
+                  "api-reference/admin/bills/cable-tv/update-cable-product"
+                ]
+              },
+              {
+                "group": "Disco",
+                "pages": [
+                  "api-reference/admin/bills/disco/disco-topups",
+                  "api-reference/admin/bills/disco/disco-products",
+                  "api-reference/admin/bills/disco/update-disco-product"
+                ]
+              },
+              {
+                "group": "Wifi",
+                "pages": [
+                  "api-reference/admin/bills/wifi/wifi-topups",
+                  "api-reference/admin/bills/wifi/wifi-products",
+                  "api-reference/admin/bills/wifi/update-wifi-product"
+                ]
+              },
+              {
+                "group": "Data",
+                "pages": [
+                  "api-reference/admin/bills/data/data-topups",
+                  "api-reference/admin/bills/data/data-products",
+                  "api-reference/admin/bills/data/update-data-product"
+                ]
+              },
+              {
+                "group": "Airtime",
+                "pages": [
+                  "api-reference/admin/bills/airtime/airtime-topups",
+                  "api-reference/admin/bills/airtime/airtime-products",
+                  "api-reference/admin/bills/airtime/update-airtime-product"
+                ]
+              }
+            ]
+          },
+          {
+            "group": "App Banners",
+            "pages": [
+              "api-reference/admin/app-banners/list-all-banners",
+              "api-reference/admin/app-banners/create-a-new-banner",
+              "api-reference/admin/app-banners/get-details-of-a-specific-banner",
+              "api-reference/admin/app-banners/update-an-existing-banner",
+              "api-reference/admin/app-banners/delete-a-banner"
+            ]
+          },
+          {
+            "group": "Transactions",
+            "pages": [
+              "api-reference/admin/transactions/get-all-transactions",
+              "api-reference/admin/transactions/get-one-transactions",
+              "api-reference/admin/transactions/get-user-transactions",
+              "api-reference/admin/transactions/get-employee-transactions",
+              "api-reference/admin/transactions/approve-transaction",
+              "api-reference/admin/transactions/decline-transaction",
+              "api-reference/admin/transactions/change-status",
+              "api-reference/admin/transactions/log-trade-view"
+            ]
+          },
+          {
+            "group": "Giftcard System",
+            "pages": [
+              {
+                "group": "Brands",
+                "pages": [
+                  "api-reference/admin/giftcard-system/brands/get-all-brands",
+                  "api-reference/admin/giftcard-system/brands/create-brand",
+                  "api-reference/admin/giftcard-system/brands/update-brand"
+                ]
+              },
+              {
+                "group": "Categories",
+                "pages": [
+                  "api-reference/admin/giftcard-system/categories/get-all-brand-category",
+                  "api-reference/admin/giftcard-system/categories/create-category",
+                  "api-reference/admin/giftcard-system/categories/get-brand-category",
+                  "api-reference/admin/giftcard-system/categories/update-giftcard-category"
+                ]
+              },
+              {
+                "group": "Trades",
+                "pages": [
+                  "api-reference/admin/giftcard-system/trades/list-all-trades",
+                  "api-reference/admin/giftcard-system/trades/get-single-trade",
+                  "api-reference/admin/giftcard-system/trades/approve-trade",
+                  "api-reference/admin/giftcard-system/trades/reject-trade"
+                ]
+              }
+            ]
+          },
+          {
+            "group": "Developer",
+            "pages": [
+              "api-reference/admin/developer/read-logs",
+              "api-reference/admin/developer/download-log",
+              "api-reference/admin/developer/run-safe-command"
+            ]
+          },
+          {
+            "group": "Other",
+            "pages": [
+              "api-reference/admin/other/send-newsletter",
+              "api-reference/admin/other/daily-closures",
+              "api-reference/admin/other/export"
+            ]
+          },
+          {
+            "group": "Giftcard (Deprecated)",
+            "pages": [
+              "api-reference/admin/giftcard-deprecated/get-category-cards",
+              "api-reference/admin/giftcard-deprecated/get-all-cards",
+              "api-reference/admin/giftcard-deprecated/get-one-card",
+              "api-reference/admin/giftcard-deprecated/create-card",
+              "api-reference/admin/giftcard-deprecated/update-card",
+              "api-reference/admin/giftcard-deprecated/delete-card"
+            ]
+          },
+          {
+            "group": "Giftcard Category (Deprecated)",
+            "pages": [
+              "api-reference/admin/giftcard-category-deprecated/get-all-category",
+              "api-reference/admin/giftcard-category-deprecated/get-all-category-with-subcategories",
+              "api-reference/admin/giftcard-category-deprecated/get-one-category",
+              "api-reference/admin/giftcard-category-deprecated/create-category",
+              "api-reference/admin/giftcard-category-deprecated/update-category",
+              "api-reference/admin/giftcard-category-deprecated/delete-category"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Public API",
+        "groups": [
+          {
+            "group": "Overview",
+            "pages": [
+              "api-reference/public/overview"
+            ]
+          },
+          {
+            "group": "Endpoints",
+            "pages": [
+              "api-reference/public/public-crypto-assets",
+              "api-reference/public/public-get-rates"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Webhooks",
+        "groups": [
+          {
+            "group": "Overview",
+            "pages": [
+              "api-reference/webhooks/overview"
+            ]
+          },
+          {
+            "group": "Endpoints",
+            "pages": [
+              "api-reference/webhooks/redbiller-transfer-callback",
+              "api-reference/webhooks/monnify-transfer-callback",
+              "api-reference/webhooks/bvn-dojah-webhook",
+              "api-reference/webhooks/0xprocessing",
+              "api-reference/webhooks/cryptoapi",
+              "api-reference/webhooks/vaultody",
+              "api-reference/webhooks/bybit"
+            ]
+          }
+        ]
+      }
+    ]
   },
   "logo": {
     "light": "/logo/light.svg",
@@ -41,32 +635,28 @@
     "links": [
       {
         "label": "Support",
-        "href": "mailto:hi@mintlify.com"
+        "href": "mailto:support@getkoyn.com"
       }
     ],
     "primary": {
       "type": "button",
-      "label": "Dashboard",
-      "href": "https://app.mintlify.com"
+      "label": "Koyn",
+      "href": "https://getkoyn.com"
     }
   },
   "contextual": {
     "options": [
       "copy",
       "view",
-      "chatgpt",
       "claude",
-      "perplexity",
-      "mcp",
+      "chatgpt",
       "cursor",
       "vscode"
     ]
   },
   "footer": {
     "socials": {
-      "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify"
+      "x": "https://x.com/getkoyn"
     }
   }
 }

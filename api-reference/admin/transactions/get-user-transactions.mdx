@@ -1,0 +1,162 @@
+---
+title: "Get User Transactions"
+api: "GET /trades/user/4287"
+---
+
+<ResponseExample>
+
+```json 200
+{
+  "status": "Success",
+  "message": null,
+  "data": {
+    "current_page": 1,
+    "data": [
+      {
+        "id": 357,
+        "card_id": 137,
+        "customer_id": 1908,
+        "transaction_ref": "6687511695813866",
+        "status": 0,
+        "value": 10,
+        "e_code": "AWE123",
+        "rate": 150,
+        "images": null,
+        "created_at": "2023-09-27T11:24:26.000000Z",
+        "updated_at": "2023-09-27T11:24:26.000000Z",
+        "rejection_reason": null,
+        "rejection_comment": null,
+        "attachment": null,
+        "settled_by": "Super Admin",
+        "payment_method": "USDT Address",
+        "network_type": null,
+        "address": "qwertyuioplkjhgfdsazxcvbnm12dfgh",
+        "message": null,
+        "views": [],
+        "customer": {
+          "id": 1908,
+          "name": "Sanusi",
+          "username": "Mubaraq",
+          "email": "user@example.com",
+          "phone": "08012345678",
+          "status": "active",
+          "device_token": "************",
+          "created_at": "2022-03-01T05:52:08.000000Z",
+          "last_login": null,
+          "verification_status": "verified",
+          "profile_img": null,
+          "country_id": "N/A",
+          "credit": 42600,
+          "debit": 95800,
+          "balance": 106300,
+          "suspension_reason": null,
+          "suspension_ends_at": null,
+          "suspension_starts_at": null,
+          "total_transactions": 2,
+          "total_withdrawals": 3000,
+          "last_traded": "2023-09-27T11:24:26.000000Z"
+        },
+        "card": {
+          "id": 137,
+          "category_id": 13,
+          "name": "CANADA (Front&Back Pics) 50 -99",
+          "slug": "canada-100-to-500",
+          "terms": "Vanilla\r\n-We only accept card starting with the following four codes.\r\n4263/5338/5339/5336/4263\r\n-Upload the full front and back picture. \r\n-The wait time for this trade is two hours\r\n- Each card must be $100  and Above",
+          "status": "active",
+          "top_card": null,
+          "created_at": "2021-12-13T18:28:25.000000Z",
+          "updated_at": "2022-04-24T09:10:43.000000Z",
+          "rate": 150,
+          "min": 50,
+          "deleted_at": null,
+          "position": 0
+        }
+      },
+      {
+        "id": 356,
+        "card_id": 137,
+        "customer_id": 1908,
+        "transaction_ref": "1422601660659053",
+        "status": 0,
+        "value": 10,
+        "e_code": "AWE123",
+        "rate": 150,
+        "images": null,
+        "created_at": "2022-08-16T14:10:53.000000Z",
+        "updated_at": "2022-08-16T14:10:53.000000Z",
+        "rejection_reason": null,
+        "rejection_comment": null,
+        "attachment": null,
+        "settled_by": "Super Admin",
+        "payment_method": "NGN",
+        "network_type": null,
+        "address": null,
+        "message": null,
+        "views": [],
+        "customer": {
+          "id": 1908,
+          "name": "Sanusi",
+          "username": "Mubaraq",
+          "email": "user@example.com",
+          "phone": "08012345678",
+          "status": "active",
+          "device_token": "************",
+          "created_at": "2022-03-01T05:52:08.000000Z",
+          "last_login": null,
+          "verification_status": "verified",
+          "profile_img": null,
+          "country_id": "N/A",
+          "credit": 42600,
+          "debit": 95800,
+          "balance": 106300,
+          "suspension_reason": null,
+          "suspension_ends_at": null,
+          "suspension_starts_at": null,
+          "total_transactions": 2,
+          "total_withdrawals": 3000,
+          "last_traded": "2023-09-27T11:24:26.000000Z"
+        },
+        "card": {
+          "id": 137,
+          "category_id": 13,
+          "name": "CANADA (Front&Back Pics) 50 -99",
+          "slug": "canada-100-to-500",
+          "terms": "Vanilla\r\n-We only accept card starting with the following four codes.\r\n4263/5338/5339/5336/4263\r\n-Upload the full front and back picture. \r\n-The wait time for this trade is two hours\r\n- Each card must be $100  and Above",
+          "status": "active",
+          "top_card": null,
+          "created_at": "2021-12-13T18:28:25.000000Z",
+          "updated_at": "2022-04-24T09:10:43.000000Z",
+          "rate": 150,
+          "min": 50,
+          "deleted_at": null,
+          "position": 0
+        }
+      }
+    ],
+    "first_page_url": "https://traydah.test/api/trades/user/1908?page=1",
+    "from": 1,
+    "last_page": 1,
+    "last_page_url": "https://traydah.test/api/trades/user/1908?page=1",
+    "links": [
+      {
+        "url": null,
+        "label": "pagination.previous",
+        "active": false
+      },
+      {
+        "url": "https://traydah.test/api/trades/user/1908?page=1",
+        "label": 1,
+        "active": true
+      }
+    ],
+    "next_page_url": null,
+    "path": "https://traydah.test/api/trades/user/1908",
+    "per_page": 25,
+    "prev_page_url": null,
+    "to": 7,
+    "total": 7
+  }
+}
+```
+
+</ResponseExample>

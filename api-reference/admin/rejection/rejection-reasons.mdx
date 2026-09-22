@@ -1,0 +1,155 @@
+---
+title: "Rejection reasons"
+api: "GET /console/rejection-reasons"
+---
+
+## Query parameters
+
+<ParamField query="search" type="string">
+   Example: `xdfg`
+</ParamField>
+
+<ParamField query="status" type="string">
+   Example: `successful`
+</ParamField>
+
+<ResponseExample>
+
+```json 200
+{
+  "success": true,
+  "message": "successful",
+  "data": {
+    "current_page": 1,
+    "data": [
+      {
+        "id": 393,
+        "user_id": 1279,
+        "reference": "WW6052061714034102",
+        "amount": "1000.00",
+        "bank": null,
+        "bank_code": "000014",
+        "bank_name": "ACCESS BANK PLC",
+        "account_name": "afuwape sunday",
+        "account_number": "0000000000",
+        "bank_logo": null,
+        "status": "pending",
+        "rejection_id": null,
+        "settled_by": null,
+        "provider_reference": null,
+        "provider_status": null,
+        "platform": "redbiller",
+        "created_at": "2024-04-25T07:35:02.000000Z",
+        "updated_at": "2024-04-25T07:35:02.000000Z",
+        "channel": "automated",
+        "user": {
+          "id": 1279,
+          "name": "David logic",
+          "username": "dev007",
+          "phone": "08012345678",
+          "email": "user@example.com",
+          "dob": null,
+          "email_verified_at": "2024-04-04T21:03:08.000000Z",
+          "referral_code": "lDoVuM",
+          "device_token": null,
+          "device_type": null,
+          "status": "active",
+          "tier_id": 1,
+          "credits": null,
+          "avatar": "https://avatar.iran.liara.run/public/boy",
+          "deleted_at": null,
+          "created_at": "2024-04-04T21:03:08.000000Z",
+          "updated_at": "2024-04-19T05:15:12.000000Z",
+          "heard_about_us": "twitter",
+          "failed_login_attempts": 0,
+          "total_crypto_trade": 0,
+          "has_pin": true,
+          "wallet_balance": "44000.00",
+          "has_verifiedBVN": true,
+          "has_default_bank_account": true,
+          "has_withdrawn": true
+        },
+        "rejection_reason": null
+      },
+      {
+        "id": 392,
+        "user_id": 1279,
+        "reference": "WW1641211714030397",
+        "amount": "1000.00",
+        "bank": null,
+        "bank_code": "000014",
+        "bank_name": "ACCESS BANK PLC",
+        "account_name": "afuwape sunday",
+        "account_number": "0000000000",
+        "bank_logo": null,
+        "status": "pending",
+        "rejection_id": null,
+        "settled_by": null,
+        "provider_reference": null,
+        "provider_status": null,
+        "platform": "redbiller",
+        "created_at": "2024-04-25T06:33:17.000000Z",
+        "updated_at": "2024-04-25T06:33:17.000000Z",
+        "channel": "automated",
+        "user": {
+          "id": 1279,
+          "name": "David logic",
+          "username": "dev007",
+          "phone": "08012345678",
+          "email": "user@example.com",
+          "dob": null,
+          "email_verified_at": "2024-04-04T21:03:08.000000Z",
+          "referral_code": "lDoVuM",
+          "device_token": null,
+          "device_type": null,
+          "status": "active",
+          "tier_id": 1,
+          "credits": null,
+          "avatar": "https://avatar.iran.liara.run/public/boy",
+          "deleted_at": null,
+          "created_at": "2024-04-04T21:03:08.000000Z",
+          "updated_at": "2024-04-19T05:15:12.000000Z",
+          "heard_about_us": "twitter",
+          "failed_login_attempts": 0,
+          "total_crypto_trade": 0,
+          "has_pin": true,
+          "wallet_balance": "44000.00",
+          "has_verifiedBVN": true,
+          "has_default_bank_account": true,
+          "has_withdrawn": true
+        },
+        "rejection_reason": null
+      }
+    ],
+    "first_page_url": "http://localhost:2525/api/console/withdrawals?page=1",
+    "from": 1,
+    "last_page": 24,
+    "last_page_url": "http://localhost:2525/api/console/withdrawals?page=24",
+    "links": [
+      {
+        "url": null,
+        "label": "&laquo; Previous",
+        "active": false
+      },
+      {
+        "url": "http://localhost:2525/api/console/withdrawals?page=1",
+        "label": "1",
+        "active": true
+      }
+    ],
+    "next_page_url": "http://localhost:2525/api/console/withdrawals?page=2",
+    "path": "http://localhost:2525/api/console/withdrawals",
+    "per_page": 15,
+    "prev_page_url": null,
+    "to": 15,
+    "total": 355,
+    "overview": {
+      "successful": 315,
+      "pending": 17,
+      "rejected": 23
+    }
+  }
+}
+```
+
+</ResponseExample>
