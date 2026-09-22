@@ -3,10 +3,10 @@ title: "Mobile API overview"
 description: "Endpoints consumed by the Koyn mobile app."
 ---
 
-Endpoints consumed by the Koyn mobile app.
+Endpoints consumed by the Koyn mobile app, covering registration, wallet, crypto, bills, gift cards and account management.
 
-All paths are relative to the environment base URL. See [Environments](/guides/environments) and [Authentication](/guides/authentication).
+Registration, login and password reset are open; every other route requires a user bearer token from login, passed as `Authorization: Bearer <token>`. App routes also pass through a client-version gate, so requests carry the app version. Responses use the standard `{ success, message, data }` envelope. See [Authentication](/guides/authentication), [Environments](/guides/environments) and [Responses](/guides/responses).
 
 <Note>
-  This reference was migrated from the Koyn Postman collection. Example payloads are captured responses with personal data masked. Confirm each page against the current Laravel routes before relying on it.
+  Example payloads are captured responses with personal data masked. Confirm each page against the current Laravel routes before relying on it.
 </Note>

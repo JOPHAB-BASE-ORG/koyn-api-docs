@@ -3,10 +3,16 @@ title: "Update brand"
 api: "POST /console/giftcards/brands/{giftcardBrand}"
 ---
 
+## How it works
+
+Updates a gift card brand. Every field is optional, so send only what you are changing. When a new `logo` file is included, it is uploaded to Cloudinary and replaces the stored URL; omit it to keep the current logo. This `POST` route exists so a `multipart/form-data` body (with a file) can update the brand.
+
+Requires a staff bearer token with the `giftcards.manage` ability. Requests without it return `403`.
+
 ## Path parameters
 
-<ParamField path="giftcardBrand" type="string" required>
-   Example: `1`
+<ParamField path="giftcardBrand" type="integer" required>
+  Brand ID. Example: `1`
 </ParamField>
 
 ## Body
@@ -14,15 +20,15 @@ api: "POST /console/giftcards/brands/{giftcardBrand}"
 <Note>Send as `multipart/form-data`.</Note>
 
 <ParamField body="name" type="string">
-   Example: `Apple iTunes`
+  Brand name. Max 255 characters. Example: `Apple iTunes`
 </ParamField>
 
 <ParamField body="logo" type="file">
-
+  Replacement logo image. Accepts `jpeg`, `png`, `jpg` or `webp`, up to 20 MB.
 </ParamField>
 
-<ParamField body="is_active" type="string">
-   Example: `1`
+<ParamField body="is_active" type="boolean">
+  Whether the brand is shown to app users. Example: `1`
 </ParamField>
 
 <ResponseExample>

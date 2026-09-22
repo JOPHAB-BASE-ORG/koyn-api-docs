@@ -1,12 +1,16 @@
 ---
 title: "Get GiftCard Trade"
-api: "GET /giftcards/trades/{giftcardSale}"
+api: "GET /giftcards/trades/{giftcardTrade}"
 ---
+
+## How it works
+
+You get a single gift card trade you submitted, with its brand and category eagerly loaded. The trade must belong to the authenticated user; requesting another user's trade returns a 404. The response includes the submitted `amount`, `rate`, `code`, uploaded `images`, current `status`, and any admin comments.
 
 ## Path parameters
 
-<ParamField path="giftcardSale" type="string" required>
-   Example: `2`
+<ParamField path="giftcardTrade" type="integer" required>
+  The trade `id`. Example: `2`
 </ParamField>
 
 <ResponseExample>

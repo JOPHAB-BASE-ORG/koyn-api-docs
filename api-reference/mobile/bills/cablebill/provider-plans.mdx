@@ -3,6 +3,8 @@ title: "Provider Plans"
 api: "GET /cable/plans/{provider}"
 ---
 
+List the plans for a cable provider. Each plan carries the `code` you pass to the purchase endpoint. The `data` array is not paginated. See [Response envelope](/guides/responses) for the standard `{ success, message, data }` shape.
+
 ## Path parameters
 
 <ParamField path="provider" type="string" required>

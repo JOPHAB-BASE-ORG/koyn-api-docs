@@ -3,44 +3,46 @@ title: "Get User Ledger"
 api: "GET /console/users/{userId}/ledger"
 ---
 
+## How it works
+
+Returns a user's full wallet ledger with a reconciliation overview: paginated transactions plus an `overview` block that reports credit/debit counts, expected versus current balance, flagged issues (failed, rejected, pending, or reversal rows), suspected double credits, and balance-mismatch transactions. The paginated transactions sit in the top-level Laravel paginator fields (`current_page`, `last_page`, page URLs), while `data` holds the `user`, `transactions`, and `overview` — see [Responses and errors](/guides/responses).
+
+Requires a staff bearer token with the `users.read` or `users.manage` ability. Requests without either return `403`.
+
 ## Path parameters
 
 <ParamField path="userId" type="string" required>
-   Example: `62`
+  User ID. Example: `62`
 </ParamField>
 
 ## Query parameters
 
-<ParamField query="from" type="string">
-   Example: `2026-03-01`
-</ParamField>
-
-<ParamField query="to" type="string">
-   Example: `2026-03-03`
-</ParamField>
-
 <ParamField query="entry" type="string">
-   Example: `credit`
+  Filter to one direction: `credit` or `debit`. Example: `credit`
 </ParamField>
 
 <ParamField query="status" type="string">
-   Example: `successful`
+  Filter by transaction status. Example: `successful`
 </ParamField>
 
 <ParamField query="type" type="string">
-   Example: `crypto`
+  Filter by category: `bills`, `crypto`, `withdrawal`, `all`, or a specific transaction type. Example: `crypto`
 </ParamField>
 
-<ParamField query="per_page" type="string">
-   Example: `25`
+<ParamField query="per_page" type="integer">
+  Transactions per page. Defaults to `25`. Example: `25`
 </ParamField>
 
-<ParamField query="issues_limit" type="string">
-   Example: `50`
+<ParamField query="issues_limit" type="integer">
+  Max issue rows returned, capped at `200`. Defaults to `50`. Example: `50`
 </ParamField>
 
-<ParamField query="double_credit_limit" type="string">
-   Example: `100`
+<ParamField query="double_credit_limit" type="integer">
+  Max suspected double-credit groups returned, capped at `200`. Defaults to `100`. Example: `100`
+</ParamField>
+
+<ParamField query="mismatch_limit" type="integer">
+  Max balance-mismatch transactions returned, capped at `200`. Defaults to `50`. Example: `50`
 </ParamField>
 
 <ResponseExample>
@@ -325,8 +327,15 @@ api: "GET /console/users/{userId}/ledger"
         "data": [
           {
             "id": 76813,
-            "reference": "RC59VFF
-... (truncated)
+            "reference": "RC59VFF7XVR2XYZ",
+            "amount": "5000.00",
+            "created_at": "2026-05-14T14:02:22.000000Z"
+          }
+        ]
+      }
+    }
+  }
+}
 ```
 
 </ResponseExample>

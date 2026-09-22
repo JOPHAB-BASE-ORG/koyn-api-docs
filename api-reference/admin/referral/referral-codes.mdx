@@ -3,15 +3,9 @@ title: "Referral Codes"
 api: "GET /console/referrals/codes"
 ---
 
-## Query parameters
+## How it works
 
-<ParamField query="search" type="string">
-   Example: `xdfg`
-</ParamField>
-
-<ParamField query="active" type="string">
-   Example: `true`
-</ParamField>
+Returns every referral code, including its reward amount, active flag, the staff member who created it, and how many times it has been used. Results use the standard Laravel paginator (see [Response format](/guides/responses)). Requires the `referrals.read` console ability.
 
 <ResponseExample>
 

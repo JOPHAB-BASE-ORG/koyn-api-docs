@@ -3,6 +3,10 @@ title: "Claim"
 api: "POST /signup-bonus/claim"
 ---
 
+## How it works
+
+You claim the authenticated user's unlocked signup bonus. The bonus only becomes claimable once its required trade volume has been met (see the status endpoint). On success the bonus `amount` is credited to the wallet and a payment `reference` is returned. It takes no parameters and fails if the bonus is not yet unlocked or has already been claimed.
+
 <ResponseExample>
 
 ```json 200

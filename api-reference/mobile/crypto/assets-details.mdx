@@ -1,12 +1,16 @@
 ---
 title: "Assets  Details"
-api: "GET /crypto/assets/{asset}"
+api: "GET /crypto/assets/{symbol}"
 ---
+
+## How it works
+
+This returns the public detail for a single crypto asset, matched by its `symbol`. Only active assets resolve; an unknown or inactive symbol returns `404`. Prices are quoted in USD, so `currency` is always `USD`. This endpoint is public and does not require authentication.
 
 ## Path parameters
 
-<ParamField path="asset" type="string" required>
-   Example: `BTC`
+<ParamField path="symbol" type="string" required>
+  Asset ticker symbol. Example: `BTC`
 </ParamField>
 
 <ResponseExample>

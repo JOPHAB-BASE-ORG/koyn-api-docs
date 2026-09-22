@@ -3,6 +3,16 @@ title: "Read Logs"
 api: "GET /console/developer/logs"
 ---
 
+## How it works
+
+Returns the tail of the application's current log file so you can inspect recent activity from the console. It reads the day's log file (falling back to the base log file) and returns the last lines together with the file path, size and last-modified time. Requires the `developer.manage` console ability.
+
+## Query parameters
+
+<ParamField query="lines" type="integer">
+  Number of trailing lines to return. Defaults to `100` and is capped at `500`.
+</ParamField>
+
 <ResponseExample>
 
 ```json 200

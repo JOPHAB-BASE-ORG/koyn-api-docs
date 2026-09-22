@@ -3,18 +3,22 @@ title: "Purchase Data plan"
 api: "POST /phonebill/purchase-data"
 ---
 
+## How it works
+
+This debits your wallet (naira balance) for the plan and queues a data top-up with the provider. Your account must be active and unflagged, the request must come from a verified device, and the `bills` service switch must be on, or the request is rejected with `409`. It also fails when your balance is insufficient or a matching top-up is already in flight.
+
 ## Body
 
-<ParamField body="network" type="string">
-  Example: `MTN`
+<ParamField body="network" type="string" required>
+  ISP product code, for example `MTN`. Must match an active provider.
 </ParamField>
 
-<ParamField body="code" type="string">
-  Example: `3000`
+<ParamField body="code" type="string" required>
+  Plan code from the data plans endpoint. Example: `3000`
 </ParamField>
 
-<ParamField body="phone_no" type="string">
-  Example: `08012345678`
+<ParamField body="phone_no" type="string" required>
+  Recipient phone number, digits only. Example: `08012345678`
 </ParamField>
 
 <RequestExample>

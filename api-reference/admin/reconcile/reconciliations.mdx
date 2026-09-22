@@ -3,46 +3,9 @@ title: "Reconciliations"
 api: "GET /console/reconciliations"
 ---
 
-## Body
+## How it works
 
-<ParamField body="user_id" type="string">
-  Example: `3`
-</ParamField>
-
-<ParamField body="transaction_id" type="string">
-  
-</ParamField>
-
-<ParamField body="entry" type="string">
-  Example: `credit`
-</ParamField>
-
-<ParamField body="reason" type="string">
-  Example: `Resolve fail withdraw`
-</ParamField>
-
-<ParamField body="amount" type="string">
-  Example: `500`
-</ParamField>
-
-<ParamField body="narration" type="string">
-  Example: `hey fell money reversed`
-</ParamField>
-
-<RequestExample>
-
-```json Request
-{
-  "user_id": "3",
-  "transaction_id": null,
-  "entry": "credit",
-  "reason": "Resolve fail withdraw",
-  "amount": "500",
-  "narration": "hey fell money reversed"
-}
-```
-
-</RequestExample>
+Returns the history of reconciliation entries, newest first, each with its resulting wallet transaction and the affected `user` and acting `staff`. The `data` object is a Laravel paginator (`current_page`, `last_page`, `per_page`, `*_page_url`). See [Response envelope](/guides/responses). Requires a staff bearer token with the `reconciliations.manage` ability. Requests without it return `403`.
 
 <ResponseExample>
 

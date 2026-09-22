@@ -3,25 +3,29 @@ title: "Add user Bank"
 api: "POST /bank/create"
 ---
 
+## How it works
+
+This saves a payout bank account to your profile. Pick a `bank_id` from the [operating banks](/api-reference/mobile/banking/operating-banks) list; the bank name, code and logo are resolved from it automatically. You can hold at most 5 accounts, and the same account number cannot be added twice — either rejects the request with a validation error. Your first saved account is automatically set as primary.
+
 ## Body
 
-<ParamField body="bank_id" type="string">
-  Example: `9ca7fa50-d5cb-456e-b0fb-e15bb7a08c94`
+<ParamField body="bank_id" type="number" required>
+  Id of the operating bank, from the banks list. Example: `2`
 </ParamField>
 
-<ParamField body="account_name" type="string">
-  Example: `afuwape sunday`
+<ParamField body="account_name" type="string" required>
+  Account holder name. Example: `afuwape sunday`
 </ParamField>
 
-<ParamField body="account_number" type="string">
-  Example: `0000000000`
+<ParamField body="account_number" type="string" required>
+  10-digit account number. Example: `0000000000`
 </ParamField>
 
 <RequestExample>
 
 ```json Request
 {
-  "bank_id": "9ca7fa50-d5cb-456e-b0fb-e15bb7a08c94",
+  "bank_id": 2,
   "account_name": "afuwape sunday",
   "account_number": "0000000000"
 }

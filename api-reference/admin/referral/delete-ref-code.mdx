@@ -1,12 +1,16 @@
 ---
 title: "Delete Ref Code"
-api: "DELETE /console/referrals/codes/{id}/delete"
+api: "DELETE /console/referrals/codes/{referralCode}/delete"
 ---
+
+## How it works
+
+Permanently removes a referral code so it can no longer be used. Requires the `refcodes.manage` console ability.
 
 ## Path parameters
 
-<ParamField path="id" type="string" required>
-   Example: `1`
+<ParamField path="referralCode" type="string" required>
+   ID of the referral code to delete.
 </ParamField>
 
 <ResponseExample>

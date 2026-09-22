@@ -2,3 +2,31 @@
 title: "Claim"
 api: "POST /referral/claim"
 ---
+
+## How it works
+
+You claim the authenticated user's available referral earnings. The endpoint sums the rewards from referrals tied to your referral code, subtracts what you have already claimed, and credits the remaining balance to your wallet in a single reconciled payment. It takes no parameters. It fails with a 400 if you have no referrals or nothing left to claim.
+
+<ResponseExample>
+
+```json 200
+{
+  "success": true,
+  "message": "Referral amount claimed successfully",
+  "data": {
+    "message": "Referral amount claimed successfully",
+    "claimed_amount": 500,
+    "new_balance": "23750.00",
+    "reference": "RCBAHQ5EI6ELTD9O2S"
+  }
+}
+```
+
+```json 400 No amount available
+{
+  "success": false,
+  "message": "No referral amount available to claim"
+}
+```
+
+</ResponseExample>

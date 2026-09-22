@@ -3,6 +3,10 @@ title: "Wifi Products"
 api: "GET /console/wifi/products"
 ---
 
+## How it works
+
+Returns every WiFi provider KOYN supports, including inactive ones, as a plain array in `data`. Requires a staff bearer token with the `bills.read` ability; a request without it returns `403`. This list is not paginated. See [Response format](/guides/responses).
+
 <ResponseExample>
 
 ```json 200

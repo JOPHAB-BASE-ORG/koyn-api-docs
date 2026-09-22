@@ -3,18 +3,22 @@ title: "Update pin"
 api: "PUT /pin/update"
 ---
 
+## How it works
+
+This changes the authenticated user's transaction PIN. You must supply the current PIN, and the new PIN must be confirmed and cannot repeat the current one. Requires a valid bearer token. On success the user is notified that their PIN changed.
+
 ## Body
 
-<ParamField body="pin" type="string">
-  Example: `0000`
+<ParamField body="pin" type="string" required>
+  New 4-digit PIN. Cannot match the current PIN. Example: `0000`
 </ParamField>
 
-<ParamField body="pin_confirmation" type="string">
-  Example: `0000`
+<ParamField body="pin_confirmation" type="string" required>
+  Must match `pin`. Example: `0000`
 </ParamField>
 
-<ParamField body="current_pin" type="string">
-  Example: `0000`
+<ParamField body="current_pin" type="string" required>
+  Current 4-digit PIN. Example: `0000`
 </ParamField>
 
 <RequestExample>

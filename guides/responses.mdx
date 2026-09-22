@@ -1,9 +1,9 @@
 ---
 title: "Responses and errors"
-description: "The response envelope and error format shared by every endpoint"
+description: "The response envelope, error format, and pagination shapes shared across the API"
 ---
 
-Every endpoint returns JSON with the same envelope.
+Every endpoint returns JSON wrapped in the same envelope. Read `success` first, then branch on `data` (on success) or `message` and `errors` (on failure). Do not rely on the HTTP status alone.
 
 ## Success
 
@@ -15,11 +15,26 @@ Every endpoint returns JSON with the same envelope.
 }
 ```
 
-`data` holds the resource or collection. List endpoints return Laravel pagination fields alongside the items, including `current_page`, `per_page`, `total` and `next_page_url`.
+`success` is `true` and the HTTP status is `200`. `message` is a human-readable label, safe to show or ignore. `data` carries the result and its shape depends on the endpoint: a single object, an array, a paginated block (see [Pagination](#pagination)), or an empty array when there is nothing to return.
+
+<Warning>
+  `data` is not a stable contract field-for-field. Endpoints return the underlying Eloquent model, so a field being present in an example does not guarantee it is always present, and new fields can appear without notice. Read the fields you need defensively and ignore the rest.
+</Warning>
+
+## Failure
+
+```json
+{
+  "success": false,
+  "message": "Your available balance is insufficient to process this transaction."
+}
+```
+
+`success` is `false`, there is no `data`, and `message` is a human-readable reason you can surface to the user. The HTTP status varies by cause (see [Status codes](#status-codes)). A failure is a normal, expected outcome — an insufficient balance, a disabled service, a duplicate request — not only a server fault.
 
 ## Validation errors
 
-Failed validation returns HTTP `422` with a per-field breakdown.
+Failed validation returns HTTP `422` with a per-field breakdown in `errors`. `message` is a one-line summary of the first problem.
 
 ```json
 {
@@ -31,16 +46,85 @@ Failed validation returns HTTP `422` with a per-field breakdown.
 }
 ```
 
-## Other status codes
+Each key in `errors` is a request field; each value is an array of messages for that field. A field can have more than one message. Bind form errors to `errors`, and fall back to `message` when a failure has no `errors` object.
+
+## Status codes
+
+The same envelope is used across every status. The status tells you the category; `message` tells you the specifics.
 
 | Code | Meaning |
 | --- | --- |
-| `400` | The request was well formed but could not be processed, for example an insufficient balance. |
-| `401` | Missing, expired or revoked bearer token. |
-| `403` | The token is valid but the account is suspended or lacks the required role. |
-| `404` | The resource does not exist or does not belong to the caller. |
-| `429` | Rate limit exceeded. The default limit is 60 requests per minute per token. |
+| `200` | Success. `success` is `true`. |
+| `401` | Missing, expired or revoked bearer token, or the request is not authenticated. |
+| `403` | Authenticated but not allowed — a suspended account, a flagged device, or (on `/console`) a staff role without the required ability. |
+| `404` | The resource does not exist or does not belong to the caller. In production this status is also returned by the client-version gate (see below). |
+| `405` | The HTTP method is not allowed on that path. |
+| `409` | The request was well formed but cannot proceed right now — insufficient balance, a service switched off, a duplicate in-flight request, or another business-rule conflict. This is the default failure status. |
+| `422` | Validation failed. Includes `errors`. |
+| `429` | Rate limit exceeded. |
+| `500` | An error on our side. The body carries a generic message; the specifics are logged, not returned. |
 
-## Response types
+<Note>
+  In production, requests missing a valid `X-Client-Version` header are rejected before routing and come back as `404` with the message `Your app version is outdated. Please upgrade to the latest version.` A `404` carrying that exact message is the version gate, not a missing resource. See [Authentication](/guides/authentication).
+</Note>
 
-Many endpoint pages include a **Response types** section with TypeScript interfaces describing the `data` payload. These were captured from live responses and are a good starting point for client models.
+## Pagination
+
+List endpoints paginate, but **the shape is not uniform across the API** — there are two forms. Detect which one you are dealing with by feature-testing for `total_pages` versus `last_page` rather than assuming.
+
+### Form A — Laravel paginator
+
+Most list endpoints place the framework's paginator directly in `data`. The items are under `data.data`, and the page metadata sits beside them.
+
+```json
+{
+  "success": true,
+  "message": "successful",
+  "data": {
+    "current_page": 1,
+    "data": [ { } ],
+    "first_page_url": "…?page=1",
+    "from": 1,
+    "last_page": 12,
+    "last_page_url": "…?page=12",
+    "next_page_url": "…?page=2",
+    "prev_page_url": null,
+    "path": "…",
+    "per_page": 25,
+    "to": 25,
+    "total": 300
+  }
+}
+```
+
+Key fields: `current_page`, `last_page`, `per_page`, `total`, and the `next_page_url` / `prev_page_url` links (either can be `null` at the ends).
+
+### Form B — custom meta
+
+Some endpoints (several admin lists, gift card trades) return a hand-built block instead. The items are still under `data.data`, but the page count is `total_pages`, and there are **no** page URLs.
+
+```json
+{
+  "success": true,
+  "message": "successful",
+  "data": {
+    "data": [ { } ],
+    "per_page": 25,
+    "current_page": 1,
+    "total_pages": 12,
+    "total": 300
+  }
+}
+```
+
+<Warning>
+  Do not hard-code one pagination shape. `last_page` and the `*_page_url` links exist only in Form A; `total_pages` exists only in Form B. Advance pages with the `page` query parameter (`?page=2`) in both forms, and derive "has next page" from `current_page < (last_page ?? total_pages)`.
+</Warning>
+
+### Requesting pages
+
+Pass `?page=N` to move between pages. Where a page size is configurable, pass `?per_page=N`; endpoints that do not accept it use a fixed size. Some list endpoints also accept `search`, `status`, and date-range filters — those are documented on the endpoint page.
+
+## A note on examples
+
+Response examples on endpoint pages are captured from live responses with values masked. Treat them as the expected **shape and behavior**, not a frozen schema: field presence can vary with record state (for example, a `reviewed_at` that is `null` until a trade is decided), and models may gain fields over time. Where an endpoint's response or pagination form is unusual, its page calls that out.

@@ -3,6 +3,10 @@ title: "Read all"
 api: "PUT /notifications/read-all"
 ---
 
+## How it works
+
+You mark every one of the authenticated user's unread notifications as read by stamping their `read_at`. It takes no parameters and returns an empty `data` array on success.
+
 <ResponseExample>
 
 ```json 200

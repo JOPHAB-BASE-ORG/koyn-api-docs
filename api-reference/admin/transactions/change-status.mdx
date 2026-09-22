@@ -1,16 +1,7 @@
 ---
 title: "Change Status"
-api: "POST /trades/change-status/1"
 ---
 
-##### Status
-
-rejected => 2, success => 1
-
-## Body
-
-<Note>Send as `multipart/form-data`.</Note>
-
-<ParamField body="status" type="string">
-   Example: `1`
-</ParamField>
+<Warning>
+  This endpoint is no longer part of the console API. Gift card trade decisions are now made through the dedicated actions: approve a trade with `POST /console/giftcards/trades/{id}/approve` and reject one with `POST /console/giftcards/trades/{id}/reject`. Both require the `giftcards.manage` ability.
+</Warning>

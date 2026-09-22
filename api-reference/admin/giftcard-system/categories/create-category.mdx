@@ -3,36 +3,44 @@ title: "Create Category"
 api: "POST /console/giftcards/categories"
 ---
 
+## How it works
+
+Creates a category under a brand (for example, "USA e-code" under iTunes). A category carries the trade `min`/`max` face value and the `rate` used to value trades. If you omit `position`, the category is appended to the end of the brand's ordered list; a supplied `position` inserts it there and the brand's other categories are renumbered so positions stay contiguous.
+
+Requires a staff bearer token with the `giftcards.manage` ability. Requests without it return `403`.
+
 ## Body
 
-<Note>Send as `multipart/form-data`.</Note>
-
-<ParamField body="brand_id" type="string">
-   Example: `1`
+<ParamField body="brand_id" type="integer" required>
+  ID of the brand this category belongs to. Must reference an existing brand. Example: `1`
 </ParamField>
 
-<ParamField body="name" type="string">
-   Example: `USA ECODE 🇱🇷`
+<ParamField body="name" type="string" required>
+  Category name. Max 255 characters. Example: `USA ECODE 🇱🇷`
 </ParamField>
 
-<ParamField body="min" type="string">
-   Example: `20`
+<ParamField body="min" type="number" required>
+  Minimum face value accepted for a trade. Must be `0` or greater. Example: `20`
 </ParamField>
 
-<ParamField body="max" type="string">
-   Example: `99`
+<ParamField body="max" type="number" required>
+  Maximum face value accepted for a trade. Must be greater than or equal to `min`. Example: `99`
 </ParamField>
 
-<ParamField body="rate" type="string">
-   Example: `1300`
+<ParamField body="rate" type="number" required>
+  Payout rate applied to the traded amount. Must be `0` or greater. Example: `1300`
 </ParamField>
 
-<ParamField body="is_active" type="string">
-   Example: `1`
+<ParamField body="position" type="integer">
+  1-based position within the brand's category list. Defaults to the end of the list.
 </ParamField>
 
-<ParamField body="requires_receipt" type="string">
-   Example: `0`
+<ParamField body="is_active" type="boolean">
+  Whether the category is shown to app users. Example: `1`
+</ParamField>
+
+<ParamField body="requires_receipt" type="boolean">
+  Whether users must attach a receipt image when trading this category. Example: `0`
 </ParamField>
 
 <ResponseExample>
@@ -47,6 +55,7 @@ api: "POST /console/giftcards/categories"
     "min": "20.00",
     "max": "99.00",
     "rate": "1300.0000",
+    "position": 1,
     "is_active": true,
     "requires_receipt": false,
     "updated_at": "2026-02-20T02:57:14.000000Z",

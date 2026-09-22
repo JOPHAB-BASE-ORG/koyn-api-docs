@@ -3,6 +3,10 @@ title: "Update Disco Product"
 api: "POST /console/disco/products/{id}"
 ---
 
+## How it works
+
+Updates one disco (electricity) meter product by id and returns the saved record. Send the body as `multipart/form-data`. Omit `logo` to keep the current image, or attach a new image to replace it. Requires a staff bearer token with the `bill_products.manage` ability; a request without it returns `403`.
+
 ## Path parameters
 
 <ParamField path="id" type="string" required>
@@ -13,12 +17,12 @@ api: "POST /console/disco/products/{id}"
 
 <Note>Send as `multipart/form-data`.</Note>
 
-<ParamField body="name" type="string">
-   Example: `Abuja`
+<ParamField body="name" type="string" required>
+   Meter product name. Example: `Abuja`
 </ParamField>
 
-<ParamField body="status" type="string">
-  active | inactive Example: `active`
+<ParamField body="status" type="string" required>
+  Product state. Example: `active`
 </ParamField>
 
 <ParamField body="logo" type="file">

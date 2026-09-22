@@ -4,6 +4,10 @@ api: "POST /webhook/monnify"
 playground: "none"
 ---
 
+## How it works
+
+Monnify calls this route with the result of a disbursement (payout) it processed for Koyn, such as a `SUCCESSFUL_DISBURSEMENT` event. The route is exempt from the client-version gate. Koyn acknowledges receipt and hands the event to a queued job that updates the matching withdrawal's status.
+
 ## Body
 
 <ParamField body="eventType" type="string">
@@ -47,31 +51,7 @@ playground: "none"
 {
   "success": true,
   "message": "successful",
-  "data": {
-    "id": 782,
-    "user_id": 1279,
-    "crypto_asset_id": 1,
-    "balance": "0.00000000",
-    "address": "tb1q9ex9grv8ac76wk6qewt9pyajv3uhm8256hpkr6zknjavz3dk2avsvdglnr",
-    "chain": "BTCTEST",
-    "created_at": "2024-05-24T02:54:20.000000Z",
-    "updated_at": "2024-05-24T02:54:20.000000Z",
-    "symbol": "BTC"
-  }
-}
-```
-
-```text Example
-{
-  id: number
-  user_id: number
-  crypto_asset_id: number
-  balance: string
-  address: string
-  chain: string
-  created_at: string
-  updated_at: string
-  symbol: string
+  "data": []
 }
 ```
 

@@ -3,21 +3,9 @@ title: "Tiers"
 api: "GET /tiers"
 ---
 
-## Body
+## How it works
 
-<ParamField body="pin" type="string">
-  Example: `0000`
-</ParamField>
-
-<RequestExample>
-
-```json Request
-{
-  "pin": "0000"
-}
-```
-
-</RequestExample>
+You get the account tiers and their 24-hour withdrawal limits and requirements. Each tier carries a `status` for the authenticated user showing how far they have progressed toward it. This endpoint takes no parameters and returns the tiers as a plain array under `data` (no pagination).
 
 <ResponseExample>
 

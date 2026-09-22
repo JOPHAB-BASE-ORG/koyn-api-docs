@@ -3,10 +3,14 @@ title: "Withdrawal Limit"
 api: "POST /console/settings/withdrawal-limit"
 ---
 
+## How it works
+
+Sets the maximum wallet withdrawal amount that is processed automatically (`max_automatic_withdrawal_amount`). Withdrawals above this fall to manual review. Requires a staff bearer token with the `settings.manage` ability. Requests without it return `403`.
+
 ## Body
 
-<ParamField body="limit" type="string">
-  Example: `500000`
+<ParamField body="limit" type="number" required>
+  Maximum amount processed automatically. Example: `500000`
 </ParamField>
 
 <RequestExample>

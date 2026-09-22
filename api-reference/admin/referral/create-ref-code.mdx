@@ -3,18 +3,22 @@ title: "Create Ref Code"
 api: "POST /console/referrals/codes/create"
 ---
 
+## How it works
+
+Creates a referral code that users can enter to earn a reward. The code must be unique, and the acting staff member is recorded as the code's owner (`staff_id`). Requires the `refcodes.manage` console ability.
+
 ## Body
 
-<ParamField body="code" type="string">
-  Example: `LOGIC1000`
+<ParamField body="code" type="string" required>
+  Referral code users will enter. Must be unique.
 </ParamField>
 
-<ParamField body="reward_amount" type="string">
-  Example: `500`
+<ParamField body="reward_amount" type="number">
+  Reward credited for a successful referral. Optional.
 </ParamField>
 
-<ParamField body="active" type="boolean">
-  Example: `true`
+<ParamField body="active" type="boolean" required>
+  Whether the code is currently usable.
 </ParamField>
 
 <RequestExample>

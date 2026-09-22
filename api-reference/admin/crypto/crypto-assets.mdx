@@ -3,6 +3,16 @@ title: "Crypto Assets"
 api: "GET /console/crypto/assets"
 ---
 
+## How it works
+
+Returns every crypto asset with its nested `conversion_rates`. Each asset carries a `status` (`active` or `inactive`) and an `is_available` availability toggle. An asset is only shown to users and made creatable when it is `active`, `is_available` is `true`, and it has a Vaultody v2 mapping (`v2_asset_id`, `v2_blockchain`, `v2_network`). Requires a staff bearer token with the `crypto_assets.manage` ability. Requests without it return `403`.
+
+## Query parameters
+
+<ParamField query="status" type="string">
+  Filter assets by status (`active` or `inactive`). Example: `active`
+</ParamField>
+
 <ResponseExample>
 
 ```json 200
@@ -15,6 +25,10 @@ api: "GET /console/crypto/assets"
       "name": "Ethereum",
       "symbol": "ETH",
       "status": "active",
+      "is_available": true,
+      "v2_asset_id": "6874e2c2c88b3b0b8f1a1234",
+      "v2_blockchain": "ethereum",
+      "v2_network": "mainnet",
       "latest_quote": "50795.40161404",
       "percent_change_1hr": "0.52008338",
       "percent_change_24hr": "1.74152000",

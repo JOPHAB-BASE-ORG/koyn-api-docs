@@ -3,26 +3,36 @@ title: "Users"
 api: "GET /console/users"
 ---
 
+## How it works
+
+Lists app users (not staff), newest first by default, each with their wallet balance and total crypto trade volume. All filters are optional and combine. The response is a Laravel paginator (Form A: `data.data[]` with `current_page`, `last_page`, page URLs) with an extra `overview` block of aggregate counts — see [Responses and errors](/guides/responses).
+
+Requires a staff bearer token with the `users.read` or `users.manage` ability. Requests without either return `403`.
+
 ## Query parameters
 
 <ParamField query="search" type="string">
-
+  Matches email or username.
 </ParamField>
 
 <ParamField query="from" type="string">
-
+  Start of the signup date range. Format `dd/mm/yyyy`. Applied only when both `from` and `to` are present. Example: `01/02/2026`
 </ParamField>
 
 <ParamField query="to" type="string">
-
+  End of the signup date range. Format `dd/mm/yyyy`. Example: `28/02/2026`
 </ParamField>
 
-<ParamField query="tier" type="string">
-
+<ParamField query="tier_id" type="integer">
+  Filter to a single KYC tier. Example: `1`
 </ParamField>
 
 <ParamField query="orderBy" type="string">
-  balance|total_trade|
+  Sort column: `wallet_balance` or `total_crypto_trade`. Any other value sorts by signup date.
+</ParamField>
+
+<ParamField query="per_page" type="integer">
+  Items per page. Defaults to `50`.
 </ParamField>
 
 <ParamField query="direction" type="string">

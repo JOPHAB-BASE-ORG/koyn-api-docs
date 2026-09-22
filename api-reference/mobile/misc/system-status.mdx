@@ -3,21 +3,9 @@ title: "System Status"
 api: "GET /settings/status"
 ---
 
-## Body
+## How it works
 
-<ParamField body="gateway" type="string">
-  Example: `redbiller`
-</ParamField>
-
-<RequestExample>
-
-```json Request
-{
-  "gateway": "redbiller"
-}
-```
-
-</RequestExample>
+You get the platform's operational flags, one per subsystem (for example `withdrawal` and `bill_payment`). Each entry's `value` shows whether that feature is currently enabled, with an optional `message`. This endpoint is public, takes no parameters, and returns a plain array under `data` (no pagination).
 
 <ResponseExample>
 

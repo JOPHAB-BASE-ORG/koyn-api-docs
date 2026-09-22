@@ -3,21 +3,25 @@ title: "Set Biometric"
 api: "POST /biometric"
 ---
 
+## How it works
+
+This enrols a biometric signature for the authenticated user so they can later log in with Face ID or Touch ID. You send a device-generated hash and the biometric type; the hash is stored against the matching field and `has_biometric` is set to `true`. Requires a valid bearer token. The response returns the updated user object.
+
 ## Body
 
-<ParamField body="hash" type="string">
-  Example: `fc5731c66ab13b9cfeb8978fbffe6b83192ac559`
+<ParamField body="hash" type="string" required>
+  Device-generated biometric hash. Example: `************************************`
 </ParamField>
 
-<ParamField body="type" type="string">
-  Example: `face`
+<ParamField body="type" type="string" required>
+  Biometric type. One of `face` or `touch`.
 </ParamField>
 
 <RequestExample>
 
 ```json Request
 {
-  "hash": "fc5731c66ab13b9cfeb8978fbffe6b83192ac559",
+  "hash": "************************************",
   "type": "face"
 }
 ```

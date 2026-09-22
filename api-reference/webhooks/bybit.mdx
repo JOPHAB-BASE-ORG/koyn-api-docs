@@ -1,10 +1,17 @@
 ---
 title: "ByBit"
-api: "POST /bybit/spot/trade"
 playground: "none"
 ---
 
-## Body
+<Warning>
+  This is not an inbound Koyn webhook. Koyn calls Bybit, not the other way around — there is no `webhook/bybit` route in the backend. This page documents the outbound spot-trade request Koyn sends to Bybit so the integration is recorded alongside the other provider callbacks.
+</Warning>
+
+## How it works
+
+Koyn calls the Bybit Spot API server-side to place market orders (for example to liquidate or hedge crypto received from deposits and swaps). The request is signed with Koyn's Bybit API credentials and sent to Bybit's trading endpoint; Bybit returns the order result. No client or provider calls Koyn for this flow.
+
+## Request Koyn sends
 
 <ParamField body="symbol" type="string">
   Example: `ETHUSDT`

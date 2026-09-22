@@ -1,26 +1,30 @@
 ---
 title: "Update Ref Code"
-api: "PATCH /console/referrals/codes/{id}/update"
+api: "PATCH /console/referrals/codes/{referralCode}/update"
 ---
+
+## How it works
+
+Updates an existing referral code's value, reward, or active state. The code must remain unique across referral codes. Requires the `refcodes.manage` console ability.
 
 ## Path parameters
 
-<ParamField path="id" type="string" required>
-   Example: `1`
+<ParamField path="referralCode" type="string" required>
+   ID of the referral code to update.
 </ParamField>
 
 ## Body
 
-<ParamField body="code" type="string">
-  Example: `LAYI200`
+<ParamField body="code" type="string" required>
+  Referral code value. Must be unique.
 </ParamField>
 
-<ParamField body="reward_amount" type="string">
-  Example: `500`
+<ParamField body="reward_amount" type="number" required>
+  Reward credited for a successful referral.
 </ParamField>
 
-<ParamField body="active" type="boolean">
-  Example: `false`
+<ParamField body="active" type="boolean" required>
+  Whether the code is currently usable.
 </ParamField>
 
 <RequestExample>

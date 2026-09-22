@@ -3,10 +3,14 @@ title: "Set Withdraw Mode"
 api: "POST /console/settings/withdrawal-mode"
 ---
 
+## How it works
+
+Sets how wallet withdrawals are processed: `automatic` pays out through the gateway without review, `manual` holds them for staff approval. Requires a staff bearer token with the `settings.manage` ability. Requests without it return `403`.
+
 ## Body
 
-<ParamField body="mode" type="string">
-  Example: `automatic`
+<ParamField body="mode" type="string" required>
+  Withdrawal mode: `automatic` or `manual`. Example: `automatic`
 </ParamField>
 
 <RequestExample>

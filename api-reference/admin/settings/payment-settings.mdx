@@ -3,21 +3,9 @@ title: "Payment Settings"
 api: "GET /console/settings/payment"
 ---
 
-## Body
+## How it works
 
-<ParamField body="gateway" type="string">
-  Example: `redbiller`
-</ParamField>
-
-<RequestExample>
-
-```json Request
-{
-  "gateway": "redbiller"
-}
-```
-
-</RequestExample>
+Returns a consolidated view of the payment-related settings: the active withdrawal gateway, the bill-payment gateway, the withdrawal mode, the automatic withdrawal limit, and the crypto sweep address. Requires a staff bearer token with the `settings.manage` ability. Requests without it return `403`.
 
 <ResponseExample>
 
@@ -26,7 +14,8 @@ api: "GET /console/settings/payment"
   "success": true,
   "message": "Payment Settings",
   "data": {
-    "payment_gateway": "redbiller",
+    "payment_gateway": "REDBILLER",
+    "bill_payment_gateway": "REDBILLER",
     "withdrawal_mode": "automatic",
     "withdrawal_limit": 500000,
     "sweep_address": "bc1q33mvugv0z4uu27vv5q4vkycmzmcez6464hpqfq"

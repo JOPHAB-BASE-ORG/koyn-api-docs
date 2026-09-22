@@ -3,20 +3,18 @@ title: "Login"
 api: "POST /console/login"
 ---
 
-## Headers
+## How it works
 
-<ParamField header="X-Client-Version" type="string">
-Example: `2.0.0`
-</ParamField>
+Authenticates a staff member into the console. Only accounts whose `user_type` is `admin` or `staff` can sign in here. On success you receive a bearer token plus the user record; console tokens are short-lived and expire on a bounded schedule, so clients must re-authenticate when they lapse. This endpoint needs no authentication but is rate limited.
 
 ## Body
 
-<ParamField body="email" type="string">
-  Example: `user@example.com`
+<ParamField body="email" type="string" required>
+  Staff login email (minimum 3 characters).
 </ParamField>
 
-<ParamField body="password" type="string">
-  Example: `*********`
+<ParamField body="password" type="string" required>
+  Account password.
 </ParamField>
 
 <RequestExample>

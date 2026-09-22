@@ -3,6 +3,10 @@ title: "Overview"
 api: "GET /console/overview"
 ---
 
+## How it works
+
+Returns the aggregated dashboard metrics for the console home: user counts, crypto volume and withdrawal totals bucketed by period, plus wallet and gateway balances. Pass `scope` to focus the response on a single period. Requires the `dashboard.read` console ability.
+
 ## Query parameters
 
 <ParamField query="scope" type="string">

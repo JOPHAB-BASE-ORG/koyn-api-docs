@@ -1,29 +1,17 @@
 ---
 title: "Delete Reason"
-api: "DELETE /console/rejection-reasons/{id}"
+api: "DELETE /console/rejection-reasons/{rejectionReason}"
 ---
+
+## How it works
+
+Permanently deletes a rejection reason template so staff can no longer select it. Requires the `rejection_templates.manage` console ability.
 
 ## Path parameters
 
-<ParamField path="id" type="string" required>
-   Example: `11`
+<ParamField path="rejectionReason" type="string" required>
+   ID of the rejection reason to delete.
 </ParamField>
-
-## Body
-
-<ParamField body="reason" type="string">
-  Example: `Hmm thats wrong`
-</ParamField>
-
-<RequestExample>
-
-```json Request
-{
-  "reason": "Hmm thats wrong"
-}
-```
-
-</RequestExample>
 
 <ResponseExample>
 

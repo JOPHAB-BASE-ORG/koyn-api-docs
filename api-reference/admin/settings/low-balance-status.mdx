@@ -3,22 +3,22 @@ title: "Low balance status"
 api: "GET /console/redbiller/low-balance"
 ---
 
-## Body
+## How it works
 
-<Note>Send as `multipart/form-data`.</Note>
+Checks the float balance held at the active withdrawal gateway (Redbiller, or Nomba when it is the active gateway) and reports whether it has fallen below the configured low-balance threshold. This route is financially sensitive: it has no ability catalogue entry and requires a full-access staff account. Requests from other staff return `403`.
 
-<ParamField body="bank_name" type="string">
-   Example: `ABBEY MORTGAGE BANK`
-</ParamField>
+<ResponseExample>
 
-<ParamField body="bank_code" type="string">
-   Example: `070010`
-</ParamField>
+```json 200
+{
+  "success": true,
+  "message": "successful",
+  "data": {
+    "low": false,
+    "provider": "REDBILLER",
+    "provider_balance": 1250000.0
+  }
+}
+```
 
-<ParamField body="bank_logo" type="file">
-
-</ParamField>
-
-<ParamField body="status" type="string">
-   Example: `active`
-</ParamField>
+</ResponseExample>

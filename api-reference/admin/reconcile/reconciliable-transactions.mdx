@@ -3,10 +3,14 @@ title: "Reconciliable transactions"
 api: "GET /console/reconciliations/reconciliable-transactions"
 ---
 
+## How it works
+
+Returns up to 25 wallet transactions that can be linked to a reconciliation, newest first, as a plain array with each `user` embedded. Use `search` to narrow by reference, amount, or user name, username, or email. Requires a staff bearer token with the `reconciliations.manage` ability. Requests without it return `403`.
+
 ## Query parameters
 
 <ParamField query="search" type="string">
-   Example: `rezzio`
+  Match by transaction reference, amount, or the user's name, username, or email. Example: `rezzio`
 </ParamField>
 
 <ResponseExample>

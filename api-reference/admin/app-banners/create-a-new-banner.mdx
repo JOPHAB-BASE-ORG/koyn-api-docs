@@ -3,20 +3,24 @@ title: "Create a new banner"
 api: "POST /console/app-banners"
 ---
 
+## How it works
+
+Creates a new app banner. The uploaded image is stored on Cloudinary and its secure URL is saved on the banner record. Send the request as `multipart/form-data`. Requires the `banners.manage` console ability.
+
 ## Body
 
 <Note>Send as `multipart/form-data`.</Note>
 
-<ParamField body="title" type="string">
-   Example: `Their Banner`
+<ParamField body="title" type="string" required>
+  Banner title (max 255 characters).
 </ParamField>
 
-<ParamField body="banner_image" type="file">
-
+<ParamField body="banner_image" type="file" required>
+  Banner image file (max 2048 KB).
 </ParamField>
 
 <ParamField body="url" type="string">
-   Example: `facebook.com`
+  Optional link the banner points to (max 255 characters).
 </ParamField>
 
 <ResponseExample>

@@ -3,6 +3,10 @@ title: "SignUp Bonus"
 api: "GET /console/signup-bonus"
 ---
 
+## How it works
+
+Returns signup-bonus records, each showing the credited amount, the trade volume required to unlock it, the user's current progress, and its claim status. Results use the standard Laravel paginator (see [Response format](/guides/responses)). Requires the `bonus.read` console ability.
+
 <ResponseExample>
 
 ```json 200

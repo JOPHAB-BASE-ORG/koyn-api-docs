@@ -3,10 +3,14 @@ title: "Save FCM token"
 api: "POST /fcm/save-token"
 ---
 
+## How it works
+
+You store the Firebase Cloud Messaging device token for the authenticated user so push notifications can reach their device. Send the token on login and whenever it refreshes. The response returns the updated user record.
+
 ## Body
 
-<ParamField body="device_token" type="string">
-  Example: `************`
+<ParamField body="device_token" type="string" required>
+  The device's FCM registration token. Example: `************`
 </ParamField>
 
 <RequestExample>

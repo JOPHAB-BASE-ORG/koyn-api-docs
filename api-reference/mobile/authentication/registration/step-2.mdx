@@ -3,14 +3,18 @@ title: "Step 2"
 api: "POST /register/step/step-2"
 ---
 
+## How it works
+
+Step 2 verifies the email by checking the OTP that step 1 sent. You submit the email and the numeric token; the endpoint confirms the token matches and has not expired. This step is protected by Turnstile, so a valid bot-protection token may be required.
+
 ## Body
 
-<ParamField body="email" type="string">
-  Example: `user@example.com`
+<ParamField body="email" type="string" required>
+  Email address the OTP was sent to. Example: `user@example.com`
 </ParamField>
 
-<ParamField body="token" type="string">
-  Example: `0000`
+<ParamField body="token" type="string" required>
+  Numeric verification OTP. Example: `0000`
 </ParamField>
 
 <RequestExample>
@@ -23,3 +27,15 @@ api: "POST /register/step/step-2"
 ```
 
 </RequestExample>
+
+<ResponseExample>
+
+```json 200
+{
+  "success": true,
+  "message": "email verified successfully",
+  "data": []
+}
+```
+
+</ResponseExample>

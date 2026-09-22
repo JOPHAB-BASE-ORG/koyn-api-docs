@@ -3,6 +3,10 @@ title: "Remove Biometric"
 api: "PUT /biometric/remove"
 ---
 
+## How it works
+
+This unenrols biometric login for the authenticated user. It sets `has_biometric` to `false` and clears the stored `face_id` and `touch_id` values. Requires a valid bearer token and takes no request body. The response returns the updated user object.
+
 <ResponseExample>
 
 ```json 200

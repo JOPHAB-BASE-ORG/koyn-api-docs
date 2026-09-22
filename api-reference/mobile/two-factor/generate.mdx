@@ -3,55 +3,22 @@ title: "Generate"
 api: "POST /two-factor/generate"
 ---
 
-## Get Crypto Wallet
+## How it works
 
-Retrieves the user's crypto wallet details for a specific asset.
-
-**Method:** `GET`  
-**Path:** `{{domain}}/api/crypto/wallets/:asset`
-
-### Authentication
-Requires valid authentication token in the Authorization header.
-
-### Request Headers
-- `Authorization: Bearer {{token}}`
-
-### Path Variables
-- `asset` - The cryptocurrency asset symbol (e.g., "BTC", "ETH", "USDT")
-
-### Response Format
-```json
-{
-  "success": true,
-  "data": {
-    "wallet": {
-      "asset": "BTC",
-      "address": "bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh",
-      "balance": "0.00123456",
-      "network": "Bitcoin",
-      "created_at": "2024-01-01T12:00:00Z"
-    }
-  }
-}
-```
-
-### Notes
-- Returns wallet address and balance for the specified asset
-- Wallet must be created before it can be retrieved
-- Use the Create Wallet endpoint if wallet doesn't exist
+This generates a 6-digit two-factor code for the authenticated user, tied to a specific operation (for example a withdrawal), and emails it. If a valid code for that operation already exists and `isResend` is not set, the existing code stands and a new one is not generated. Any prior codes for the operation are cleared before a new one is issued, and each code expires after 5 minutes. Requires a valid bearer token. This endpoint returns a plain `{ message }` body rather than the standard response envelope.
 
 ## Body
 
-<ParamField body="operation" type="string">
-  Example: `withdrawal`
+<ParamField body="operation" type="string" required>
+  The action the code authorises. Example: `withdrawal`
 </ParamField>
 
-<ParamField body="verificationOptions" type="object">
-  
+<ParamField body="verificationOptions" type="object" required>
+  Details of the operation being verified. Example: `{ "amount": 1000, "bankAccountID": 32 }`
 </ParamField>
 
 <ParamField body="isResend" type="boolean">
-  Example: `true`
+  Set to `true` to force a new code even if a valid one already exists.
 </ParamField>
 
 <RequestExample>
@@ -70,3 +37,19 @@ Requires valid authentication token in the Authorization header.
 ```
 
 </RequestExample>
+
+<ResponseExample>
+
+```json 200
+{
+  "message": "Verification code sent successfully."
+}
+```
+
+```json 200 Already sent
+{
+  "message": "A valid verification code has already been sent to your email."
+}
+```
+
+</ResponseExample>

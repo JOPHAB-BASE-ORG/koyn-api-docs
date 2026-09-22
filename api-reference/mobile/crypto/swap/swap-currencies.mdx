@@ -3,6 +3,10 @@ title: "Swap currencies"
 api: "GET /crypto/swap/currencies"
 ---
 
+## How it works
+
+This returns the currencies the swap provider currently supports, so you can build a swap picker. The response is a plain array under `data` with no pagination. The provider decides the shape returned, so treat entries defensively: `data` may be a list of ticker strings or a list of objects with `name`, `fullName`, `ticker` and `image`.
+
 <ResponseExample>
 
 ```json 200

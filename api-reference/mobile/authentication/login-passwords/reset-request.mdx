@@ -3,10 +3,14 @@ title: "Reset Request"
 api: "POST /password/reset-request"
 ---
 
+## How it works
+
+This starts the password reset flow by emailing a one-time OTP to the account. The email must belong to an existing user. The route is rate-limited (`throttle:login`) and protected by Turnstile, so a valid bot-protection token may be required. Confirm the OTP and set the new password with the `PUT /password/reset` endpoint.
+
 ## Body
 
-<ParamField body="email" type="string">
-  Example: `user@example.com`
+<ParamField body="email" type="string" required>
+  Registered email address. Must match an existing account. Example: `user@example.com`
 </ParamField>
 
 <RequestExample>

@@ -3,71 +3,60 @@ title: "Crypto Swaps"
 api: "GET /console/users/{id}/swaps"
 ---
 
+## How it works
+
+Returns a user's crypto swap history, newest first. Each row records the swap provider reference, type, status, source and destination currencies, expected amounts, and network fee. The list is a Laravel paginator (Form A: `data.data[]` with `current_page`, `last_page`, page URLs) — see [Responses and errors](/guides/responses).
+
+Requires a staff bearer token with the `users.read` or `users.manage` ability. Requests without either return `403`.
+
 ## Path parameters
 
 <ParamField path="id" type="string" required>
-   Example: `41`
+  User ID. Example: `41`
 </ParamField>
 
 <ResponseExample>
 
-```text 200
+```json 200
 {
-    "success": true,
-    "message": "Crypto swaps",
-    "data": {
-        "current_page": 1,
-        "data": [
-            {
-                "id": "9ca7f7ee-9b24-4d7c-8912-285feccc8c50",
-                "reference": "STXW382KXSZS4RZXIF",
-                "user_id": "9ca7f3e5-4811-492c-a8ea-68821808ed96",
-                "swap_tranx_id": "0in1bbz9levpc95c",
-                "swap_type": "float",
-                "status": "new",
-                "currency_from": "eth",
-                "currency_to": "btc",
-                "payin_address": "0xaf7b02bc9e8a964e86528b2867c3d338c9b95e3e",
-                "payout_address": "bc1q0au6xqz690rvkltmqdq23hrusvy3767ukkhjpf",
-                "refund_address": null,
-                "is_app_address": false,
-                "amount_expected_from": "0.30000000",
-                "amount_expected_to": "0.01490415",
-                "pay_till": null,
-                "network_fee": "0.00004613",
-                "track_url": "https://changelly.com/track/0in1bbz9levpc95c",
-                "created_at": "2024-07-31T18:58:50.000000Z",
-                "updated_at": "2024-07-31T18:58:50.000000Z",
-            }
-        ],
-        "first_page_url": "http://localhost:2525/api/console/crypto/swaps?page=1",
-        "from": 1,
-        "last_page": 1,
-        "last_page_url": "http://localhost:2525/api/console/crypto/swaps?page=1",
-        "links": [
-            {
-                "url": null,
-                "label": "&laquo; Previous",
-                "active": false
-            },
-            {
-                "url": "http://localhost:2525/api/console/crypto/swaps?page=1",
-                "label": "1",
-                "active": true
-            },
-            {
-                "url": null,
-                "label": "Next &raquo;",
-                "active": false
-            }
-        ],
-        "next_page_url": null,
-        "path": "http://localhost:2525/api/console/crypto/swaps",
-        "per_page": 25,
-        "prev_page_url": null,
-        "to": 1,
-        "total": 1
-    }
+  "success": true,
+  "message": "Crypto swaps",
+  "data": {
+    "current_page": 1,
+    "data": [
+      {
+        "id": "9ca7f7ee-9b24-4d7c-8912-285feccc8c50",
+        "reference": "STXW382KXSZS4RZXIF",
+        "user_id": "9ca7f3e5-4811-492c-a8ea-68821808ed96",
+        "swap_tranx_id": "0in1bbz9levpc95c",
+        "swap_type": "float",
+        "status": "new",
+        "currency_from": "eth",
+        "currency_to": "btc",
+        "payin_address": "0xaf7b02bc9e8a964e86528b2867c3d338c9b95e3e",
+        "payout_address": "bc1q0au6xqz690rvkltmqdq23hrusvy3767ukkhjpf",
+        "refund_address": null,
+        "is_app_address": false,
+        "amount_expected_from": "0.30000000",
+        "amount_expected_to": "0.01490415",
+        "pay_till": null,
+        "network_fee": "0.00004613",
+        "track_url": "https://changelly.com/track/0in1bbz9levpc95c",
+        "created_at": "2024-07-31T18:58:50.000000Z",
+        "updated_at": "2024-07-31T18:58:50.000000Z"
+      }
+    ],
+    "first_page_url": "http://localhost:2525/api/console/users/41/swaps?page=1",
+    "from": 1,
+    "last_page": 1,
+    "last_page_url": "http://localhost:2525/api/console/users/41/swaps?page=1",
+    "next_page_url": null,
+    "path": "http://localhost:2525/api/console/users/41/swaps",
+    "per_page": 25,
+    "prev_page_url": null,
+    "to": 1,
+    "total": 1
+  }
 }
 ```
 

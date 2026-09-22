@@ -3,6 +3,10 @@ title: "Update Bet Product"
 api: "POST /console/betting/products/{id}"
 ---
 
+## How it works
+
+Updates one betting product by id and returns the saved record. Send the body as `multipart/form-data`. Omit `logo` to keep the current image, or attach a new image to replace it. Requires a staff bearer token with the `bill_products.manage` ability; a request without it returns `403`.
+
 ## Path parameters
 
 <ParamField path="id" type="string" required>
@@ -13,20 +17,20 @@ api: "POST /console/betting/products/{id}"
 
 <Note>Send as `multipart/form-data`.</Note>
 
-<ParamField body="product" type="string">
-   Example: `BETBONANZA`
+<ParamField body="product" type="string" required>
+   Product name. Example: `BETBONANZA`
 </ParamField>
 
-<ParamField body="maximum_amount" type="string">
-   Example: `5000`
+<ParamField body="status" type="string" required>
+  Product state. Example: `active`
 </ParamField>
 
-<ParamField body="minimum_amount" type="string">
-   Example: `200`
+<ParamField body="maximum_amount" type="number">
+   Optional. Example: `5000`
 </ParamField>
 
-<ParamField body="status" type="string">
-  active | inactive Example: `active`
+<ParamField body="minimum_amount" type="number">
+   Optional. Example: `200`
 </ParamField>
 
 <ParamField body="logo" type="file">

@@ -3,18 +3,51 @@ title: "Export"
 api: "POST /console/export"
 ---
 
+## How it works
+
+Exports records of one model over a date range as a downloadable CSV file. On success the response is the CSV attachment itself, not the JSON envelope. If validation fails, the backend returns `{ "success": false, "errors": { ... } }` with a `422` status. Requires the `data_export.create` console ability.
+
 ## Body
 
-<Note>Send as `multipart/form-data`.</Note>
-
-<ParamField body="model" type="string">
-  crypto_transactions,withdrawals,airtime_top_ups,data_top_ups,cable_top_ups,betting_top_ups,meter_top_ups,wifi_top_ups Example: `crypto_transactions`
+<ParamField body="model" type="string" required>
+  Dataset to export. One of `crypto_transactions`, `airtime_top_ups`, `data_top_ups`, `cable_top_ups`, `betting_top_ups`, `meter_top_ups`, `wifi_top_ups`, `users`, `withdrawals`.
 </ParamField>
 
-<ParamField body="start_date" type="string">
-  Y-m-d Example: `04/09/2023`
+<ParamField body="start_date" type="string" required>
+  Range start, formatted `d/m/Y` (for example `04/09/2023`).
 </ParamField>
 
-<ParamField body="end_date" type="string">
-  Y-m-d Example: `26/08/2024`
+<ParamField body="end_date" type="string" required>
+  Range end, formatted `d/m/Y`. Must be on or after `start_date`.
 </ParamField>
+
+<RequestExample>
+
+```json Request
+{
+  "model": "crypto_transactions",
+  "start_date": "04/09/2023",
+  "end_date": "26/08/2024"
+}
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```text 200
+A CSV file download, for example crypto_transactions_2024-08-26_141530.csv
+```
+
+```json 422
+{
+  "success": false,
+  "errors": {
+    "end_date": [
+      "The end date must be a date after or equal to start date."
+    ]
+  }
+}
+```
+
+</ResponseExample>

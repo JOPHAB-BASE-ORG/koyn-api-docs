@@ -3,10 +3,14 @@ title: "Approve"
 api: "POST /console/withdrawals/approve/{id}"
 ---
 
+## How it works
+
+Approves a pending manual withdrawal and queues it for payout. Only a manual-channel withdrawal that is still pending and not yet settled can be approved; it is marked settled by you and dispatched to the payout processor, and the action is written to the admin activity log. This endpoint takes no request body. Requires the `withdrawals.manage` console ability.
+
 ## Path parameters
 
 <ParamField path="id" type="string" required>
-   Example: `393`
+  The withdrawal's id.
 </ParamField>
 
 <ResponseExample>

@@ -3,6 +3,16 @@ title: "Public Crypto Assets"
 api: "GET /front/crypto/assets"
 ---
 
+## How it works
+
+Returns the catalogue of supported crypto assets for the marketing site. This endpoint needs no authentication and is exempt from the client-version gate. Pass the optional `graph` query flag to include price-graph data with each asset.
+
+## Query parameters
+
+<ParamField query="graph" type="boolean">
+  When `true`, include price-graph data points with each asset. Defaults to `false`.
+</ParamField>
+
 <ResponseExample>
 
 ```json 200

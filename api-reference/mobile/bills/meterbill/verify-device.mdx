@@ -3,18 +3,22 @@ title: "Verify device"
 api: "POST /meter/device/verify"
 ---
 
+## How it works
+
+This calls the provider to look up the meter and returns the account details so you can confirm the holder before you purchase. Show the returned `customer_name` to the user and pass it to the purchase endpoint. If the meter cannot be found or the provider is unreachable, the request fails with `409`.
+
 ## Body
 
-<ParamField body="product" type="string">
-  Example: `Eko`
+<ParamField body="product" type="string" required>
+  Meter product name, for example `Eko`. Must match an active provider.
 </ParamField>
 
-<ParamField body="meter_no" type="string">
-  Example: `0000000000`
+<ParamField body="meter_no" type="string" required>
+  Meter number, at least 10 digits. Example: `0000000000`
 </ParamField>
 
-<ParamField body="meter_type" type="string">
-  Example: `PREPAID`
+<ParamField body="meter_type" type="string" required>
+  One of `PREPAID` or `POSTPAID`.
 </ParamField>
 
 <RequestExample>

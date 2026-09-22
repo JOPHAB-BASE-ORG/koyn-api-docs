@@ -3,31 +3,9 @@ title: "Banks"
 api: "GET /console/banks"
 ---
 
-## Body
+## How it works
 
-<ParamField body="name" type="string">
-  Example: `Sunny Sunny`
-</ParamField>
-
-<ParamField body="email" type="string">
-  Example: `user@example.com`
-</ParamField>
-
-<ParamField body="role" type="string">
-  Example: `accountant`
-</ParamField>
-
-<RequestExample>
-
-```json Request
-{
-  "name": "Sunny Sunny",
-  "email": "user@example.com",
-  "role": "accountant"
-}
-```
-
-</RequestExample>
+Returns all supported banks as a plain array, ordered by name. Each entry carries its transfer codes, logo, and an active/inactive `status`. Requires a staff bearer token with the `banks.manage` ability. Requests without it return `403`.
 
 <ResponseExample>
 

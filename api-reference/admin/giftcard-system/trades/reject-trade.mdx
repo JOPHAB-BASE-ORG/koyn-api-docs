@@ -1,20 +1,24 @@
 ---
 title: "Reject Trade"
-api: "POST /console/giftcards/trades/{giftcardSale}/reject"
+api: "POST /console/giftcards/trades/{giftcardTrade}/reject"
 ---
+
+## How it works
+
+Rejects a pending or processing trade. The trade is marked `rejected`, `reviewed_at` is stamped, `rejected_by` records the reviewing staff, and the underlying wallet transaction is set to rejected so no wallet credit is made. The user is notified with the comment. A trade that is already approved or rejected returns `409`.
+
+Requires a staff bearer token with the `giftcards.manage` ability. Requests without it return `403`.
 
 ## Path parameters
 
-<ParamField path="giftcardSale" type="string" required>
-   Example: `2`
+<ParamField path="giftcardTrade" type="integer" required>
+  Trade ID. Example: `2`
 </ParamField>
 
 ## Body
 
-<Note>Send as `multipart/form-data`.</Note>
-
 <ParamField body="admin_comments" type="string">
-  comment Example: `The Giftcard image is not shown`
+  Reason shown to the user and stored on the trade. Optional; defaults to `Rejected.` Max 2000 characters. Example: `The Giftcard image is not shown`
 </ParamField>
 
 <ResponseExample>
@@ -53,13 +57,15 @@ api: "POST /console/giftcards/trades/{giftcardSale}/reject"
     "source": "unknown",
     "ip_address": "105.113.118.117",
     "status": "rejected",
+    "vendor": null,
+    "reviewed_at": "2026-02-23T10:49:50.000000Z",
     "approved_by": null,
     "rejected_by": {
-      "id": 52,
-      "name": "frankemmanuel249",
-      "username": "frankemmanuel249",
+      "id": 3,
+      "name": "Ada Reviewer",
+      "username": "ada.reviewer",
       "phone": "08012345678",
-      "email": "user@example.com",
+      "email": "staff@example.com",
       "dob": null,
       "email_verified_at": "2026-02-11T13:54:39.000000Z",
       "referral_code": null,

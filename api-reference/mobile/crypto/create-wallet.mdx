@@ -3,10 +3,14 @@ title: "Create Wallet"
 api: "POST /crypto/wallets/create"
 ---
 
+## How it works
+
+This creates an on-chain deposit address (a crypto wallet) for the given asset and assigns it to your account. Address creation is gated per asset: you can hold only one wallet per asset, so a second attempt for the same symbol fails validation, and an asset that is turned off returns `403`. The address is provisioned through the connected wallet provider; if provisioning fails the request returns `409`. This route also depends on the `crypto_deposit` service switch being on.
+
 ## Body
 
-<ParamField body="symbol" type="string">
-  Example: `BTC`
+<ParamField body="symbol" type="string" required>
+  Asset ticker symbol. Must match an existing, available crypto asset. Example: `BTC`
 </ParamField>
 
 <RequestExample>

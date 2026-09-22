@@ -3,10 +3,14 @@ title: "Crypto Assets"
 api: "GET /crypto/assets"
 ---
 
+## How it works
+
+This lists the active, available crypto assets with their USD prices and metadata. Pass `graph=true` to include the `price_graph_data_points` array for each asset; when omitted or false, those points are hidden to keep the payload small. The response is a plain array under `data` with no pagination. This endpoint is public and does not require authentication.
+
 ## Query parameters
 
-<ParamField query="graph" type="string">
-   Example: `false`
+<ParamField query="graph" type="boolean" default="false">
+  Set to `true` to include `price_graph_data_points` for each asset. Example: `false`
 </ParamField>
 
 <ResponseExample>

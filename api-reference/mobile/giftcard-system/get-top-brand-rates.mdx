@@ -3,6 +3,10 @@ title: "Get Top Brand Rates"
 api: "GET /giftcards/brands/top-rates"
 ---
 
+## How it works
+
+You get up to 10 active brands with their single highest active category rate, ordered from highest rate to lowest. Each entry pairs the full `brand` object with its best `rate`. Use this to power a "top rates" list. Results are a plain array under `data` (no pagination).
+
 <ResponseExample>
 
 ```json 200

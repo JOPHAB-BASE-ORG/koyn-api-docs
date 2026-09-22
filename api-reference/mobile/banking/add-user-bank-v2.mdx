@@ -3,68 +3,33 @@ title: "Add user Bank V2"
 api: "POST /bank/v2/create"
 ---
 
-## Get All Bank Accounts
+## How it works
 
-Retrieves all bank accounts associated with the authenticated user.
-
-**Method:** `GET`  
-**Path:** `{{domain}}/api/banks`
-
-### Authentication
-Requires valid authentication token in the Authorization header.
-
-### Request Headers
-- `Authorization: Bearer {{token}}`
-
-### Response Format
-```json
-{
-  "success": true,
-  "data": {
-    "banks": [
-      {
-        "id": "uuid",
-        "account_number": "0212700896",
-        "account_name": "John Doe",
-        "bank_name": "Bank Name",
-        "bank_code": "619",
-        "bank_logo": "https://example.com/logo.png",
-        "primary": true,
-        "created_at": "2024-01-01T12:00:00Z"
-      }
-    ]
-  }
-}
-```
-
-### Notes
-- Returns all saved bank accounts
-- Primary account is flagged for easy identification
-- Empty array returned if no accounts exist
+This is the OTP-protected version of adding a payout bank account. It behaves like [Add user Bank](/api-reference/mobile/banking/add-user-bank) — resolving bank details from `bank_id`, enforcing the 5-account limit, rejecting duplicates, and marking your first account primary — but also requires a valid 6-digit `code` generated for the `add_bank` operation. An invalid or expired code fails validation, and the code is consumed once the account is saved.
 
 ## Body
 
-<ParamField body="bank_id" type="string">
-  Example: `9ca7fa50-d5cb-456e-b0fb-e15bb7a08c94`
+<ParamField body="bank_id" type="number" required>
+  Id of the operating bank, from the banks list. Example: `2`
 </ParamField>
 
-<ParamField body="account_name" type="string">
-  Example: `afuwape sunday`
+<ParamField body="account_name" type="string" required>
+  Account holder name. Example: `afuwape sunday`
 </ParamField>
 
-<ParamField body="account_number" type="string">
-  Example: `0000000000`
+<ParamField body="account_number" type="string" required>
+  10-digit account number. Example: `0000000000`
 </ParamField>
 
-<ParamField body="code" type="string">
-  Example: `123456`
+<ParamField body="code" type="string" required>
+  6-digit OTP generated for the `add_bank` operation. Example: `123456`
 </ParamField>
 
 <RequestExample>
 
 ```json Request
 {
-  "bank_id": "9ca7fa50-d5cb-456e-b0fb-e15bb7a08c94",
+  "bank_id": 2,
   "account_name": "afuwape sunday",
   "account_number": "0000000000",
   "code": "123456"

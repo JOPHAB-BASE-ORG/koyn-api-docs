@@ -1,12 +1,16 @@
 ---
 title: "Get details of a specific banner."
-api: "GET /console/app-banners/{id}"
+api: "GET /console/app-banners/{app_banner}"
 ---
+
+## How it works
+
+Returns a single app banner by its id. Requires the `banners.manage` console ability.
 
 ## Path parameters
 
-<ParamField path="id" type="string" required>
-   Example: `9e00db7f-bd60-4f68-af1c-c6c21396a236`
+<ParamField path="app_banner" type="string" required>
+  The banner id. Example: `9e00db7f-bd60-4f68-af1c-c6c21396a236`
 </ParamField>
 
 <ResponseExample>

@@ -1,12 +1,18 @@
 ---
 title: "Get Single Trade"
-api: "GET /console/giftcards/trades/{giftCardSale}"
+api: "GET /console/giftcards/trades/{giftcardTrade}"
 ---
+
+## How it works
+
+Returns one gift card trade with its user, brand, category, and the staff who approved or rejected it (`approvedBy`/`rejectedBy`). While the trade is pending, `reviewed_at`, `approved_by`, `rejected_by`, and `vendor` are `null`.
+
+Requires a staff bearer token with the `giftcards.read` ability. Requests without it return `403`.
 
 ## Path parameters
 
-<ParamField path="giftCardSale" type="string" required>
-   Example: `1`
+<ParamField path="giftcardTrade" type="integer" required>
+  Trade ID. Example: `1`
 </ParamField>
 
 <ResponseExample>
@@ -45,8 +51,10 @@ api: "GET /console/giftcards/trades/{giftCardSale}"
     "source": "unknown",
     "ip_address": "105.113.118.117",
     "status": "pending",
+    "vendor": null,
     "approved_by": null,
     "rejected_by": null,
+    "reviewed_at": null,
     "admin_comments": null,
     "created_at": "2026-02-23T10:46:20.000000Z",
     "updated_at": "2026-02-23T10:46:20.000000Z",

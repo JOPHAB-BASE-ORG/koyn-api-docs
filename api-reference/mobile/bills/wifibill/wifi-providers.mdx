@@ -3,6 +3,8 @@ title: "Wifi Providers"
 api: "GET /wifi/providers"
 ---
 
+List the WiFi providers. Each object's `product` is the value you pass as `product` to the plans, verify and purchase endpoints. The `data` array is not paginated. See [Response envelope](/guides/responses) for the standard `{ success, message, data }` shape.
+
 <ResponseExample>
 
 ```json 200

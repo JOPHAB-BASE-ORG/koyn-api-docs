@@ -3,10 +3,14 @@ title: "Create Verification request"
 api: "POST /kyc/create"
 ---
 
+## How it works
+
+You start an identity verification for the authenticated user. Pass the document type to verify. The service creates a `pending` verification request and returns it with a `reference`. The result is completed asynchronously by the provider (Dojah) webhook, which for BVN and NIN also triggers a selfie face-match check.
+
 ## Body
 
-<ParamField body="verification_type" type="string">
-  Example: `bvn`
+<ParamField body="verification_type" type="string" required>
+  Document to verify. One of `bvn`, `nin`. Example: `bvn`
 </ParamField>
 
 <RequestExample>
@@ -28,7 +32,7 @@ api: "POST /kyc/create"
   "data": {
     "id": "9cb91743-798a-48ec-bc58-5e7632b5a4b6",
     "user_id": "85410a8a-9127-4862-8ab8-df836d4617bd",
-    "verification_type": "address",
+    "verification_type": "nin",
     "verification_value": null,
     "reference": "5426897453",
     "status": "pending",

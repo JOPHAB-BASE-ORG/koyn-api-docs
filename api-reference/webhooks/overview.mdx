@@ -3,10 +3,10 @@ title: "Webhooks overview"
 description: "Inbound callbacks from payment, KYC and crypto infrastructure providers. These are called by the provider, not by Koyn clients, so the playground is disabled."
 ---
 
-Inbound callbacks from payment, KYC and crypto infrastructure providers. These are called by the provider, not by Koyn clients, so the playground is disabled.
+Inbound callbacks from payment, KYC and crypto infrastructure providers. The provider calls these routes, not Koyn clients, so the playground is disabled. They are documented here so you can understand what each provider sends and how Koyn reacts.
 
-All paths are relative to the environment base URL. See [Environments](/guides/environments) and [Authentication](/guides/authentication).
+Every webhook lives under the `webhook/` prefix and is exempt from the client-version gate that applies to app routes. Verification differs by provider: Vaultody v2 verifies an `x-signature` HMAC-SHA256 over the raw body, 0xProcessing carries its own signature, while Redbiller and Nomba publish no signature so Koyn re-queries the transaction at the provider before acting on it. In every case Koyn acknowledges receipt immediately and processes the event asynchronously (crediting deposits, updating withdrawal or bill status). See [Responses](/guides/responses) and [Environments](/guides/environments).
 
 <Note>
-  This reference was migrated from the Koyn Postman collection. Example payloads are captured responses with personal data masked. Confirm each page against the current Laravel routes before relying on it.
+  Example payloads are captured callbacks with personal data masked. Confirm each page against the current Laravel routes before relying on it.
 </Note>

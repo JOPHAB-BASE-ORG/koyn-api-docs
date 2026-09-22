@@ -3,38 +3,52 @@ title: "List all Trades"
 api: "GET /console/giftcards/trades"
 ---
 
+## How it works
+
+Returns gift card trades, newest first, each with its user, brand, category, and the staff who approved or rejected it. All filters are optional and combine. The list uses the custom meta form (`data.data[]` with `total`, `per_page`, `current_page`, `total_pages` and no page URLs) — see [Responses and errors](/guides/responses).
+
+Requires a staff bearer token with the `giftcards.read` ability. Requests without it return `403`.
+
 ## Query parameters
 
 <ParamField query="status" type="string">
-  pending, approved, rejected Example: `pending`
+  One of `pending`, `approved`, `rejected`, `processing`. May also be passed as an array to match several. Unknown values are ignored. Example: `pending`
 </ParamField>
 
 <ParamField query="search" type="string">
-  search by name, email, reference, code Example: `Ugo`
+  Matches trade ID, code, reference, or the user's name or email. Max 255 characters. Example: `Ugo`
 </ParamField>
 
-<ParamField query="brand_id" type="string">
-  brand id  Example: `1`
+<ParamField query="brand_id" type="integer">
+  Filter by brand. Must reference an existing brand. Example: `1`
 </ParamField>
 
-<ParamField query="category_id" type="string">
-  category id Example: `1`
+<ParamField query="category_id" type="integer">
+  Filter by category. Must reference an existing category. Example: `1`
 </ParamField>
 
-<ParamField query="has_code" type="string">
-  boolean (true or false || 1 or 0) Example: `1`
+<ParamField query="date_from" type="string">
+  Include trades created on or after this date. Example: `2026-02-01`
 </ParamField>
 
-<ParamField query="has_images" type="string">
-  boolean (true or false || 1 or 0) Example: `1`
+<ParamField query="date_to" type="string">
+  Include trades created on or before this date. Must be on or after `date_from`. Example: `2026-02-28`
 </ParamField>
 
-<ParamField query="page" type="string">
-  optional (defaults to 1) Example: `1`
+<ParamField query="has_code" type="boolean">
+  `true`/`1` keeps only trades that carry a code; `false`/`0` keeps only those without. Example: `1`
 </ParamField>
 
-<ParamField query="limit" type="string">
-  optional (defaults to 20) Example: `10`
+<ParamField query="has_images" type="boolean">
+  `true`/`1` keeps only trades with attached images; `false`/`0` keeps only those without. Example: `1`
+</ParamField>
+
+<ParamField query="page" type="integer">
+  Page number. Defaults to `1`.
+</ParamField>
+
+<ParamField query="limit" type="integer">
+  Items per page, `1`–`200`. Defaults to `50`. Example: `10`
 </ParamField>
 
 <ResponseExample>
@@ -75,8 +89,10 @@ api: "GET /console/giftcards/trades"
         "source": "unknown",
         "ip_address": "105.113.118.117",
         "status": "pending",
+        "vendor": null,
         "approved_by": null,
         "rejected_by": null,
+        "reviewed_at": null,
         "admin_comments": null,
         "created_at": "2026-02-23T10:46:20.000000Z",
         "updated_at": "2026-02-23T10:46:20.000000Z",

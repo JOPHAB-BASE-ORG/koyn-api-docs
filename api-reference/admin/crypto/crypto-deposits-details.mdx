@@ -3,10 +3,14 @@ title: "Crypto Deposits Details"
 api: "GET /console/crypto/deposits/{id}"
 ---
 
+## How it works
+
+Returns the full detail of a single crypto deposit transaction, including the depositor under `user`. Requires a staff bearer token with the `deposits.read` ability. Requests without it return `403`.
+
 ## Path parameters
 
 <ParamField path="id" type="string" required>
-   Example: `22`
+  Crypto deposit transaction id. Example: `22`
 </ParamField>
 
 <ResponseExample>

@@ -1,18 +1,22 @@
 ---
 title: "Update rejection"
-api: "PATCH /console/rejection-reasons/{id}"
+api: "PATCH /console/rejection-reasons/{rejectionReason}"
 ---
+
+## How it works
+
+Updates the text of an existing rejection reason template. Requires the `rejection_templates.manage` console ability.
 
 ## Path parameters
 
-<ParamField path="id" type="string" required>
-   Example: `11`
+<ParamField path="rejectionReason" type="string" required>
+   ID of the rejection reason to update.
 </ParamField>
 
 ## Body
 
 <ParamField body="reason" type="string">
-  Example: `Hmm thats wrong`
+  Replacement rejection reason text.
 </ParamField>
 
 <RequestExample>

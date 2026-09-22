@@ -3,6 +3,12 @@ title: "Unsuspend"
 api: "POST /console/users/{userId}/unsuspend"
 ---
 
+## How it works
+
+Restores a suspended user by setting its status back to `active` and notifies the user by email. No request body is needed.
+
+Requires a staff bearer token with the `users.manage` ability. Requests without it return `403`.
+
 ## Path parameters
 
 <ParamField path="userId" type="string" required>

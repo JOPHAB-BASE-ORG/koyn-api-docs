@@ -1,0 +1,134 @@
+---
+title: "Bill service charges"
+api: "GET /console/bills/service-charges"
+---
+
+## How it works
+
+KOYN adds a flat service charge, in naira, on top of a bill payment. The charge is debited alongside the bill amount, stored on the top-up record, and written to the wallet transaction, so a later reversal refunds exactly what the user paid even if the charge changes in the meantime. Only bill types KOYN charges are listable and editable here — `betting` is the only one today. Disabling a charge keeps its amount on record but resolves the effective charge to `0`.
+
+All three endpoints require a staff bearer token. Listing needs the `bills.read` ability; creating and updating need the `bill_products.manage` ability. A request without the required ability returns `403`.
+
+## List service charges
+
+`GET /console/bills/service-charges`
+
+Returns the configured charge for every supported bill type as a plain array in `data`. A type that has never been configured is materialised at the platform default the first time it is listed. This list is not paginated. See [Response format](/guides/responses).
+
+<ResponseExample>
+
+```json 200
+{
+  "success": true,
+  "message": "Bill service charges",
+  "data": [
+    {
+      "id": 1,
+      "bill_type": "betting",
+      "amount": 50,
+      "enabled": true,
+      "created_at": "2025-01-14T09:12:44.000000Z",
+      "updated_at": "2025-01-14T09:12:44.000000Z"
+    }
+  ]
+}
+```
+
+</ResponseExample>
+
+## Create or overwrite a service charge
+
+`POST /console/bills/service-charges`
+
+Sets the charge for a bill type that is not configured yet, or overwrites the one it already carries. Requires the `bill_products.manage` ability.
+
+<ParamField body="bill_type" type="string" required>
+  The bill type to charge. Must be a supported type. Example: `betting`
+</ParamField>
+
+<ParamField body="amount" type="number" required>
+  The charge in naira. Between `0` and `100000`. Example: `50`
+</ParamField>
+
+<ParamField body="enabled" type="boolean">
+  Whether the charge is applied. Defaults to enabled. A disabled charge keeps its amount but resolves to `0`. Example: `true`
+</ParamField>
+
+<RequestExample>
+
+```json Request
+{
+  "bill_type": "betting",
+  "amount": 50,
+  "enabled": true
+}
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json 200
+{
+  "success": true,
+  "message": "Bill service charge saved successfully.",
+  "data": {
+    "id": 1,
+    "bill_type": "betting",
+    "amount": 50,
+    "enabled": true,
+    "created_at": "2025-01-14T09:12:44.000000Z",
+    "updated_at": "2025-01-14T09:12:44.000000Z"
+  }
+}
+```
+
+</ResponseExample>
+
+## Update a service charge
+
+`PATCH /console/bills/service-charges/{id}`
+
+Updates the charge on one configured bill type. Requires the `bill_products.manage` ability. The `bill_type` cannot be changed on update — send only `amount` (and optionally `enabled`).
+
+<ParamField path="id" type="string" required>
+  The service charge id. Example: `1`
+</ParamField>
+
+<ParamField body="amount" type="number" required>
+  The charge in naira. Between `0` and `100000`. Example: `75`
+</ParamField>
+
+<ParamField body="enabled" type="boolean">
+  Whether the charge is applied. A disabled charge keeps its amount but resolves to `0`. Example: `false`
+</ParamField>
+
+<RequestExample>
+
+```json Request
+{
+  "amount": 75,
+  "enabled": false
+}
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json 200
+{
+  "success": true,
+  "message": "Bill service charge updated successfully.",
+  "data": {
+    "id": 1,
+    "bill_type": "betting",
+    "amount": 75,
+    "enabled": false,
+    "created_at": "2025-01-14T09:12:44.000000Z",
+    "updated_at": "2025-01-20T14:05:03.000000Z"
+  }
+}
+```
+
+</ResponseExample>

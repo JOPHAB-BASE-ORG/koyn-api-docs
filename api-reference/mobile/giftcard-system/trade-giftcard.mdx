@@ -3,28 +3,28 @@ title: "Trade GiftCard"
 api: "POST /giftcards/trades"
 ---
 
+## How it works
+
+You submit a gift card for sale against a chosen brand category. You must provide a `code`, one or more `images`, or both; if the category requires a receipt, images are mandatory. The `amount` must fall within the category's `min` and `max` range, and the category and its brand must be active. On success the trade is created with status `pending` and a matching pending wallet credit is recorded for the calculated payout (`amount` x `rate`); the balance is not released until an admin approves the trade. To preview the payout before submitting, call `POST /giftcards/trades/calculate` with `category_id` and `amount`.
+
 ## Body
 
 <Note>Send as `multipart/form-data`.</Note>
 
-<ParamField body="category_id" type="string">
-  Giftcard Brand Category Id Example: `1`
+<ParamField body="category_id" type="integer" required>
+  Brand category `id` from `GET /giftcards/brands/{giftcardBrand}/categories`. Example: `1`
 </ParamField>
 
-<ParamField body="amount" type="string">
-  Amounnt they want to sell Example: `50`
+<ParamField body="amount" type="number" required>
+  Card value to sell. Must be at least `0.01` and within the category's `min`–`max` range. Example: `50`
 </ParamField>
 
 <ParamField body="code" type="string">
-  Giftcard Code Example: `HD3DSDHUY46`
+  Gift card code. Up to 255 characters and unique per user. Required if no images are sent. Example: `HD3DSDHUY46`
 </ParamField>
 
-<ParamField body="images[0]" type="file">
-  GiftCard image
-</ParamField>
-
-<ParamField body="images[1]" type="file">
-  GiftCard Image
+<ParamField body="images[]" type="file">
+  Card or receipt image(s). 1 to 5 files, each `jpeg`, `png`, `jpg`, or `webp`, up to 20 MB. Required if no code is sent, and required when the category has `requires_receipt`.
 </ParamField>
 
 <ResponseExample>

@@ -3,18 +3,22 @@ title: "Get Trade History"
 api: "GET /giftcards/trades"
 ---
 
+## How it works
+
+You get the authenticated user's own gift card trades, newest first, with each trade's brand and category loaded. Optionally filter by status. This is a list endpoint using the custom pagination form: `data` is an object holding the `data` array plus `total`, `per_page`, `current_page`, and `total_pages`. See [Response envelope](/guides/responses).
+
 ## Query parameters
 
-<ParamField query="page" type="string">
-  Page Number Example: `1`
+<ParamField query="page" type="integer" default="1">
+  Page number to return. Minimum `1`. Example: `1`
 </ParamField>
 
-<ParamField query="limit" type="string">
-  Number of records per request Example: `10`
+<ParamField query="limit" type="integer" default="20">
+  Records per page. Between `1` and `200`. Example: `10`
 </ParamField>
 
 <ParamField query="status" type="string">
-  Optional filtering (pending, approved, rejected) Example: `pending`
+  Filter by trade status. One of `pending`, `approved`, `rejected`, `processing`. Example: `pending`
 </ParamField>
 
 <ResponseExample>

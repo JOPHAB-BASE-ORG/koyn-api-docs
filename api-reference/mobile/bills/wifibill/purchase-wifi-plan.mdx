@@ -3,22 +3,26 @@ title: "Purchase Wifi Plan"
 api: "POST /wifi/purchase"
 ---
 
+## How it works
+
+This debits your wallet (naira balance) for the plan and queues the WiFi subscription with the provider. Verify the device first to obtain the `customer_name`. Your account must be active and unflagged, the request must come from a verified device, and the `bills` service switch must be on, or the request is rejected with `409`; it also fails when your balance is insufficient or a matching purchase is already in flight.
+
 ## Body
 
-<ParamField body="product" type="string">
-  Example: `Smile`
+<ParamField body="product" type="string" required>
+  One of `Smile` or `Spectranet`.
 </ParamField>
 
-<ParamField body="code" type="string">
-  Example: `545`
+<ParamField body="code" type="string" required>
+  Plan code from the WiFi plans endpoint, digits only. Example: `545`
 </ParamField>
 
-<ParamField body="device_no" type="string">
-  Example: `0000000000`
+<ParamField body="device_no" type="string" required>
+  Device / modem number, digits only. Example: `0000000000`
 </ParamField>
 
-<ParamField body="customer_name" type="string">
-  Example: `JERAHMEEL ANIBOR`
+<ParamField body="customer_name" type="string" required>
+  Account holder name returned by device verification. Example: `JERAHMEEL ANIBOR`
 </ParamField>
 
 <RequestExample>

@@ -3,6 +3,10 @@ title: "Sweep History"
 api: "GET /console/crypto/history/sweep"
 ---
 
+## How it works
+
+Returns the history of crypto wallet sweeps (withdrawals to the configured sweep address), newest first. The `data` object is a Laravel paginator (`current_page`, `last_page`, `per_page`, `*_page_url`). See [Response envelope](/guides/responses). Requires a staff bearer token with the `crypto_treasury.manage` ability. Requests without it return `403`.
+
 <ResponseExample>
 
 ```json 200

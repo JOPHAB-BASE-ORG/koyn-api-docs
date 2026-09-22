@@ -1,24 +1,36 @@
 ---
 title: "Approve Trade"
-api: "POST /console/giftcards/trades/{giftcardSale}/approve"
+api: "POST /console/giftcards/trades/{giftcardTrade}/approve"
 ---
+
+## How it works
+
+Approves a pending or processing trade and routes it through the chosen fulfilment `vendor`. The user's wallet is credited with `amount × rate` (either value can be overridden here), the trade is marked `approved`, `reviewed_at` is stamped, and `approved_by` records the reviewing staff. The approved volume also feeds the user's signup bonus and referral milestone, and the user is notified. A trade that is already approved or rejected returns `409`.
+
+Requires a staff bearer token with the `giftcards.manage` ability. Requests without it return `403`.
 
 ## Path parameters
 
-<ParamField path="giftcardSale" type="string" required>
-   Example: `1`
+<ParamField path="giftcardTrade" type="integer" required>
+  Trade ID. Example: `1`
 </ParamField>
 
 ## Body
 
-<Note>Send as `multipart/form-data`.</Note>
+<ParamField body="vendor" type="string" required>
+  Fulfilment vendor the approved trade is routed through. One of `TIGER`, `TEAM FU`, `WP 1131`, `TIANHE`, `SKYGC`, `WY`, `JOE & DEAN`. Example: `TIGER`
+</ParamField>
 
-<ParamField body="rate" type="string">
-  Update rate and approve Example: `1000`
+<ParamField body="rate" type="number">
+  Override the payout rate before crediting. Must be `0` or greater. Defaults to the trade's stored rate. Example: `1000`
+</ParamField>
+
+<ParamField body="amount" type="number">
+  Override the traded face value before crediting. Must be `0` or greater. Defaults to the trade's stored amount.
 </ParamField>
 
 <ParamField body="admin_comments" type="string">
-  optional comment Example: `Due to rate change, your credit was reduced`
+  Optional note stored on the trade. Max 2000 characters. Example: `Due to rate change, your credit was reduced`
 </ParamField>
 
 <ResponseExample>
@@ -57,12 +69,14 @@ api: "POST /console/giftcards/trades/{giftcardSale}/approve"
     "source": "unknown",
     "ip_address": "105.113.118.117",
     "status": "approved",
+    "vendor": "TIGER",
+    "reviewed_at": "2026-02-23T10:48:12.000000Z",
     "approved_by": {
-      "id": 52,
-      "name": "frankemmanuel249",
-      "username": "frankemmanuel249",
+      "id": 3,
+      "name": "Ada Reviewer",
+      "username": "ada.reviewer",
       "phone": "08012345678",
-      "email": "user@example.com",
+      "email": "staff@example.com",
       "dob": null,
       "email_verified_at": "2026-02-11T13:54:39.000000Z",
       "referral_code": null,

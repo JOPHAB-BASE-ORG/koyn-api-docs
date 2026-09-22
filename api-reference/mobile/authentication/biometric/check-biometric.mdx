@@ -3,21 +3,25 @@ title: "check biometric"
 api: "POST /login/biometric"
 ---
 
+## How it works
+
+This confirms a previously enrolled biometric signature for the authenticated user. You send the device-generated hash and the biometric type; the endpoint checks the hash against the stored `face_id` or `touch_id` value. Requires a valid bearer token. On a match it returns the current user object.
+
 ## Body
 
-<ParamField body="hash" type="string">
-  Example: `fc5731c66ab13b9cfeb8978fbffe6b83192ac559`
+<ParamField body="hash" type="string" required>
+  Device-generated biometric hash to confirm. Example: `************************************`
 </ParamField>
 
-<ParamField body="type" type="string">
-  Example: `face`
+<ParamField body="type" type="string" required>
+  Biometric type. One of `face` or `touch`.
 </ParamField>
 
 <RequestExample>
 
 ```json Request
 {
-  "hash": "fc5731c66ab13b9cfeb8978fbffe6b83192ac559",
+  "hash": "************************************",
   "type": "face"
 }
 ```

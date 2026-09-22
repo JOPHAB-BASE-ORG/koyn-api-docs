@@ -3,6 +3,10 @@ title: "Get all Brands"
 api: "GET /giftcards/brands"
 ---
 
+## How it works
+
+You get every active gift card brand, sorted alphabetically by name. Inactive brands are excluded. This endpoint requires authentication, takes no parameters, and returns the brands as a plain array under `data` (no pagination). Use a brand's `id` to load its categories.
+
 <ResponseExample>
 
 ```json 200

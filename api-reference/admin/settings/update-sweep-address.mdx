@@ -3,10 +3,14 @@ title: "update Sweep address"
 api: "POST /console/settings/update-sweep"
 ---
 
+## How it works
+
+Sets the destination crypto wallet address that platform balance sweeps (crypto wallet withdrawals) are sent to. Requires a staff bearer token with the `settings.manage` ability. Requests without it return `403`.
+
 ## Body
 
-<ParamField body="address" type="string">
-  Example: `1JLCzj5UVq6jwTYJQrPopyuBe8LdUyxuEF`
+<ParamField body="address" type="string" required>
+  Destination sweep address. Example: `1JLCzj5UVq6jwTYJQrPopyuBe8LdUyxuEF`
 </ParamField>
 
 <RequestExample>

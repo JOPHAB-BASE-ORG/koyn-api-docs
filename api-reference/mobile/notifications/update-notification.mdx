@@ -3,10 +3,14 @@ title: "Update notification"
 api: "PATCH /notifications/{uid}/read"
 ---
 
+## How it works
+
+You mark a single notification as read. The notification must belong to the authenticated user; an unknown or foreign `uid` returns a 404. The response returns the updated notification.
+
 ## Path parameters
 
 <ParamField path="uid" type="string" required>
-   Example: `ffe6b3a4-d662-4d93-a404-610c1f0c570c`
+  The notification's `id`. Example: `ffe6b3a4-d662-4d93-a404-610c1f0c570c`
 </ParamField>
 
 <ResponseExample>

@@ -3,18 +3,18 @@ title: "Step 1"
 api: "POST /register/step/step-1"
 ---
 
+## How it works
+
+Registration proceeds step by step against `POST /register/step/{step}`, where `{step}` is `step-1` through `step-5`. The whole flow is protected by Turnstile, so a valid bot-protection token may be required. Step 1 validates the email and emails a verification OTP to it; the email must be unique and use an accepted domain (`gmail.com`, `outlook.com`, `yahoo.com`, `getkoyn.com`, or `icloud.com`).
+
 ## Body
 
 <ParamField body="name" type="string">
-  Example: `David logic`
+  Optional full name. Example: `David logic`
 </ParamField>
 
-<ParamField body="email" type="string">
-  Example: `user@example.com`
-</ParamField>
-
-<ParamField body="username" type="string">
-  Example: `deku2102`
+<ParamField body="email" type="string" required>
+  Email address. Must be unique and use an accepted domain. Example: `user@example.com`
 </ParamField>
 
 <RequestExample>
@@ -22,8 +22,7 @@ api: "POST /register/step/step-1"
 ```json Request
 {
   "name": "David logic",
-  "email": "user@example.com",
-  "username": "deku2102"
+  "email": "user@example.com"
 }
 ```
 
@@ -31,13 +30,24 @@ api: "POST /register/step/step-1"
 
 <ResponseExample>
 
+```json 200
+{
+  "success": true,
+  "message": "Email verification token sent successfully",
+  "data": {
+    "name": "David logic",
+    "email": "user@example.com"
+  }
+}
+```
+
 ```json 422 Error
 {
   "success": false,
-  "message": "Whoops something went wrong, Username already exists. Please try again.",
+  "message": "Whoops something went wrong, Email already exists. Please try again.",
   "errors": {
-    "username": [
-      "Username already exists. Please try again."
+    "email": [
+      "Email already exists. Please try again."
     ]
   }
 }

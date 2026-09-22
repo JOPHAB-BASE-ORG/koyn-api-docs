@@ -3,25 +3,9 @@ title: "Get settings"
 api: "GET /console/settings"
 ---
 
-## Body
+## How it works
 
-<Note>Send as `multipart/form-data`.</Note>
-
-<ParamField body="bank_name" type="string">
-   Example: `ABBEY MORTGAGE BANK`
-</ParamField>
-
-<ParamField body="bank_code" type="string">
-   Example: `070010`
-</ParamField>
-
-<ParamField body="bank_logo" type="file">
-
-</ParamField>
-
-<ParamField body="status" type="string">
-   Example: `active`
-</ParamField>
+Returns every system setting as a plain array of `key`/`value` rows (payment gateway, withdrawal mode, automatic withdrawal limit, sweep address, and related keys). Requires a staff bearer token with the `settings.manage` ability. Requests without it return `403`.
 
 <ResponseExample>
 

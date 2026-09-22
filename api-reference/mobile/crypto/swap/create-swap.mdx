@@ -3,38 +3,42 @@ title: "Create Swap"
 api: "POST /crypto/swap/create"
 ---
 
+## How it works
+
+This creates a crypto swap and returns the pay-in address you deposit the source asset to; the swap only executes once that deposit arrives. Your account must be active and the request must come from a safe device, or it is rejected with `403`. The currency pair must be swappable, and you must choose exactly one payout target: either supply a recipient `address`, or set `app_address` to `true` to receive the swapped asset into your in-app crypto wallet (supplying both fails validation). For a `fixed` swap you must also pass `rateId` (from the swap rates response) and a `refundAddress`. On success the pay-in address is also emailed to you.
+
 ## Body
 
-<ParamField body="from" type="string">
-  Example: `eth`
+<ParamField body="from" type="string" required>
+  Source asset ticker. Must form a swappable pair with `to`. Example: `eth`
 </ParamField>
 
-<ParamField body="to" type="string">
-  Example: `btc`
+<ParamField body="to" type="string" required>
+  Destination asset ticker. Example: `btc`
 </ParamField>
 
-<ParamField body="amountFrom" type="string">
-  Example: `0.3`
+<ParamField body="amountFrom" type="number" required>
+  Amount of the source asset to swap. Example: `0.3`
 </ParamField>
 
-<ParamField body="swap_type" type="string">
-  Example: `floating`
+<ParamField body="swap_type" type="string" required>
+  Rate type. One of `fixed` or `floating`.
+</ParamField>
+
+<ParamField body="app_address" type="boolean" required>
+  Set to `true` to receive the swapped asset into your in-app crypto wallet, or `false` to send it to `address`. Provide exactly one of `address` or `app_address`. Example: `false`
 </ParamField>
 
 <ParamField body="address" type="string">
-  Example: `bc1q0au6xqz690rvkltmqdq23hrusvy3767ukkhjpf`
+  Recipient payout address. Required unless `app_address` is `true`; leave empty (present as `null`) when using your in-app wallet. Example: `bc1q0au6xqz690rvkltmqdq23hrusvy3767ukkhjpf`
 </ParamField>
 
 <ParamField body="refundAddress" type="string">
-  Example: `0xdb4764c2Af5688fF0F3dfF0375b45901646Aa3C9`
+  Address to refund the source asset to if the swap cannot complete. Required when `swap_type` is `fixed`. Example: `0xdb4764c2Af5688fF0F3dfF0375b45901646Aa3C9`
 </ParamField>
 
 <ParamField body="rateId" type="string">
-  Example: `kjhWvD$8W1$A#xc6#Oz90idS8Vy6Z^`
-</ParamField>
-
-<ParamField body="app_address" type="boolean">
-  Example: `false`
+  Locked rate id from the swap rates response. Required when `swap_type` is `fixed`. Example: `kjhWvD$8W1$A#xc6#Oz90idS8Vy6Z^`
 </ParamField>
 
 <RequestExample>

@@ -3,6 +3,10 @@ title: "Get Rates"
 api: "GET /crypto/rates"
 ---
 
+## How it works
+
+This returns the published NGN conversion rate bands used to value crypto. Each band applies a naira-per-USD `rate` to a USD amount range (`range_start` to `range_end`), so the app picks the band that covers a given amount. The response is a plain array under `data` with no pagination, ordered from the lowest range upward. This endpoint is public and does not require authentication.
+
 <ResponseExample>
 
 ```text Example

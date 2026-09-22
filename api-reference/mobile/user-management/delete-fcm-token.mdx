@@ -3,6 +3,10 @@ title: "Delete FCM token"
 api: "DELETE /fcm/delete-token"
 ---
 
+## How it works
+
+You clear the authenticated user's stored Firebase Cloud Messaging device token by setting `device_token` to `null`, which stops push notifications to that device. The endpoint takes no parameters and returns the updated user record.
+
 <ResponseExample>
 
 ```json 200

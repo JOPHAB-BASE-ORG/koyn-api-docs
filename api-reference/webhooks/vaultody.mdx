@@ -4,6 +4,12 @@ api: "POST /webhook/vaultody"
 playground: "none"
 ---
 
+## How it works
+
+Vaultody calls this route to notify Koyn about on-chain activity for managed deposit addresses (for example an `INCOMING_CONFIRMED_COIN_TX` event). The route is exempt from the client-version gate. Koyn acknowledges receipt and hands the payload to a queued job that matches the address to a user and credits the confirmed deposit.
+
+A newer endpoint, `POST /webhook/vaultody/v2`, handles the same events but first verifies an `x-signature` header — a hex HMAC-SHA256 of the raw request body computed with the configured webhook secret. A missing or mismatched signature is rejected with `401`; a valid one is acknowledged and processed asynchronously.
+
 ## Body
 
 <ParamField body="data" type="object">

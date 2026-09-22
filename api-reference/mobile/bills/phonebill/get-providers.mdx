@@ -3,6 +3,8 @@ title: "Get providers"
 api: "GET /phonebill/isp"
 ---
 
+List the airtime and data network providers. Each object's `product` is the value you pass as `network` to the purchase endpoints. The `data` array is not paginated. See [Response envelope](/guides/responses) for the standard `{ success, message, data }` shape.
+
 <ResponseExample>
 
 ```json 200

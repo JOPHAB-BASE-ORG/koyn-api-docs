@@ -3,18 +3,22 @@ title: "Swap Rates"
 api: "POST /crypto/swap/rates"
 ---
 
+## How it works
+
+This quotes what you would receive for swapping `amountFrom` of the source asset into the destination asset. It returns both a `floating` estimate (recalculated at execution) and a `fixed` quote with a `rate_id` you can lock in when creating a fixed swap. Each side includes `min` and `max` limits for the pair; a `fixed` quote also carries an `expiredAt` after which the `rate_id` is no longer valid.
+
 ## Body
 
-<ParamField body="from" type="string">
-  Example: `eth`
+<ParamField body="from" type="string" required>
+  Source asset ticker. Example: `eth`
 </ParamField>
 
-<ParamField body="to" type="string">
-  Example: `btc`
+<ParamField body="to" type="string" required>
+  Destination asset ticker. Example: `btc`
 </ParamField>
 
-<ParamField body="amountFrom" type="string">
-  Example: `1.2`
+<ParamField body="amountFrom" type="number" required>
+  Amount of the source asset to quote. Example: `1.2`
 </ParamField>
 
 <RequestExample>

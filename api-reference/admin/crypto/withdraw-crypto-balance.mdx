@@ -3,14 +3,18 @@ title: "Withdraw Crypto Balance"
 api: "POST /console/crypto/wallet/withdraw"
 ---
 
+## How it works
+
+Sweeps the requested amount from the platform crypto wallet to the sweep address configured in settings, then records the withdrawal. The destination is always the configured sweep address, not a value in the request. Requires a staff bearer token with the `crypto_treasury.manage` ability. Requests without it return `403`.
+
 ## Body
 
-<ParamField body="amount" type="string">
-  Example: `0.00000550`
+<ParamField body="amount" type="number" required>
+  Amount to withdraw. Must be greater than `0.00000546`. Example: `0.00000550`
 </ParamField>
 
-<ParamField body="priority" type="string">
-  Example: `standard`
+<ParamField body="priority" type="string" required>
+  Network fee priority: `slow`, `standard`, or `fast`. Example: `standard`
 </ParamField>
 
 <RequestExample>

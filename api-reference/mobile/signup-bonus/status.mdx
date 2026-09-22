@@ -3,6 +3,10 @@ title: "Status"
 api: "GET /signup-bonus/status"
 ---
 
+## How it works
+
+You get the authenticated user's signup bonus progress. When a bonus exists, `has_bonus` is `true` and `bonus` reports the amount, the required and current trade volume, progress percentage, whether it `can_claim`, and unlock and claim timestamps. When no bonus applies, `has_bonus` is `false`. It takes no parameters.
+
 <ResponseExample>
 
 ```json 200

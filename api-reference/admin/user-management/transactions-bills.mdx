@@ -3,16 +3,26 @@ title: "Transactions/bills"
 api: "GET /console/users/{id}/transactions"
 ---
 
+## How it works
+
+Returns a user's wallet transactions (bills, crypto, and withdrawals), newest first, with the related `transactable` record embedded. Reconciliation and bonus entries are excluded. The list is a Laravel paginator (Form A: `data.data[]` with `current_page`, `last_page`, page URLs) — see [Responses and errors](/guides/responses).
+
+Requires a staff bearer token with the `users.read` or `users.manage` ability. Requests without either return `403`.
+
 ## Path parameters
 
 <ParamField path="id" type="string" required>
-   Example: `16372`
+  User ID. Example: `16372`
 </ParamField>
 
 ## Query parameters
 
 <ParamField query="type" type="string">
-  crypto Example: `bills`
+  Filter by category: `bills`, `crypto`, or `withdrawal`. Example: `bills`
+</ParamField>
+
+<ParamField query="status" type="string">
+  Filter by transaction status, for example `successful`.
 </ParamField>
 
 <ResponseExample>

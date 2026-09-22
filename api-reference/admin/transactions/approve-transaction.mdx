@@ -1,41 +1,52 @@
 ---
-title: "Approve Transaction"
-api: "POST /trades/approve/10"
+title: "Approve Trade"
+api: "POST /console/giftcards/trades/{id}/approve"
 ---
 
-rate and card_id are optional fieds for when Amin wants to change this values before approving a trade
+## How it works
 
-###### Body
+Approves a pending or processing gift card trade, assigns the vendor it was fulfilled through, marks it `approved`, and credits the user's wallet with `amount * rate`. Optional `rate` and `amount` override the trade's stored values before crediting. A trade that is already processed returns `409`. Requires a staff bearer token with the `giftcards.manage` ability. Requests without it return `403`.
 
-- message (optional, string): The admin can add a message before approving a trade
+## Path parameters
+
+<ParamField path="id" type="string" required>
+  Gift card trade id. Example: `10`
+</ParamField>
 
 ## Body
 
-<Note>Send as `multipart/form-data`.</Note>
-
-<ParamField body="rate" type="string">
-   Example: `300`
+<ParamField body="vendor" type="string" required>
+  Vendor the trade was fulfilled through. One of the supported trade vendors: `TIGER`, `TEAM FU`, `WP 1131`, `TIANHE`, `SKYGC`, `WY`, `JOE & DEAN`.
 </ParamField>
 
-<ParamField body="card_id" type="string">
-   Example: `2`
+<ParamField body="rate" type="number">
+  Override the trade rate before crediting. Minimum `0`. Example: `1500`
 </ParamField>
 
-<ParamField body="value" type="string">
-   Example: `25`
+<ParamField body="amount" type="number">
+  Override the trade amount before crediting. Minimum `0`. Example: `100`
 </ParamField>
 
-<ParamField body="message" type="string">
-   Example: `Thank you for trading with us`
+<ParamField body="admin_comments" type="string">
+  Optional internal note. Max 2000 characters. Example: `Verified and approved`
 </ParamField>
 
 <ResponseExample>
 
 ```json 200
 {
-  "status": "Success",
-  "message": "Transaction approved Successfully!",
-  "data": []
+  "success": true,
+  "message": "Giftcard trade approved",
+  "data": {
+    "id": 10,
+    "status": "approved",
+    "vendor": "TIGER",
+    "amount": 100,
+    "rate": 1500,
+    "approved_by": 39,
+    "rejected_by": null,
+    "reviewed_at": "2025-01-16T15:20:11.000000Z"
+  }
 }
 ```
 

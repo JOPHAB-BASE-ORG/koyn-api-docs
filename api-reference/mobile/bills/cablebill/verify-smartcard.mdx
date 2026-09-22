@@ -3,14 +3,18 @@ title: "Verify smartcard"
 api: "POST /cable/smartcard/verify"
 ---
 
+## How it works
+
+This calls the provider to look up the smartcard and returns the account details so you can confirm the holder before you purchase. Show the returned `customer_name` to the user and pass it to the purchase endpoint. If the card cannot be found or the provider is unreachable, the request fails with `409`.
+
 ## Body
 
-<ParamField body="product" type="string">
-  Example: `StarTimes`
+<ParamField body="product" type="string" required>
+  Cable product code, for example `StarTimes`. Must match an active provider.
 </ParamField>
 
-<ParamField body="smart_card_no" type="string">
-  Example: `0000000000`
+<ParamField body="smart_card_no" type="string" required>
+  Smartcard / IUC number, digits only. Example: `0000000000`
 </ParamField>
 
 <RequestExample>

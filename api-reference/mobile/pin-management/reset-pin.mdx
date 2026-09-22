@@ -3,14 +3,18 @@ title: "Reset Pin"
 api: "POST /pin/reset"
 ---
 
+## How it works
+
+This completes the transaction PIN reset flow. You submit the new 4-digit PIN and the OTP emailed by `POST /pin/reset-request`. The endpoint verifies the OTP, sets the new PIN, and clears the used token. Requires a valid bearer token.
+
 ## Body
 
-<ParamField body="pin" type="string">
-  Example: `0000`
+<ParamField body="pin" type="string" required>
+  New 4-digit PIN. Example: `0000`
 </ParamField>
 
-<ParamField body="token" type="string">
-  Example: `0000`
+<ParamField body="token" type="string" required>
+  Numeric OTP sent to the account email. Example: `0000`
 </ParamField>
 
 <RequestExample>

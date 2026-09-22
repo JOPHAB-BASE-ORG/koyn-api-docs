@@ -3,6 +3,10 @@ title: "Notifications"
 api: "GET /notifications"
 ---
 
+## How it works
+
+You get the authenticated user's notifications, newest first. This is a list endpoint using the Laravel paginator form: `data` is an object holding the `data` array plus `current_page`, `per_page`, `from`, `to`, and the `*_page_url` links. Pass `?page=` to move between pages. See [Response envelope](/guides/responses).
+
 <ResponseExample>
 
 ```json 200

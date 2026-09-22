@@ -3,10 +3,14 @@ title: "Get Brand Category"
 api: "GET /giftcards/brands/{giftcardBrand}/categories"
 ---
 
+## How it works
+
+You get the active categories for one gift card brand, ordered by their configured position. Each category carries the accepted amount range (`min`, `max`), the payout `rate` per unit of card value, and whether a receipt image is required (`requires_receipt`). Categories are returned as a plain array under `data` (no pagination). Pass a category `id` to the calculate or trade endpoints.
+
 ## Path parameters
 
-<ParamField path="giftcardBrand" type="string" required>
-   Example: `1`
+<ParamField path="giftcardBrand" type="integer" required>
+  The brand `id` returned by `GET /giftcards/brands`. Example: `1`
 </ParamField>
 
 <ResponseExample>

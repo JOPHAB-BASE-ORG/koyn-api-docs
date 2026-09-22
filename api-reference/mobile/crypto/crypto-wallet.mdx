@@ -1,12 +1,16 @@
 ---
 title: "Crypto Wallet"
-api: "GET /crypto/wallets/{asset}"
+api: "GET /crypto/wallets/{symbol}"
 ---
+
+## How it works
+
+This returns your on-chain deposit wallet for the given asset, including its address, chain and current balance. You must have created a wallet for that asset first; if you have not, the request returns `409` asking you to create one. This route also depends on the `crypto_deposit` service switch being on.
 
 ## Path parameters
 
-<ParamField path="asset" type="string" required>
-   Example: `BTC`
+<ParamField path="symbol" type="string" required>
+  Asset ticker symbol. Example: `BTC`
 </ParamField>
 
 <ResponseExample>

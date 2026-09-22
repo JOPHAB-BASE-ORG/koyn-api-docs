@@ -1,11 +1,13 @@
 ---
 title: "Data plans"
-api: "GET /phonebill/data-plans/{provider}"
+api: "GET /phonebill/data-plans/{network}"
 ---
+
+List the data plans for a network. Each plan carries the `code` you pass to the purchase endpoint. The `data` array is not paginated. See [Response envelope](/guides/responses) for the standard `{ success, message, data }` shape.
 
 ## Path parameters
 
-<ParamField path="provider" type="string" required>
+<ParamField path="network" type="string" required>
    Example: `MTN`
 </ParamField>
 

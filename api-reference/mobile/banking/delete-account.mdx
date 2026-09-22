@@ -3,10 +3,14 @@ title: "Delete account"
 api: "DELETE /bank/{bank}/delete"
 ---
 
+## How it works
+
+This removes one of your saved payout bank accounts by id. It only deletes an account that belongs to you; an id that is not yours returns `404`, and if the removal fails the request returns `409`. On success `data` is `null`.
+
 ## Path parameters
 
-<ParamField path="bank" type="string" required>
-   Example: `556`
+<ParamField path="bank" type="number" required>
+  Id of your saved bank account to remove. Example: `556`
 </ParamField>
 
 <ResponseExample>
@@ -14,7 +18,7 @@ api: "DELETE /bank/{bank}/delete"
 ```json 200
 {
   "success": true,
-  "message": "Bank details updated successfully.",
+  "message": "Bank removed successfully.",
   "data": null
 }
 ```

@@ -3,28 +3,18 @@ title: "KYCs"
 api: "GET /console/kycs"
 ---
 
-## Body
+## How it works
 
-<Note>Send as `multipart/form-data`.</Note>
+Returns KYC verification records as a Laravel paginator, each with its `user` embedded, plus an `overview` object with counts by status (successful, pending, rejected, abandoned). Use the optional query parameters to filter the list. See [Responses](/guides/responses) for the paginator shape. Requires the `kycs.manage` console ability.
 
-<ParamField body="product" type="string">
-   Example: `MTN`
+## Query parameters
+
+<ParamField query="status" type="string">
+  Filter by verification status (for example `pending`, `successful`, `rejected`).
 </ParamField>
 
-<ParamField body="maximum_amount" type="string">
-   Example: `5000`
-</ParamField>
-
-<ParamField body="minimum_amount" type="string">
-   Example: `200`
-</ParamField>
-
-<ParamField body="status" type="string">
-  active | inactive Example: `active`
-</ParamField>
-
-<ParamField body="logo" type="file">
-
+<ParamField query="search" type="string">
+  Match against the reference, verification type, or status.
 </ParamField>
 
 <ResponseExample>

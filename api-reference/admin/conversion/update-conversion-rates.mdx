@@ -3,10 +3,40 @@ title: "Update Conversion Rates"
 api: "PUT /console/conversion-rate/{id}"
 ---
 
+## How it works
+
+Updates an existing conversion rate band and returns the updated record. Send only the fields you want to change. Requires a staff bearer token with the `crypto_rates.manage` ability. Requests without it return `403`.
+
 ## Path parameters
 
 <ParamField path="id" type="string" required>
-   Example: `9c62d58d-4d0c-4fb3-8554-2825d723dac7`
+  Conversion rate id. Example: `9c62d58d-4d0c-4fb3-8554-2825d723dac7`
+</ParamField>
+
+## Body
+
+<ParamField body="rate_range" type="string">
+  Human-readable label for the band. Example: `Below $50k`
+</ParamField>
+
+<ParamField body="rate" type="number">
+  Naira rate applied to this band. Example: `1900`
+</ParamField>
+
+<ParamField body="fee" type="number">
+  Percentage fee for this band. Example: `1.5`
+</ParamField>
+
+<ParamField body="range_start" type="number">
+  Lower USD bound of the band. Example: `1000`
+</ParamField>
+
+<ParamField body="range_end" type="number">
+  Upper USD bound of the band. Example: `50000`
+</ParamField>
+
+<ParamField body="is_published" type="boolean">
+  Whether the band is live. Example: `true`
 </ParamField>
 
 <ResponseExample>
@@ -14,16 +44,17 @@ api: "PUT /console/conversion-rate/{id}"
 ```json 200
 {
   "success": true,
-  "message": "Rate created successfully.",
+  "message": "Rate updated Successfully!",
   "data": {
+    "id": "9c62d58d-4d0c-4fb3-8554-2825d723dac7",
     "rate_range": "Below $50k",
     "rate": "1900",
+    "fee": "1.5",
     "range_start": "1000",
     "range_end": "50000",
     "is_published": true,
-    "id": "9c62d58d-4d0c-4fb3-8554-2825d723dac7",
-    "updated_at": "2024-06-27T10:10:35.000000Z",
-    "created_at": "2024-06-27T10:10:35.000000Z"
+    "created_at": "2024-06-27T10:10:35.000000Z",
+    "updated_at": "2024-06-27T10:12:41.000000Z"
   }
 }
 ```

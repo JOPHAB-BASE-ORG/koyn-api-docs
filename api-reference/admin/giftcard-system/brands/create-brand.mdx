@@ -3,20 +3,24 @@ title: "Create brand"
 api: "POST /console/giftcards/brands"
 ---
 
+## How it works
+
+Creates a gift card brand, the top-level catalogue entry (such as iTunes or Amazon) that categories hang off. The `logo` file is uploaded to Cloudinary and the stored brand keeps the returned secure URL. A brand stays hidden from app users until `is_active` is set.
+
+Requires a staff bearer token with the `giftcards.manage` ability. Requests without it return `403`. Send the request as `multipart/form-data` because it carries a file.
+
 ## Body
 
-<Note>Send as `multipart/form-data`.</Note>
-
-<ParamField body="name" type="string">
-  Name of the brand Example: `iTunes`
+<ParamField body="name" type="string" required>
+  Brand name. Max 255 characters. Example: `iTunes`
 </ParamField>
 
-<ParamField body="logo" type="file">
-  a logo of the brand
+<ParamField body="logo" type="file" required>
+  Brand logo image. Accepts `jpeg`, `png`, `jpg` or `webp`, up to 20 MB.
 </ParamField>
 
-<ParamField body="is_active" type="string">
-  Display brand to live users Example: `1`
+<ParamField body="is_active" type="boolean">
+  Whether the brand is shown to app users. Example: `1`
 </ParamField>
 
 <ResponseExample>

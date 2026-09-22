@@ -3,22 +3,26 @@ title: "Create Staff"
 api: "POST /console/staffs/create"
 ---
 
+## How it works
+
+Creates a staff account and assigns it a console role. The email must not already belong to another account, the password is hashed on save, and the new account is stored with `user_type` set to `staff`. Requires the `staffs.manage` console ability.
+
 ## Body
 
-<ParamField body="name" type="string">
-  Example: `Sunny Sunny`
+<ParamField body="name" type="string" required>
+  Staff member's full name (max 200 characters).
 </ParamField>
 
-<ParamField body="email" type="string">
-  Example: `user@example.com`
+<ParamField body="email" type="string" required>
+  Login email. Must be unique across accounts.
 </ParamField>
 
-<ParamField body="role" type="string">
-  Example: `marketer`
+<ParamField body="role" type="string" required>
+  Console role. One of `accountant`, `announcer`, `marketer`, `support`, `cs_support`.
 </ParamField>
 
-<ParamField body="password" type="string">
-  Example: `00000000`
+<ParamField body="password" type="string" required>
+  Initial account password.
 </ParamField>
 
 <RequestExample>

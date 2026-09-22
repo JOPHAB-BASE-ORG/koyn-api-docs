@@ -3,10 +3,14 @@ title: "Check Pin"
 api: "POST /pin/verify"
 ---
 
+## How it works
+
+This confirms that a supplied 4-digit PIN matches the authenticated user's stored transaction PIN. Use it to gate a sensitive action before proceeding. Requires a valid bearer token. It returns success only when the PIN is correct.
+
 ## Body
 
-<ParamField body="pin" type="string">
-  Example: `0000`
+<ParamField body="pin" type="string" required>
+  4-digit transaction PIN to verify. Example: `0000`
 </ParamField>
 
 <RequestExample>

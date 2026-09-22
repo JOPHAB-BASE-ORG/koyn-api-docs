@@ -3,6 +3,8 @@ title: "Wifi plans"
 api: "GET /wifi/plans/{product}"
 ---
 
+List the plans for a WiFi provider. Each plan carries the `code` you pass to the purchase endpoint. The `data` array is not paginated. See [Response envelope](/guides/responses) for the standard `{ success, message, data }` shape.
+
 ## Path parameters
 
 <ParamField path="product" type="string" required>

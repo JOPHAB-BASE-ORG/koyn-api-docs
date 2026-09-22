@@ -3,6 +3,10 @@ title: "Operating banks"
 api: "GET /bank"
 ---
 
+## How it works
+
+This lists the active banks the platform supports, ordered by name, for building a bank picker. Use each entry's `id` as the `bank_id` when adding a payout account, and its `bank_code` when verifying an account number. The response is a plain array under `data` with no pagination.
+
 ## Headers
 
 <ParamField header="X-Client-Version" type="string">

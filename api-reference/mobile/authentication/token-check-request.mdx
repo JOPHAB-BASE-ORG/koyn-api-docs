@@ -3,14 +3,18 @@ title: "Token check Request"
 api: "POST /check-token"
 ---
 
+## How it works
+
+This confirms that an OTP sent to an email is still valid before you proceed. You submit the email and the numeric OTP, and the endpoint checks it against the stored, unexpired token. Use it to verify a code during password or PIN reset flows without consuming it.
+
 ## Body
 
-<ParamField body="email" type="string">
-  Example: `user@example.com`
+<ParamField body="email" type="string" required>
+  Email address the OTP was sent to. Example: `user@example.com`
 </ParamField>
 
-<ParamField body="token" type="string">
-  Example: `0000`
+<ParamField body="token" type="string" required>
+  Numeric OTP to verify. Example: `0000`
 </ParamField>
 
 <RequestExample>
@@ -26,10 +30,10 @@ api: "POST /check-token"
 
 <ResponseExample>
 
-```json 200 Reset Pin
+```json 200
 {
   "success": true,
-  "message": "One time password for otp reset has been sent.",
+  "message": "One time password checked successfully.",
   "data": null
 }
 ```

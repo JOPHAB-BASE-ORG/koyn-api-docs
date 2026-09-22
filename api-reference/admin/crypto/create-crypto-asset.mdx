@@ -3,24 +3,28 @@ title: "Create Crypto asset"
 api: "POST /console/crypto/create"
 ---
 
+## How it works
+
+Creates a new crypto asset from the submitted fields and returns the created record. Requires a staff bearer token with the `crypto_assets.manage` ability. Requests without it return `403`.
+
 ## Body
 
 <Note>Send as `multipart/form-data`.</Note>
 
-<ParamField body="status" type="string">
-  active | inactive Example: `active`
+<ParamField body="name" type="string" required>
+  Display name. Example: `Solana`
+</ParamField>
+
+<ParamField body="symbol" type="string" required>
+  Ticker symbol. Must be unique across assets. Example: `SOL`
+</ParamField>
+
+<ParamField body="status" type="string" required>
+  Asset status: `active` or `inactive`. Example: `active`
 </ParamField>
 
 <ParamField body="logo" type="file">
-
-</ParamField>
-
-<ParamField body="symbol" type="string">
-   Example: `SOL`
-</ParamField>
-
-<ParamField body="name" type="string">
-   Example: `Solana`
+  Optional asset logo image.
 </ParamField>
 
 <ResponseExample>

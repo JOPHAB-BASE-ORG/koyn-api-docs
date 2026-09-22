@@ -3,16 +3,20 @@ title: "Change Withdraw Status"
 api: "POST /console/withdrawals/change-status/{id}"
 ---
 
+## How it works
+
+Manually sets a withdrawal's status. You cannot change a withdrawal whose current status is already pending or successful, so this is used to resolve withdrawals stuck in other states. The change is written to the admin activity log. Requires the `withdrawals.manage` console ability.
+
 ## Path parameters
 
 <ParamField path="id" type="string" required>
-   Example: `393`
+  The withdrawal's id.
 </ParamField>
 
 ## Body
 
-<ParamField body="status" type="string">
-  Example: `pending`
+<ParamField body="status" type="string" required>
+  New status. One of `pending`, `successful`, `failed`.
 </ParamField>
 
 <RequestExample>

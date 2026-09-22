@@ -3,14 +3,18 @@ title: "Step 4"
 api: "POST /register/step/step-4"
 ---
 
+## How it works
+
+Step 4 validates the chosen password before the account is created. The password must be confirmed and meet the strength rules. This step is protected by Turnstile, so a valid bot-protection token may be required.
+
 ## Body
 
-<ParamField body="password" type="string">
-  Example: `***********`
+<ParamField body="password" type="string" required>
+  Password. Minimum 8 characters, with upper and lower case letters and at least one number. Example: `***********`
 </ParamField>
 
-<ParamField body="password_confirmation" type="string">
-  Example: `***********`
+<ParamField body="password_confirmation" type="string" required>
+  Must match `password`. Example: `***********`
 </ParamField>
 
 <RequestExample>

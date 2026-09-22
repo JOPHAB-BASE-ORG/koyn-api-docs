@@ -3,10 +3,14 @@ title: "Delete staff"
 api: "DELETE /console/staffs/{user}"
 ---
 
+## How it works
+
+Soft-deletes a staff account so it can no longer sign in to the console, and returns a confirmation message. The record is retained (soft delete) rather than permanently removed. Requires the `staffs.manage` console ability.
+
 ## Path parameters
 
 <ParamField path="user" type="string" required>
-   Example: `1283`
+  The staff account's id.
 </ParamField>
 
 <ResponseExample>

@@ -3,6 +3,12 @@ title: "UnFlag"
 api: "POST /console/users/{userId}/unflag"
 ---
 
+## How it works
+
+Clears a review flag from a user account, setting `is_flagged` to `false` and `flag_reason` to `null`. The response returns the refreshed user. No request body is needed.
+
+Requires a staff bearer token with the `users.manage` ability. Requests without it return `403`.
+
 ## Path parameters
 
 <ParamField path="userId" type="string" required>

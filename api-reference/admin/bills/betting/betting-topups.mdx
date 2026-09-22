@@ -3,6 +3,28 @@ title: "Betting Topups"
 api: "GET /console/betting/topups"
 ---
 
+## How it works
+
+Lists user betting purchases, newest first, as a Laravel paginator — page through with `last_page` and the `links` array. Each record includes the service `charge` KOYN added, and an `overview` block of successful, pending and rejected counts is merged into `data`. Requires a staff bearer token with the `bills.read` ability; a request without it returns `403`. See [Response format](/guides/responses).
+
+## Query parameters
+
+<ParamField query="status" type="string">
+  Filter by status: `pending`, `successful`, `rejected` or `failed`. Example: `pending`
+</ParamField>
+
+<ParamField query="search" type="string">
+  Match a transaction reference, or a user's username or email. Example: `BT3660`
+</ParamField>
+
+<ParamField query="per_page" type="integer" default="25">
+  Results per page. Example: `25`
+</ParamField>
+
+<ParamField query="page" type="integer">
+  Page number to return. Example: `1`
+</ParamField>
+
 <ResponseExample>
 
 ```json 200

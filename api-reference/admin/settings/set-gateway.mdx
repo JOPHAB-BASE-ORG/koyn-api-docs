@@ -3,10 +3,14 @@ title: "Set Gateway"
 api: "POST /console/settings/payment-gateway"
 ---
 
+## How it works
+
+Sets the active gateway used for wallet withdrawals. The value is stored uppercased. Selecting `palmpay` triggers the required PalmPay account setup in the background. Requires a staff bearer token with the `settings.manage` ability. Requests without it return `403`.
+
 ## Body
 
-<ParamField body="gateway" type="string">
-  Example: `redbiller`
+<ParamField body="gateway" type="string" required>
+  Gateway to activate: `redbiller`, `monnify`, `fincra`, `nomba`, or `palmpay`. Example: `redbiller`
 </ParamField>
 
 <RequestExample>

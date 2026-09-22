@@ -3,14 +3,18 @@ title: "Verify account"
 api: "POST /bank/verify"
 ---
 
+## How it works
+
+This resolves the account holder's name for a bank account, so you can confirm details before saving a payout account. The lookup runs against the platform's active payment gateway (Redbiller, PalmPay or Nomba). If the account cannot be resolved in the selected bank, it returns a `422` validation error rather than a name. Use the `bank_code` from the [operating banks](/api-reference/mobile/banking/operating-banks) list.
+
 ## Body
 
-<ParamField body="account_no" type="string">
-  Example: `0089429289`
+<ParamField body="account_no" type="string" required>
+  10-digit account number to look up. Example: `0089429289`
 </ParamField>
 
-<ParamField body="bank_code" type="string">
-  Example: `000014`
+<ParamField body="bank_code" type="string" required>
+  Bank code from the operating banks list. Example: `000014`
 </ParamField>
 
 <RequestExample>

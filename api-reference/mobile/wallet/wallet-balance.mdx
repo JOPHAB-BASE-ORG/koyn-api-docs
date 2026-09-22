@@ -3,16 +3,14 @@ title: "Wallet Balance"
 api: "GET /wallet/balance"
 ---
 
+## How it works
+
+This returns just your wallet's naira `balance` and when it last changed, for a lightweight refresh. It reads your own wallet from the bearer token, so it takes no parameters. For the full wallet record use [Wallet details](/api-reference/mobile/wallet/wallet-details).
+
 ## Headers
 
 <ParamField header="X-Client-Version" type="string">
 Example: `2.0.2`
-</ParamField>
-
-## Query parameters
-
-<ParamField query="X-Client-Version" type="string">
-   Example: `2.0.2`
 </ParamField>
 
 <ResponseExample>

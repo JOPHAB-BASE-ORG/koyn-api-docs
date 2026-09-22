@@ -1,12 +1,16 @@
 ---
 title: "Swap Pairs"
-api: "GET /crypto/swap/pairs/{currency}"
+api: "GET /crypto/swap/pairs/{from}"
 ---
+
+## How it works
+
+This returns the destination currencies you can swap a given source currency into. Pass the source ticker as `from` in the path; the response lists each valid `from`/`to` pair. The response is a plain array under `data` with no pagination. Use it to populate the destination options before requesting a swap rate.
 
 ## Path parameters
 
-<ParamField path="currency" type="string" required>
-   Example: `eth`
+<ParamField path="from" type="string" required>
+  Source asset ticker to list swap pairs for. Example: `eth`
 </ParamField>
 
 <ResponseExample>

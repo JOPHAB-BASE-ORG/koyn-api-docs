@@ -3,6 +3,10 @@ title: "Wallet details"
 api: "GET /wallet"
 ---
 
+## How it works
+
+This returns the full wallet record for the authenticated user, resolved from your bearer token, so it takes no parameters. The naira balance is carried on the wallet model. For a lightweight balance-only check use [Wallet balance](/api-reference/mobile/wallet/wallet-balance).
+
 ## Headers
 
 <ParamField header="X-Client-Version" type="string">

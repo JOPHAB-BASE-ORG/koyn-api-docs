@@ -23,7 +23,11 @@ Staff tokens only work on `/console/*` routes and user tokens only work on app r
 
 ## Client version header
 
-Mobile endpoints read an `X-Client-Version` header so the backend can tailor responses to the installed app version. Send the app's semantic version, for example `2.0.2`.
+Send an `X-Client-Version` header carrying the app's semantic version, for example `2.0.2`, on every request.
+
+<Warning>
+  In production this is a hard gate. A request with a missing header, or a version lower than the minimum the backend enforces, is rejected before it reaches the route and returns `404` with the message `Your app version is outdated. Please upgrade to the latest version.` Outside production the header is not enforced. A `404` carrying that exact message is the version gate, not a missing resource.
+</Warning>
 
 ## Transaction PIN
 

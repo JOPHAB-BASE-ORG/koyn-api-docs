@@ -2,3 +2,19 @@
 title: "Logout"
 api: "POST /logout"
 ---
+
+## How it works
+
+Logout revokes every Sanctum token belonging to the authenticated user, ending all active sessions. Send this request with the bearer token you want to invalidate. After a successful call the token can no longer be used and the user must log in again.
+
+<ResponseExample>
+
+```json 200
+{
+  "success": true,
+  "message": "user, logged out successfully.",
+  "data": null
+}
+```
+
+</ResponseExample>

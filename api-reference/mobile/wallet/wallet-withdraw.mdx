@@ -3,18 +3,22 @@ title: "Wallet Withdraw"
 api: "POST /wallet/withdraw"
 ---
 
+## How it works
+
+This debits your naira wallet and creates a withdrawal to one of your saved bank accounts. Your account must be active and the request must come from a safe device, or it is rejected with `403`; you must also have a verified BVN and pass your 4-digit transaction PIN. The amount must be at least ₦5,000, no more than your balance, and within your tier's daily withdrawal limit, and you cannot start another withdrawal within 5 minutes of your last one. Depending on system settings and whether your account is flagged for review, the payout is either sent automatically or held for manual approval.
+
 ## Body
 
-<ParamField body="amount" type="string">
-  Example: `2500`
+<ParamField body="amount" type="number" required>
+  Amount in naira. Minimum `5000`, capped by your balance and daily tier limit. Example: `2500`
 </ParamField>
 
-<ParamField body="pin" type="string">
-  Example: `0000`
+<ParamField body="pin" type="string" required>
+  Your 4-digit transaction PIN. Example: `0000`
 </ParamField>
 
-<ParamField body="bank_id" type="string">
-  Example: `4`
+<ParamField body="bank_id" type="number" required>
+  Id of one of your saved bank accounts to pay out to. Example: `4`
 </ParamField>
 
 <RequestExample>

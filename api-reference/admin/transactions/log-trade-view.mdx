@@ -1,26 +1,7 @@
 ---
 title: "Log Trade view"
-api: "POST /trades/view/1"
 ---
 
-This endpoint records a log of employees who have viewed a trade
-
-## Body
-
-<Note>Send as `multipart/form-data`.</Note>
-
-<ParamField body="trade_id" type="string">
-   Example: `1`
-</ParamField>
-
-<ResponseExample>
-
-```json 200
-{
-  "status": "Success",
-  "message": "Trade successfully viewed",
-  "data": []
-}
-```
-
-</ResponseExample>
+<Warning>
+  This endpoint is no longer part of the console API. Live gift card trade activity is now delivered through the trade stream at `GET /console/giftcards/trades/stream` (requires the `giftcards.read` ability); there is no separate view-logging call.
+</Warning>

@@ -3,21 +3,18 @@ title: "System Status"
 api: "GET /console/settings/status"
 ---
 
-## Body
+## How it works
 
-<ParamField body="gateway" type="string">
-  Example: `redbiller`
-</ParamField>
+Returns the platform feature switches as a plain array of status rows. Each row has a `key`, a boolean `value` (on or off), and an optional `message`. When a switch is off, its gated routes are blocked. The current keys are:
 
-<RequestExample>
+- `withdrawal` — wallet withdrawals
+- `bills` — mobile bill payments (airtime, data, cable, meter, betting, wifi)
+- `crypto_deposit` — crypto wallet creation and deposits
+- `general_message` — a general platform notice
 
-```json Request
-{
-  "gateway": "redbiller"
-}
-```
+<Note>The `bills` key is the live bill-payments switch that mobile bill routes gate on. The older `bill_payment` key is being retired; use `bills`.</Note>
 
-</RequestExample>
+Requires a staff bearer token with the `settings.manage` ability. Requests without it return `403`.
 
 <ResponseExample>
 
@@ -30,17 +27,33 @@ api: "GET /console/settings/status"
       "id": 1,
       "key": "withdrawal",
       "value": true,
-      "message": "1",
+      "message": null,
       "created_at": null,
       "updated_at": "2023-11-26T12:15:45.000000Z"
     },
     {
       "id": 2,
-      "key": "bill_payment",
+      "key": "bills",
       "value": true,
       "message": "We are active",
       "created_at": null,
       "updated_at": "2023-11-30T12:10:11.000000Z"
+    },
+    {
+      "id": 3,
+      "key": "crypto_deposit",
+      "value": true,
+      "message": null,
+      "created_at": null,
+      "updated_at": "2024-01-05T09:12:00.000000Z"
+    },
+    {
+      "id": 4,
+      "key": "general_message",
+      "value": false,
+      "message": null,
+      "created_at": null,
+      "updated_at": "2024-01-05T09:12:00.000000Z"
     }
   ]
 }

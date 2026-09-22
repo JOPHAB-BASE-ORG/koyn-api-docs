@@ -3,14 +3,26 @@ title: "Login"
 api: "POST /login"
 ---
 
+## How it works
+
+You authenticate with an email or username plus a password. On success the endpoint returns a Sanctum bearer token and the user object; send the token as `Authorization: Bearer <token>` on later requests. This route is rate-limited (`throttle:login`) and protected by Turnstile, so a valid bot-protection token may be required. A login from an unrecognised device is temporarily restricted and the account owner is notified.
+
 ## Body
 
-<ParamField body="email" type="string">
-  Example: `user@example.com`
+<ParamField body="email" type="string" required>
+  Email address or username. Minimum 3 characters. Example: `user@example.com`
 </ParamField>
 
-<ParamField body="password" type="string">
-  Example: `**********`
+<ParamField body="password" type="string" required>
+  Account password. Example: `**********`
+</ParamField>
+
+<ParamField body="device_token" type="string">
+  Optional push notification token to store on the account.
+</ParamField>
+
+<ParamField body="device_type" type="string">
+  Optional device platform. One of `android` or `ios`.
 </ParamField>
 
 <RequestExample>
@@ -18,7 +30,9 @@ api: "POST /login"
 ```json Request
 {
   "email": "user@example.com",
-  "password": "**********"
+  "password": "**********",
+  "device_token": "************",
+  "device_type": "ios"
 }
 ```
 

@@ -1,16 +1,22 @@
 ---
 title: "Wallet Transactions"
-api: "GET /wallet/transactions"
+api: "GET /wallet/transactions/{type?}"
 ---
+
+## How it works
+
+This returns your wallet ledger (withdrawals, bill payments, swaps and gift card trades), newest first, excluding reconciliation and bonus entries. Filter by category with the optional `type` segment and by outcome with the `status` query parameter. Each row includes its related `transactable` record. The response is paginated as a **Laravel paginator** (Form A: `current_page`, `last_page`, `per_page`, `total`, and `*_page_url` links) — advance with `?page=`. See [Responses and errors](/guides/responses#pagination).
+
+## Path parameters
+
+<ParamField path="type" type="string">
+  Optional category filter. One of `bills`, `crypto` or `withdrawal`. Omit to return all categories. Example: `bills`
+</ParamField>
 
 ## Query parameters
 
-<ParamField query="type" type="string">
-  bills|crypto Evaluates when query is present Example: `bills`
-</ParamField>
-
 <ParamField query="status" type="string">
-  successful | pending | failed | rejected Example: `pending`
+  Filter by outcome. One of `successful`, `pending`, `failed` or `rejected`. Example: `pending`
 </ParamField>
 
 <ResponseExample>

@@ -3,15 +3,9 @@ title: "Data products"
 api: "GET /console/data/products"
 ---
 
-## Body
+## How it works
 
-<RequestExample>
-
-```json Request
-//pending,successful,failed
-```
-
-</RequestExample>
+Returns every data (ISP) provider KOYN supports, including inactive ones, as a plain array in `data`. Requires a staff bearer token with the `bills.read` ability; a request without it returns `403`. This list is not paginated. See [Response format](/guides/responses).
 
 <ResponseExample>
 

@@ -3,6 +3,10 @@ title: "Activity Logs"
 api: "GET /console/activity-logs"
 ---
 
+## How it works
+
+Returns the console audit feed: each entry records the acting admin, the action performed, the affected subject, a human-readable description, and the caller's IP address. Entries cover sensitive actions such as approving or declining withdrawals and deleting users. The feed is paginated using the custom `total_pages` form (see [Responses](/guides/responses)). Requires the `activity_logs.read` console ability.
+
 <ResponseExample>
 
 ```json 200

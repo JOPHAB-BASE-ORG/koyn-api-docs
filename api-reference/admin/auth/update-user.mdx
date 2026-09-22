@@ -3,24 +3,28 @@ title: "Update User"
 api: "POST /console/auth/{user}/update"
 ---
 
+## How it works
+
+Updates another user's profile name, email and username, then returns the updated record. Email and username must each remain unique across accounts. Requires the `users.manage` console ability.
+
 ## Path parameters
 
 <ParamField path="user" type="string" required>
-   Example: `1283`
+  The id of the user to update.
 </ParamField>
 
 ## Body
 
-<ParamField body="name" type="string">
-  Example: `console pikka`
+<ParamField body="name" type="string" required>
+  The user's full name.
 </ParamField>
 
-<ParamField body="email" type="string">
-  Example: `user@example.com`
+<ParamField body="email" type="string" required>
+  A valid email address. Must be unique across accounts.
 </ParamField>
 
-<ParamField body="username" type="string">
-  Example: `console45`
+<ParamField body="username" type="string" required>
+  Account username. Must be unique across accounts.
 </ParamField>
 
 <RequestExample>

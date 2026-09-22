@@ -3,10 +3,16 @@ title: "User basic info"
 api: "GET /console/users/{id}/basic"
 ---
 
+## How it works
+
+Returns one user (including soft-deleted accounts) with their KYC records, bank accounts, crypto wallets, and gift card trades. Each embedded trade is loaded with its `brand`, `category`, and the staff who approved or rejected it (`approvedBy`/`rejectedBy`).
+
+Requires a staff bearer token with the `users.read` or `users.manage` ability. Requests without either return `403`.
+
 ## Path parameters
 
 <ParamField path="id" type="string" required>
-   Example: `41`
+  User ID. Example: `41`
 </ParamField>
 
 <ResponseExample>
@@ -48,7 +54,7 @@ api: "GET /console/users/{id}/basic"
         "id": 7,
         "user_id": 41,
         "verification_type": "bvn",
-        "verification_value": "22222222222",
+        "verification_value": "***********",
         "provider_response": null,
         "reference": "172373626338136624251",
         "status": "successful",
@@ -69,6 +75,48 @@ api: "GET /console/users/{id}/basic"
         "is_primary": true,
         "created_at": "2024-08-17T18:12:40.000000Z",
         "updated_at": "2024-08-17T18:12:40.000000Z"
+      }
+    ],
+    "cryptowallets": [
+      {
+        "id": 9949,
+        "user_id": 41,
+        "crypto_asset_id": 1,
+        "balance": "0.00000000",
+        "address": "bc1qjtdqqf8q0qhkw8cc7m9xpc9lskaez3qyk7hypv",
+        "chain": "BTC",
+        "created_at": "2024-08-15T15:40:13.000000Z",
+        "updated_at": "2024-08-15T15:40:13.000000Z",
+        "old_address": null
+      }
+    ],
+    "giftcards": [
+      {
+        "id": 1,
+        "user_id": 41,
+        "brand_id": 1,
+        "category_id": 1,
+        "amount": 50,
+        "rate": 1300,
+        "status": "approved",
+        "vendor": "TIGER",
+        "reviewed_at": "2026-02-23T10:48:12.000000Z",
+        "approved_by": {
+          "id": 3,
+          "name": "Ada Reviewer",
+          "username": "ada.reviewer"
+        },
+        "rejected_by": null,
+        "created_at": "2026-02-23T10:46:20.000000Z",
+        "updated_at": "2026-02-23T10:48:12.000000Z",
+        "brand": {
+          "id": 1,
+          "name": "Apple iTunes"
+        },
+        "category": {
+          "id": 1,
+          "name": "USA ECODE 🇱🇷"
+        }
       }
     ]
   }

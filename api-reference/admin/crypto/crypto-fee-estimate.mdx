@@ -3,6 +3,10 @@ title: "Crypto Fee estimate"
 api: "GET /console/crypto/wallet/estimate"
 ---
 
+## How it works
+
+Returns the current network fee estimate (slow, standard, fast) for a crypto wallet withdrawal, sourced from the custody provider. Use it to preview the fee before calling the withdraw endpoint. Requires a staff bearer token with the `crypto_treasury.manage` ability. Requests without it return `403`.
+
 <ResponseExample>
 
 ```json 200

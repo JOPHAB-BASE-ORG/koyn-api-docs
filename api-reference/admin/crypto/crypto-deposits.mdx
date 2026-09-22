@@ -3,6 +3,10 @@ title: "Crypto Deposits"
 api: "GET /console/crypto/deposits"
 ---
 
+## How it works
+
+Returns users' crypto deposit transactions, newest first, with each depositor embedded under `user`. The `data` object is a Laravel paginator (`current_page`, `last_page`, `per_page`, `*_page_url`) and carries an `overview` count of successful and pending deposits. See [Response envelope](/guides/responses). Requires a staff bearer token with the `deposits.read` ability. Requests without it return `403`.
+
 <ResponseExample>
 
 ```json 200

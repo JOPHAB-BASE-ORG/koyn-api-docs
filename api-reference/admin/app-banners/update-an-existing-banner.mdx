@@ -1,18 +1,30 @@
 ---
 title: "Update an existing banner."
-api: "PUT /console/app-banners/{id}"
+api: "PUT /console/app-banners/{app_banner}"
 ---
+
+## How it works
+
+Updates an existing app banner. All fields are optional; only the fields you send are changed. Requires the `banners.manage` console ability.
 
 ## Path parameters
 
-<ParamField path="id" type="string" required>
-   Example: `9e00dd90-d907-41ab-9584-151634fdd48a`
+<ParamField path="app_banner" type="string" required>
+  The banner id. Example: `9e00dd90-d907-41ab-9584-151634fdd48a`
 </ParamField>
 
 ## Body
 
+<ParamField body="title" type="string">
+  Banner title (max 255 characters).
+</ParamField>
+
+<ParamField body="banner_image" type="string">
+  Banner image URL (max 255 characters).
+</ParamField>
+
 <ParamField body="url" type="string">
-  Example: `x.com`
+  Link the banner points to (max 255 characters).
 </ParamField>
 
 <RequestExample>

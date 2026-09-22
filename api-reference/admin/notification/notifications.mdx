@@ -3,36 +3,15 @@ title: "Notifications"
 api: "GET /console/notification"
 ---
 
-## Body
+## How it works
 
-<ParamField body="target" type="string">
-  Example: `all_users`
+Lists previously-sent notification bulletins, newest first, with per-bulletin delivery counts (`successful`, `failed`). Results come back as a Laravel paginator — see [Response envelope](/guides/responses). Requires the `notifications.manage` console ability.
+
+## Query parameters
+
+<ParamField query="per_page" type="integer">
+  Records per page. Defaults to `25`.
 </ParamField>
-
-<ParamField body="user" type="string">
-  
-</ParamField>
-
-<ParamField body="title" type="string">
-  Example: `Good people`
-</ParamField>
-
-<ParamField body="body" type="string">
-  Example: `Good morning Good people`
-</ParamField>
-
-<RequestExample>
-
-```json Request
-{
-  "target": "all_users",
-  "user": "",
-  "title": "Good people",
-  "body": "Good morning Good people"
-}
-```
-
-</RequestExample>
 
 <ResponseExample>
 

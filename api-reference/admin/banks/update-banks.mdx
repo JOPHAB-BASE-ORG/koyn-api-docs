@@ -1,26 +1,36 @@
 ---
 title: "Update Banks"
-api: "POST /console/banks/1"
+api: "POST /console/banks/{id}"
 ---
+
+## How it works
+
+Updates a bank's details and returns the updated record. Only the submitted fields change; uploading a `bank_logo` replaces the stored logo. Requires a staff bearer token with the `banks.manage` ability. Requests without it return `403`.
+
+## Path parameters
+
+<ParamField path="id" type="string" required>
+  Bank id. Example: `1`
+</ParamField>
 
 ## Body
 
 <Note>Send as `multipart/form-data`.</Note>
 
 <ParamField body="bank_name" type="string">
-   Example: `ABBEY MORTGAGE BANK`
+  Bank display name. Example: `ABBEY MORTGAGE BANK`
 </ParamField>
 
 <ParamField body="bank_code" type="string">
-   Example: `070010`
+  Bank transfer code. Example: `070010`
 </ParamField>
 
 <ParamField body="bank_logo" type="file">
-
+  Optional replacement logo image.
 </ParamField>
 
 <ParamField body="status" type="string">
-   Example: `active`
+  Bank status: `active` or `inactive`. Example: `active`
 </ParamField>
 
 <ResponseExample>

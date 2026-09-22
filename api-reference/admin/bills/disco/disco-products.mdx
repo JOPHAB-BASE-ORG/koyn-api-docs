@@ -3,6 +3,10 @@ title: "Disco Products"
 api: "GET /console/disco/products"
 ---
 
+## How it works
+
+Returns every disco (electricity) meter product KOYN supports, including inactive ones, as a plain array in `data`. Requires a staff bearer token with the `bills.read` ability; a request without it returns `403`. This list is not paginated. See [Response format](/guides/responses).
+
 <ResponseExample>
 
 ```json 200

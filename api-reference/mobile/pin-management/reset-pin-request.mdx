@@ -3,10 +3,14 @@ title: "Reset Pin Request"
 api: "POST /pin/reset-request"
 ---
 
+## How it works
+
+This starts the transaction PIN reset flow by emailing a one-time OTP to the authenticated user. The email you submit must match the email on the authenticated account. Requires a valid bearer token. Complete the reset with the `POST /pin/reset` endpoint.
+
 ## Body
 
-<ParamField body="email" type="string">
-  Example: `user@example.com`
+<ParamField body="email" type="string" required>
+  Email address of the authenticated account. Example: `user@example.com`
 </ParamField>
 
 <RequestExample>

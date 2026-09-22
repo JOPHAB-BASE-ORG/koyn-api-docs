@@ -3,6 +3,12 @@ title: "Get all brands"
 api: "GET /console/giftcards/brands"
 ---
 
+## How it works
+
+Returns every gift card brand, ordered by name. The list is paginated at 50 per page using the custom meta form (`data.data[]` with `total`, `per_page`, `current_page`, `total_pages` and no page URLs) — see [Responses and errors](/guides/responses).
+
+Requires a staff bearer token with the `giftcards.manage` ability. Requests without it return `403`.
+
 <ResponseExample>
 
 ```json 200

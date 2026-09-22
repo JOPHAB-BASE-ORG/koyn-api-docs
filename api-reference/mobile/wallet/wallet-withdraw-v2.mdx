@@ -3,18 +3,22 @@ title: "Wallet Withdraw V2"
 api: "POST /wallet/v2/withdraw"
 ---
 
+## How it works
+
+This is the two-factor version of the wallet withdrawal. Instead of a PIN, it takes a 6-digit `code` from your two-factor setup, tied to the `withdrawal` operation and the exact `amount` you are withdrawing; an invalid, mismatched or expired code returns `422` and the code is consumed on success. All the other withdrawal rules still apply: your account must be active and on a safe device (else `403`), your BVN verified, the amount at least ₦5,000 and within your daily tier limit, and no other withdrawal within the last 5 minutes.
+
 ## Body
 
-<ParamField body="amount" type="string">
-  Example: `2500`
+<ParamField body="amount" type="number" required>
+  Amount in naira. Minimum `5000`, capped by your balance and daily tier limit. Example: `2500`
 </ParamField>
 
-<ParamField body="pin" type="string">
-  Example: `0000`
+<ParamField body="code" type="string" required>
+  6-digit two-factor code generated for the `withdrawal` operation and this amount. Example: `123456`
 </ParamField>
 
-<ParamField body="bank_id" type="string">
-  Example: `4`
+<ParamField body="bank_id" type="number" required>
+  Id of one of your saved bank accounts to pay out to. Example: `4`
 </ParamField>
 
 <RequestExample>
@@ -22,7 +26,7 @@ api: "POST /wallet/v2/withdraw"
 ```json Request
 {
   "amount": "2500",
-  "pin": "0000",
+  "code": "123456",
   "bank_id": "4"
 }
 ```

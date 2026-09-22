@@ -3,41 +3,55 @@ title: "Step 5"
 api: "POST /register/step/step-5"
 ---
 
+## How it works
+
+Step 5 submits the full profile and creates the account. It re-validates the email, phone, and password together, creates the user and their wallet, and credits the signup bonus. A valid referral code, if supplied, is recorded and may award an additional bonus. On success the endpoint returns a Sanctum bearer token and the new user object, logging the user straight in. This step is protected by Turnstile, so a valid bot-protection token may be required.
+
 ## Body
 
-<Note>Send as `multipart/form-data`.</Note>
-
 <ParamField body="name" type="string">
-   Example: `David Logic`
+  Optional full name. Example: `David Logic`
 </ParamField>
 
-<ParamField body="email" type="string">
-   Example: `user@example.com`
+<ParamField body="email" type="string" required>
+  Email address. Must be unique and use an accepted domain. Example: `user@example.com`
 </ParamField>
 
-<ParamField body="username" type="string">
-   Example: `logicT22452`
+<ParamField body="phone" type="string" required>
+  Phone number. Exactly 11 digits and unique. Example: `08012345678`
 </ParamField>
 
-<ParamField body="phone" type="string">
-   Example: `08012345678`
-</ParamField>
-
-<ParamField body="password" type="string">
-   Example: `**********`
+<ParamField body="password" type="string" required>
+  Password. Minimum 8 characters, with upper and lower case letters and at least one number. Example: `**********`
 </ParamField>
 
 <ParamField body="heard_about_us" type="string">
-
+  Optional. How the user found Koyn. Maximum 255 characters.
 </ParamField>
 
-<ParamField body="avatar" type="file">
-
+<ParamField body="referral_code" type="string">
+  Optional referral code. Must be an active code if provided. Example: `LOGIC100`
 </ParamField>
 
-<ParamField body="influencer_code" type="string">
-   Example: `LOGIC100`
+<ParamField body="avatar" type="string">
+  Optional avatar URL.
 </ParamField>
+
+<RequestExample>
+
+```json Request
+{
+  "name": "David Logic",
+  "email": "user@example.com",
+  "phone": "08012345678",
+  "password": "**********",
+  "heard_about_us": "twitter",
+  "referral_code": "LOGIC100",
+  "avatar": "https://avatar.iran.liara.run/public/boy"
+}
+```
+
+</RequestExample>
 
 <ResponseExample>
 

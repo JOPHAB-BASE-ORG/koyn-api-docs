@@ -4,6 +4,10 @@ api: "POST /webhook/kyc"
 playground: "none"
 ---
 
+## How it works
+
+Dojah calls this route when an identity verification completes. The route is exempt from the client-version gate. For a BVN or NIN verification, Koyn acknowledges receipt and dispatches a queued face-match job that compares the submitted selfie against the government record and updates the user's KYC status and tier. Other verification types are acknowledged without further processing.
+
 ## Body
 
 <ParamField body="metadata" type="object">

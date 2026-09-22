@@ -3,6 +3,12 @@ title: "Delete User"
 api: "DELETE /console/users/{userId}/hard-delete"
 ---
 
+## How it works
+
+Permanently deletes a user account and wipes their personal data for GDPR/NDPR compliance: personal access tokens are revoked, every record keyed to the user is removed, and the user row is force-deleted. The action is logged to the admin activity log and cannot be undone. Only accounts of type `user` can be deleted; anything else returns `404`. A separate soft-delete route (`DELETE /console/users/{userId}`) marks the account deleted without wiping data.
+
+Requires a staff bearer token with the `users.manage` ability. Requests without it return `403`.
+
 ## Headers
 
 <ParamField header="Content-Type" type="string">

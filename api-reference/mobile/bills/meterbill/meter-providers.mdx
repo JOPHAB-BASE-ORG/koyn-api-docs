@@ -3,6 +3,8 @@ title: "Meter Providers"
 api: "GET /meter/providers"
 ---
 
+List the meter providers (discos). Each object's `name` is the value you pass as `product` to the verify and purchase endpoints. The `data` array is not paginated. See [Response envelope](/guides/responses) for the standard `{ success, message, data }` shape.
+
 <ResponseExample>
 
 ```json 200

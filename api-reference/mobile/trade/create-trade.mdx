@@ -3,52 +3,43 @@ title: "Create Trade"
 api: "POST /trades"
 ---
 
-This allows the creation of a new giftcard trade transaction with the provided parameters. It expects the following data to be submitted in the request body:
+<Warning>
+  This endpoint belongs to the retired gift card trade flow and is no longer served. Use the current gift card trade endpoint, `POST /giftcards/trades`, instead.
+</Warning>
 
-###### Body
+## How it works
 
-- `card_id` (integer): The ID of the card associated with the trade.
-- `value` (decimal): The value or amount of the trade.
-- image (file): The array of images for the trade
-- `payment_method` (optional, string): The selected payment method for the trade, such as
-    - **Allowed Values**: `NGN`, `USDT Address`
-- address: The USDT address to be credited if the selected payment method is USDT Address
-- `e_code` (optional, string): An additional code or identifier related to the trade, if applicable.
+You submit a gift card for sale against a legacy `giftcards` record. You must supply either an `e_code` or one or more `images` (each satisfies the other's `required_without` rule). The `payout_method` selects where the payout lands (naira wallet or USDT). On success the created trade is returned under a `trade` key.
 
 ## Body
 
 <Note>Send as `multipart/form-data`.</Note>
 
-<ParamField body="giftcard_id" type="string">
-   Example: `9bc0dd72-b1dd-4fc8-912e-4a1d236f10e3`
+<ParamField body="giftcard_id" type="integer" required>
+  The `id` of an existing `giftcards` record. Example: `12`
 </ParamField>
 
-<ParamField body="payout_method" type="string">
-   Example: `NGN`
+<ParamField body="amount" type="number" required>
+  Card value to sell. Between `5` and `5000`. Example: `10`
+</ParamField>
+
+<ParamField body="payout_method" type="string" required>
+  Where the payout is credited. One of `NGN`, `USDT`. Example: `NGN`
 </ParamField>
 
 <ParamField body="e_code" type="string">
-   Example: `ASD123`
-</ParamField>
-
-<ParamField body="amount" type="string">
-   Example: `10`
+  Gift card e-code. Required when no images are sent. Example: `ASD123`
 </ParamField>
 
 <ParamField body="images[]" type="file">
-
-</ParamField>
-
-<ParamField body="images[]" type="file">
-
+  Card image(s), each `jpeg`, `png`, or `jpg`, up to 20 MB. Required when no `e_code` is sent.
 </ParamField>
 
 <ResponseExample>
 
-```json 200
+```json 201
 {
-  "success": true,
-  "message": "Trade created successfully"
+  "trade": {}
 }
 ```
 

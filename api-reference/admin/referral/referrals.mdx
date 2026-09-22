@@ -3,15 +3,9 @@ title: "Referrals"
 api: "GET /console/referrals"
 ---
 
-## Query parameters
+## How it works
 
-<ParamField query="search" type="string">
-   Example: `xdfg`
-</ParamField>
-
-<ParamField query="active" type="string">
-   Example: `true`
-</ParamField>
+Returns the list of completed referrals, showing which user was referred and the reward attached to each. Results use the standard Laravel paginator (see [Response format](/guides/responses)). Requires the `referrals.read` console ability.
 
 <ResponseExample>
 

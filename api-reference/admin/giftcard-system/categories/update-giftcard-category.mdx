@@ -1,38 +1,52 @@
 ---
 title: "Update GiftCard Category"
-api: "PUT /console/giftcards/categories/{giftCardCategory}"
+api: "PUT /console/giftcards/categories/{giftcardCategoryV2}"
 ---
+
+## How it works
+
+Updates a gift card category. Every field is optional, so send only what you are changing. Fields go in the request body. If the resulting `max` would be below `min`, the request is rejected with `422`. Changing `position`, or moving the category to a different `brand_id`, renumbers the affected brands so positions stay contiguous.
+
+Requires a staff bearer token with the `giftcards.manage` ability. Requests without it return `403`.
 
 ## Path parameters
 
-<ParamField path="giftCardCategory" type="string" required>
-   Example: `1`
+<ParamField path="giftcardCategoryV2" type="integer" required>
+  Category ID. Example: `1`
 </ParamField>
 
-## Query parameters
+## Body
 
-<ParamField query="name" type="string">
-
+<ParamField body="brand_id" type="integer">
+  Move the category to another brand. Must reference an existing brand.
 </ParamField>
 
-<ParamField query="min" type="string">
-
+<ParamField body="name" type="string">
+  Category name. Max 255 characters.
 </ParamField>
 
-<ParamField query="max" type="string">
-
+<ParamField body="min" type="number">
+  Minimum face value. Must be `0` or greater.
 </ParamField>
 
-<ParamField query="rate" type="string">
-
+<ParamField body="max" type="number">
+  Maximum face value. Must be `0` or greater and not below `min`.
 </ParamField>
 
-<ParamField query="is_active" type="string">
-
+<ParamField body="rate" type="number">
+  Payout rate. Must be `0` or greater.
 </ParamField>
 
-<ParamField query="requires_receipt" type="string">
-   Example: `1`
+<ParamField body="position" type="integer">
+  1-based position within the brand's category list.
+</ParamField>
+
+<ParamField body="is_active" type="boolean">
+  Whether the category is shown to app users.
+</ParamField>
+
+<ParamField body="requires_receipt" type="boolean">
+  Whether users must attach a receipt image. Example: `1`
 </ParamField>
 
 <ResponseExample>
@@ -48,10 +62,19 @@ api: "PUT /console/giftcards/categories/{giftCardCategory}"
     "min": "20.00",
     "max": "99.00",
     "rate": "1300.0000",
+    "position": 1,
     "is_active": true,
     "requires_receipt": true,
     "created_at": "2026-02-20T02:57:14.000000Z",
-    "updated_at": "2026-02-20T02:58:47.000000Z"
+    "updated_at": "2026-02-20T02:58:47.000000Z",
+    "brand": {
+      "id": 1,
+      "name": "Apple iTunes",
+      "logo": "https://res.cloudinary.com/diyxzs220/image/upload/v1771555417/giftcards/brands/Apple-Store-iTunes-New_vn3hmx.png",
+      "is_active": true,
+      "created_at": "2026-02-20T02:43:37.000000Z",
+      "updated_at": "2026-02-20T02:50:56.000000Z"
+    }
   }
 }
 ```

@@ -3,20 +3,26 @@ title: "Withdrawals"
 api: "GET /console/users/{id}/withdrawals"
 ---
 
+## How it works
+
+Returns a user's wallet withdrawals, newest first, each with the settling staff member and any rejection reason. The list is a Laravel paginator (Form A: `data.data[]` with `current_page`, `last_page`, page URLs) — see [Responses and errors](/guides/responses).
+
+Requires a staff bearer token with the `users.read` or `users.manage` ability. Requests without either return `403`.
+
 ## Path parameters
 
 <ParamField path="id" type="string" required>
-   Example: `41`
+  User ID. Example: `41`
 </ParamField>
 
 ## Query parameters
 
 <ParamField query="search" type="string">
-   Example: `xdfg`
+  Matches withdrawal reference or account name. Example: `WW6052061714034102`
 </ParamField>
 
 <ParamField query="status" type="string">
-   Example: `successful`
+  Filter by withdrawal status, for example `successful` or `pending`. Example: `successful`
 </ParamField>
 
 <ResponseExample>

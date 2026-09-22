@@ -3,26 +3,34 @@ title: "Reconciliation create"
 api: "POST /console/reconciliations/create"
 ---
 
+## How it works
+
+Manually credits or debits a user's wallet to reconcile a discrepancy, records a reconciliation entry, and returns it with the resulting wallet transaction. The target must be a regular user, not an administrative account, and a debit cannot exceed the user's wallet balance. Requires a staff bearer token with the `reconciliations.manage` ability. Requests without it return `403`.
+
 ## Body
 
-<ParamField body="user_id" type="string">
-  Example: `62`
+<ParamField body="user_id" type="string" required>
+  Id of the user whose wallet is adjusted. Must be a non-administrative account. Example: `62`
 </ParamField>
 
-<ParamField body="entry" type="string">
-  Example: `debit`
+<ParamField body="amount" type="number" required>
+  Amount to credit or debit. A debit cannot exceed the user's wallet balance. Example: `1000`
 </ParamField>
 
-<ParamField body="reason" type="string">
-  Example: `Resolve failed withdraw`
+<ParamField body="entry" type="string" required>
+  Direction of the adjustment: `credit` or `debit`. Example: `debit`
 </ParamField>
 
-<ParamField body="amount" type="string">
-  Example: `1000`
+<ParamField body="reason" type="string" required>
+  Internal reason for the adjustment. Max 150 characters. Example: `Resolve failed withdraw`
 </ParamField>
 
-<ParamField body="narration" type="string">
-  Example: `hey fella money reversed`
+<ParamField body="narration" type="string" required>
+  Narration shown on the wallet transaction. Max 50 characters. Example: `hey fella money reversed`
+</ParamField>
+
+<ParamField body="transaction_id" type="string">
+  Optional id of an existing wallet transaction to link; it must belong to the same user.
 </ParamField>
 
 <RequestExample>

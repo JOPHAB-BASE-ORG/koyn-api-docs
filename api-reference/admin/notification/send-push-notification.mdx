@@ -3,21 +3,39 @@ title: "Send Push Notification"
 api: "POST /console/notification/targeted-emails"
 ---
 
+## How it works
+
+Sends a push notification to a specific list of users identified by email. The backend normalises the addresses (trimmed, lowercased, de-duplicated), records the notification, and queues delivery. Provide `schedule_at` to defer sending to a future time; otherwise it is queued immediately. Requires the `notifications.manage` console ability.
+
 ## Body
 
-<Note>Send as `multipart/form-data`.</Note>
-
-<ParamField body="emails[0]" type="string">
-   Example: `user@example.com`
+<ParamField body="emails" type="string[]" required>
+  User emails to notify. At least one; each must be a valid, distinct email.
 </ParamField>
 
-<ParamField body="title" type="string">
-   Example: `Test Notification`
+<ParamField body="title" type="string" required>
+  Notification title (max 150 characters).
 </ParamField>
 
-<ParamField body="body" type="string">
-   Example: `This is a test notification`
+<ParamField body="body" type="string" required>
+  Notification message (max 2000 characters).
 </ParamField>
+
+<ParamField body="schedule_at" type="string">
+  Optional future timestamp to schedule delivery. Must be now or later.
+</ParamField>
+
+<RequestExample>
+
+```json Request
+{
+  "emails": ["user@example.com"],
+  "title": "Test Notification",
+  "body": "This is a test notification"
+}
+```
+
+</RequestExample>
 
 <ResponseExample>
 

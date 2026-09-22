@@ -3,14 +3,18 @@ title: "Verify"
 api: "POST /two-factor/verify"
 ---
 
+## How it works
+
+This verifies a 6-digit two-factor code against the operation it was issued for. The code must match and still be unexpired for the authenticated user. Requires a valid bearer token. This endpoint returns a plain `{ message }` body rather than the standard response envelope, with `200` on success and `422` for an invalid or expired code.
+
 ## Body
 
-<ParamField body="operation" type="string">
-  Example: `withdrawal`
+<ParamField body="code" type="string" required>
+  The 6-digit code emailed to the user. Example: `123456`
 </ParamField>
 
-<ParamField body="code" type="string">
-  Example: `123456`
+<ParamField body="operation" type="string" required>
+  The operation the code was generated for. Example: `withdrawal`
 </ParamField>
 
 <RequestExample>
@@ -23,3 +27,19 @@ api: "POST /two-factor/verify"
 ```
 
 </RequestExample>
+
+<ResponseExample>
+
+```json 200
+{
+  "message": "Verification successful."
+}
+```
+
+```json 422 Error
+{
+  "message": "Invalid or expired verification code."
+}
+```
+
+</ResponseExample>

@@ -3,6 +3,10 @@ title: "User Accounts"
 api: "GET /bank/accounts"
 ---
 
+## How it works
+
+This returns the payout bank accounts you have saved, with `is_primary` marking your default. It reads your own accounts from the bearer token, so it takes no parameters. The response is a plain array under `data` with no pagination, and is empty when you have not added any accounts.
+
 ## Headers
 
 <ParamField header="X-Client-Version" type="string">

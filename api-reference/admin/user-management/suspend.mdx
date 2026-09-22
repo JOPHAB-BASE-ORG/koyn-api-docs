@@ -3,6 +3,12 @@ title: "Suspend"
 api: "POST /console/users/{userId}/suspend"
 ---
 
+## How it works
+
+Suspends a user account by setting its status to `inactive` and notifies the user by email. A suspended user cannot sign in until unsuspended. No request body is needed.
+
+Requires a staff bearer token with the `users.manage` ability. Requests without it return `403`.
+
 ## Path parameters
 
 <ParamField path="userId" type="string" required>

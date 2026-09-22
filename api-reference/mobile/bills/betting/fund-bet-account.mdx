@@ -3,22 +3,26 @@ title: "Fund Bet Account"
 api: "POST /betting/fund"
 ---
 
+## How it works
+
+This funds a betting account and debits your wallet (naira balance) for `amount` plus the betting service charge. The response records the `charge` and `total_amount` (`amount + charge`). Fetch the current fee from `GET /bills/service-charges` before you show the total. Your account must be active and unflagged, the request must come from a verified device, and the `bills` service switch must be on, or the request is rejected with `409`; it also fails when your balance cannot cover `amount + charge` or a matching top-up is already in flight.
+
 ## Body
 
-<ParamField body="product" type="string">
-  Example: `BET9JA`
+<ParamField body="product" type="string" required>
+  Betting product code, for example `BET9JA`. Must match an active provider.
 </ParamField>
 
-<ParamField body="customer_id" type="string">
-  Example: `3308882`
+<ParamField body="customer_id" type="string" required>
+  Betting account ID, digits only. Example: `3308882`
 </ParamField>
 
-<ParamField body="phone_number" type="string">
-  Example: `08012345678`
+<ParamField body="phone_number" type="string" required>
+  Account phone number. Example: `08012345678`
 </ParamField>
 
-<ParamField body="amount" type="integer">
-  Example: `100`
+<ParamField body="amount" type="number" required>
+  Amount in naira to fund. Your balance must cover this plus the service charge.
 </ParamField>
 
 <RequestExample>
@@ -49,9 +53,9 @@ api: "POST /betting/fund"
     "status": "successful",
     "narration": "BET9JA N200 bet fund",
     "amount": 200,
-    "charge": 0,
-    "total_amount": 0,
-    "wallet_balance": 49400,
+    "charge": 50,
+    "total_amount": 250,
+    "wallet_balance": 49350,
     "updated_at": "2024-05-14T14:02:23.000000Z",
     "created_at": "2024-05-14T14:02:23.000000Z",
     "id": 891,
@@ -61,7 +65,7 @@ api: "POST /betting/fund"
       "product": "BET9JA",
       "customer_id": "12345",
       "amount": "200",
-      "charge": "0.00",
+      "charge": "50.00",
       "profile": null,
       "reference": "BTG1A7OALJQQSZWVFZ",
       "status": "pending",

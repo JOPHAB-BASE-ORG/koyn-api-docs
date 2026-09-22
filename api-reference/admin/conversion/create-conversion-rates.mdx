@@ -3,36 +3,45 @@ title: "Create Conversion Rates"
 api: "POST /console/conversion-rate/create"
 ---
 
+## How it works
+
+Creates a new conversion rate band and returns the created record. The `range_start`/`range_end` pair must not duplicate an existing band. Requires a staff bearer token with the `crypto_rates.manage` ability. Requests without it return `403`.
+
 ## Body
 
-<ParamField body="range_start" type="string">
-  Example: `1000`
+<ParamField body="rate_range" type="string" required>
+  Human-readable label for the band. Example: `Below $50k`
 </ParamField>
 
-<ParamField body="range_end" type="string">
-  Example: `50000`
+<ParamField body="rate" type="number" required>
+  Naira rate applied to this band. Example: `1900`
 </ParamField>
 
-<ParamField body="rate_range" type="string">
-  Example: `Below $50k`
+<ParamField body="fee" type="number" required>
+  Percentage fee for this band, between `0` and `100`. Example: `1.5`
 </ParamField>
 
-<ParamField body="rate" type="string">
-  Example: `1900`
+<ParamField body="range_start" type="number" required>
+  Lower USD bound of the band. Example: `1000`
 </ParamField>
 
-<ParamField body="is_published" type="boolean">
-  Example: `true`
+<ParamField body="range_end" type="number" required>
+  Upper USD bound of the band. Must not overlap an existing band. Example: `50000`
+</ParamField>
+
+<ParamField body="is_published" type="boolean" required>
+  Whether the band is live. Example: `true`
 </ParamField>
 
 <RequestExample>
 
 ```json Request
 {
-  "range_start": "1000",
-  "range_end": "50000",
   "rate_range": "Below $50k",
   "rate": "1900",
+  "fee": "1.5",
+  "range_start": "1000",
+  "range_end": "50000",
   "is_published": true
 }
 ```

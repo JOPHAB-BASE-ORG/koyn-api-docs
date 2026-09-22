@@ -3,20 +3,14 @@ title: "Create Rejection"
 api: "POST /console/rejection-reasons"
 ---
 
-## Query parameters
+## How it works
 
-<ParamField query="search" type="string">
-   Example: `xdfg`
-</ParamField>
-
-<ParamField query="status" type="string">
-   Example: `successful`
-</ParamField>
+Saves a new rejection reason template. The reason is stored with type `withdrawal` so it is available when declining withdrawals. Requires the `rejection_templates.manage` console ability.
 
 ## Body
 
-<ParamField body="reason" type="string">
-  Example: `Hey fella thats wrong`
+<ParamField body="reason" type="string" required>
+  The rejection reason text staff can later reuse.
 </ParamField>
 
 <RequestExample>

@@ -3,6 +3,10 @@ title: "Conversion Rates"
 api: "GET /console/conversion-rate"
 ---
 
+## How it works
+
+Returns all crypto conversion rate bands as a plain array. Each band maps a USD value range (`range_start` to `range_end`) to a naira `rate` and carries an `is_published` flag. Requires a staff bearer token with the `crypto_rates.manage` ability. Requests without it return `403`.
+
 <ResponseExample>
 
 ```json 200

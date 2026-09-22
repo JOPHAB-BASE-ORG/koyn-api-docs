@@ -3,6 +3,36 @@ title: "Push Notification Logs"
 api: "GET /console/notification/logs"
 ---
 
+## How it works
+
+Lists per-recipient FCM delivery logs, newest first, so you can see which pushes succeeded, failed or were skipped and why. Apply the optional filters below to narrow the results. Results come back as a Laravel paginator — see [Response envelope](/guides/responses). Requires the `notifications.manage` console ability.
+
+## Query parameters
+
+<ParamField query="push_notification_id" type="integer">
+  Restrict to logs for a single bulletin. Must reference an existing notification.
+</ParamField>
+
+<ParamField query="status" type="string">
+  Delivery outcome. One of `success`, `failure`, `skipped`.
+</ParamField>
+
+<ParamField query="reason" type="string">
+  Filter by skip/failure reason (max 50 characters).
+</ParamField>
+
+<ParamField query="email" type="string">
+  Filter by recipient email.
+</ParamField>
+
+<ParamField query="user_id" type="integer">
+  Filter by recipient user. Must reference an existing user.
+</ParamField>
+
+<ParamField query="per_page" type="integer">
+  Records per page, between `1` and `200`. Defaults to `25`.
+</ParamField>
+
 <ResponseExample>
 
 ```json 200

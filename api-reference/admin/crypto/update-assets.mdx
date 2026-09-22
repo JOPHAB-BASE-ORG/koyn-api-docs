@@ -3,10 +3,14 @@ title: "Update Assets"
 api: "POST /console/crypto/{id}"
 ---
 
+## How it works
+
+Updates the given crypto asset and returns the updated record. Only the submitted fields change: use `status` to activate or deactivate the asset and `is_available` to toggle whether users can see it and create a wallet for it. Requires a staff bearer token with the `crypto_assets.manage` ability. Requests without it return `403`.
+
 ## Path parameters
 
 <ParamField path="id" type="string" required>
-   Example: `1`
+  Crypto asset id. Example: `1`
 </ParamField>
 
 ## Body
@@ -14,11 +18,15 @@ api: "POST /console/crypto/{id}"
 <Note>Send as `multipart/form-data`.</Note>
 
 <ParamField body="status" type="string">
-  active | inactive Example: `active`
+  Asset status: `active` or `inactive`. Example: `active`
+</ParamField>
+
+<ParamField body="is_available" type="boolean">
+  Availability toggle. When `true` the asset is visible to users and a wallet can be created for it (also requires `active` status and a v2 mapping). Example: `true`
 </ParamField>
 
 <ParamField body="logo" type="file">
-
+  Optional replacement logo image.
 </ParamField>
 
 <ResponseExample>

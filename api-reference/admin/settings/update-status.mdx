@@ -1,16 +1,26 @@
 ---
 title: "Update Status"
-api: "POST /console/settings/platform/1"
+api: "POST /console/settings/platform/{id}"
 ---
+
+## How it works
+
+Toggles a single platform feature switch (a `SystemStatus` row) and returns the updated row. Set `value` to turn the feature on or off and optionally attach a `message`. Requires a staff bearer token with the `settings.manage` ability. Requests without it return `403`.
+
+## Path parameters
+
+<ParamField path="id" type="string" required>
+  System status row id. Example: `1`
+</ParamField>
 
 ## Body
 
 <ParamField body="value" type="boolean">
-  Example: `false`
+  Whether the feature is on. Example: `false`
 </ParamField>
 
 <ParamField body="message" type="string">
-  
+  Optional message shown alongside the switch.
 </ParamField>
 
 <RequestExample>

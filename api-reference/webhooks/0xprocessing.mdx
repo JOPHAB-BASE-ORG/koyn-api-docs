@@ -4,6 +4,10 @@ api: "POST /webhook/xprocessing"
 playground: "none"
 ---
 
+## How it works
+
+0xProcessing calls this route to report the outcome of a crypto payment (the `Status` field, for example `Success`). The payload carries a `Signature` field the provider computes over the transaction. The route is exempt from the client-version gate. Koyn acknowledges receipt and hands the payload to a queued job that credits the matched user's deposit.
+
 ## Body
 
 <ParamField body="PaymentId" type="integer">

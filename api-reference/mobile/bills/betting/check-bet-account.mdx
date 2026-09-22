@@ -3,14 +3,18 @@ title: "Check Bet Account"
 api: "POST /betting/account/verify"
 ---
 
+## How it works
+
+This calls the provider to look up the betting account and returns its profile so you can confirm the holder before you fund. Show the returned name to the user before calling the fund endpoint. If the account cannot be found or the provider is unreachable, the request fails with `409`.
+
 ## Body
 
-<ParamField body="product" type="string">
-  Example: `BET9JA`
+<ParamField body="product" type="string" required>
+  Betting product code, for example `BET9JA`. Must match an active provider.
 </ParamField>
 
-<ParamField body="customer_id" type="string">
-  Example: `3308882`
+<ParamField body="customer_id" type="string" required>
+  Betting account ID, digits only. Example: `3308882`
 </ParamField>
 
 <RequestExample>

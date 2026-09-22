@@ -3,6 +3,10 @@ title: "Daily Closures"
 api: "GET /console/book-closures"
 ---
 
+## How it works
+
+Lists daily book-closure snapshots, each summarising a day's total credits, debits, charges, transaction count and net position. Results come back as a Laravel paginator, 25 per page — see [Response envelope](/guides/responses). Requires the `dashboard.read` console ability.
+
 <ResponseExample>
 
 ```json 200

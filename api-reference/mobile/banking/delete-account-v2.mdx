@@ -3,48 +3,20 @@ title: "Delete account V2"
 api: "DELETE /bank/v2/{bank}/delete"
 ---
 
-## Delete Bank Account
+## How it works
 
-Removes a bank account from the user's profile.
-
-**Method:** `DELETE`  
-**Path:** `{{domain}}/api/banks/:bankID`
-
-### Authentication
-Requires valid authentication token in the Authorization header.
-
-### Request Headers
-- `Authorization: Bearer {{token}}`
-
-### Path Variables
-- `bankID` - The unique identifier of the bank account to delete
-
-### Response Format
-```json
-{
-  "success": true,
-  "message": "Bank account deleted successfully",
-  "data": {
-    "deleted": true
-  }
-}
-```
-
-### Notes
-- Cannot delete primary bank account if other accounts exist
-- Set another account as primary before deleting the current primary
-- Deletion is permanent and cannot be undone
+This is the OTP-protected version of removing a saved payout bank account. Pass the account id in the path and a valid 6-digit `code` generated for the `delete_bank` operation; an invalid or expired code fails validation, and the code is consumed before the account is removed. It only deletes an account that belongs to you (`404` otherwise), returns `409` if removal fails, and returns `null` in `data` on success.
 
 ## Path parameters
 
-<ParamField path="bank" type="string" required>
-   Example: `556`
+<ParamField path="bank" type="number" required>
+  Id of your saved bank account to remove. Example: `556`
 </ParamField>
 
 ## Body
 
-<ParamField body="code" type="string">
-  Example: `123456`
+<ParamField body="code" type="string" required>
+  6-digit OTP generated for the `delete_bank` operation. Example: `123456`
 </ParamField>
 
 <RequestExample>
@@ -62,7 +34,7 @@ Requires valid authentication token in the Authorization header.
 ```json 200
 {
   "success": true,
-  "message": "Bank details updated successfully.",
+  "message": "Bank removed successfully.",
   "data": null
 }
 ```

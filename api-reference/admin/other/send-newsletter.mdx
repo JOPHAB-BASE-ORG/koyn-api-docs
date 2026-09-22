@@ -3,18 +3,48 @@ title: "Send Newsletter"
 api: "POST /console/notification/newsletter"
 ---
 
+## How it works
+
+Sends an email newsletter to an audience. The backend forwards your payload to the newsletter service, targeting the group in `target` (defaulting to `all_users` when omitted), and returns the submitted data in the envelope. Requires the `newsletter.send` console ability.
+
 ## Body
 
-<Note>Send as `multipart/form-data`.</Note>
-
-<ParamField body="body" type="string">
-
+<ParamField body="subject" type="string">
+  Newsletter subject line.
 </ParamField>
 
-<ParamField body="subject" type="string">
-   Example: `The Future of Crypto: What’s Next?`
+<ParamField body="body" type="string">
+  Newsletter content.
 </ParamField>
 
 <ParamField body="target" type="string">
-  all_users,active_users,inactive_users,recent_users,admin, Example: `admin`
+  Audience to send to. Defaults to `all_users`. Examples: `all_users`, `active_users`, `inactive_users`, `recent_users`, `admin`.
 </ParamField>
+
+<RequestExample>
+
+```json Request
+{
+  "subject": "The Future of Crypto: What's Next?",
+  "body": "<p>Newsletter content</p>",
+  "target": "all_users"
+}
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json 200
+{
+  "success": true,
+  "message": "Successfully sent newsletter",
+  "data": {
+    "subject": "The Future of Crypto: What's Next?",
+    "body": "<p>Newsletter content</p>",
+    "target": "all_users"
+  }
+}
+```
+
+</ResponseExample>

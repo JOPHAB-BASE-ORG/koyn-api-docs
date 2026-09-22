@@ -1,19 +1,28 @@
 ---
 title: "Redbiller withdraw status"
-api: "POST /console/redbiller/bank-status"
+api: "POST /console/bank-status"
 ---
+
+## How it works
+
+Looks up a transaction's live status at the provider that actually processed it. Koyn finds the local transaction by reference, determines the provider (for example Nomba or Redbiller), queries that provider, and returns a normalised comparison of the local status against the provider's status. The response includes `provider`, `local_status`, `provider_status`, `in_sync`, `checked_at` and the matched `transaction`. Requires the `transactions.verify` console ability.
 
 ## Body
 
-<ParamField body="reference" type="string">
-  Example: `WW2T445UTM23DVB8FL`
+<ParamField body="reference" type="string" required>
+  The Koyn transaction reference to look up. Example: `WW2T445UTM23DVB8FL`
+</ParamField>
+
+<ParamField body="type" type="string" required>
+  Transaction type. One of `transfer`, `bank`, `airtime`, `data`, `wifi`, `cable`, `disco`, `betting`.
 </ParamField>
 
 <RequestExample>
 
 ```json Request
 {
-  "reference": "WW2T445UTM23DVB8FL"
+  "reference": "WW2T445UTM23DVB8FL",
+  "type": "transfer"
 }
 ```
 

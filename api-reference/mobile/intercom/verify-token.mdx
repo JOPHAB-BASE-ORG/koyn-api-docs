@@ -3,10 +3,37 @@ title: "Verify Token"
 api: "POST /intercom/verify-token"
 ---
 
+## How it works
+
+You verify a previously issued Intercom JWT. When the token is valid and unexpired, the decoded claims are returned; an invalid or expired token responds with a 401. This endpoint only reads the token and has no side effects.
+
 ## Body
 
-<Note>Send as `multipart/form-data`.</Note>
-
-<ParamField body="token" type="string">
-
+<ParamField body="token" type="string" required>
+  The Intercom JWT to verify. Example: `************`
 </ParamField>
+
+<ResponseExample>
+
+```json 200
+{
+  "success": true,
+  "message": "Token is valid",
+  "data": {
+    "user_id": 5,
+    "email": "user@example.com",
+    "name": "Sanusi Mubaraq",
+    "platform": "web",
+    "expires_at": 1698236199
+  }
+}
+```
+
+```json 401 Invalid token
+{
+  "success": false,
+  "message": "Token verification failed: Expired token"
+}
+```
+
+</ResponseExample>

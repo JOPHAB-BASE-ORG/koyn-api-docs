@@ -3,18 +3,22 @@ title: "Flag"
 api: "POST /console/users/{userId}/flag"
 ---
 
+## How it works
+
+Flags a user account for manual review, storing the optional `reason` on the record. The response returns the refreshed user with `is_flagged` set to `true` and `flag_reason` populated.
+
+Requires a staff bearer token with the `users.manage` ability. Requests without it return `403`.
+
 ## Path parameters
 
 <ParamField path="userId" type="string" required>
-   Example: `5`
+  User ID. Example: `5`
 </ParamField>
 
 ## Body
 
-<Note>Send as `multipart/form-data`.</Note>
-
 <ParamField body="reason" type="string">
-   Example: `fraud monitoring`
+  Why the account is being flagged. Optional. Example: `fraud monitoring`
 </ParamField>
 
 <ResponseExample>

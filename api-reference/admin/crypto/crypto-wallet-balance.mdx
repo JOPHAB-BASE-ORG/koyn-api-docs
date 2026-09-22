@@ -3,6 +3,10 @@ title: "Crypto Wallet balance"
 api: "GET /console/crypto/wallet/balance"
 ---
 
+## How it works
+
+Returns the platform crypto wallet balance held at the custody provider (Vaultody). Requires a staff bearer token with the `crypto_treasury.manage` ability. Requests without it return `403`.
+
 <ResponseExample>
 
 ```json 200

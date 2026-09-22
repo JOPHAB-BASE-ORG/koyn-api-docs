@@ -3,33 +3,31 @@ title: "Send Feedback"
 api: "POST /feedback"
 ---
 
-## Headers
+## How it works
 
-<ParamField header="X-Client-Version" type="string">
-Example: `2.0.0`
-</ParamField>
+You send a support message, which is queued as an email to the support inbox. This endpoint is public (no authentication) and does not validate the body, so it forwards whatever fields you submit. Send at least a subject and body, and an email so support can reply.
 
 ## Body
-
-<Note>Send as `multipart/form-data`.</Note>
 
 <ParamField body="subject" type="string">
    Example: `Sample Subject`
 </ParamField>
 
 <ParamField body="body" type="string">
-   Example: `Hi, Just wanna say hi. Bye`
+   Example: `Hi, just wanted to report an issue.`
 </ParamField>
 
 <ParamField body="email" type="string">
-   Example: `user@example.com`
+   Reply-to email address. Example: `user@example.com`
 </ParamField>
 
 <ResponseExample>
 
 ```json 200
 {
-  "message": "Successfully sent your message"
+  "success": true,
+  "message": "Successfully sent your message",
+  "data": []
 }
 ```
 

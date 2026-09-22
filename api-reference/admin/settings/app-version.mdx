@@ -3,42 +3,26 @@ title: "App version"
 api: "GET /console/settings/app-version"
 ---
 
-## Body
+## How it works
 
-<Note>Send as `multipart/form-data`.</Note>
-
-<ParamField body="bank_name" type="string">
-   Example: `ABBEY MORTGAGE BANK`
-</ParamField>
-
-<ParamField body="bank_code" type="string">
-   Example: `070010`
-</ParamField>
-
-<ParamField body="bank_logo" type="file">
-
-</ParamField>
-
-<ParamField body="status" type="string">
-   Example: `active`
-</ParamField>
+Returns the recorded mobile app versions. The mobile app compares its build against these to decide whether to prompt or force an update. Requires a staff bearer token with the `settings.manage` ability. Requests without it return `403`.
 
 <ResponseExample>
 
 ```json 200
 {
   "success": true,
-  "message": "bank successfully updated",
-  "data": {
-    "id": 1,
-    "bank_name": "ABBEY MORTGAGE BANK",
-    "bank_code": "070010",
-    "monnify_bank_code": "070010",
-    "bank_logo": "https://res.cloudinary.com/diyxzs220/image/upload/v1719466139/banks/phpgKxVke_tyo2lu.png",
-    "created_at": "2020-06-28T21:29:12.000000Z",
-    "updated_at": "2024-06-27T05:28:59.000000Z",
-    "status": "active"
-  }
+  "message": "Minimum app version",
+  "data": [
+    {
+      "id": 2,
+      "version_number": "1.0",
+      "release_date": "2024-06-01",
+      "message": "Good people version",
+      "created_at": "2024-06-27T05:57:08.000000Z",
+      "updated_at": "2024-06-27T05:57:08.000000Z"
+    }
+  ]
 }
 ```
 

@@ -3,14 +3,20 @@ title: "Get All Brand Category"
 api: "GET /console/giftcards/categories"
 ---
 
+## How it works
+
+Returns gift card categories with their parent brand, ordered by brand then position. Pass `brand_id` to list only one brand's categories. The list is paginated at 50 per page using the custom meta form (`data.data[]` with `total`, `per_page`, `current_page`, `total_pages` and no page URLs) — see [Responses and errors](/guides/responses).
+
+Requires a staff bearer token with the `giftcards.manage` ability. Requests without it return `403`.
+
 ## Query parameters
 
-<ParamField query="brand_id" type="string">
-  Brand Id Example: `1`
+<ParamField query="brand_id" type="integer">
+  Filter to a single brand's categories. Example: `1`
 </ParamField>
 
-<ParamField query="page" type="string">
-  optional
+<ParamField query="page" type="integer">
+  Page number. Defaults to `1`.
 </ParamField>
 
 <ResponseExample>
@@ -28,6 +34,7 @@ api: "GET /console/giftcards/categories"
         "min": "20.00",
         "max": "99.00",
         "rate": "1300.0000",
+        "position": 1,
         "is_active": true,
         "requires_receipt": false,
         "created_at": "2026-02-20T02:57:14.000000Z",

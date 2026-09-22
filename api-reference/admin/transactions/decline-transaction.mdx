@@ -1,27 +1,38 @@
 ---
-title: "Decline Transaction"
-api: "POST /trades/decline/352"
+title: "Reject Trade"
+api: "POST /console/giftcards/trades/{id}/reject"
 ---
+
+## How it works
+
+Rejects a pending or processing gift card trade, marks it `rejected`, and reverses the associated wallet transaction. A trade that is already processed returns `409`. Requires a staff bearer token with the `giftcards.manage` ability. Requests without it return `403`.
+
+## Path parameters
+
+<ParamField path="id" type="string" required>
+  Gift card trade id. Example: `352`
+</ParamField>
 
 ## Body
 
-<Note>Send as `multipart/form-data`.</Note>
-
-<ParamField body="reason" type="string">
-   Example: `1`
-</ParamField>
-
-<ParamField body="img" type="file">
-
+<ParamField body="admin_comments" type="string">
+  Optional rejection note. Max 2000 characters. Defaults to `Rejected.` when omitted. Example: `Card already redeemed`
 </ParamField>
 
 <ResponseExample>
 
 ```json 200
 {
-  "status": "Success",
-  "message": "Transaction declined Successfully!",
-  "data": []
+  "success": true,
+  "message": "Giftcard trade rejected",
+  "data": {
+    "id": 352,
+    "status": "rejected",
+    "approved_by": null,
+    "rejected_by": 39,
+    "admin_comments": "Card already redeemed",
+    "reviewed_at": "2025-01-16T15:24:02.000000Z"
+  }
 }
 ```
 

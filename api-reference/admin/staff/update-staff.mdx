@@ -3,24 +3,28 @@ title: "Update Staff"
 api: "PATCH /console/staffs/{user}"
 ---
 
+## How it works
+
+Updates a staff account's name, email and console role, then returns the refreshed record. The email must stay unique across accounts, and the role must be one of the assignable console roles. This endpoint does not change the account password. Requires the `staffs.manage` console ability.
+
 ## Path parameters
 
 <ParamField path="user" type="string" required>
-   Example: `9cb349fa-9d47-41f8-9cd4-ae30170f91c4`
+  The staff account's id.
 </ParamField>
 
 ## Body
 
-<ParamField body="name" type="string">
-  Example: `Sunny Sunny`
+<ParamField body="name" type="string" required>
+  Staff member's full name (max 200 characters).
 </ParamField>
 
-<ParamField body="email" type="string">
-  Example: `user@example.com`
+<ParamField body="email" type="string" required>
+  Login email. Must be unique across accounts.
 </ParamField>
 
-<ParamField body="role" type="string">
-  Example: `announcer`
+<ParamField body="role" type="string" required>
+  Console role. One of `accountant`, `announcer`, `marketer`, `support`, `cs_support`.
 </ParamField>
 
 <RequestExample>

@@ -1,199 +1,103 @@
 ---
-title: "Get All Transactions"
-api: "GET /trades"
+title: "Get All Trades"
+api: "GET /console/giftcards/trades"
 ---
 
-##### Status
+## How it works
 
-pending, rejected, success
+Returns gift card trades, newest first, with each trade's `user`, `brand`, `category`, and reviewer relations embedded. The `data` object uses the custom pagination form (`data`, `total`, `per_page`, `current_page`, `total_pages`), not the Laravel paginator. See [Response envelope](/guides/responses). Requires a staff bearer token with the `giftcards.read` ability. Requests without it return `403`.
 
 ## Query parameters
 
 <ParamField query="status" type="string">
-   Example: `successful`
+  Filter by trade status. Example: `pending`
 </ParamField>
 
-<ParamField query="email" type="string">
-   Example: `user@example.com`
+<ParamField query="search" type="string">
+  Match by trade id, code, reference, or the user's name or email. Max 255 characters. Example: `user@example.com`
 </ParamField>
 
-<ParamField query="reference" type="string">
-   Example: `2941731657875100`
+<ParamField query="brand_id" type="integer">
+  Filter by gift card brand. Example: `4`
+</ParamField>
+
+<ParamField query="category_id" type="integer">
+  Filter by gift card category. Example: `12`
+</ParamField>
+
+<ParamField query="date_from" type="string">
+  Include trades created on or after this date. Example: `2025-01-01`
+</ParamField>
+
+<ParamField query="date_to" type="string">
+  Include trades created on or before this date. Must be on or after `date_from`. Example: `2025-01-31`
+</ParamField>
+
+<ParamField query="has_code" type="boolean">
+  Filter to trades that have (or lack) a code. Example: `true`
+</ParamField>
+
+<ParamField query="has_images" type="boolean">
+  Filter to trades that have (or lack) uploaded images. Example: `true`
+</ParamField>
+
+<ParamField query="page" type="integer">
+  Page number, starting at `1`. Example: `1`
+</ParamField>
+
+<ParamField query="limit" type="integer">
+  Results per page, between `1` and `200` (default `50`). Example: `50`
 </ParamField>
 
 <ResponseExample>
 
 ```json 200
 {
-  "status": "Success",
-  "message": null,
+  "success": true,
+  "message": "Giftcard trades",
   "data": {
-    "current_page": 1,
     "data": [
       {
-        "transaction_ref": "2864021660658765",
-        "status": 1,
-        "value": 10,
-        "e_code": "AWE123",
-        "rate": 150,
-        "images": null,
-        "rejection_reason": null,
-        "created_at": "2022-08-16T14:06:05.000000Z",
-        "card_id": 137,
-        "customer_id": 1908,
         "id": 355,
-        "attachment": null,
-        "settled_by": "Super Admin",
-        "views": [
-          {
-            "id": 3,
-            "trade_id": 355,
-            "admin_id": 117,
-            "created_at": "2023-10-02T14:43:32.000000Z",
-            "updated_at": "2023-10-02T14:43:32.000000Z",
-            "admin": {
-              "id": 117,
-              "name": "Admin",
-              "username": "Admin",
-              "email": "user@example.com",
-              "phone": "08012345678",
-              "status": "active",
-              "device_token": null,
-              "created_at": "2021-11-06T20:17:49.000000Z",
-              "last_login": "2022-01-12 19:07:23",
-              "verification_status": "unverified",
-              "profile_img": null,
-              "country_id": "N/A",
-              "credit": 0,
-              "debit": 0,
-              "balance": 0,
-              "suspension_reason": null,
-              "suspension_ends_at": null,
-              "suspension_starts_at": null,
-              "total_transactions": 0,
-              "total_withdrawals": 0,
-              "last_traded": null
-            }
-          }
-        ],
-        "customer": {
+        "reference": "GT2864021660658765",
+        "user_id": 1908,
+        "brand_id": 4,
+        "category_id": 12,
+        "wallet_transaction_id": null,
+        "amount": 100,
+        "rate": 1500,
+        "code": "************",
+        "images": [],
+        "meta": null,
+        "source": "app",
+        "status": "pending",
+        "vendor": null,
+        "approved_by": null,
+        "rejected_by": null,
+        "admin_comments": null,
+        "reviewed_at": null,
+        "created_at": "2025-01-16T14:06:05.000000Z",
+        "updated_at": "2025-01-16T14:06:05.000000Z",
+        "user": {
           "id": 1908,
           "name": "Sanusi",
-          "username": "Mubaraq",
-          "email": "user@example.com",
-          "phone": "08012345678",
-          "status": "active",
-          "device_token": "************",
-          "created_at": "2022-03-01T05:52:08.000000Z",
-          "last_login": null,
-          "verification_status": "verified",
-          "profile_img": null,
-          "country_id": "N/A",
-          "credit": 42600,
-          "debit": 95800,
-          "balance": 106300,
-          "suspension_reason": null,
-          "suspension_ends_at": null,
-          "suspension_starts_at": null,
-          "total_transactions": 2,
-          "total_withdrawals": 3000,
-          "last_traded": "2023-09-27T11:24:26.000000Z"
+          "username": "mubaraq",
+          "email": "user@example.com"
         },
-        "card": {
-          "id": 137,
-          "category_id": 13,
-          "name": "CANADA (Front&Back Pics) 50 -99",
-          "slug": "canada-100-to-500",
-          "terms": "Vanilla\r\n-We only accept card starting with the following four codes.\r\n4263/5338/5339/5336/4263\r\n-Upload the full front and back picture. \r\n-The wait time for this trade is two hours\r\n- Each card must be $100  and Above",
-          "status": "active",
-          "top_card": null,
-          "created_at": "2021-12-13T18:28:25.000000Z",
-          "updated_at": "2022-04-24T09:10:43.000000Z",
-          "rate": 150,
-          "min": 50,
-          "deleted_at": null,
-          "position": 0
-        }
-      },
-      {
-        "transaction_ref": "2738171657835012",
-        "status": 1,
-        "value": 300,
-        "e_code": "",
-        "rate": 300,
-        "images": [
-          "https://res.cloudinary.com/traydah/image/upload/v1657835012/trade-img/seizrirpausfvtl661ti.jpg"
-        ],
-        "rejection_reason": null,
-        "created_at": "2022-07-14T22:43:33.000000Z",
-        "card_id": 21,
-        "customer_id": 1908,
-        "id": 351,
-        "attachment": null,
-        "settled_by": "Super Admin",
-        "views": [],
-        "customer": {
-          "id": 1908,
-          "name": "Sanusi",
-          "username": "Mubaraq",
-          "email": "user@example.com",
-          "phone": "08012345678",
-          "status": "active",
-          "device_token": "************",
-          "created_at": "2022-03-01T05:52:08.000000Z",
-          "last_login": null,
-          "verification_status": "verified",
-          "profile_img": null,
-          "country_id": "N/A",
-          "credit": 42600,
-          "debit": 95800,
-          "balance": 106300,
-          "suspension_reason": null,
-          "suspension_ends_at": null,
-          "suspension_starts_at": null,
-          "total_transactions": 2,
-          "total_withdrawals": 3000,
-          "last_traded": "2023-09-27T11:24:26.000000Z"
+        "brand": {
+          "id": 4,
+          "name": "Amazon"
         },
-        "card": {
-          "id": 21,
-          "category_id": 2,
-          "name": "USA (Card Pics) $300 to $499",
-          "slug": "google-uk",
-          "terms": null,
-          "status": "active",
-          "top_card": null,
-          "created_at": "2021-11-15T20:49:04.000000Z",
-          "updated_at": "2022-07-14T18:27:28.000000Z",
-          "rate": 255,
-          "min": 300,
-          "deleted_at": null,
-          "position": 0
+        "category": {
+          "id": 12,
+          "name": "USA (Card Pics)"
         }
       }
     ],
-    "first_page_url": "https://traydah.test/api/trades?page=1",
-    "from": 1,
-    "last_page": 5,
-    "last_page_url": "https://traydah.test/api/trades?page=5",
-    "links": [
-      {
-        "url": null,
-        "label": "pagination.previous",
-        "active": false
-      },
-      {
-        "url": "https://traydah.test/api/trades?page=1",
-        "label": 1,
-        "active": true
-      }
-    ],
-    "next_page_url": "https://traydah.test/api/trades?page=2",
-    "path": "https://traydah.test/api/trades",
-    "per_page": 25,
-    "prev_page_url": null,
-    "to": 25,
-    "total": 116
+    "total": 116,
+    "per_page": 50,
+    "current_page": 1,
+    "total_pages": 3
   }
 }
 ```

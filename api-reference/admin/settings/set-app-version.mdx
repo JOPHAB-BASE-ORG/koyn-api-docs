@@ -3,18 +3,22 @@ title: "Set App version"
 api: "POST /console/settings/app-version"
 ---
 
+## How it works
+
+Records a new mobile app version entry and returns it. Requires a staff bearer token with the `settings.manage` ability. Requests without it return `403`.
+
 ## Body
 
 <ParamField body="version_number" type="string">
-  Example: `1.0`
+  App version number. Example: `1.0`
 </ParamField>
 
 <ParamField body="release_date" type="string">
-  Example: `2024-06-01`
+  Release date. Example: `2024-06-01`
 </ParamField>
 
 <ParamField body="message" type="string">
-  Example: `Good people version`
+  Update message shown to users. Example: `Good people version`
 </ParamField>
 
 <RequestExample>

@@ -3,14 +3,18 @@ title: "Create Pin"
 api: "POST /pin/create"
 ---
 
+## How it works
+
+This sets the authenticated user's 4-digit transaction PIN, used to authorise sensitive actions and PIN login. The PIN must be confirmed, is stored hashed, and creating it completes the related onboarding task. Requires a valid bearer token.
+
 ## Body
 
-<ParamField body="pin" type="string">
-  Example: `0000`
+<ParamField body="pin" type="string" required>
+  4-digit PIN. Example: `0000`
 </ParamField>
 
-<ParamField body="pin_confirmation" type="string">
-  Example: `0000`
+<ParamField body="pin_confirmation" type="string" required>
+  Must match `pin`. Example: `0000`
 </ParamField>
 
 <RequestExample>

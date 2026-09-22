@@ -4,6 +4,14 @@ api: "POST /webhook/cryptoapis"
 playground: "none"
 ---
 
+<Warning>
+  This integration has been removed. The `webhook/cryptoapis` route is no longer registered and the handler now responds with `410 Gone`. Crypto deposit detection has moved to [Vaultody](/api-reference/webhooks/vaultody). This page is kept only to document the historical payload.
+</Warning>
+
+## How it works
+
+CryptoAPIs previously called this route to report confirmed on-chain deposits, which Koyn matched to a user and credited. It has been superseded by Vaultody and no longer processes events.
+
 ## Body
 
 <ParamField body="data" type="object">

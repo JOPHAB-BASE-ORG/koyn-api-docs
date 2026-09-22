@@ -3,10 +3,14 @@ title: "Login  pin"
 api: "POST /login/pin"
 ---
 
+## How it works
+
+Once you hold a valid bearer token, you can re-authenticate with your 4-digit transaction PIN instead of your full password. This endpoint requires an authenticated session and confirms the PIN against the stored hash. On success it returns the current user object. You must have already set a transaction PIN before you can log in with it.
+
 ## Body
 
-<ParamField body="pin" type="string">
-  Example: `0000`
+<ParamField body="pin" type="string" required>
+  4-digit transaction PIN. Example: `0000`
 </ParamField>
 
 <RequestExample>

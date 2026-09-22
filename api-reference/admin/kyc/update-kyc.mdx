@@ -3,24 +3,28 @@ title: "Update KYC"
 api: "PUT /console/kycs/{id}"
 ---
 
+## How it works
+
+Updates a KYC record's status, then recomputes and applies the user's KYC tier based on the new status. Requires the `kycs.manage` console ability.
+
 ## Path parameters
 
 <ParamField path="id" type="string" required>
-   Example: `1`
+  The KYC record's id.
 </ParamField>
 
 ## Body
 
-<ParamField body="user_id" type="integer">
-  Example: `1`
+<ParamField body="user_id" type="integer" required>
+  The id of the user the KYC record belongs to. Must exist.
 </ParamField>
 
-<ParamField body="verification_type" type="string">
-  Example: `bvn`
+<ParamField body="verification_type" type="string" required>
+  One of `bvn`, `nin`.
 </ParamField>
 
-<ParamField body="status" type="string">
-  Example: `pending`
+<ParamField body="status" type="string" required>
+  New verification status. One of `pending`, `processing`, `processed`, `successful`, `completed`, `abandoned`, `rejected`.
 </ParamField>
 
 <RequestExample>

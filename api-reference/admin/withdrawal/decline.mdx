@@ -3,20 +3,24 @@ title: "Decline"
 api: "POST /console/withdrawals/decline/{id}"
 ---
 
+## How it works
+
+Declines a withdrawal, reverses it, and credits the amount back to the user's wallet, then notifies the user. The reversal is idempotent, so a withdrawal cannot be reversed twice. Requires the `withdrawals.manage` console ability.
+
 ## Path parameters
 
 <ParamField path="id" type="string" required>
-   Example: `47227`
+  The withdrawal's id.
 </ParamField>
 
 ## Body
 
-<ParamField body="reason" type="integer">
-  Example: `4`
+<ParamField body="reason" type="string | integer" required>
+  The rejection reason. Pass an existing rejection-reason id, or free text — free text is stored as a new withdrawal rejection reason.
 </ParamField>
 
-<ParamField body="override" type="integer">
-  Example: `1`
+<ParamField body="override" type="boolean">
+  When true, bypasses the manual-channel and pending-status guards. Defaults to false.
 </ParamField>
 
 <RequestExample>

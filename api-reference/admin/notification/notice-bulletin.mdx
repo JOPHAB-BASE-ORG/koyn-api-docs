@@ -3,22 +3,26 @@ title: "Notice Bulletin"
 api: "POST /console/notification/bulletin"
 ---
 
+## How it works
+
+Sends a push-notification bulletin to a group of app users. The backend records the bulletin, resolves the audience from `target`, then dispatches delivery to that group asynchronously, so the response returns before the pushes are sent. Requires the `notifications.manage` console ability.
+
 ## Body
 
-<ParamField body="target" type="string">
-  Example: `all_users`
+<ParamField body="target" type="string" required>
+  Audience to notify. One of `all_users`, `active_users`, `inactive_users`, `recent_users`, `specific_user`.
 </ParamField>
 
 <ParamField body="user" type="string">
-  
+  Target user's identifier. Required when `target` is `specific_user`; ignored otherwise.
 </ParamField>
 
-<ParamField body="title" type="string">
-  Example: `Good people`
+<ParamField body="title" type="string" required>
+  Notification title (max 150 characters).
 </ParamField>
 
-<ParamField body="body" type="string">
-  Example: `Good morning Good people`
+<ParamField body="body" type="string" required>
+  Notification message (max 2000 characters).
 </ParamField>
 
 <RequestExample>

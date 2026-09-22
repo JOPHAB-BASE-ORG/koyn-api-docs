@@ -3,16 +3,20 @@ title: "Set Primary Account"
 api: "POST /bank/{bank}/edit"
 ---
 
+## How it works
+
+This makes one of your saved bank accounts your primary payout account. The account to promote is taken from the `account_id` in the body, and the previous primary is unset in the same step. It fails validation if that account is not yours or is already your primary. Note that the `{bank}` path segment is required by the route but ignored — selection is driven by `account_id`.
+
 ## Path parameters
 
-<ParamField path="bank" type="string" required>
-   Example: `553`
+<ParamField path="bank" type="number" required>
+  Required by the route but not used; selection uses the `account_id` body field. Example: `553`
 </ParamField>
 
 ## Body
 
-<ParamField body="account_id" type="string">
-  Example: `558`
+<ParamField body="account_id" type="number" required>
+  Id of your saved bank account to set as primary. Example: `558`
 </ParamField>
 
 <RequestExample>

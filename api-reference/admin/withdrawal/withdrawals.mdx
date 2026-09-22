@@ -3,46 +3,9 @@ title: "Withdrawals"
 api: "GET /console/withdrawals"
 ---
 
-## Query parameters
+## How it works
 
-<ParamField query="search" type="string">
-   Example: `xdfg`
-</ParamField>
-
-<ParamField query="status" type="string">
-   Example: `successful`
-</ParamField>
-
-## Body
-
-<ParamField body="target" type="string">
-  Example: `all_users`
-</ParamField>
-
-<ParamField body="user" type="string">
-  
-</ParamField>
-
-<ParamField body="title" type="string">
-  Example: `Good people`
-</ParamField>
-
-<ParamField body="body" type="string">
-  Example: `Good morning Good people`
-</ParamField>
-
-<RequestExample>
-
-```json Request
-{
-  "target": "all_users",
-  "user": "",
-  "title": "Good people",
-  "body": "Good morning Good people"
-}
-```
-
-</RequestExample>
+Returns withdrawal (payout) requests as a Laravel paginator, with each record's `user` embedded and an `overview` object summarising counts by status (successful, pending, rejected). See [Responses](/guides/responses) for the paginator shape. Requires the `withdrawals.read` console ability.
 
 <ResponseExample>
 

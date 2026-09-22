@@ -3,10 +3,14 @@ title: "Delete user"
 api: "DELETE /user"
 ---
 
+## How it works
+
+You soft-delete the authenticated user's account after confirming their transaction PIN. The account cannot be deleted while the wallet balance is above 100 naira, so withdraw first. On success the user's access tokens are revoked, the account is soft-deleted, and a confirmation email is sent.
+
 ## Body
 
-<ParamField body="pin" type="string">
-  Example: `0000`
+<ParamField body="pin" type="string" required>
+  The user's 4-digit transaction PIN. Example: `0000`
 </ParamField>
 
 <RequestExample>

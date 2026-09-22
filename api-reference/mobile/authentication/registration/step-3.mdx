@@ -3,10 +3,14 @@ title: "Step 3"
 api: "POST /register/step/step-3"
 ---
 
+## How it works
+
+Step 3 validates the phone number. It must be exactly 11 digits and unique across accounts. This step is protected by Turnstile, so a valid bot-protection token may be required. The value is echoed back so the client can carry it into the final step.
+
 ## Body
 
-<ParamField body="phone" type="string">
-  Example: `08012345678`
+<ParamField body="phone" type="string" required>
+  Phone number. Exactly 11 digits and unique. Example: `08012345678`
 </ParamField>
 
 <RequestExample>

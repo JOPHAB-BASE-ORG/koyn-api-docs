@@ -1,12 +1,16 @@
 ---
 title: "Swap Details"
-api: "GET /crypto/swap/{id}/details"
+api: "GET /crypto/swap/{swapId}/details"
 ---
+
+## How it works
+
+This returns one of your own swap transactions by its id, including status, pay-in and payout addresses, expected amounts and the tracking URL. You can only read a swap that belongs to you; an id that is unknown or owned by another user returns `404`.
 
 ## Path parameters
 
-<ParamField path="id" type="string" required>
-   Example: `5`
+<ParamField path="swapId" type="string" required>
+  The swap transaction id. Example: `5`
 </ParamField>
 
 <ResponseExample>
