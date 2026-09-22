@@ -10,7 +10,10 @@
   "favicon": "/favicon.svg",
   "api": {
     "mdx": {
-      "server": "https://api.getkoyn.com/api",
+      "server": [
+        "https://api.getkoyn.com/api",
+        "https://staging.getkoyn.com/api"
+      ],
       "auth": {
         "method": "bearer"
       }
