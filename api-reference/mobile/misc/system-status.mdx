@@ -5,7 +5,22 @@ api: "GET /settings/status"
 
 ## How it works
 
-You get the platform's operational flags, one per subsystem (for example `withdrawal` and `bill_payment`). Each entry's `value` shows whether that feature is currently enabled, with an optional `message`. This endpoint is public, takes no parameters, and returns a plain array under `data` (no pagination).
+Returns the platform's operational switches, one entry per subsystem. Each entry's `value` is truthy when that feature is enabled and falsy when it is off, with an optional `message` to show users while it is off. Use this to decide whether to offer a feature in the app before the user attempts it. The endpoint is public, takes no parameters, and returns a plain array under `data` (no pagination).
+
+The keys you can rely on:
+
+| `key` | Controls |
+| --- | --- |
+| `withdrawal` | Naira wallet withdrawals |
+| `bills` | **Bill payments** — airtime, data, cable, meter, betting, wifi. This is the switch to read for bill availability. |
+| `crypto_deposit` | Crypto deposit address creation |
+| `general_message` | A global notice; not tied to a specific feature |
+
+<Note>
+  Read the **`bills`** key for bill-payment availability — it is the same switch the purchase endpoints enforce, so gating the UI on it always matches what the server will allow. A legacy `bill_payment` key may still appear in older responses; ignore it — it controls nothing and is being removed.
+</Note>
+
+When `bills.value` is falsy, hide or disable the bill-payment flow and show its `message`. If a user attempts a purchase while it is off, the purchase endpoint returns `409` with the same message.
 
 <ResponseExample>
 
@@ -18,17 +33,25 @@ You get the platform's operational flags, one per subsystem (for example `withdr
       "id": 1,
       "key": "withdrawal",
       "value": true,
-      "message": "We'll be back soon",
+      "message": "Withdrawals are temporarily unavailable. Please try again later.",
       "created_at": null,
-      "updated_at": "2025-08-02T13:30:06.000000Z"
+      "updated_at": "2026-08-02T13:30:06.000000Z"
     },
     {
-      "id": 2,
-      "key": "bill_payment",
+      "id": 3,
+      "key": "bills",
       "value": true,
-      "message": "We are active",
+      "message": "Bill payments are temporarily unavailable. Please try again later.",
       "created_at": null,
-      "updated_at": "2024-11-23T13:42:23.000000Z"
+      "updated_at": "2026-08-02T13:30:06.000000Z"
+    },
+    {
+      "id": 4,
+      "key": "crypto_deposit",
+      "value": true,
+      "message": "Crypto deposits are temporarily unavailable. Please try again later.",
+      "created_at": null,
+      "updated_at": "2026-08-02T13:30:06.000000Z"
     }
   ]
 }
