@@ -1,0 +1,23 @@
+---
+title: "Pending Withdrawals Total"
+api: "GET /console/withdrawals/pending-total"
+---
+
+## How it works
+
+Returns the summed `amount` and `count` of all withdrawals currently in the `pending` status — the total value awaiting payout. Requires the `withdrawals.read` console ability.
+
+<ResponseExample>
+
+```json 200
+{
+  "success": true,
+  "message": "successful",
+  "data": {
+    "amount": 1284500,
+    "count": 17
+  }
+}
+```
+
+</ResponseExample>

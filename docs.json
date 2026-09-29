@@ -372,6 +372,7 @@
             "group": "Withdrawal",
             "pages": [
               "api-reference/admin/withdrawal/withdrawals",
+              "api-reference/admin/withdrawal/pending-total",
               "api-reference/admin/withdrawal/approve",
               "api-reference/admin/withdrawal/decline",
               "api-reference/admin/withdrawal/change-withdraw-status",
