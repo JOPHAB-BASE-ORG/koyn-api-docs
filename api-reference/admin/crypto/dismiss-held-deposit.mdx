@@ -1,0 +1,48 @@
+---
+title: "Dismiss Held Deposit"
+api: "POST /console/crypto/deposits/held/{id}/dismiss"
+---
+
+## How it works
+
+Closes a held deposit without crediting it — for deposits settled manually (e.g. via `deposit:recredit`), refused, or identified as fraud. Only `held` deposits can be dismissed. A note is **required**. Requires the `deposits.manage` console ability, and writes an admin activity-log entry.
+
+<ParamField path="id" type="integer" required>
+  The held deposit (webhook event) id.
+</ParamField>
+<ParamField body="note" type="string" required>
+  Reason for dismissing, max 1000 characters.
+</ParamField>
+
+<ResponseExample>
+
+```json 200
+{
+  "success": true,
+  "message": "Deposit dismissed.",
+  "data": {
+    "id": 10082,
+    "status": "dismissed",
+    "reason": "Token deposit resolved to non-token wallet 13983 (ETH)",
+    "transaction_hash": "0x34fc059d6c668dde8595441a473446c74cdf905a0c985ef67245212beaf81985",
+    "amount": "11",
+    "token": "USDT",
+    "reviewed_by": { "id": 12, "name": "Ops Admin", "email": "ops@getkoyn.com" },
+    "reviewed_at": "2026-09-30T14:25:40.000000Z",
+    "review_note": "Credited manually via deposit:recredit at $1/USDT"
+  }
+}
+```
+
+```json 409
+{ "success": false, "message": "Only held deposits can be dismissed." }
+```
+
+```json 422
+{
+  "message": "The note field is required.",
+  "errors": { "note": ["The note field is required."] }
+}
+```
+
+</ResponseExample>

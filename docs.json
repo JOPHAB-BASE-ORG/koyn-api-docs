@@ -405,6 +405,9 @@
               "api-reference/admin/crypto/crypto-swaps",
               "api-reference/admin/crypto/crypto-deposits",
               "api-reference/admin/crypto/crypto-deposits-details",
+              "api-reference/admin/crypto/held-deposits",
+              "api-reference/admin/crypto/release-held-deposit",
+              "api-reference/admin/crypto/dismiss-held-deposit",
               "api-reference/admin/crypto/update-assets",
               "api-reference/admin/crypto/create-crypto-asset",
               "api-reference/admin/crypto/sweep-history"

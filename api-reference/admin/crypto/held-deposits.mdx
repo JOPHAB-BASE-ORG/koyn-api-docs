@@ -1,0 +1,64 @@
+---
+title: "Held Deposits"
+api: "GET /console/crypto/deposits/held"
+---
+
+## How it works
+
+Lists Vaultody deposits the webhook refused to credit automatically and parked for manual review — because the deposited asset did not match the resolved wallet (e.g. USDT sent to an ETH-only address), the address is shared by more than one user, or a stablecoin was mispriced. Returns a Laravel paginator. Requires the `deposits.read` console ability.
+
+### Query parameters
+
+<ParamField query="status" type="string" default="held">
+  `held` (default) or `dismissed`.
+</ParamField>
+<ParamField query="per_page" type="integer" default="20">
+  Items per page, 1–100.
+</ParamField>
+
+Each item includes the `reason` it was held, the on-chain details, `wallets_at_address` (every wallet on that address with its owning user), and the reviewer fields once actioned.
+
+<ResponseExample>
+
+```json 200
+{
+  "success": true,
+  "message": "Held crypto deposits",
+  "data": {
+    "current_page": 1,
+    "data": [
+      {
+        "id": 10082,
+        "status": "held",
+        "reason": "Token deposit resolved to non-token wallet 13983 (ETH)",
+        "event": "INCOMING_CONFIRMED_TOKEN_TX",
+        "transaction_hash": "0x34fc059d6c668dde8595441a473446c74cdf905a0c985ef67245212beaf81985",
+        "address": "0x2e5001dab0d9fde1b6d687dd7012e57ace16fe2c",
+        "blockchain": "ethereum",
+        "amount": "11",
+        "token": "USDT",
+        "token_contract": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+        "confirmations": 12,
+        "wallets_at_address": [
+          {
+            "wallet_id": 13983,
+            "chain": "ETH",
+            "provider": null,
+            "user": { "id": 25470, "name": "Jane Doe", "email": "user@example.com" }
+          }
+        ],
+        "reviewed_by": null,
+        "reviewed_at": null,
+        "review_note": null,
+        "held_at": "2026-09-30T01:05:24.000000Z",
+        "created_at": "2026-09-30T01:01:09.000000Z"
+      }
+    ],
+    "per_page": 20,
+    "total": 1,
+    "last_page": 1
+  }
+}
+```
+
+</ResponseExample>

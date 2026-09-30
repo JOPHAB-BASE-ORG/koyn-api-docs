@@ -1,0 +1,43 @@
+---
+title: "Release Held Deposit"
+api: "POST /console/crypto/deposits/held/{id}/release"
+---
+
+## How it works
+
+Sends a held deposit back through the normal deposit pipeline. **Every safety check runs again**, so if the underlying cause has not been fixed (e.g. the user still has no USDT wallet on that address) it is simply held again rather than credited. Only `held` deposits can be released. Requires the `deposits.manage` console ability, and writes an admin activity-log entry.
+
+<ParamField path="id" type="integer" required>
+  The held deposit (webhook event) id.
+</ParamField>
+<ParamField body="note" type="string">
+  Optional reviewer note, max 1000 characters.
+</ParamField>
+
+A `status` of `failed` in the response means the deposit has been requeued; the job then takes it to `completed` (credited), `pending` (awaiting confirmations), or `held` again (still unsafe).
+
+<ResponseExample>
+
+```json 200
+{
+  "success": true,
+  "message": "Deposit released for reprocessing. It is credited only if it now passes all checks.",
+  "data": {
+    "id": 10082,
+    "status": "failed",
+    "reason": "Token deposit resolved to non-token wallet 13983 (ETH)",
+    "transaction_hash": "0x34fc059d6c668dde8595441a473446c74cdf905a0c985ef67245212beaf81985",
+    "amount": "11",
+    "token": "USDT",
+    "reviewed_by": { "id": 12, "name": "Ops Admin", "email": "ops@getkoyn.com" },
+    "reviewed_at": "2026-09-30T14:20:11.000000Z",
+    "review_note": "Created the user's USDT (ERC20) wallet on this address"
+  }
+}
+```
+
+```json 409
+{ "success": false, "message": "Only held deposits can be released." }
+```
+
+</ResponseExample>
