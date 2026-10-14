@@ -5,12 +5,18 @@ api: "GET /console/airtime/topups"
 
 ## How it works
 
-Lists user airtime purchases, newest first, as a Laravel paginator — page through with `last_page` and the `links` array. An `overview` block of successful, pending and rejected counts is merged into `data`. Requires a staff bearer token with the `bills.read` ability; a request without it returns `403`. See [Response format](/guides/responses).
+Lists user airtime purchases, newest first, as a Laravel paginator — page through with `last_page` and the `links` array. An `overview` block of successful, pending, rejected and `cool_down_pending` counts is merged into `data`. Requires a staff bearer token with the `bills.read` ability; a request without it returns `403`. See [Response format](/guides/responses).
+
+Payments held by the [bill payment cool down](/api-reference/admin/settings/bill-payment-cool-down) carry a `cool_down_at` timestamp and a `cool_down_reason`; both are omitted from customer-facing responses. The same query parameters, `cool_down_pending` overview count and held fields apply to the data, cable, electricity (`disco`), betting and WiFi top-up lists.
 
 ## Query parameters
 
 <ParamField query="status" type="string">
   Filter by status: `pending`, `successful`, `rejected` or `failed`. Example: `pending`
+</ParamField>
+
+<ParamField query="cool_down" type="boolean">
+  When `1`, return only payments held by the bill payment cool down. Combine with `status=pending` for unresolved holds only. Example: `1`
 </ParamField>
 
 <ParamField query="search" type="string">
@@ -143,7 +149,8 @@ Lists user airtime purchases, newest first, as a Laravel paginator — page thro
     "total": 32,
     "overview": {
       "successful": 32,
-      "pending": 0,
+      "pending": 1,
+      "cool_down_pending": 1,
       "rejected": 0
     }
   }

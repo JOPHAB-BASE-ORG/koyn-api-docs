@@ -1,0 +1,62 @@
+---
+title: "Set Bill Payment Cool Down"
+api: "POST /console/settings/bill-payment-cool-down"
+---
+
+## How it works
+
+Updates the bill-payment cool down. All fields are optional, so you can change one setting without sending the others. Requires a staff bearer token with the `settings.manage` ability; a request without it returns `403`.
+
+Disabling the cool down (`enabled: false`) stops future holds but does not release payments already held. A held payment stays pending until an admin cancels it to refund the wallet (`POST /console/bills/{type}/{id}/cancel`); there is no release-to-provider action.
+
+## Body
+
+<ParamField body="enabled" type="boolean">
+  Turn the cool down on or off. Example: `true`
+</ParamField>
+
+<ParamField body="max_payments" type="integer">
+  Payments allowed within the window before the next one is held. `1`–`100`. Example: `3`
+</ParamField>
+
+<ParamField body="window_minutes" type="integer">
+  Rolling window in minutes. `1`–`10080`. Example: `60`
+</ParamField>
+
+<RequestExample>
+
+```json Request
+{
+  "enabled": true,
+  "max_payments": 5,
+  "window_minutes": 30
+}
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json 200
+{
+  "success": true,
+  "message": "Bill payment cool down updated successfully.",
+  "data": {
+    "enabled": true,
+    "max_payments": 5,
+    "window_minutes": 30
+  }
+}
+```
+
+```json 422
+{
+  "success": false,
+  "message": "The max payments field must be between 1 and 100.",
+  "errors": {
+    "max_payments": ["The max payments field must be between 1 and 100."]
+  }
+}
+```
+
+</ResponseExample>

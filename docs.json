@@ -351,6 +351,8 @@
               "api-reference/admin/settings/get-settings",
               "api-reference/admin/settings/set-app-version",
               "api-reference/admin/settings/withdrawal-limit",
+              "api-reference/admin/settings/bill-payment-cool-down",
+              "api-reference/admin/settings/set-bill-payment-cool-down",
               "api-reference/admin/settings/set-withdraw-mode",
               "api-reference/admin/settings/update-sweep-address",
               "api-reference/admin/settings/set-gateway",

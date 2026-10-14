@@ -1,0 +1,26 @@
+---
+title: "Get Bill Payment Cool Down"
+api: "GET /console/settings/bill-payment-cool-down"
+---
+
+## How it works
+
+Returns the bill-payment cool down settings. When enabled, a user's next bill payment after they reach `max_payments` within a rolling `window_minutes` is held for manual review instead of being sent to the provider. Airtime, data, cable, electricity (meter), betting and WiFi share one count; failed and pending payments count toward the limit, rejected ones do not.
+
+Requires a staff bearer token with the `settings.manage` ability; a request without it returns `403`.
+
+<ResponseExample>
+
+```json 200
+{
+  "success": true,
+  "message": "Bill payment cool down settings.",
+  "data": {
+    "enabled": true,
+    "max_payments": 3,
+    "window_minutes": 60
+  }
+}
+```
+
+</ResponseExample>
