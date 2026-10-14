@@ -5,9 +5,9 @@ api: "GET /console/airtime/topups"
 
 ## How it works
 
-Lists user airtime purchases, newest first, as a Laravel paginator — page through with `last_page` and the `links` array. An `overview` block of successful, pending, rejected and `cool_down_pending` counts is merged into `data`. Requires a staff bearer token with the `bills.read` ability; a request without it returns `403`. See [Response format](/guides/responses).
+Lists user airtime purchases, newest first, as a Laravel paginator — page through with `last_page` and the `links` array. An `overview` block of successful, pending, processing, rejected and `cool_down_pending` counts is merged into `data`. Requires a staff bearer token with the `bills.read` ability; a request without it returns `403`. See [Response format](/guides/responses).
 
-Payments held by the [bill payment cool down](/api-reference/admin/settings/bill-payment-cool-down) carry a `cool_down_at` timestamp and a `cool_down_reason`; both are omitted from customer-facing responses. The same query parameters, `cool_down_pending` overview count and held fields apply to the data, cable, electricity (`disco`), betting and WiFi top-up lists.
+Payments held by the [bill payment cool down](/api-reference/admin/settings/bill-payment-cool-down) carry a `cool_down_at` timestamp and a `cool_down_reason`. Once an admin [approves](/api-reference/admin/bills/approve-bill-payment) or [rejects](/api-reference/admin/bills/reject-bill-payment) a held payment, `review_decision`, `reviewed_by` and `reviewed_at` are set; an approved payment moves to the `processing` status while its purchase is submitted. All of these internal fields are omitted from customer-facing responses. The same query parameters, overview counts and fields apply to the data, cable, electricity (`disco`), betting and WiFi top-up lists.
 
 ## Query parameters
 
@@ -150,6 +150,7 @@ Payments held by the [bill payment cool down](/api-reference/admin/settings/bill
     "overview": {
       "successful": 32,
       "pending": 1,
+      "processing": 0,
       "cool_down_pending": 1,
       "rejected": 0
     }

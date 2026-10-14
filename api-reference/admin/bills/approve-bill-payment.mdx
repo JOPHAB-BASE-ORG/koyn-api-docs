@@ -1,0 +1,63 @@
+---
+title: "Approve a held bill payment"
+api: "POST /console/bills/{type}/{topup}/approve"
+---
+
+## How it works
+
+Approves a pending bill payment that is awaiting review — a cool-down hold or a flagged-user hold — and queues it to the provider. Requires a staff bearer token with the `bills.manage` ability; a request without it returns `403`.
+
+Approval records the reviewer and dispatches the purchase after the database transaction commits. It does not debit the wallet again or immediately mark the bill successful: the worker durably claims the submission, moves the bill to `processing`, then contacts the provider using the existing reference, amount, customer details and gateway routing. The provider result then settles it to `successful`, `pending` or `failed`. Duplicate delivery never purchases twice.
+
+Only a pending payment that has not already been reviewed, submitted or reversed can be approved. A payment already sent to its provider must be reconciled instead.
+
+## Path parameters
+
+<ParamField path="type" type="string" required>
+  Bill category: `airtime`, `data`, `cable`, `meter` (alias `disco`), `betting` or `wifi`.
+</ParamField>
+
+<ParamField path="topup" type="integer" required>
+  The top-up ID (not the wallet transaction ID). Example: `18`
+</ParamField>
+
+No request body is required.
+
+<ResponseExample>
+
+```json 200
+{
+  "success": true,
+  "message": "Bill payment approved for processing.",
+  "data": {
+    "type": "airtime",
+    "topup": {
+      "id": 18,
+      "reference": "ATEXAMPLE",
+      "status": "pending",
+      "review_decision": "approved",
+      "reviewed_by": 1,
+      "reviewed_at": "2026-10-14T12:00:00.000000Z"
+    }
+  }
+}
+```
+
+```json 409
+{
+  "success": false,
+  "message": "Bill payment has already been reviewed or submitted."
+}
+```
+
+</ResponseExample>
+
+## Errors
+
+| Status | Message |
+| --- | --- |
+| 422 | Unsupported bill payment type. |
+| 404 | Bill payment not found. |
+| 409 | Only pending bill payments can be reviewed. |
+| 409 | Bill payment has already been reviewed or submitted. |
+| 409 | Bill payment has already been reversed. |

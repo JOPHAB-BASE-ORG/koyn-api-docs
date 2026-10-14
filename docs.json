@@ -447,6 +447,8 @@
             "group": "Bills",
             "pages": [
               "api-reference/admin/bills/service-charges",
+              "api-reference/admin/bills/approve-bill-payment",
+              "api-reference/admin/bills/reject-bill-payment",
               {
                 "group": "Betting",
                 "pages": [
