@@ -7,6 +7,8 @@ api: "GET /console/withdrawals"
 
 Returns withdrawal (payout) requests as a Laravel paginator, with each record's `user` embedded and an `overview` object summarising counts by status (successful, pending, rejected). See [Responses](/guides/responses) for the paginator shape. Requires the `withdrawals.read` console ability.
 
+Payouts are restricted to a bank account whose name matches the user's verified BVN government-data name; the check runs at request time, on [approval](/api-reference/admin/withdrawal/approve), and immediately before the queued payout. When an already-queued payout fails the check, no transfer is sent: it is returned to manual review and `ownership_check_reason` carries the failure reason. This field is admin-only — it is omitted from customer-facing responses.
+
 <ResponseExample>
 
 ```json 200
@@ -35,7 +37,8 @@ Returns withdrawal (payout) requests as a Laravel paginator, with each record's 
         "platform": "redbiller",
         "created_at": "2024-04-25T07:35:02.000000Z",
         "updated_at": "2024-04-25T07:35:02.000000Z",
-        "channel": "automated",
+        "channel": "manual",
+        "ownership_check_reason": "Withdrawals are only allowed to a bank account in your verified name.",
         "user": {
           "id": 1279,
           "name": "David logic",
@@ -85,6 +88,7 @@ Returns withdrawal (payout) requests as a Laravel paginator, with each record's 
         "created_at": "2024-04-25T06:33:17.000000Z",
         "updated_at": "2024-04-25T06:33:17.000000Z",
         "channel": "automated",
+        "ownership_check_reason": null,
         "user": {
           "id": 1279,
           "name": "David logic",

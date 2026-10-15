@@ -7,6 +7,8 @@ api: "POST /console/withdrawals/approve/{id}"
 
 Approves a pending manual withdrawal and queues it for payout. Only a manual-channel withdrawal that is still pending and not yet settled can be approved; it is marked settled by you and dispatched to the payout processor, and the action is written to the admin activity log. This endpoint takes no request body. Requires the `withdrawals.manage` console ability.
 
+Approval re-runs the [account-owner check](/api-reference/admin/withdrawal/withdrawals): the beneficiary account is resolved with the bank provider and its name is matched against the user's verified BVN government-data name before the withdrawal row is locked. The bank details are re-read under the lock and a change aborts the approval. A mismatch, missing verified identity, or lookup failure blocks the payout with `422` — there is no admin override — and the bank-resolved name replaces the stored `account_name` on success.
+
 ## Path parameters
 
 <ParamField path="id" type="string" required>
@@ -43,4 +45,24 @@ Approves a pending manual withdrawal and queues it for payout. Only a manual-cha
 }
 ```
 
+```json 422
+{
+  "success": false,
+  "message": "Whoops something went wrong, Withdrawals are only allowed to a bank account in your verified name.",
+  "errors": {
+    "bank_id": ["Withdrawals are only allowed to a bank account in your verified name."]
+  }
+}
+```
+
 </ResponseExample>
+
+## Errors
+
+| Status | Message |
+| --- | --- |
+| 422 | Withdrawals are only allowed to a bank account in your verified name. (account-owner check failed) |
+| 422 | Withdrawal bank details changed during approval. Please try again. |
+| 422 | You cant process an automated transaction manually. |
+| 422 | Withdrawal has already been processed. |
+| 422 | withdrawal has already been initiated. |

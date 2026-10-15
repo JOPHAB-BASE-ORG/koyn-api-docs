@@ -7,6 +7,8 @@ api: "POST /wallet/v2/withdraw"
 
 This is the two-factor version of the wallet withdrawal. Instead of a PIN, it takes a 6-digit `code` from your two-factor setup, tied to the `withdrawal` operation and the exact `amount` you are withdrawing; an invalid, mismatched or expired code returns `422` and the code is consumed on success. All the other withdrawal rules still apply: your account must be active and on a safe device (else `403`), your BVN verified, the amount at least ₦5,000 and within your daily tier limit, and no other withdrawal within the last 5 minutes.
 
+The bank account must also belong to you: its name is resolved with the bank provider and matched against your verified BVN name, so a third-party or unresolvable account returns `422` without creating a withdrawal, debiting the wallet, or queuing a payout.
+
 ## Body
 
 <ParamField body="amount" type="number" required>
@@ -75,6 +77,16 @@ This is the two-factor version of the wallet withdrawal. Instead of a PIN, it ta
       "updated_at": "2024-05-17T05:12:01.000000Z",
       "channel": "automated"
     }
+  }
+}
+```
+
+```json 422
+{
+  "success": false,
+  "message": "Whoops something went wrong, Withdrawals are only allowed to a bank account in your verified name.",
+  "errors": {
+    "bank_id": ["Withdrawals are only allowed to a bank account in your verified name."]
   }
 }
 ```

@@ -7,6 +7,8 @@ api: "POST /wallet/withdraw"
 
 This debits your naira wallet and creates a withdrawal to one of your saved bank accounts. Your account must be active and the request must come from a safe device, or it is rejected with `403`; you must also have a verified BVN and pass your 4-digit transaction PIN. The amount must be at least ₦5,000, no more than your balance, and within your tier's daily withdrawal limit, and you cannot start another withdrawal within 5 minutes of your last one. Depending on system settings and whether your account is flagged for review, the payout is either sent automatically or held for manual approval.
 
+The bank account must belong to you: its name is resolved with the bank provider and matched against your verified BVN name. A third-party account, an unresolvable account, or a missing verified identity returns `422` and no withdrawal is created, no wallet is debited, and no payout is queued. The saved account name on file cannot authorize a payout on its own.
+
 ## Body
 
 <ParamField body="amount" type="number" required>
@@ -75,6 +77,16 @@ This debits your naira wallet and creates a withdrawal to one of your saved bank
       "updated_at": "2024-05-17T05:12:01.000000Z",
       "channel": "automated"
     }
+  }
+}
+```
+
+```json 422
+{
+  "success": false,
+  "message": "Whoops something went wrong, Withdrawals are only allowed to a bank account in your verified name.",
+  "errors": {
+    "bank_id": ["Withdrawals are only allowed to a bank account in your verified name."]
   }
 }
 ```
